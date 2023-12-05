@@ -1,0 +1,200 @@
+Section 3)
+
+3.1) Let $\mathcal{C}$ be a category. Consider a structure $\mathcal{C}^{op}$ with:
+ - $Obj(\mathcal{C}^{op}) \coloneqq Obj(\mathcal{C})$;
+ - for $A$, $B$ objects of $\mathcal{C}^{op}$ (hence, objects of $\mathcal{C}$), $Hom_{\mathcal{C}^{op}} (A, B) \coloneqq Hom_{\mathcal{C}} (B, A)$
+Show how to make this into a category.
+
+3.1.a) Composition
+
+First, to make things clearer and more rigorous, let us distinguish composition in $\mathcal{C}$ as $\circ$ and composition in $\mathcal{C}^{op}$ as $\star$. We define $\star$ as:
+$$
+\begin{align*}
+	& \forall f \in Hom_{\mathcal{C}^{op}} (B, A) = Hom_{\mathcal{C}} (A, B), \\
+	& \forall g \in Hom_{\mathcal{C}^{op}} (C, B) = Hom_{\mathcal{C}} (B, C), \\
+	& \exists h \in Hom_{\mathcal{C}^{op}} (C, A) = Hom_{\mathcal{C}} (A, C), \\
+	& f \star g \coloneqq g \circ f = h
+\end{align*}
+$$
+
+We will now show that $\mathcal{C}^{op}$ with $\star$ verifies the other axioms of a category (namely identity and assossiativity of composition).
+
+3.1.b) Identity
+
+Since $\mathcal{C}$ is a category, since $\mathcal{C}^{op}$ has the same objects, and since, by definition, for all object $A$, we have $Hom_{\mathcal{C}^{op}} (A, A) = Hom_{\mathcal{C}} (A, A)$, we can take every $id_A \in Hom_{\mathcal{C}}(A, A)$ as the same identity in $\mathcal{C}^{op}$. We can verify that this is compatible with $\star$:
+
+$$
+\begin{align*}
+	\forall A, B & \in Obj (\mathcal{C})        &=& \;  Obj (\mathcal{C}^{op})        , \\
+	\exists id_A & \in Hom_{\mathcal{C}} (A, A) &=& \;  Hom_{\mathcal{C}^{op}} (A, A) , \\
+	\exists id_B & \in Hom_{\mathcal{C}} (B, B) &=& \;  Hom_{\mathcal{C}^{op}} (B, B) , \\
+	\forall f    & \in Hom_{\mathcal{C}} (A, B) &=& \;  Hom_{\mathcal{C}^{op}} (B, A) , \\
+	f            & =   f    \circ id_A          &=& \;  id_A \star f                  , \\
+	f            & =   id_B \circ    f          &=& \;  f    \star id_B                 \\
+\end{align*}
+$$
+
+3.1.c) Associativity
+
+Using associativity in $\mathcal{C}$, we have:
+
+$$
+\begin{align*}
+	\forall A, B, C, D & \in Obj (\mathcal{C})        &=& \;  Obj (\mathcal{C}^{op})        , \\
+	\forall f          & \in Hom_{\mathcal{C}} (A, B) &=& \;  Hom_{\mathcal{C}^{op}} (B, A) , \\
+	\forall g          & \in Hom_{\mathcal{C}} (B, C) &=& \;  Hom_{\mathcal{C}^{op}} (C, B) , \\
+	\forall h          & \in Hom_{\mathcal{C}} (C, D) &=& \;  Hom_{\mathcal{C}^{op}} (D, C) , \\
+\end{align*}
+$$
+$$
+\begin{align*}
+	h \star (g \star f) &=&  h \star (f  \circ g) \\
+						&=& (f \circ  g) \circ h  \\
+						&=&  f \circ  (g \circ h) \\
+						&=&  (g \circ h) \star f  \\
+						&=&  (h \star g) \star f  \\
+\end{align*}
+$$
+
+Therefore, $\star$ is associative.
+
+We conclude that $\mathcal{C}^{op}$ is a category.
+
+
+
+3.2) If $A$ is a finite set, how large is $End_{\text{Set}}(A)$ ?
+
+We know that, in Set, $End_{\text{Set}}(A) = (A \to A) = A^A$. From a previous exercise, we know that $|B^A| = |B|^|A|$, therefore $|End_{\text{Set}}(A)| = |A|^|A|$.
+
+
+
+3.3) Formulate precisely what it means to say that "$1_a$ is an identity with respect to composition" in Example 3.3, and prove this assertion.
+
+Example 3.3 is that of a category over a set $S$ with a (reflexive, transitive) relation $\sim$, where the objects of the category are the elements of $S$, and the homset between two elements $a$ and $b$ is the singleton $(a,b)$ if $a \sim b$, and $\emptyset$ otherwise. Composition $\circ$ is given by transitivity of $\sim$, where $(b,c) \circ (a,b) = (a,c)$. Reflexivity gives the identities ($id_a = (a,a)$ for any element $a$).
+
+In this context, to say that "$1_a$ is an identity with respect to composition" means that we can cancel out an element of the form $(a,a)$ from a composition.
+
+Formally, we have:
+
+$$\forall a,b \in S, (b,b) \circ (a,b) = (a,b) = (a,b) \circ (a,a)$$
+
+proving that $(b,b)$ is indeed a post-identity, and $(a,a)$ a pre-identity, in this context.
+
+
+
+3.4) Can we deﬁne a category in the style of Example 3.3, using the relation $<$ on the set $\mathbb{Z}$ ?
+
+(Description of example 3.3 in the exercise 3.3 just above.)
+
+Naively, saying like in example 3.3 "there is a singleton homset $\text{Hom}(a,b)$ each time we have $a < b$", we cannot define such a category, since $<$ is not reflexive, and we would thus lack identity morphisms.
+
+However, in a roundabout way, we can define a category over the \textit{negation} of $<$: "there is a singleton homset $\text{Hom}(a,b)$ each time we DO NOT have $a < b$". Namely this corresponds to the relation $\ge$, which is, itself, reflexive, transitive (and antisymmetric), and is a valid instance of the kind of category presented in example 3.3.
+
+In fact, the pair $(\mathbb{Z}, \geq)$ is an instance of what is called a "totally ordered set", which is a more restrictive kind of "partially ordered set" (also called "poset" for short). Consequently, this kind of category is called a "poset category".
+
+
+
+3.5) Explain in what sense Example 3.4 is an instance of the categories considered in Example 3.3.
+
+(Description of example 3.3 in the exercise 3.3 just above.)
+
+Example 3.4 describes a category $\hat{S}$ where the objects are the subsets of a set $S$ (equivalently: elements of the powerset $\mathcal{P}(S)$ of $S$), and morphisms between two subsets $A$ and $B$ of $S$ are singleton (or empty) homsets based on whether the inclusion is true (or false).
+
+Inclusion of sets, $\subset$, is also an order relation, this time between the elements of a set of sets (here, $\mathcal{P}(S)$). This means inclusion is reflexive, transitive, and antisymmetric. This makes $\hat{S}$ a poset category, and thus another instance of example 3.3. 
+
+
+
+3.6) Deﬁne a category $V$ by taking $Obj(V) = \mathbb{N}$, and $Hom_V(n, m) = Mat_\mathbb{R}(m, n)$, the set of $m \times n$ matrices with real entries, for all $n, m \in \mathbb{N}$. (I will leave the reader the task to make sense of a matrix with 0 rows or columns.) Use product of matrices to deﬁne composition. Does this
+category 'feel' familiar ?
+
+The formulation of the exercise is strange. It says to use the product of matrices to define composition, and to have homsets be sets of matrices, but objects of the category are supposed to be integers. I don't know of any matrix with real entries that maps an integer to an integer in this way.
+
+We thus infer that the meaning of the exercise can be one of two things.
+
+Either we suppose the set of objects could rather be understood as "something isomorphic to $\mathbb{N}$", ie, the collection of real vector spaces with finite bases (ie, $\forall n \in \mathbb{N}, \mathbb{R}^n$). In which case, this is just the category of real vector spaces with finite basis (and linear maps as morphisms), which is a subcategory of the category real vector spaces (commonly called $Vect_{\mathbb{R}}$). In this context, any morphism starting from $0 \simeq \mathbb{R}^0 = \{0\}$ is just the injection of the origin into the codomain; and any morphism ending at $0$ is the mapping of all elements to the origin.
+
+Otherwise, we understand this as "yes, the objects of the category are integers: this means you should ignore the actual content of the matrices, and instead consider only their effect on the dimensionality of domains and codomains". In this case, this category is a complete directed graph over $\mathbb{N}$ where each edge corresponds to the change in dimension (from domain to codomain) caused by a given linear map.
+
+
+
+3.7) Deﬁne carefully objects and morphisms in Example 3.7, and draw the diagram corresponding to composition.
+
+Example 3.7 (on coslice categories) refers to example 3.5 (on slice categories). Let's go over slice categories (since example 3.5 asks the reader to "check all [their various properties]").
+
+3.7.1) Slice categories
+
+Slice categories are categories made by singling out an object (say $A$) in some parent (larger) category (say $\mathcal{C}$), and studying all morphisms into that object. These morphisms become the objects of a new category (ie, for any $Z$ of $\mathcal{C}$, $f \in (Z \to A)$ is an object of the slice category, called $\mathcal{C}_A$ in this context). In the slice category, morphisms are defined as those morphism in $\mathcal{C}$ that preserve composition between 2 morphisms into $A$.
+
+Note that there exist pairs of morphisms $f_1 \in (Z_1 \to A)$ and $f_2 \in (Z_2 \to A)$ between which there is no morphism that exists in the slice category. One such example we can make is in $(Vect_\mathbb{R})_{\mathbb{R}^2}$. If we take the maps:
+
+$$f_1 = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)$$
+$$f_2 = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)$$
+
+There exists no map $\sigma$ such that the following diagram commutes (since the output of $f_1$ will always be null in its second coordinate, and the output of $f_2$ will always be null in the first):
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBGA4ACUAvgD0ATCDGl0mXPkIoAjOSq1GLNpx78hoyTLkLseAkTKrN9Zq0QduvQcPHTZmmFADm8IqAAZgBOEFxIZCA4EEhS1HY6joEA+qog1Ax0AjAMAAqKFiogwVg+fDiy8iAhYUjqUTGIcVr2bCkmVTXhiJHRdfHaDk7YPjyeYkA
+\begin{tikzcd}
+\mathbb{R}^2 \arrow[d, "f_1"'] \arrow[r, "\sigma"] & \mathbb{R}^2 \arrow[ld, "f_2"] \\
+\mathbb{R}^2                                       &                               
+\end{tikzcd}
+
+Now, let us prove that $\mathcal{C}_A$ is indeed a category for an arbitrary object $A$ of an arbitrary category $\mathcal{C}$.
+
+3.7.1.a) Identity
+
+A generic identity morphism is expressed diagrammatically in $\mathcal{C}_A$ as:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAC0QBfU9TXfIRQBGclVqMWbTjz7Y8BImWHj6zVohABBbuJhQA5vCKgAZgCcIAWyRkQOCEgBM1NVM2mQ1BnQBGMBgAFfgUhEHMsAwALHG5eEAtrJFF7R0QXCXU2T1kEyxtEOwdk10kNECwoAH0ZeMSCjOL07wgINCVSU0Y4GHEffyCQwTYI6NjSrM1Kqp0uCi4gA
+\begin{tikzcd}
+Z \arrow[d, "f"'] \arrow[r, "id_Z"]                    & Z \arrow[ld, "f"] \\
+A \arrow["id_A"', loop, distance=2em, in=305, out=235] &                  
+\end{tikzcd}
+
+We can see that since $f = f \circ id_Z$ in $\mathcal{C}$, this is compatible with the definition of a (pre-/right-)unit morphism in $\mathcal{C}_A$. Also, since the only maps post-$f$ are maps from $A \to A$, we have $id_A$ as the (post-/left-)unit for every morphism $f$ (ie, $f = id_A \circ f$. 
+
+3.7.1.b) Composition
+
+Taking 3 objects of the slice category ($f_1 \in (Z_1 \to A)$, $f_2 \in (Z_2 \to A)$ and $f_3 \in (Z_3 \to A)$), and two morphisms ($\sigma_A$ mapping $f_1$ to $f_2$ via a $\mathcal{C}$-morphism $\sigma \in (Z_1 \to Z_2)$, and $\tau_A$ mapping $f_2$ to $f_3$ via a $\mathcal{C}$-morphism $\tau \in (Z_2 \to Z_3)$), we have that $f_1 = f_2 \circ \sigma$ and $f_2 = f_3 \circ \tau$. This is expressed as the following commutative diagram.
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAC0B9ARhAF9S6TLnyEU3clVqMWbLgCZ+gkBmx4CReZOr1mrRB04BmJULWiiE7lN2yDAQX5SYUAObwioAGYAnCAFskMhAcCCQJEAY6ACMYBgAFYXUxSJgvHBAdGX0QAB1c7Fd-OlMQXwDw6lCkLWk9NnycOiZS8sDEYOrEIyz6gy8eTMiYuMTzDQMfLFcACwyBbz92iK6eursyzkUFsqWaqrDu3o2Bkz4KPiA
+\begin{tikzcd}
+Z_1 \arrow[r, "\sigma"] \arrow[rd, "f_1"'] & Z_2 \arrow[r, "\tau"] \arrow[d, "f_2"] & Z_3 \arrow[ld, "f_3"] \\
+                                           & A                                      &                      
+\end{tikzcd}
+
+Composition of morphisms is then defined as $\tau_A \circ_A \sigma_A$ as a mapping from $f_1$ to $f_3$, such that $f_1 = f_3 \circ (\tau \circ \sigma)$. This can be understood through the following commutative diagram:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAC0B9ARhAF9S6TLnyEUAJnJVajFmy4BmfoJAZseAkW6lu0+s1aIQAQX7SYUAObwioAGYAnCAFskZEDghJJMg2zs8INQMdABGMAwACsIaYiAOWJYAFjjK9k6uiNoeXog++nJGAUoC6S5u1J5I2QWGIAA69Th0TI0AxlgObY3Yls50ZnxAA
+\begin{tikzcd}
+Z_1 \arrow[rd, "f_1"'] \arrow[rr, "\tau \circ \sigma"] &   & Z_3 \arrow[ld, "f_3"] \\
+                                                       & A &                      
+\end{tikzcd}
+
+Which commutes, because we have:
+
+$$
+\begin{align}
+	f_1 &=&  f_2             \circ \sigma  \\
+		&=& (f_3 \circ \tau) \circ \sigma  \\
+		&=&  f_3 \circ (\tau \circ \sigma)
+\end{align}
+$$
+
+Thus, we have a working composition of morphisms.
+
+3.7.1.c) Associativity
+
+We take 4 objects of the slice category ($f_1 \in (Z_1 \to A)$, $f_2 \in (Z_2 \to A)$, $f_3 \in (Z_3 \to A)$ and  $f_4 \in (Z_4 \to A)$), and three morphisms ($\sigma_A$ mapping $f_1$ to $f_2$, $\tau_A$ mapping $f_2$ to $f_3$, and $\upsilon_A$ mapping $f_3$ to $f_4$). Using composition defined as above, we have
+
+$$
+f_1 = f_4 \circ ( \upsilon \circ (\tau  \circ \sigma))
+	= f_4 \circ ((\upsilon \circ  \tau) \circ \sigma )
+\Rightarrow
+  \upsilon_A \circ (\tau_A  \circ \sigma_A)
+= (\upsilon_A \circ  \tau_A) \circ \sigma_A
+$$
+Through associativity in $\mathcal{C}$.
+
+
+3.7.2) Coslice categories
+

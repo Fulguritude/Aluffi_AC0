@@ -1,0 +1,74 @@
+Chapter I)
+
+Section 1)
+
+1.1) In a nutshell, Russell's paradox proves, by contradiction, that certain mathematical collections cannot be sets. It posits the existence of a "set of all sets that don't contain themselves". Such a set can neither contain itself (since in that case, it would be a "set that does contain itself", and should be excluded); nor can it exclude it itself (since in that case, it would be a "set that doesn't contain itself", and should be included).
+
+
+
+1.2) Prove that any equivalence relation over a set $S$ defines a partition of $\mathcal{P}_S$.
+
+a) $\mathcal{P}_S$ has no empty elements: any element in $S$ is part of at least one equivalence class, the class containing at least that element itself. Since there is no equivalence class constructed independently from elements, there are no empty equivalence classes.
+
+b) Elements of $\mathcal{P}_S$ are disjoint: suppose there is an element $x$ that is part of $A$ and $B$, two distinct equivalence classes. $\forall a \in A, x \sim a$ and $\forall b \in B, x \sim b$. By transivity through $x$, $\forall a \in A, \forall b \in B, a \sim b$. Therefore, $A$ and $B$ are the same equivalence class: $A = B$. Contradiction. Therefore all elements of $\mathcal{P}_S$ are disjoint subsets of $S$.
+
+c) The union of all elements of $\mathcal{P}_S$ makes up $S$: suppose $\exists x \in S$ such that $x \notin \bigcup_{S_i \in \mathcal{P}_S} S_i$. From the argument made in (a), $x$ exists in at least one equivalence class, the class which contains only $x$ itself. This is one of ou $S_i$ sets. Contradiction. Therefore, $\bigcup_{S_i \in \mathcal{P}_S} S_i = S$
+
+
+
+1.3) Given a partition $\mathcal{P}$ on a set $S$, show how to deﬁne a relation $\sim$ on $S$ such that $P$ is the corresponding partition.
+
+The insight here is to build an equivalence relation such that two elements are equivalent if and only if they are part of the same subset of $S$, which is understood as their common equivalence class.
+
+We define $\sim$ such that $\forall S_i, S_j \in \mathcal{P}, \forall x \in S_i, \forall y \in S_j, x \sim y \Leftrightarrow S_i = S_j$.
+
+Let us prove that $\sim$ is an equivalence relation.
+
+a) Reflexivity: $\forall A \in \mathcal{P}, \forall x \in A, A = A \Rightarrow x \sim x$
+
+b) Symmetry: $\forall S_i, S_j \in \mathcal{P}, \forall x \in S_i, \forall y \in S_j, x \sim y \Leftrightarrow S_i = S_j \Leftrightarrow S_j = S_i \Leftrightarrow y \sim x$
+
+c) Transitivity: $\forall S_i, S_j, S_k \in \mathcal{P}, \forall x \in S_i, \forall y \in S_j, \forall z \in S_k, x \sim y \cap y \sim z \Leftrightarrow S_i = S_j \cap S_j = S_k \Rightarrow S_i = S_k \Leftrightarrow x \sim z$
+
+Therefore, $\sim$ is indeed an equivalence relation, and is generated uniquely by the partition.
+
+
+
+1.4) How many different equivalence relations may be deﬁned on the set $\{1, 2, 3\}$?
+
+If we start with the 1 element set, we have only one possible partition, one possible equivalence class.
+
+With the 2 element set, there are 2 partitions, $\{\{1, 2\}\}$ and $\{\{1\}, \{2\}\}$.
+
+With the 3 element set, there is:
+- 1 partition of type 1-1-1: $\{\{1\}, \{2\}, \{3\}\}$.
+- 3 partitions of type 2-1: $\{\{1\}, \{2, 3\}\}$, $\{\{2\}, \{1, 3\}\}$, and $\{\{3\}, \{1, 2\}\}$.
+- 1 partition of type 3: $\{\{1, 2, 3\}\}$.
+
+Hence, there are five equivalence classes on the 3 element set.
+
+See the Bell numbers: https://oeis.org/A000110
+
+
+
+1.5) Give an example of a relation that is reﬂexive and symmetric, but not transitive. What happens if you attempt to use this relation to deﬁne a partition on the set?
+
+In terms of graph theory, if we express a set with an internal relation as a graph, we can represent elements are nodes and relationships are edges. Reflexivity means that every node has a loop (unary, self-edge). Symmetry means that the graph is not directed (since every relationship goes both ways). Transitivity means that every connected subset of nodes is a maximal clique (synonymously, every connected component is a complete subgraph).
+
+In a relation which is reflexive and symmetric, but not transitive, you would have connected components of this graph which are not cliques. For these, there is ambiguity as to how you would group their nodes. Two obvious choices would be either:
+
+- to remove the minimal number of edges to obtain n distinct cliques (thereby gaining the transitive restriction of the relation) from a given non-clique;
+
+- to complete the connected subgraph into a clique (thereby gaining the transitive closure of the relation).
+
+
+
+1.6) Deﬁne a relation $\sim$ on the set $\mathbb{R}$ of real numbers, by setting $a \sim b \Leftrightarrow b - a \in \mathbb{Z}$. Prove that this is an equivalence relation, and ﬁnd a 'compelling' description for $\mathbb{R}/\sim$. Do the same for the relation \approx on the plane $\mathbb{R} \times \mathbb{R}$ deﬁned by declaring $(a_1, a_2) \approx (b_1, b_2) \Leftrightarrow b_1 - a_1 \in \mathbb{Z} \text{ and } b_2 - a_2 \in \mathbb{Z}$.
+
+$b - a \in \mathbb{Z}$ means that 2 real numbers differ by an integral amount. This means that the equivalence relation algebraically describes the idea that "with this relation, 2 real numbers are the same iff they have the same fractional component $x$ (or $1 - x$ for negative numbers)". Eg, $4.76 \sim 1024.76 \sim -5.34$, since $-5.34 + 10 = 4.76$, etc.
+
+To make an algebraic quotient of a set by an equivalence relation, we take the function which maps each element to its corresponding equivalence class, in the set (partition) containing these equivalence class. Intuitively, this is similar to keeping only one representative element per equivalence class. For the example class above, we can keep the representative $0.76$. There is such an equivalence class for every fractional part possible, that is, one for every number in $[0, 1[$. The corresponding map is the "real remainder of division modulo 1". This map is well-defined because each real number has only one output for this map, and all real numbers that are equivalent through $\sim$ are mapped to the same value in the output set.
+
+We should also notice that since $0 \sim 1$, this space loops around on itself. Intuitively, if you increase linearly in the input space $\mathbb{R}$, it goes back to $0$ after $0.9999999...$ in the output space. This output space is thus a circle of perimeter $1$.
+
+Similarly, $b_1 - a_1 \in \mathbb{Z} \text{ and } b_2 - a_2 \in \mathbb{Z}$ means that 2 points in the 2D plane are the same iff they differ in each coordinate by an integral amount. This boils down to combining two such loops from the first part of the exercise: one in the $x$ direction and one in the $y$ direction: what this gives is the small square $[0, 1[ \times [0, 1[$, which loops to $x = 0$ (resp. $y = 0$) when $x = 1$ (resp. $y = 1$) is reached. This space functions like a small torus, of area $1$.
