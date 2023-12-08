@@ -174,9 +174,9 @@ Which commutes, because we have:
 
 $$
 \begin{align}
-	f_1 &=&  f_2             \circ \sigma  \\
-		&=& (f_3 \circ \tau) \circ \sigma  \\
-		&=&  f_3 \circ (\tau \circ \sigma)
+	f_1 &=&  f_2              \circ \sigma  \\
+		&=& (f_3 \circ  \tau) \circ \sigma  \\
+		&=&  f_3 \circ (\tau  \circ \sigma)
 \end{align}
 $$
 
@@ -190,7 +190,7 @@ $$
 f_1 = f_4 \circ ( \upsilon \circ (\tau  \circ \sigma))
 	= f_4 \circ ((\upsilon \circ  \tau) \circ \sigma )
 \Rightarrow
-  \upsilon_A \circ (\tau_A  \circ \sigma_A)
+   \upsilon_A \circ (\tau_A  \circ \sigma_A)
 = (\upsilon_A \circ  \tau_A) \circ \sigma_A
 $$
 Through associativity in $\mathcal{C}$.
@@ -198,3 +198,81 @@ Through associativity in $\mathcal{C}$.
 
 3.7.2) Coslice categories
 
+A coslice category $\mathcal{C}^A$ is similar, except it takes the morphisms coming \textit{from} a chosen object $A$, rather than those going \textit{to} this object $A$. Below is a commutative diagram in the style of the one of the textbook for slice categories.
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqWLU6TVuwBaAfWI8+IDNjwEiAJjESGLNohDzNPCTCgBzeEVAAzAE4QAtklEgcEJGRCN6AIxhGAAUBdWEQeywLAAscEBo9aUNbBSU7RxdEbw8kbUl9dgAdQuwLJ3o0kAdnVxocxDzEgyq5E25KbiA
+\begin{tikzcd}
+                         & A \arrow[ld, "f_1"'] \arrow[rd, "f_2"] &     \\
+Z_1 \arrow[rr, "\sigma"] &                                        & Z_2
+\end{tikzcd}
+
+We can similarly show that this also defines a category.
+
+3.7.2.a) Identity
+
+A generic identity morphism is expressed diagrammatically in $\mathcal{C}^A$ as:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEQBfU9TXfIRQBGUsKq1GLNgC1uvEBmx4CRMuOr1mrRCDlcJMKAHN4RUADMAThAC2SMiBwQkoydrYWQ1BnQBGMAwACvwqQiAMMBY48pY29oiOzkgATJpSOiBePHF2qdTJiG6+AcGhgmxWWMYAFjHpHrpYUAD6+grWeYkFLt0REBBoRMIAHGQWjHAwEiWBIcoVulW19e7STa2cBlxAA
+\begin{tikzcd}
+A \arrow[rd, "f"] \arrow[d, "f"] \arrow["id_A"', loop, distance=2em, in=125, out=55] &   \\
+Z \arrow[r, "id_Z"']                                                                 & Z
+\end{tikzcd}
+
+We can see that since $f = id_Z \circ f$ in $\mathcal{C}$, this is compatible with the definition of a (post-/left-)unit morphism in $\mathcal{C}^A$. Also, since the only maps pre-$f$ are maps from $A \to A$, we have $id_A$ as the (pre-/right-)unit for every morphism $f$ (ie, $f = f \circ id_A$. 
+
+3.7.2.b) Composition
+
+Taking 3 objects of the slice category ($f_1 \in (A \to Z_1)$, $f_2 \in (A \to Z_2)$ and $f_3 \in (A \to Z_3)$), and two morphisms ($\sigma^A$ mapping $f_1$ to $f_2$ via a $\mathcal{C}$-morphism $\sigma \in (Z_1 \to Z_2)$, and $\tau^A$ mapping $f_2$ to $f_3$ via a $\mathcal{C}$-morphism $\tau \in (Z_2 \to Z_3)$), we have that $f_1 = \sigma \circ f_2$ and $f_2 = \tau  \circ f_3$. This is expressed as the following commutative diagram.
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAtAfXJAF9S6TLnyEU5CtTpNW7bgCZ+gkBmx4CReZJoMWbRJy4BmJULWiiE4lN2yDAQX5SYUAObwioAGYAnCAFskMhAcCCQJaT12AB1o7Fd-ehAaRnoAIxhGAAVhdTEQRhgvHFMQXwDwmlCkLUi7EFicemZkgvTMnPMNA0Li0vLAxCMqsMRg230ynlbUjOzciwMfLFcACxKBbz9B4ZDRiIn2Ly5FTbLtpF3qxFrDg2OTPko+IA
+\begin{tikzcd}
+                        & A \arrow[ld, "f_1"'] \arrow[d, "f_2"] \arrow[rd, "f_3"] &     \\
+Z_1 \arrow[r, "\sigma"] & Z_2 \arrow[r, "\tau"]                                   & Z_3
+\end{tikzcd}
+
+Composition of morphisms is then defined as $\tau^A \circ^A \sigma^A$ as a mapping from $f_1$ to $f_3$, such that $f_3 = (\tau \circ \sigma) \circ f_1$. This can be understood through the following commutative diagram:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAtAfXJAF9S6TLnyEUAJgrU6TVu24BmfoJAZseAkXKli0hizaIQAQX7SYUAObwioAGYAnCAFskZEDghJtMg+wA6-jj0zAAEgQDGWA4R4f7Yls70IDSM9ABGMIwACsIaYiCMMHY4yvZOroiSHl6I7mmZOXmi7A5YlgAWpTT6ckZ2PGUgji5I1Z7ePbKGw1xKfJR8QA
+\begin{tikzcd}
+                                    & A \arrow[ld, "f_1"'] \arrow[rd, "f_3"] &     \\
+Z_1 \arrow[rr, "\tau \circ \sigma"] &                                        & Z_3
+\end{tikzcd}
+
+Which commutes, because we have:
+
+$$
+\begin{align}
+	f_3 &=&  \tau \circ                f_2  \\
+		&=&  \tau \circ (\sigma  \circ f_1) \\
+		&=& (\tau \circ  \sigma) \circ f_1
+\end{align}
+$$
+
+Thus, we have a working composition of morphisms.
+
+3.7.2.c) Associativity
+
+We take 4 objects of the slice category ($f_1 \in (A \to Z_1)$, $f_2 \in (A \to Z_2)$, $f_3 \in (A \to Z_3)$ and  $f_4 \in (A \to Z_4)$), and three morphisms ($\sigma^A$ mapping $f_1$ to $f_2$, $\tau^A$ mapping $f_2$ to $f_3$, and $\upsilon^A$ mapping $f_3$ to $f_4$). Using composition defined as above, we have
+
+$$
+f_4 = ( \upsilon \circ (\tau  \circ \sigma)) \circ f_1
+	= ((\upsilon \circ  \tau) \circ \sigma ) \circ f_1
+\Rightarrow
+   \upsilon^A \circ (\tau^A  \circ \sigma^A)
+= (\upsilon^A \circ  \tau^A) \circ \sigma^A
+$$
+Through associativity in $\mathcal{C}$.
+
+
+3.8) A subcategory $\mathcal{C'}$ of a category $\mathcal{C}$ consists of a collection of objects of $\mathcal{C}$, with morphisms $Hom_\mathcal{C'} (A, B) \subseteq Hom_\mathcal{C} (A, B)$ for all objects $A$, $B$ in $Obj(\mathcal{C'})$, such that identities and compositions in $\mathcal{C}$ make $\mathcal{C'}$ into a category. A subcategory $\mathcal{C'}$ is \textit{full} if $Hom_\mathcal{C'} (A, B) = Hom_\mathcal{C} (A, B)$ for all $A$, $B$ in $Obj(\mathcal{C'})$. Construct a category of \textit{infinite sets} and explain how it may be viewed as a full subcategory of $Set$.
+
+To put it less technically, a "subcategory" $\mathcal{C'}$ is just "picking only certain items of a base category $\mathcal{C}$, and making sure that things stay closed uneder morphism composition". It is "full" if \textit{all} morphisms between the objects that remain are also conserved.
+
+We can construct a category $InfSet$ of infinite sets by taking all the objects $A$ of $Set$ such that $\nexists n \in \mathbb{N}, |A| = n$, and only homsets between these objects. This is clearly a subcategory of $Set$, since it inherits all identity morphisms, composition works the same, and so does associativity; also, restricting the choice of homsets makes it so that the category is closed (you can't reach a finite set via a homset that went from an infinite to a finite set).
+
+For this category to not be full, there would need to be some homset that loses a morphism, or fully disappears, in the ordeal. However, there is no restriction as to the kind of morphism that is conserved, so any homset that is kept is identical to its original version. Finally, homsets between infinite sets are also infinite sets, so they don't disappear in this operation.
+
+Consequently $Set'$ defined as such is a full subcategory of $Set$.
+
+
+3.9)

@@ -6,12 +6,12 @@
 
 Injections (which aren't also surjections) have multiple left-inverses (post-inverses). Eg:
 
-A = ab
-B = 123
-f : A \to B = a2 b3, injective
+$A = \{ a, b    \}$
+$B = \{ 1, 2, 3 \}$
+$f : A \to B = \{ (a, 2), (b, 3) \}$, injective
 
-g_1 : B \to A = 1a 2a 3b
-g_2 : B \to A = 1b 2a 3b
+$g_1 : B \to A = \{ (1, a), (2, a), (3, b) \}$
+$g_2 : B \to A = \{ (1, b), (2, a), (3, b) \}$
 
 $$g_1 \circ f = g_2 \circ f = id_A$$
 
@@ -176,9 +176,9 @@ The parts which are "Injection => Monomorphism" and "Surjection => Epimorphism" 
 The other parts use the following tautology to prove the implication by contradiction. "Suppose that $p$ and $\neg q$, show that it leads to a contradiction".
 
 $$
-(p \Rightarrow q) \Leftrightarrow
-(\neg p \cup q)  \Leftrightarrow
-(\neg (p \cap \neg q))
+(p \Rightarrow q)
+\Leftrightarrow ((\neg  p) \cup      q )
+\Leftrightarrow ( \neg (p  \cap \neg q))
 $$
 
 ##### Injection => Monomorphism
