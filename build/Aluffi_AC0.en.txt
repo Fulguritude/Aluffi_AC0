@@ -1,0 +1,402 @@
+Multiversity Algebra Chapter 0 Reading Group
+
+Chapter I) 1) Set notation)
+
+Write the following in set notation (as a list of numbers, and
+algebraically): - the set of all odd integers - the set of all integers
+that are not multiples of 3 - the set of integers from 10 (included) to
+20 (included) - the set of integers from 10 (included) to 20 (excluded)
+- the set of pairs of integers with both elements of the same value -
+the set of triplets of real numbers that together sum to 1 - the set of
+pairs of positive real numbers that together sum to 1 - the set of
+n-tuplets (for any n) of real number that together sum to 1 - the set of
+all natural numbers such that there exists at least one triplet of
+positive even numbers which are all different and which sum to that
+number.
+
+Now take the sets in their algebraic notation, and represent them both
+as a list of numbers (as a logical sequence or just a couple of
+examples), and as a "description" of what they are:
+
+- {3n + 2 | n ∈ ℕ} - {3k + 2 | k ∈ ℤ} - {2^(i) | i ∈ [[0, 10]]} -
+{(x, y) ∈ ℝ² | x² + y² = 1} - {x ∈ ℝ |  − 2 ≤ x ≤ 2} -
+{(m, n, p) ∈ ℕ³ | m + n + p = 10} Section 1
+
+- Set (not a multiset) - ∅: the empty set, containing no elements; - N:
+the set of natural numbers (that is, nonnegative integers); - Z: the set
+of integers; - Q: the set of rational numbers; - R: the set of real
+numbers; - C: the set of complex numbers. - Singleton: - ∃: existential
+quantifier, "there exists" - ∀: universal quantifier, "for all" -
+inclusion: - subset: - cardinal: - powerset: - ∪: the union: - ∩: the
+intersection: -
+: the difference: - : the disjoint union: - ×: the (Cartesian) product:
+- complement of a subset - relation - order relation - equivalence
+relation - reﬂexivity - symmetry - antisymmetry - transitivity -
+partition - quotient by an equivalence relation
+
+Section 2
+
+- function - graph - (categorical, function) diagram - identity function
+- kernel (of a function) - image (of a function) - restriction (of a
+function to a subset) - multiset - composition - commutative (diagram) -
+injection - surjection - bijection - isomorphism - inverse -
+pre-inverse, right-inverse - post-inverse, left-inverse - monomorphism -
+epimorphism - natural projection - natural injection - canonical
+decomposition (of a function)
+
+Section 3
+
+- category - object - morphism - endomorphism - operation - discrete
+category - small category - locally small category - slice category -
+coslice category - comma category (mentioned, undefined) - pointed set -
+C^A,B category ??
+
+Chapter 1, Section 2
+
+On injections and surjections
+
+Injections
+
+Injections (which aren’t also surjections) have multiple left-inverses
+(post-inverses). Eg:
+
+A = {a, b} B = {1, 2, 3} f : A → B = {(a, 2), (b, 3)}, injective
+
+g₁ : B → A = {(1, a), (2, a), (3, b)}
+g₂ : B → A = {(1, b), (2, a), (3, b)}
+
+g₁ ∘ f = g₂ ∘ f = id_(A)
+
+It is precisely the free element with no antecedent in B (here, 1) which
+leaves room for multiple choices, but doesn’t affect the overall
+inversion process.
+
+Surjections
+
+Surjections (which aren’t also injections) have multiple right-inverses
+(pre-inverses), called sections.
+
+B = 123 A = ab f : B A = 1a 2a 3b, surjective
+
+g₁ : A → B = a1b3 g₂ : A → B = a2b3
+
+f ∘ g₁ = f ∘ g₂ = id_(A)
+
+It is precisely the fact that there are multiple elements that map to
+the same element (here, 1 and 2 to a) which leaves room for multiple
+choices, but doesn’t affect the overall inversion process.
+
+Cancellations
+
+Function Cancellation Lemma: If a composition of functions cancels out,
+then the first of the pair is an injection, and the second of the pair
+is a surjection. Algebraically:
+$$\forall A, B \in Obj(\textbf{Set}),
+f \in (A \to B), g \in (B \to A), \;
+    g \circ f = id_A
+\Rightarrow
+    \begin{cases}
+        f \text{ is injective} \\
+        g \text{ is surjective}
+    \end{cases}$$
+Corollary 1: any post-inverse of an injection is a surjection. Corollary
+2: any pre-inverse of a surjection is an injection.
+
+Proof: Let be
+A, B ∈ Obj(Set), f ∈ (A → B), g ∈ (B → A), g ∘ f = id_(A)
+
+a) Suppose f is not an injection. This means:
+∃x, y ∈ B, x ≠ y and g(x) = g(y)
+However, with such an f, we have:
+g(x) = g(y) ⇒ f(g(x)) = f(g(y)) = id_(A)(x) = id_(A)(y) = x = y
+This means that f is an injection. Contradiction. Conclusion: in this
+context, f must be an injection.
+
+b) Suppose g is not a surjection. This means:
+∃a ∈ A, a ∉ g(B)
+Since g ∘ f = id_(A), that means that g(f(a)) = id_(A)(a) = a, this
+means that a ∈ g(B). Contradiction. Conclusion: in this context, g must
+be a surjection.
+
+On sections and fibers
+
+Section example with a tangent bundle.
+
+Consider the cylinder S¹ × ℝ, and the function f : S¹ × ℝ → S¹, the
+projection onto the circle. The cylinder is itself the space in which
+one can easily represent maps of (S¹ → ℝ). Each such map corresponds to
+a section.
+
+Let be
+
+$$\begin{align*}
+g_1 : S^1    & \longrightarrow  S^1 \times \mathbb{R} \\
+      \theta & \longmapsto      (\theta, 1)
+\end{align*}$$
+
+$$\begin{align*}
+g_2 : S^1    & \longrightarrow  S^1 \times \mathbb{R} \\
+      \theta & \longmapsto      (\theta, cos(\theta))
+\end{align*}$$
+
+We have
+f ∘ g₁ = f ∘ g₂ = id_(S¹)
+
+(TODO add diagrams for S1xR, g1 and g2)
+
+A fiber is the preimage of a singleton. In the case of f above, for
+every q ∈ S¹, f^( − 1)(q) is the copy of the real line on the cylinder
+that passes by q.
+
+(TODO add diagram)
+
+Alternative characterization of a bijection
+
+f is bijective "every element of B has a non-empty fiber" (surjection)
+and "every fiber is a singleton" (injection)
+
+On monomorphisms and epimorphisms
+
+Failing the mono/epi condition
+
+Example of failing the monomorphism definition for a non-injection
+
+Monomorphism definition:
+
+f : A → B is a monomorphism  ⇔  ∀Z ∈ Obj(𝒞), ∀g₁, g₂ ∈ Hom(Z, A), (f ∘ g₁ = f ∘ g₂ ⇒ g₁ = g₂)
+
+A = ab B = 123 Z = xy f : A B = 1a 2a 3b, not an injection
+
+g₁ : Z → A = x1y3 g₂ : Z → A = x2y3
+
+f ∘ g₁ = f ∘ g₂ = {(x, a), (y, b)} ∈ (Z → B)
+
+The multiple choice of elements in A which map to a in B (here, 1 and 2)
+is precisely what allows the overall composition to be equal, even when
+g₁ ≠ g₂. This provides insight into a proof of "f is a monomorphism
+implies that f is an injection". If you suppose that f is a monomorphism
+and not an injection, you can easily reach a contradiction, since you
+can use elements like 1 and 2 that both map to the same a to construct a
+counter-example to the implication that defines a monomorphism.
+
+Example of failing the epimorphism definition for a non-surjection
+
+Epimorphism definition:
+
+f : A → B is an epimorphism  ⇔  ∀Z ∈ Obj(𝒞), ∀g₁, g₂ ∈ Hom(B, Z), (g₁ ∘ f = g₂ ∘ f ⇒ g₁ = g₂)
+
+A = ab B = 123 Z = xy f : A B = a1 b2, not an surjection
+
+g₁ : B → Z = 1x2y3x g₂ : B → Z = 1x2y3y
+
+g₁ ∘ f = g₂ ∘ f = {(a, x), (b, y)} ∈ (A → Z)
+
+The element 3 in B not being reached by f is precisely that which
+provides the opportunity to build g₁ ≠ g₂ such that they compose to the
+same result with f, since the output of 3 for them doesn’t affect the
+overall composition. This provides insight into a proof of "f is an
+epimorphism implies that f is a surjection". If you suppose that f is an
+epimorphism and not a surjection, you can easily reach a contradiction,
+since you can use elements like 3 that are not reached by f to construct
+a counter-example to the implication that defines an epimorphism.
+
+Proofs of mono/inj and epi/surj equivalence
+
+Let f : A → B.
+
+The parts which are "Injection => Monomorphism" and "Surjection =>
+Epimorphism" both use the respective sided inverses to prove the
+implication.
+
+The other parts use the following tautology to prove the implication by
+contradiction. "Suppose that p and ¬q, show that it leads to a
+contradiction".
+
+(p ⇒ q) ⇔ ((¬p) ∪ q) ⇔ (¬(p ∩ ¬q))
+
+Injection => Monomorphism
+
+Suppose that f is an injection. It thus has post-inverses.
+
+∃g ∈ (B → A), g ∘ f = id_(A)
+
+From there:
+
+∀Z ∈ Obj(𝒞), ∀a, b ∈ Hom(Z, A),
+$$\begin{array}{ccccc} \\
+f \circ a = f \circ b & \Rightarrow &  g \circ (f  \circ a) &=&  g \circ (f  \circ b) \\
+                      & =           & (g \circ  f) \circ a  &=& (g \circ  f) \circ b  \\
+                      & =           &         id_A \circ a  &=&         id_A \circ b  \\
+                      & =           &                    a  &=&                    b
+\end{array}$$
+
+We conclude that f is also a monomorphism.
+
+Surjection => Epimorphism
+
+Suppose that f is a surjection. It thus has pre-inverses.
+
+∃g ∈ (B → A), f ∘ g = id_(B)
+
+From there:
+
+∀Z ∈ Obj(𝒞), ∀a, b ∈ Hom(B, Z),
+$$\begin{array}{ccccc} \\
+a \circ f = b \circ f & \Rightarrow & (a \circ  f) \circ g  &=& (b \circ  f) \circ g  \\
+                      & =           &  a \circ (f  \circ g) &=&  b \circ (f  \circ g) \\
+                      & =           &  a \circ  id_B        &=&  b \circ  id_B        \\
+                      & =           &  a                    &=&  b
+\end{array}$$
+
+We conclude that f is also an epimorphism.
+
+Monomorphism => Injection
+
+Suppose that f is a monomorphism.
+
+∀Z ∈ Obj(𝒞), ∀g₁, g₂ ∈ Hom(Z, A), f ∘ g₁ = f ∘ g₂ ⇒ g₁ = g₂
+
+Suppose now that f is not an injection. Algebraically, this means that:
+
+∃(x, y) ∈ A²,  such that x ≠ y and f(x) = f(y)
+
+We can construct g₁ and g₂ such that f ∘ g₁ = f ∘ g₂ but g₁ ≠ g₂, using
+such a pair (x, y). Thereby, we prove that f is not an monomorphism and
+arrive at a contradiction.
+
+(If Z is the empty set, being initial in , there is only 1 map into A
+(the empty map) and a = b always hold. Therefore, any counterexample to
+the epimorphism definition needs to have at least 1 element.)
+
+Let Z = {a}.
+
+g₁(a) = x
+g₂(a) = y
+
+Clearly, g₁ ≠ g₂. However, we also have:
+
+f(g₁(a)) = f(x) = f(y) = f(g₂(a)) ⇒ f ∘ g₁ = f ∘ g₂
+
+This means that f is not a monomorphism: contradiction.
+
+Conclusion: f is an injection.
+
+Epimorphism => Surjection
+
+Suppose that f is an epimorphism.
+
+∀Z ∈ Obj(𝒞), ∀g₁, g₂ ∈ Hom(B, Z), g₁ ∘ f = g₂ ∘ f ⇒ g₁ = g₂
+
+Suppose now that f isn’t a surjection. Algebraically, this means that:
+
+∃x ∈ B, x ∉ f(A)
+
+We can construct g₁ and g₂ such that g₁ ∘ f = g₂ ∘ f but g₁ ≠ g₂, using
+such an x ∉ f(A). Thereby, we prove that f is not an epimorphism and
+arrive at a contradiction.
+
+(If Z is the singleton set, being terminal in , there is only 1 map into
+Z and a = b always hold. Therefore, any counterexample to the
+epimorphism definition needs to have at least 2 elements. We will
+however use a 3-element set, since it makes things more intuitive and
+pedagogical.)
+
+Let Z = {a, b, c}.
+
+$$g_1 =
+\begin{cases}
+    \forall x    \in f(A), g_1(x) = a \\
+    \forall x \notin f(A), g_1(x) = b
+\end{cases}$$
+
+$$g_2 =
+\begin{cases}
+    \forall x    \in f(A), g_2(x) = a \\
+    \forall x \notin f(A), g_2(x) = c
+\end{cases}$$
+
+Clearly, g₁ ≠ g₂. However, since A is the domain of f, of g₁ ∘ f, and of
+g₂ ∘ f, we have:
+
+g₁ ∘ f = g₂ ∘ f = (x ↦ a) ∈ (A → Z)
+
+This means that f is not an epimorphism: contradiction.
+
+Conclusion: f is a surjection.
+
+Chapter 1, Section 3
+
+On terminal and initial objects in Set
+
+If $\empty$ is initial and { ⋆ } is terminal, it is because a function
+in Set (in categorical terms) must always have an output for every
+input. Ie, in category theory, all functions are maps ("applications").
+
+Said algebraically:
+
+$$\forall A, B \in \text{Obj}(\bold{Set}), \;
+\forall a \in A, \;
+\forall f \in \text{Hom}(A, B), \;
+\exists f(a) \in B$$
+
+In the case of $\empty$ as the input set, and there is only one function
+$f: \empty \to Z$ for any Z: f is the empty mapping. But any
+$Z \to \empty$ (expept $\empty \to \empty$) contains no mapping (since
+we’d necessarily be ignoring at least one element of Z).
+
+Similarly, in the case of the (unique up-to-isomorphism) singleton set
+{ ⋆ } as the output, you’d have multiple functions (precisely $2^{#Z}$)
+into it, if you could ignore some elements of the input set. However, if
+all elements of the input set are required, that leaves you with only
+one function possible from Z → { ⋆ }: the function which maps all
+elements to ⋆.
+
+Restrictions and extensions of functions, and its consequences on a function’s nature
+
+8 possibilities to study, based on the following binary dichotomies: -
+injection or surjection - enlarging or restricting - domain or codomain
+
+Note that enlarging the domain sometimes implies enlarging the codomain,
+and restricting the codomain sometimes implies restricting the domain.
+
+Legend: Yes, No, Depends
+
+  ------------ ------------- -------------- ------------- --------------
+                enlarge dom   restrict dom   enlarge cod   restrict cod
+   injection         D             Y              Y             Y
+   surjection        Y             D              N             Y
+  ------------ ------------- -------------- ------------- --------------
+
+Theorems:
+
+A) if f ∈ (A → B), f injective (resp. surjective), then
+$\forall Z \subseteq B, \hat{f} \in ((A \ap f^{-1}(Z)) \to Z), \hat{f} = f|_{f^{-1}(Z)}$,
+the restriction of the function to the corresponding smaller codomain,
+is also an injection (resp. surjection).
+
+B) if f ∈ (A → B), f injective (resp. surjective), then
+∀Z ⊇ B, f̂ ∈ (A → Z), f̂ = ι ∘ f (with the ι the canonical injection of
+b ∈ B into its superset Z), is also an injection (resp. is never a
+surjection).
+
+C) if f ∈ (A → B), f injective, then
+∀Z ⊆ A, f̂ ∈ (Z → B), f = ι_((Z → A)) ∘ f̂, we have that f̂ is also an
+injection. However, one can construct Z ⊆ A such that f stops being a
+surjection.
+
+D) if f ∈ (A → B), f surjective, then
+∀Z ⊇ A, f̂ ∈ (Z → (B ∪ f(Z))), f = ι_((Z → A)) ∘ f̂, we have that f̂ is
+also a surjection. However, one can construct Z ⊆ A such that f stops
+being a injection.
+
+Proof: TODO
+
+Chapter I)
+
+Section 1) Explains fundamentals of set theory and basic set operations
+
+Section 2) Explains set relations, set functions and some more advanced
+set operations
+
+Section 3) Presents categories, and multiple examples of categories.
+Some are simple, some are advanced.

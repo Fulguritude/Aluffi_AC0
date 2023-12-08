@@ -34,7 +34,9 @@ SRCDIR=src
 OUTDIR=build
 NAME=Aluffi_AC0
 
-PDFLATEX=/Library/TeX/texbin/pdflatex
+PDFLATEX=pdflatex
+# for macos, uncomment line below
+#PDFLATEX=/Library/TeX/texbin/pdflatex
 
 rm  -rf  $OUTDIR
 
@@ -64,8 +66,8 @@ tex_awk='BEGIN { display = 1; }
 	}
 }
 '
-tex_langs=' fr en '
-tex_langs_regexp='(fr|en)'
+tex_langs=' en '
+tex_langs_regexp='(en)'
 
 #! Uses pandoc to convert source to an output document in a certain format
 #! @param $1	output format displayed name
@@ -93,7 +95,7 @@ do
 	cat $SRCDIR/include.tex | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
 	cat $SRCDIR/header.tex  | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
 	cat $SRCDIR/index.tex   | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/*-*.tex     | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
+	cat $SRCDIR/*/*.tex     | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
 	cat $SRCDIR/footer.tex  | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
 #	echo "\\includecomment{$lang}" >> $OUTDIR/$NAME.$lang.tex
 #	for otherlang in $tex_langs
@@ -126,7 +128,7 @@ done
 mkdir -p $OUTDIR/web
 
 print_message "Creating website..."
-for i in "$SRCDIR/index.tex" "$SRCDIR/error.tex" $SRCDIR/*-*.tex
+for i in "$SRCDIR/index.tex" "$SRCDIR/error.tex" $SRCDIR/*/*.tex
 do
 	file="$( basename $i .tex )"
 	cat \
