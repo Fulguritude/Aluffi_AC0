@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Multiversity Algebra Chapter 0 Reading Group" />
-  <title>Aluffi_AC0.en</title>
+  <title>Aluffi_AC0_Notes.en</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -17,31 +17,29 @@
   <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
 </head>
 <body>
-<p>Chapter I) 1) Set notation)</p>
-<p>Write the following in set notation (as a list of numbers, and algebraically): - the set of all odd integers - the set of all integers that are not multiples of 3 - the set of integers from 10 (included) to 20 (included) - the set of integers from 10 (included) to 20 (excluded) - the set of pairs of integers with both elements of the same value - the set of triplets of real numbers that together sum to 1 - the set of pairs of positive real numbers that together sum to 1 - the set of <span class="math inline">\(n\)</span>-tuplets (for any <span class="math inline">\(n\)</span>) of real number that together sum to 1 - the set of all natural numbers such that there exists at least one triplet of positive even numbers which are all different and which sum to that number.</p>
-<p>Now take the sets in their algebraic notation, and represent them both as a list of numbers (as a logical sequence or just a couple of examples), and as a "description" of what they are:</p>
-<p>- <span class="math inline">\(\{3n + 2 \; | \; n \in \mathbb{N} \}\)</span> - <span class="math inline">\(\{3k + 2 \; | \; k \in \mathbb{Z} \}\)</span> - <span class="math inline">\(\{ 2^i \; | \; i \in [[0, 10]] \}\)</span> - <span class="math inline">\(\{ (x, y) \in \mathbb{R}^2 \; | \; x^2 + y^2 = 1 \}\)</span> - <span class="math inline">\(\{ x \in \mathbb{R} \; | \; -2 \leq x \leq 2 \}\)</span> - <span class="math inline">\(\{ (m, n, p) \in \mathbb{N}^3 \; | \; m + n + p = 10 \}\)</span> Section 1</p>
-<p>- Set (not a multiset) - ∅: the empty set, containing no elements; - N: the set of natural numbers (that is, nonnegative integers); - Z: the set of integers; - Q: the set of rational numbers; - R: the set of real numbers; - C: the set of complex numbers. - Singleton: - ∃: existential quantifier, "there exists" - ∀: universal quantifier, "for all" - inclusion: - subset: - cardinal: - powerset: - ∪: the union: - ∩: the intersection: -<br />
-: the difference: - : the disjoint union: - ×: the (Cartesian) product: - complement of a subset - relation - order relation - equivalence relation - reﬂexivity - symmetry - antisymmetry - transitivity - partition - quotient by an equivalence relation</p>
-<p>Section 2</p>
-<p>- function - graph - (categorical, function) diagram - identity function - kernel (of a function) - image (of a function) - restriction (of a function to a subset) - multiset - composition - commutative (diagram) - injection - surjection - bijection - isomorphism - inverse - pre-inverse, right-inverse - post-inverse, left-inverse - monomorphism - epimorphism - natural projection - natural injection - canonical decomposition (of a function)</p>
-<p>Section 3</p>
-<p>- category - object - morphism - endomorphism - operation - discrete category - small category - locally small category - slice category - coslice category - comma category (mentioned, undefined) - pointed set - C^A,B category ??</p>
-<h1 id="chapter-1-section-2">Chapter 1, Section 2</h1>
-<h2 id="on-injections-and-surjections">On injections and surjections</h2>
-<h3 id="injections">Injections</h3>
+<h1 id="summaries">Summaries</h1>
+<p>Chapter I)</p>
+<p>Section 1) Explains fundamentals of set theory and basic set operations</p>
+<p>Section 2) Explains set relations, set functions and some more advanced set operations</p>
+<p>Section 3) Presents categories, and multiple examples of categories. Some are simple, some are advanced.</p>
+<h1 id="notes">Notes</h1>
+<h2 class="unnumbered" id="chapter-1-section-1">Chapter 1, Section 1</h2>
+<p>Go check out the extra exercises on set notation.</p>
+<h2 class="unnumbered" id="chapter-1-section-2">Chapter 1, Section 2</h2>
+<h3 class="unnumbered" id="on-injections-and-surjections">On injections and surjections</h3>
+<h4 class="unnumbered" id="injections">Injections</h4>
 <p>Injections (which aren’t also surjections) have multiple left-inverses (post-inverses). Eg:</p>
-<p><span class="math inline">\(A = \{ a, b    \}\)</span> <span class="math inline">\(B = \{ 1, 2, 3 \}\)</span> <span class="math inline">\(f : A \to B = \{ (a, 2), (b, 3) \}\)</span>, injective</p>
-<p><span class="math inline">\(g_1 : B \to A = \{ (1, a), (2, a), (3, b) \}\)</span> <span class="math inline">\(g_2 : B \to A = \{ (1, b), (2, a), (3, b) \}\)</span></p>
+<p><span class="math display">\[A = \{ a, b    \}\]</span> <span class="math display">\[B = \{ 1, 2, 3 \}\]</span> <span class="math display">\[f : A \to B = \{ (a, 2), (b, 3) \} \text{, injective}\]</span></p>
+<p><span class="math display">\[g_1 : B \to A = \{ (1, a), (2, a), (3, b) \}\]</span> <span class="math display">\[g_2 : B \to A = \{ (1, b), (2, a), (3, b) \}\]</span></p>
 <p><span class="math display">\[g_1 \circ f = g_2 \circ f = id_A\]</span></p>
 <p>It is precisely the free element with no antecedent in <span class="math inline">\(B\)</span> (here, <span class="math inline">\(1\)</span>) which leaves room for multiple choices, but doesn’t affect the overall inversion process.</p>
-<h3 id="surjections">Surjections</h3>
+<h4 class="unnumbered" id="surjections">Surjections</h4>
 <p>Surjections (which aren’t also injections) have multiple right-inverses (pre-inverses), called sections.</p>
-<p>B = 123 A = ab f : B A = 1a 2a 3b, surjective</p>
-<p><span class="math inline">\(g_1 : A \to B = a1 b3\)</span> <span class="math inline">\(g_2 : A \to B = a2 b3\)</span></p>
+<p><span class="math display">\[B = \{ 1, 2, 3 \}\]</span> <span class="math display">\[A = \{ a, b    \}\]</span> <span class="math display">\[f : B \to A = \{ (1, a), (2, a), (3, b) \} \text{, surjective}\]</span></p>
+<p><span class="math display">\[g_1 : A \to B = \{(a, 1), (b, 3) \}\]</span> <span class="math display">\[g_2 : A \to B = \{(a, 2), (b, 3) \}\]</span></p>
 <p><span class="math display">\[f \circ g_1 = f \circ g_2 = id_A\]</span></p>
 <p>It is precisely the fact that there are multiple elements that map to the same element (here, <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> to <span class="math inline">\(a\)</span>) which leaves room for multiple choices, but doesn’t affect the overall inversion process.</p>
-<h3 id="cancellations">Cancellations</h3>
+<h4 class="unnumbered" id="cancellations">Cancellations</h4>
 <p>Function Cancellation Lemma: If a composition of functions cancels out, then the first of the pair is an injection, and the second of the pair is a surjection. Algebraically: <span class="math display">\[\forall A, B \in Obj(\textbf{Set}),
 f \in (A \to B), g \in (B \to A), \;
     g \circ f = id_A
@@ -49,60 +47,65 @@ f \in (A \to B), g \in (B \to A), \;
     \begin{cases}
         f \text{ is injective} \\
         g \text{ is surjective}
-    \end{cases}\]</span> Corollary 1: any post-inverse of an injection is a surjection. Corollary 2: any pre-inverse of a surjection is an injection.</p>
+    \end{cases}\]</span> Corollary 1: any post-inverse of an injection is a surjection.</p>
+<p>Corollary 2: any pre-inverse of a surjection is an injection.</p>
 <p>Proof: Let be <span class="math display">\[A, B \in Obj(\textbf{Set}), f \in (A \to B), g \in (B \to A), \; g \circ f = id_A\]</span></p>
-<p>a) Suppose <span class="math inline">\(f\)</span> is not an injection. This means: <span class="math display">\[\exists x, y \in B, \; x \neq y \text{ and } g(x) = g(y)\]</span> However, with such an <span class="math inline">\(f\)</span>, we have: <span class="math display">\[g(x) = g(y) \Rightarrow f(g(x)) = f(g(y)) = id_A(x) = id_A(y) = x = y\]</span> This means that <span class="math inline">\(f\)</span> is an injection. Contradiction. Conclusion: in this context, <span class="math inline">\(f\)</span> must be an injection.</p>
-<p>b) Suppose <span class="math inline">\(g\)</span> is not a surjection. This means: <span class="math display">\[\exists a \in A, \; a \notin g(B)\]</span> Since <span class="math inline">\(g \circ f = id_A\)</span>, that means that <span class="math inline">\(g(f(a)) = id_A(a) = a\)</span>, this means that <span class="math inline">\(a \in g(B)\)</span>. Contradiction. Conclusion: in this context, <span class="math inline">\(g\)</span> must be a surjection.</p>
-<h2 id="on-sections-and-fibers">On sections and fibers</h2>
+<p>a) Suppose <span class="math inline">\(f\)</span> is not an injection. This means: <span class="math display">\[\exists x, y \in B, \; x \neq y \text{ and } g(x) = g(y)\]</span> However, with such an <span class="math inline">\(f\)</span>, we have: <span class="math display">\[g(x) = g(y) \Rightarrow f(g(x)) = f(g(y)) = id_A(x) = id_A(y) = x = y\]</span> This means that <span class="math inline">\(f\)</span> is an injection. Contradiction.</p>
+<p>Conclusion: in this context, <span class="math inline">\(f\)</span> must be an injection.</p>
+<p>b) Suppose <span class="math inline">\(g\)</span> is not a surjection. This means: <span class="math display">\[\exists a \in A, \; a \notin g(B)\]</span> Since <span class="math inline">\(g \circ f = id_A\)</span>, that means that <span class="math inline">\(g(f(a)) = id_A(a) = a\)</span>, this means that <span class="math inline">\(a \in g(B)\)</span>. Contradiction.</p>
+<p>Conclusion: in this context, <span class="math inline">\(g\)</span> must be a surjection.</p>
+<h3 class="unnumbered" id="on-sections-and-fibers">On sections and fibers</h3>
 <p>Section example with a tangent bundle.</p>
 <p>Consider the cylinder <span class="math inline">\(S^1 \times \mathbb{R}\)</span>, and the function <span class="math inline">\(f : S^1 \times \mathbb{R} \to S^1\)</span>, the projection onto the circle. The cylinder is itself the space in which one can easily represent maps of <span class="math inline">\((S^1 \to \mathbb{R})\)</span>. Each such map corresponds to a section.</p>
 <p>Let be</p>
-<p><span class="math display">\[\begin{align*}
+<p><span class="math display">\[\begin{aligned}
 g_1 : S^1    &amp; \longrightarrow  S^1 \times \mathbb{R} \\
       \theta &amp; \longmapsto      (\theta, 1)
-\end{align*}\]</span></p>
-<p><span class="math display">\[\begin{align*}
+\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}
 g_2 : S^1    &amp; \longrightarrow  S^1 \times \mathbb{R} \\
       \theta &amp; \longmapsto      (\theta, cos(\theta))
-\end{align*}\]</span></p>
+\end{aligned}\]</span></p>
 <p>We have <span class="math display">\[f \circ g_1 = f \circ g_2 = id_{S^1}\]</span></p>
 <p>(TODO add diagrams for S1xR, g1 and g2)</p>
 <p>A fiber is the preimage of a singleton. In the case of <span class="math inline">\(f\)</span> above, for every <span class="math inline">\(q \in S^1\)</span>, <span class="math inline">\(f^{-1}({q})\)</span> is the copy of the real line on the cylinder that passes by <span class="math inline">\(q\)</span>.</p>
 <p>(TODO add diagram)</p>
-<h2 id="alternative-characterization-of-a-bijection">Alternative characterization of a bijection</h2>
-<p>f is bijective "every element of <span class="math inline">\(B\)</span> has a non-empty fiber" (surjection) and "every fiber is a singleton" (injection)</p>
-<h2 id="on-monomorphisms-and-epimorphisms">On monomorphisms and epimorphisms</h2>
-<h3 id="failing-the-monoepi-condition">Failing the mono/epi condition</h3>
-<h3 id="example-of-failing-the-monomorphism-definition-for-a-non-injection">Example of failing the monomorphism definition for a non-injection</h3>
+<h3 class="unnumbered" id="alternative-characterization-of-a-bijection">Alternative characterization of a bijection</h3>
+<p>"<span class="math inline">\(f\)</span> is bijective" <span class="math inline">\(\Leftrightarrow\)</span> ("every element of <span class="math inline">\(B\)</span> has a non-empty fiber" (surjection) and "every fiber is a singleton" (injection))</p>
+<h3 class="unnumbered" id="on-monomorphisms-and-epimorphisms">On monomorphisms and epimorphisms</h3>
+<h4 class="unnumbered" id="failing-the-monoepi-condition">Failing the mono/epi condition</h4>
+<h5 class="unnumbered" id="example-of-failing-the-monomorphism-definition-for-a-non-injection">Example of failing the monomorphism definition for a non-injection</h5>
 <p>Monomorphism definition:</p>
 <p><span class="math display">\[\text{$f : A \to B$ is a monomorphism}
-\; \; \Leftrightarrow \; \; 
+\\ \Leftrightarrow \\
 \forall Z \in \text{Obj}(\mathcal{C}), \;
 \forall g_1, g_2 \in \text{Hom}(Z, A), \;
 (f \circ g_1 = f \circ g_2 \Rightarrow g_1 = g_2)\]</span></p>
-<p>A = ab B = 123 Z = xy f : A B = 1a 2a 3b, not an injection</p>
-<p><span class="math inline">\(g_1 : Z \to A = x1 y3\)</span> <span class="math inline">\(g_2 : Z \to A = x2 y3\)</span></p>
-<p><span class="math display">\[f \circ g_1 = f \circ g_2 = \{(x, a), (y, b)\} \in (Z \to B)\]</span></p>
-<p>The multiple choice of elements in <span class="math inline">\(A\)</span> which map to <span class="math inline">\(a\)</span> in <span class="math inline">\(B\)</span> (here, <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span>) is precisely what allows the overall composition to be equal, even when <span class="math inline">\(g_1 \neq g_2\)</span>. This provides insight into a proof of "<span class="math inline">\(f\)</span> is a monomorphism implies that <span class="math inline">\(f\)</span> is an injection". If you suppose that <span class="math inline">\(f\)</span> is a monomorphism and not an injection, you can easily reach a contradiction, since you can use elements like <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> that both map to the same <span class="math inline">\(a\)</span> to construct a counter-example to the implication that defines a monomorphism.</p>
-<h3 id="example-of-failing-the-epimorphism-definition-for-a-non-surjection">Example of failing the epimorphism definition for a non-surjection</h3>
+<p><span class="math display">\[A = \{ a, b, c \}\]</span> <span class="math display">\[B = \{ 1, 2    \}\]</span> <span class="math display">\[Z = \{ x, y    \}\]</span> <span class="math display">\[f : A \to B = \{ (a, 1), (b, 1), (c, 2) \} \text{, not injective}\]</span></p>
+<p><span class="math display">\[g_1 : Z \to A = \{ (x, a), (y, c) \}\]</span> <span class="math display">\[g_2 : Z \to A = \{ (x, b), (y, c) \}\]</span></p>
+<p><span class="math display">\[f \circ g_1 = f \circ g_2 = \{(x, 1), (y, 2)\} \in (Z \to B)\]</span></p>
+<p>The multiple choice of elements (here, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>) in <span class="math inline">\(A\)</span> which map to <span class="math inline">\(1\)</span> in <span class="math inline">\(B\)</span> is precisely what allows the overall composition to be equal, even when <span class="math inline">\(g_1 \neq g_2\)</span>. This provides insight into a proof of "<span class="math inline">\(f\)</span> is a monomorphism implies that <span class="math inline">\(f\)</span> is an injection". If you suppose that <span class="math inline">\(f\)</span> is a monomorphism and not an injection, you can easily reach a contradiction, since you can use elements like <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> that both map to the same <span class="math inline">\(a\)</span> to construct a counter-example to the implication that defines a monomorphism.</p>
+<h5 class="unnumbered" id="example-of-failing-the-epimorphism-definition-for-a-non-surjection">Example of failing the epimorphism definition for a non-surjection</h5>
 <p>Epimorphism definition:</p>
 <p><span class="math display">\[\text{$f : A \to B$ is an epimorphism}
-\; \; \Leftrightarrow \; \; 
+\\ \Leftrightarrow \\ 
 \forall Z \in \text{Obj}(\mathcal{C}), \;
 \forall g_1, g_2 \in \text{Hom}(B, Z), \;
 (g_1 \circ f = g_2 \circ f \Rightarrow g_1 = g_2)\]</span></p>
-<p>A = ab B = 123 Z = xy f : A B = a1 b2, not an surjection</p>
-<p><span class="math inline">\(g_1 : B \to Z = 1x 2y 3x\)</span> <span class="math inline">\(g_2 : B \to Z = 1x 2y 3y\)</span></p>
+<p><span class="math display">\[g_1 : Z \to A = \{ (x, a), (y, c) \}\]</span> <span class="math display">\[g_2 : Z \to A = \{ (x, b), (y, c) \}\]</span></p>
+<p><span class="math display">\[f \circ g_1 = f \circ g_2 = \{(x, 1), (y, 2)\} \in (Z \to B)\]</span></p>
+<p><span class="math display">\[A = \{ a, b    \}\]</span> <span class="math display">\[B = \{ 1, 2, 3 \}\]</span> <span class="math display">\[Z = \{ x, y    \}\]</span> <span class="math display">\[f : A \to B = \{ (a, 1), (b, 2) \} \text{, not surjective}\]</span></p>
+<p><span class="math display">\[g_1 : B \to Z = \{ (1, x), (2, y), (3, x) \}\]</span> <span class="math display">\[g_2 : B \to Z = \{ (1, x), (2, y), (3, y) \}\]</span></p>
 <p><span class="math display">\[g_1 \circ f = g_2 \circ f = \{(a, x), (b, y)\} \in (A \to Z)\]</span></p>
 <p>The element <span class="math inline">\(3\)</span> in <span class="math inline">\(B\)</span> not being reached by <span class="math inline">\(f\)</span> is precisely that which provides the opportunity to build <span class="math inline">\(g_1 \neq g_2\)</span> such that they compose to the same result with <span class="math inline">\(f\)</span>, since the output of <span class="math inline">\(3\)</span> for them doesn’t affect the overall composition. This provides insight into a proof of "<span class="math inline">\(f\)</span> is an epimorphism implies that <span class="math inline">\(f\)</span> is a surjection". If you suppose that <span class="math inline">\(f\)</span> is an epimorphism and not a surjection, you can easily reach a contradiction, since you can use elements like <span class="math inline">\(3\)</span> that are not reached by <span class="math inline">\(f\)</span> to construct a counter-example to the implication that defines an epimorphism.</p>
-<h3 id="proofs-of-monoinj-and-episurj-equivalence">Proofs of mono/inj and epi/surj equivalence</h3>
+<h4 class="unnumbered" id="proofs-of-monoinj-and-episurj-equivalence">Proofs of mono/inj and epi/surj equivalence</h4>
 <p>Let <span class="math inline">\(f : A \to B\)</span>.</p>
 <p>The parts which are "Injection =&gt; Monomorphism" and "Surjection =&gt; Epimorphism" both use the respective sided inverses to prove the implication.</p>
 <p>The other parts use the following tautology to prove the implication by contradiction. "Suppose that <span class="math inline">\(p\)</span> and <span class="math inline">\(\neg q\)</span>, show that it leads to a contradiction".</p>
 <p><span class="math display">\[(p \Rightarrow q)
 \Leftrightarrow ((\neg  p) \cup      q )
 \Leftrightarrow ( \neg (p  \cap \neg q))\]</span></p>
-<h3 id="injection-monomorphism">Injection =&gt; Monomorphism</h3>
+<h5 class="unnumbered" id="injection-monomorphism">Injection =&gt; Monomorphism</h5>
 <p>Suppose that <span class="math inline">\(f\)</span> is an injection. It thus has post-inverses.</p>
 <p><span class="math display">\[\exists g \in (B \to A), g \circ f = id_A\]</span></p>
 <p>From there:</p>
@@ -114,7 +117,7 @@ f \circ a = f \circ b &amp; \Rightarrow &amp;  g \circ (f  \circ a) &amp;=&amp; 
                       &amp; =           &amp;                    a  &amp;=&amp;                    b
 \end{array}\]</span></p>
 <p>We conclude that <span class="math inline">\(f\)</span> is also a monomorphism.</p>
-<h3 id="surjection-epimorphism">Surjection =&gt; Epimorphism</h3>
+<h5 class="unnumbered" id="surjection-epimorphism">Surjection =&gt; Epimorphism</h5>
 <p>Suppose that <span class="math inline">\(f\)</span> is a surjection. It thus has pre-inverses.</p>
 <p><span class="math display">\[\exists g \in (B \to A), f \circ g = id_B\]</span></p>
 <p>From there:</p>
@@ -126,7 +129,7 @@ a \circ f = b \circ f &amp; \Rightarrow &amp; (a \circ  f) \circ g  &amp;=&amp; 
                       &amp; =           &amp;  a                    &amp;=&amp;  b
 \end{array}\]</span></p>
 <p>We conclude that <span class="math inline">\(f\)</span> is also an epimorphism.</p>
-<h3 id="monomorphism-injection">Monomorphism =&gt; Injection</h3>
+<h5 class="unnumbered" id="monomorphism-injection">Monomorphism =&gt; Injection</h5>
 <p>Suppose that <span class="math inline">\(f\)</span> is a monomorphism.</p>
 <p><span class="math display">\[\forall Z \in \text{Obj}(\mathcal{C}), \;
 \forall g_1, g_2 \in \text{Hom}(Z, A), \;
@@ -134,7 +137,7 @@ f \circ g_1 = f \circ g_2 \Rightarrow g_1 = g_2\]</span></p>
 <p>Suppose now that <span class="math inline">\(f\)</span> is not an injection. Algebraically, this means that:</p>
 <p><span class="math display">\[\exists (x, y) \in A^2, \text{ such that } x \neq y \text{ and } f(x) = f(y)\]</span></p>
 <p>We can construct <span class="math inline">\(g_1\)</span> and <span class="math inline">\(g_2\)</span> such that <span class="math inline">\(f \circ g_1 = f \circ g_2\)</span> but <span class="math inline">\(g_1 \neq g_2\)</span>, using such a pair <span class="math inline">\((x, y)\)</span>. Thereby, we prove that <span class="math inline">\(f\)</span> is not an monomorphism and arrive at a contradiction.</p>
-<p>(If <span class="math inline">\(Z\)</span> is the empty set, being initial in , there is only 1 map into <span class="math inline">\(A\)</span> (the empty map) and <span class="math inline">\(a = b\)</span> always hold. Therefore, any counterexample to the epimorphism definition needs to have at least 1 element.)</p>
+<p>(If <span class="math inline">\(Z\)</span> is the empty set, being initial in <span class="math inline">\(\mathbf{Set}\)</span>, there is only 1 map into <span class="math inline">\(A\)</span> (the empty map) and <span class="math inline">\(a = b\)</span> always hold. Therefore, any counterexample to the epimorphism definition needs to have at least 1 element.)</p>
 <p>Let <span class="math inline">\(Z = \{a\}\)</span>.</p>
 <p><span class="math display">\[g_1(a) = x\]</span> <span class="math display">\[g_2(a) = y\]</span></p>
 <p>Clearly, <span class="math inline">\(g_1 \neq g_2\)</span>. However, we also have:</p>
@@ -142,7 +145,7 @@ f \circ g_1 = f \circ g_2 \Rightarrow g_1 = g_2\]</span></p>
 f \circ g_1 = f \circ g_2\]</span></p>
 <p>This means that <span class="math inline">\(f\)</span> is not a monomorphism: contradiction.</p>
 <p>Conclusion: <span class="math inline">\(f\)</span> is an injection.</p>
-<h3 id="epimorphism-surjection">Epimorphism =&gt; Surjection</h3>
+<h5 class="unnumbered" id="epimorphism-surjection">Epimorphism =&gt; Surjection</h5>
 <p>Suppose that <span class="math inline">\(f\)</span> is an epimorphism.</p>
 <p><span class="math display">\[\forall Z \in \text{Obj}(\mathcal{C}), \;
 \forall g_1, g_2 \in \text{Hom}(B, Z), \;
@@ -150,7 +153,7 @@ g_1 \circ f = g_2 \circ f \Rightarrow g_1 = g_2\]</span></p>
 <p>Suppose now that <span class="math inline">\(f\)</span> isn’t a surjection. Algebraically, this means that:</p>
 <p><span class="math display">\[\exists x \in B, x \notin f(A)\]</span></p>
 <p>We can construct <span class="math inline">\(g_1\)</span> and <span class="math inline">\(g_2\)</span> such that <span class="math inline">\(g_1 \circ f = g_2 \circ f\)</span> but <span class="math inline">\(g_1 \neq g_2\)</span>, using such an <span class="math inline">\(x \notin f(A)\)</span>. Thereby, we prove that <span class="math inline">\(f\)</span> is not an epimorphism and arrive at a contradiction.</p>
-<p>(If <span class="math inline">\(Z\)</span> is the singleton set, being terminal in , there is only 1 map into <span class="math inline">\(Z\)</span> and <span class="math inline">\(a = b\)</span> always hold. Therefore, any counterexample to the epimorphism definition needs to have at least 2 elements. We will however use a 3-element set, since it makes things more intuitive and pedagogical.)</p>
+<p>(If <span class="math inline">\(Z\)</span> is the singleton set, being terminal in <span class="math inline">\(\mathbf{Set}\)</span>, there is only 1 map into <span class="math inline">\(Z\)</span> and <span class="math inline">\(a = b\)</span> always hold. Therefore, any counterexample to the epimorphism definition needs to have at least 2 elements. We will however use a 3-element set, since it makes things more intuitive and pedagogical.)</p>
 <p>Let <span class="math inline">\(Z = \{a, b, c\}\)</span>.</p>
 <p><span class="math display">\[g_1 =
 \begin{cases}
@@ -166,8 +169,8 @@ g_1 \circ f = g_2 \circ f \Rightarrow g_1 = g_2\]</span></p>
 <p><span class="math display">\[g_1 \circ f = g_2 \circ f = (x \mapsto a) \in (A \to Z)\]</span></p>
 <p>This means that <span class="math inline">\(f\)</span> is not an epimorphism: contradiction.</p>
 <p>Conclusion: <span class="math inline">\(f\)</span> is a surjection.</p>
-<h1 id="chapter-1-section-3">Chapter 1, Section 3</h1>
-<h2 id="on-terminal-and-initial-objects-in-set">On terminal and initial objects in <strong>Set</strong></h2>
+<h2 class="unnumbered" id="chapter-1-section-3">Chapter 1, Section 3</h2>
+<h3 class="unnumbered" id="on-terminal-and-initial-objects-in-set">On terminal and initial objects in <strong>Set</strong></h3>
 <p>If <span class="math inline">\(\empty\)</span> is initial and <span class="math inline">\(\{ \star \}\)</span> is terminal, it is because a function in <span class="math inline">\(Set\)</span> (in categorical terms) must always have an output for every input. Ie, in category theory, all functions are maps ("applications").</p>
 <p>Said algebraically:</p>
 <p><span class="math display">\[\forall A, B \in \text{Obj}(\bold{Set}), \;
@@ -175,9 +178,14 @@ g_1 \circ f = g_2 \circ f \Rightarrow g_1 = g_2\]</span></p>
 \forall f \in \text{Hom}(A, B), \;
 \exists f(a) \in B\]</span></p>
 <p>In the case of <span class="math inline">\(\empty\)</span> as the input set, and there is only one function <span class="math inline">\(f: \empty \to Z\)</span> for any <span class="math inline">\(Z\)</span>: <span class="math inline">\(f\)</span> is the empty mapping. But any <span class="math inline">\(Z \to \empty\)</span> (expept <span class="math inline">\(\empty \to \empty\)</span>) contains no mapping (since we’d necessarily be ignoring at least one element of <span class="math inline">\(Z\)</span>).</p>
-<p>Similarly, in the case of the (unique up-to-isomorphism) singleton set <span class="math inline">\(\{ \star \}\)</span> as the output, you’d have multiple functions (precisely <span class="math inline">\(2^{#Z}\)</span>) into it, if you could ignore some elements of the input set. However, if all elements of the input set are required, that leaves you with only one function possible from <span class="math inline">\(Z \to \{ \star \}\)</span>: the function which maps all elements to <span class="math inline">\(\star\)</span>.</p>
-<h2 id="restrictions-and-extensions-of-functions-and-its-consequences-on-a-functions-nature">Restrictions and extensions of functions, and its consequences on a function’s nature</h2>
-<p>8 possibilities to study, based on the following binary dichotomies: - injection or surjection - enlarging or restricting - domain or codomain</p>
+<p>Similarly, in the case of the (unique up-to-isomorphism) singleton set <span class="math inline">\(\{ \star \}\)</span> as the output, you’d have multiple functions (precisely <span class="math inline">\(2^{|Z|}\)</span>) into it, if you could ignore some elements of the input set. However, if all elements of the input set are required, that leaves you with only one function possible from <span class="math inline">\(Z \to \{ \star \}\)</span>: the function which maps all elements to <span class="math inline">\(\star\)</span>.</p>
+<h3 class="unnumbered" id="restrictions-and-extensions-of-functions-and-its-consequences-on-a-functions-nature">Restrictions and extensions of functions, and its consequences on a function’s nature</h3>
+<p>8 possibilities to study, based on the following binary dichotomies:</p>
+<ul>
+<li><p>injection or surjection</p></li>
+<li><p>enlarging or restricting</p></li>
+<li><p>domain or codomain</p></li>
+</ul>
 <p>Note that enlarging the domain sometimes implies enlarging the codomain, and restricting the codomain sometimes implies restricting the domain.</p>
 <p>Legend: Yes, No, Depends</p>
 <table>
@@ -206,14 +214,85 @@ g_1 \circ f = g_2 \circ f \Rightarrow g_1 = g_2\]</span></p>
 </tbody>
 </table>
 <p>Theorems:</p>
-<p>A) if <span class="math inline">\(f \in (A \to B), f \text{ injective (resp. surjective)}\)</span>, then <span class="math inline">\(\forall Z \subseteq B, \hat{f} \in ((A \ap f^{-1}(Z)) \to Z), \hat{f} = f|_{f^{-1}(Z)}\)</span>, the restriction of the function to the corresponding smaller codomain, is also an injection (resp. surjection).</p>
+<p>A) if <span class="math inline">\(f \in (A \to B), f \text{ injective (resp. surjective)}\)</span>, then <span class="math inline">\(\forall Z \subseteq B, \hat{f} \in ((f^{-1}(Z) \subseteq A) \to Z), \hat{f} = f|_{f^{-1}(Z)}\)</span>, the restriction of the function to the corresponding smaller codomain, is also an injection (resp. surjection).</p>
 <p>B) if <span class="math inline">\(f \in (A \to B), f \text{ injective (resp. surjective)}\)</span>, then <span class="math inline">\(\forall Z \supseteq B, \hat{f} \in (A \to Z), \hat{f} = \iota \circ f\)</span> (with the <span class="math inline">\(\iota\)</span> the canonical injection of <span class="math inline">\(b \in B\)</span> into its superset <span class="math inline">\(Z\)</span>), is also an injection (resp. is never a surjection).</p>
 <p>C) if <span class="math inline">\(f \in (A \to B), f \text{ injective}\)</span>, then <span class="math inline">\(\forall Z \subseteq A, \hat{f} \in (Z \to B), f = \iota_{(Z \to A)} \circ \hat{f}\)</span>, we have that <span class="math inline">\(\hat{f}\)</span> is also an injection. However, one can construct <span class="math inline">\(Z \subseteq A\)</span> such that <span class="math inline">\(f\)</span> stops being a surjection.</p>
 <p>D) if <span class="math inline">\(f \in (A \to B), f \text{ surjective}\)</span>, then <span class="math inline">\(\forall Z \supseteq A, \hat{f} \in (Z \to (B \cup f(Z))), f = \iota_{(Z \to A)} \circ \hat{f}\)</span>, we have that <span class="math inline">\(\hat{f}\)</span> is also a surjection. However, one can construct <span class="math inline">\(Z \subseteq A\)</span> such that <span class="math inline">\(f\)</span> stops being a injection.</p>
 <p>Proof: TODO</p>
-<p>Chapter I)</p>
-<p>Section 1) Explains fundamentals of set theory and basic set operations</p>
-<p>Section 2) Explains set relations, set functions and some more advanced set operations</p>
-<p>Section 3) Presents categories, and multiple examples of categories. Some are simple, some are advanced.</p>
+<h1 id="lexicon">Lexicon</h1>
+<h2 class="unnumbered" id="chapter-1">Chapter 1</h2>
+<h3 class="unnumbered" id="section-1">Section 1</h3>
+<ul>
+<li><p>Set (not a multiset)</p></li>
+<li><p>∅: the empty set, containing no elements;</p></li>
+<li><p>N: the set of natural numbers (that is, nonnegative integers);</p></li>
+<li><p>Z: the set of integers;</p></li>
+<li><p>Q: the set of rational numbers;</p></li>
+<li><p>R: the set of real numbers;</p></li>
+<li><p>C: the set of complex numbers.</p></li>
+<li><p>Singleton:</p></li>
+<li><p>∃: existential quantifier, "there exists"</p></li>
+<li><p>∀: universal quantifier, "for all"</p></li>
+<li><p>inclusion:</p></li>
+<li><p>subset:</p></li>
+<li><p>cardinal:</p></li>
+<li><p>powerset:</p></li>
+<li><p>∪: the union:</p></li>
+<li><p>∩: the intersection:</p></li>
+<li><p><span class="math inline">\(\\\)</span>: the difference:</p></li>
+<li><p><span class="math inline">\(\coprod\)</span>: the disjoint union:</p></li>
+<li><p>×: the (Cartesian) product:</p></li>
+<li><p>complement of a subset</p></li>
+<li><p>relation</p></li>
+<li><p>order relation</p></li>
+<li><p>equivalence relation</p></li>
+<li><p>reflexivity</p></li>
+<li><p>symmetry</p></li>
+<li><p>antisymmetry</p></li>
+<li><p>transitivity</p></li>
+<li><p>partition</p></li>
+<li><p>quotient by an equivalence relation</p></li>
+</ul>
+<h3 class="unnumbered" id="section-2">Section 2</h3>
+<ul>
+<li><p>function</p></li>
+<li><p>graph</p></li>
+<li><p>(categorical, function) diagram</p></li>
+<li><p>identity function</p></li>
+<li><p>kernel (of a function)</p></li>
+<li><p>image (of a function)</p></li>
+<li><p>restriction (of a function to a subset)</p></li>
+<li><p>multiset</p></li>
+<li><p>composition</p></li>
+<li><p>commutative (diagram)</p></li>
+<li><p>injection</p></li>
+<li><p>surjection</p></li>
+<li><p>bijection</p></li>
+<li><p>isomorphism</p></li>
+<li><p>inverse</p></li>
+<li><p>pre-inverse, right-inverse</p></li>
+<li><p>post-inverse, left-inverse</p></li>
+<li><p>monomorphism</p></li>
+<li><p>epimorphism</p></li>
+<li><p>natural projection</p></li>
+<li><p>natural injection</p></li>
+<li><p>canonical decomposition (of a function)</p></li>
+</ul>
+<h3 class="unnumbered" id="section-3">Section 3</h3>
+<ul>
+<li><p>category</p></li>
+<li><p>object</p></li>
+<li><p>morphism</p></li>
+<li><p>endomorphism</p></li>
+<li><p>operation</p></li>
+<li><p>discrete category</p></li>
+<li><p>small category</p></li>
+<li><p>locally small category</p></li>
+<li><p>slice category</p></li>
+<li><p>coslice category</p></li>
+<li><p>comma category (mentioned, undefined)</p></li>
+<li><p>pointed set</p></li>
+<li><p><span class="math inline">\(C^{A, B}\)</span> category ??</p></li>
+</ul>
 </body>
 </html>

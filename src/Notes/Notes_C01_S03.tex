@@ -1,6 +1,6 @@
-\section{Chapter 1, Section 3}
+\chapter*{Chapter 1, Section 3}
 
-\subsection{On terminal and initial objects in \textbf{Set}}
+\section*{On terminal and initial objects in \textbf{Set}}
 
 If $\empty$ is initial and $\{ \star \}$ is terminal, it is because a function in $Set$ (in categorical terms) must always have an output for every input. Ie, in category theory, all functions are maps ("applications").
 
@@ -15,17 +15,19 @@ $$
 
 In the case of $\empty$ as the input set, and there is only one function $f: \empty \to Z$ for any $Z$: $f$ is the empty mapping. But any $Z \to \empty$ (expept $\empty \to \empty$) contains no mapping (since we'd necessarily be ignoring at least one element of $Z$).
 
-Similarly, in the case of the (unique up-to-isomorphism) singleton set $\{ \star \}$ as the output, you'd have multiple functions (precisely $2^{#Z}$) into it, if you could ignore some elements of the input set. However, if all elements of the input set are required, that leaves you with only one function possible from $Z \to \{ \star \}$: the function which maps all elements to $\star$.
+Similarly, in the case of the (unique up-to-isomorphism) singleton set $\{ \star \}$ as the output, you'd have multiple functions (precisely $2^{|Z|}$) into it, if you could ignore some elements of the input set. However, if all elements of the input set are required, that leaves you with only one function possible from $Z \to \{ \star \}$: the function which maps all elements to $\star$.
 
 
 
 
-\subsection{Restrictions and extensions of functions, and its consequences on a function's nature}
+\section*{Restrictions and extensions of functions, and its consequences on a function's nature}
 
 8 possibilities to study, based on the following binary dichotomies:
-- injection or surjection
-- enlarging or restricting
-- domain or codomain
+\begin{itemize}
+	\item injection or surjection
+	\item enlarging or restricting
+	\item domain or codomain
+\end{itemize}
 
 Note that enlarging the domain sometimes implies enlarging the codomain, and restricting the codomain sometimes implies restricting the domain.
 
@@ -40,7 +42,7 @@ surjection	& Y				& D				& N				& Y
 
 Theorems:
 
-A) if $f \in (A \to B), f \text{ injective (resp. surjective)}$, then $\forall Z \subseteq B, \hat{f} \in ((A \ap f^{-1}(Z)) \to Z), \hat{f} = f|_{f^{-1}(Z)}$, the restriction of the function to the corresponding smaller codomain, is also an injection (resp. surjection).
+A) if $f \in (A \to B), f \text{ injective (resp. surjective)}$, then $\forall Z \subseteq B, \hat{f} \in ((f^{-1}(Z) \subseteq A) \to Z), \hat{f} = f|_{f^{-1}(Z)}$, the restriction of the function to the corresponding smaller codomain, is also an injection (resp. surjection).
 
 B) if $f \in (A \to B), f \text{ injective (resp. surjective)}$, then $\forall Z \supseteq B, \hat{f} \in (A \to Z), \hat{f} = \iota \circ f$ (with the $\iota$ the canonical injection of $b \in B$ into its superset $Z$), is also an injection (resp. is never a surjection).
 

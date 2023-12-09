@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Multiversity Algebra Chapter 0 Reading Group" />
+  <title>Aluffi_AC0_Exercises.en</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="exercise-solutions">Exercise solutions</h1>
+<h2 class="unnumbered" id="chapter-i">Chapter I)</h2>
+<h3 class="unnumbered" id="section-1">Section 1)</h3>
+<h4 class="unnumbered" id="section">1.1)</h4>
+<p>In a nutshell, Russell’s paradox proves, by contradiction, that certain mathematical collections cannot be sets. It posits the existence of a "set of all sets that don’t contain themselves". Such a set can neither contain itself (since in that case, it would be a "set that does contain itself", and should be excluded); nor can it exclude it itself (since in that case, it would be a "set that doesn’t contain itself", and should be included).</p>
+<h4 class="unnumbered" id="section-2">1.2)</h4>
+<p>Prove that any equivalence relation over a set <span class="math inline">\(S\)</span> defines a partition of <span class="math inline">\(\mathcal{P}_S\)</span>.</p>
+<p>a) <span class="math inline">\(\mathcal{P}_S\)</span> has no empty elements: any element in <span class="math inline">\(S\)</span> is part of at least one equivalence class, the class containing at least that element itself. Since there is no equivalence class constructed independently from elements, there are no empty equivalence classes.</p>
+<p>b) Elements of <span class="math inline">\(\mathcal{P}_S\)</span> are disjoint: suppose there is an element <span class="math inline">\(x\)</span> that is part of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, two distinct equivalence classes. <span class="math inline">\(\forall a \in A, x \sim a\)</span> and <span class="math inline">\(\forall b \in B, x \sim b\)</span>. By transivity through <span class="math inline">\(x\)</span>, <span class="math inline">\(\forall a \in A, \forall b \in B, a \sim b\)</span>. Therefore, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are the same equivalence class: <span class="math inline">\(A = B\)</span>. Contradiction. Therefore all elements of <span class="math inline">\(\mathcal{P}_S\)</span> are disjoint subsets of <span class="math inline">\(S\)</span>.</p>
+<p>c) The union of all elements of <span class="math inline">\(\mathcal{P}_S\)</span> makes up <span class="math inline">\(S\)</span>: suppose <span class="math inline">\(\exists x \in S\)</span> such that <span class="math inline">\(x \notin \bigcup_{S_i \in \mathcal{P}_S} S_i\)</span>. From the argument made in (a), <span class="math inline">\(x\)</span> exists in at least one equivalence class, the class which contains only <span class="math inline">\(x\)</span> itself. This is one of ou <span class="math inline">\(S_i\)</span> sets. Contradiction. Therefore, <span class="math inline">\(\bigcup_{S_i \in \mathcal{P}_S} S_i = S\)</span></p>
+<h4 class="unnumbered" id="section-3">1.3)</h4>
+<p>Given a partition <span class="math inline">\(\mathcal{P}\)</span> on a set <span class="math inline">\(S\)</span>, show how to define a relation <span class="math inline">\(\sim\)</span> on <span class="math inline">\(S\)</span> such that <span class="math inline">\(P\)</span> is the corresponding partition.</p>
+<p>The insight here is to build an equivalence relation such that two elements are equivalent if and only if they are part of the same subset of <span class="math inline">\(S\)</span>, which is understood as their common equivalence class.</p>
+<p>We define <span class="math inline">\(\sim\)</span> such that <span class="math inline">\(\forall S_i, S_j \in \mathcal{P}, \forall x \in S_i, \forall y \in S_j, x \sim y \Leftrightarrow S_i = S_j\)</span>.</p>
+<p>Let us prove that <span class="math inline">\(\sim\)</span> is an equivalence relation.</p>
+<p>a) Reflexivity: <span class="math display">\[\forall A \in \mathcal{P}, \forall x \in A, A = A \Rightarrow x \sim x\]</span></p>
+<p>b) Symmetry: <span class="math display">\[\forall S_i, S_j \in \mathcal{P}, \forall x \in S_i, \forall y \in S_j, x \sim y \Leftrightarrow S_i = S_j \Leftrightarrow S_j = S_i \Leftrightarrow y \sim x\]</span></p>
+<p>c) Transitivity: <span class="math display">\[\forall S_i, S_j, S_k \in \mathcal{P}, \forall x \in S_i, \forall y \in S_j, \forall z \in S_k, x \sim y \cap y \sim z \\
+    \Leftrightarrow \\
+S_i = S_j \cap S_j = S_k \Rightarrow S_i = S_k \\
+    \Leftrightarrow \\
+x \sim z\]</span></p>
+<p>Therefore, <span class="math inline">\(\sim\)</span> is indeed an equivalence relation, and is generated uniquely by the partition.</p>
+<h4 class="unnumbered" id="section-4">1.4)</h4>
+<p>How many different equivalence relations may be defined on the set <span class="math inline">\(\{1, 2, 3\}\)</span>?</p>
+<p>If we start with the 1 element set, we have only one possible partition, one possible equivalence class.</p>
+<p>With the 2 element set, there are 2 partitions, <span class="math inline">\(\{\{1, 2\}\}\)</span> and <span class="math inline">\(\{\{1\}, \{2\}\}\)</span>.</p>
+<p>With the 3 element set, there is:</p>
+<ul>
+<li><p>1 partition of type 1-1-1: <span class="math inline">\(\{\{1\}, \{2\}, \{3\}\}\)</span>.</p></li>
+<li><p>3 partitions of type 2-1: <span class="math inline">\(\{\{1\}, \{2, 3\}\}\)</span>, <span class="math inline">\(\{\{2\}, \{1, 3\}\}\)</span>, and <span class="math inline">\(\{\{3\}, \{1, 2\}\}\)</span>.</p></li>
+<li><p>1 partition of type 3: <span class="math inline">\(\{\{1, 2, 3\}\}\)</span>.</p></li>
+</ul>
+<p>Hence, there are five equivalence classes on the 3 element set.</p>
+<p>See the Bell numbers: https://oeis.org/A000110</p>
+<h4 class="unnumbered" id="section-5">1.5)</h4>
+<p>Give an example of a relation that is reflexive and symmetric, but not transitive. What happens if you attempt to use this relation to define a partition on the set?</p>
+<p>In terms of graph theory, if we express a set with an internal relation as a graph, we can represent elements are nodes and relationships are edges. Reflexivity means that every node has a loop (unary, self-edge). Symmetry means that the graph is not directed (since every relationship goes both ways). Transitivity means that every connected subset of nodes is a maximal clique (synonymously, every connected component is a complete subgraph).</p>
+<p>In a relation which is reflexive and symmetric, but not transitive, you would have connected components of this graph which are not cliques. For these, there is ambiguity as to how you would group their nodes. Two obvious choices would be either:</p>
+<ul>
+<li><p>to remove the minimal number of edges to obtain n distinct cliques (thereby gaining the transitive restriction of the relation) from a given non-clique;</p></li>
+<li><p>to complete the connected subgraph into a clique (thereby gaining the transitive closure of the relation).</p></li>
+</ul>
+<h4 class="unnumbered" id="section-6">1.6)</h4>
+<p>Define a relation <span class="math inline">\(\sim\)</span> on the set <span class="math inline">\(\mathbb{R}\)</span> of real numbers, by setting <span class="math inline">\(a \sim b \Leftrightarrow b - a \in \mathbb{Z}\)</span>. Prove that this is an equivalence relation, and find a ’compelling’ description for <span class="math inline">\(\mathbb{R}/\sim\)</span>. Do the same for the relation <span class="math inline">\(\approx\)</span> on the plane <span class="math inline">\(\mathbb{R} \times \mathbb{R}\)</span> defined by declaring <span class="math inline">\((a_1, a_2) \approx (b_1, b_2) \Leftrightarrow b_1 - a_1 \in \mathbb{Z} \text{ and } b_2 - a_2 \in \mathbb{Z}\)</span>.</p>
+<p><span class="math inline">\(b - a \in \mathbb{Z}\)</span> means that 2 real numbers differ by an integral amount. This means that the equivalence relation algebraically describes the idea that "with this relation, 2 real numbers are the same iff they have the same fractional component <span class="math inline">\(x\)</span> (or <span class="math inline">\(1 - x\)</span> for negative numbers)". Eg, <span class="math inline">\(4.76 \sim 1024.76 \sim -5.34\)</span>, since <span class="math inline">\(-5.34 + 10 = 4.76\)</span>, etc.</p>
+<p>To make an algebraic quotient of a set by an equivalence relation, we take the function which maps each element to its corresponding equivalence class, in the set (partition) containing these equivalence class. Intuitively, this is similar to keeping only one representative element per equivalence class. For the example class above, we can keep the representative <span class="math inline">\(0.76\)</span>. There is such an equivalence class for every fractional part possible, that is, one for every number in <span class="math inline">\([0, 1[\)</span>. The corresponding map is the "real remainder of division modulo 1". This map is well-defined because each real number has only one output for this map, and all real numbers that are equivalent through <span class="math inline">\(\sim\)</span> are mapped to the same value in the output set.</p>
+<p>We should also notice that since <span class="math inline">\(0 \sim 1\)</span>, this space loops around on itself. Intuitively, if you increase linearly in the input space <span class="math inline">\(\mathbb{R}\)</span>, it goes back to <span class="math inline">\(0\)</span> after <span class="math inline">\(0.9999999...\)</span> in the output space. This output space is thus a circle of perimeter <span class="math inline">\(1\)</span>.</p>
+<p>Similarly, <span class="math inline">\(b_1 - a_1 \in \mathbb{Z} \text{ and } b_2 - a_2 \in \mathbb{Z}\)</span> means that 2 points in the 2D plane are the same iff they differ in each coordinate by an integral amount. This boils down to combining two such loops from the first part of the exercise: one in the <span class="math inline">\(x\)</span> direction and one in the <span class="math inline">\(y\)</span> direction: what this gives is the small square <span class="math inline">\([0, 1[ \times [0, 1[\)</span>, which loops to <span class="math inline">\(x = 0\)</span> (resp. <span class="math inline">\(y = 0\)</span>) when <span class="math inline">\(x = 1\)</span> (resp. <span class="math inline">\(y = 1\)</span>) is reached. This space functions like a small torus, of area <span class="math inline">\(1\)</span>.</p>
+<h3 class="unnumbered" id="section-2-1">Section 2)</h3>
+<h4 class="unnumbered" id="section-7">2.1)</h4>
+<p>How many different bijections are there between a set <span class="math inline">\(S\)</span> with <span class="math inline">\(n\)</span> elements and itself?</p>
+<p>Any bijection is a choice of a pairs from 2 sets of the same size, where each element is used only once, and each pair has one element from each set. At first there are n choices in each set. If we pick a pair, we pick from <span class="math inline">\(n^2\)</span> possibilities</p>
+<p>There are then <span class="math inline">\((n-1)^2\)</span> choices of pairs left, etc.</p>
+<p>Ccl°: <span class="math inline">\(\prod_{i=1}^{i=n} i^2 = (n!)^2\)</span></p>
+<h4 class="unnumbered" id="section-8">2.2)</h4>
+<p>Prove that a function has a right-inverse iff it is surjective (can use AC)</p>
+<p>Let <span class="math inline">\(f \in (A \to B)\)</span>.</p>
+<h5 class="unnumbered" id="a-rightarrow-suppose-that-f-has-a-right-inverse-pre-inverse.">2.2.a) <span class="math inline">\(\Rightarrow\)</span>: Suppose that <span class="math inline">\(f\)</span> has a right-inverse (pre-inverse).</h5>
+<p>We have <span class="math inline">\(\exists g \in (B \to A), f \circ g = id_B\)</span></p>
+<p>Suppose that <span class="math inline">\(f\)</span> is not a a surjection. This means <span class="math inline">\(\exists b \in B, \nexists a \in A, b = f(a)\)</span></p>
+<p><span class="math inline">\(f(g(b))= id_B (b) = b\)</span> Necessarily, <span class="math inline">\(g(b)\)</span> is such an <span class="math inline">\(a\)</span>, so <span class="math inline">\(\exists a \in A, b = f(a)\)</span>. Contradiction.</p>
+<p>Ccl°:: f is a surjection.</p>
+<h5 class="unnumbered" id="b-leftarrow-suppose-that-f-is-a-surjection.">2.2.b) <span class="math inline">\(\Leftarrow\)</span>: Suppose that f is a surjection.</h5>
+<p><span class="math inline">\(\forall b \in B, \exists a \in A, b = f(a)\)</span></p>
+<p>We will construct a pre-inverse for <span class="math inline">\(f\)</span>.</p>
+<p>The insight here is to realize that a surjection divides its input set into a partition, where each 2-by-2 disjoint subset corresponds to <span class="math inline">\(f^{-1}(\{q\})\)</span>, for every <span class="math inline">\(q\)</span> in the output set. More formally, each "fiber" (preimage of a singleton) is a disjoint subset of the input set, and the union of fibers is the input set itself. You can see this in the following diagram:</p>
+<p>(add diagram) 1234 to ab 1a 2a (fiber from a) 3b 4b (fiber from b) https://tex.stackexchange.com/questions/157450/producing-a-diagram-showing-relations-between-sets https://tex.stackexchange.com/questions/79009/drawing-the-mapping-of-elements-for-sets-in-latex</p>
+<p>Using AC, we select a single element from each such fiber. For each <span class="math inline">\(q \in B\)</span>, we name <span class="math inline">\(p_q \in f^{-1}(\{q\})\)</span> the chosen element. We define <span class="math inline">\(g\)</span> as <span class="math inline">\(g \in (B \to A), g = (q \mapsto p_q)\)</span>. With this, <span class="math inline">\(\forall b \in B, f \circ g (b) = b\)</span>, and so <span class="math inline">\(f \circ g = id_A\)</span>. Thus, <span class="math inline">\(f\)</span> has a preinverse.</p>
+<p>A summary of this idea: all surjection preinverses are simply a choice of a representative for each fiber of the surjection as the output to the respective singleton.</p>
+<h4 class="unnumbered" id="section-9">2.3)</h4>
+<p>Prove that the inverse of a bijection is a bijection, and that the composition of two bijections is a bijection.</p>
+<h5 class="unnumbered" id="a-using-the-fact-that-a-function-is-a-bijection-iff-it-has-a-two-sided">2.3.a) Using the fact that a function is a bijection iff it has a two-sided </h5>
+<p>inverse (</p>
+<h4 class="unnumbered" id="corollary-2.2">Corollary 2.2)</h4>
+<p>we can see from this defining fact, <span class="math inline">\(f \in (A \to B) \text{bijective } \Leftrightarrow, \exists f^{-1} \in (B \to A), f^{-1} \circ f = id_A \text { and } f \circ f^{-1} = id_B\)</span> that <span class="math inline">\(f\)</span> is naturally <span class="math inline">\(f^{-1}\)</span>’s (unique) two-sided inverse, and so <span class="math inline">\(f^{-1}\)</span> is also a bijection.</p>
+<h5 class="unnumbered" id="b-let-be-f-in-a-to-b-g-in-b-to-c-both-bijective-hence-with">2.3.b) Let be <span class="math inline">\(f \in (A \to B), g \in (B \to C)\)</span>, both bijective (hence with </h5>
+<p>inverses in the respective function spaces). Let <span class="math inline">\(h \in (A \to C), h = g \circ f\)</span> and <span class="math inline">\(h^{-1} \in (C \to A), h^{-1} = f^{-1} \circ g^{-1}\)</span>. We have:</p>
+<p><span class="math display">\[\begin{aligned}
+h^{-1} \circ h &amp;= (f^{-1} \circ g^{-1}) \circ (g \circ f) \\
+               &amp;=  f^{-1} \circ g^{-1}  \circ  g \circ f  \\
+               &amp;=  f^{-1} \circ          id_B    \circ f  \\
+               &amp;=  f^{-1} \circ                        f  \\
+               &amp;=  id_A
+\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+h \circ h^{-1} &amp;= (g \circ f) \circ (f^{-1} \circ g^{-1}) \\
+               &amp;=  g \circ f  \circ  f^{-1} \circ g^{-1}  \\
+               &amp;=  g \circ     id_B         \circ g^{-1}  \\
+               &amp;=  g \circ                        g^{-1}  \\
+               &amp;=  id_C
+\end{aligned}\]</span></p>
+<p>Therefore <span class="math inline">\(h\)</span> and <span class="math inline">\(h^{-1}\)</span> are two-sided inverses of each other, and thus bijections. From this we conclude that the composition of any two bijections is also a bijection.</p>
+<h4 class="unnumbered" id="section-10">2.4)</h4>
+<p>Prove that ‘isomorphism’ is an equivalence relation (on any set of sets).</p>
+<h5 class="unnumbered" id="a-problem-statement">2.4.a) Problem statement</h5>
+<p>Let <span class="math inline">\(\mathcal{A}\)</span> be a set of sets. We define the relation <span class="math inline">\(\simeq\)</span> between the elements of <span class="math inline">\(\mathcal{A}\)</span> as the following:</p>
+<p><span class="math display">\[\forall X, Y \in \mathcal{A}, \; X \simeq Y \Leftrightarrow \text {there exists a bijection between $X$ and $Y$}\]</span></p>
+<p>Let us show that <span class="math inline">\(\simeq\)</span> is an equivalence relation.</p>
+<h5 class="unnumbered" id="b-reflexivity">2.4.b) Reflexivity</h5>
+<p>For any set <span class="math inline">\(A \in \mathcal{A}\)</span>, the identity mapping on <span class="math inline">\(A\)</span> is a bijection. This means that <span class="math inline">\(\forall A \in \mathcal{A}, A \simeq A\)</span>, ie, <span class="math inline">\(\simeq\)</span> is reflexive.</p>
+<h5 class="unnumbered" id="c-symmetry">2.4.c) Symmetry</h5>
+<p><span class="math display">\[\begin{aligned}
+\forall X, Y \in \mathcal{A}, \; X \simeq Y &amp; \Rightarrow \exists f      \in (X \to Y) \text{ bijective} \\
+                                            &amp; \Rightarrow \exists f^{-1} \in (Y \to X) \text{ bijective} \\
+                                            &amp; \Rightarrow Y \simeq X
+\end{aligned}\]</span></p>
+<p>Therefore, <span class="math inline">\(\simeq\)</span> is symmetric.</p>
+<h5 class="unnumbered" id="d-transitivity">2.4.d) Transitivity</h5>
+<p>Let be <span class="math inline">\(X, Y, Z \in \mathcal{A}\)</span>. Suppose that <span class="math inline">\(X \simeq Y\)</span> and <span class="math inline">\(Y \simeq Z\)</span>. This means <span class="math inline">\(\exists f \in (X \to Y), g \in (Y \to Z)\)</span>, both bijections. Let be <span class="math inline">\(h \in (X \to Z), h = g \circ f\)</span>. <span class="math inline">\(h\)</span> is also a bijection since the composition of</p>
+<h4 class="unnumbered" id="two-bijections-is-also-a-bijection-exercise-2.3">two bijections is also a bijection (exercise 2.3)</h4>
+<p>The existence of <span class="math inline">\(h\)</span> implies <span class="math inline">\(X \simeq Z\)</span>.</p>
+<p>Therefore <span class="math inline">\(\simeq\)</span> is transitive.</p>
+<h5 class="unnumbered" id="e-conclusion">2.4.e) Conclusion</h5>
+<p>Isomorphism, <span class="math inline">\(\simeq\)</span>, is a relation on an arbitrary set (of sets) which is always reflexive, symmetric and transitive. It is thus an equivalence relation.</p>
+<h4 class="unnumbered" id="section-11">2.5)</h4>
+<p>Formulate a notion of epimorphism and prove that epimorphisms and surjections are equivalent.</p>
+<p>See "notes" file: section "Proofs of mono/inj and epi/surj equivalence".</p>
+<h4 class="unnumbered" id="section-12">2.6)</h4>
+<p>With notation as in Example 2.4, explain how any function <span class="math inline">\(f \in (A \to B)\)</span> determines a section of <span class="math inline">\(\pi_A\)</span>.</p>
+<p>A section is the preinverse of a surjection. Here, the surjection in question is <span class="math inline">\(\pi_A\)</span> the projection of <span class="math inline">\(A \times B\)</span> onto <span class="math inline">\(A\)</span>.</p>
+<p>Let <span class="math inline">\(f \in (A \to B)\)</span>.</p>
+<p>We now consider the function which maps an input <span class="math inline">\(a \in A\)</span> of <span class="math inline">\(f\)</span> to its "geometric representation" (its coordinates in the enclosing space <span class="math inline">\(A \times B\)</span>, corresponding to a point of the graph <span class="math inline">\(\Gamma_f\)</span>). <span class="math display">\[\hat{f} \in (A \to (A \times B)), \hat{f} = ( \; a \mapsto (a, f(a)) \; )\]</span> We notice that <span class="math inline">\(\hat{f}(A) = \Gamma_f\)</span>.</p>
+<p>Naturally, <span class="math inline">\(\pi_A \circ \hat{f} = (a \mapsto a) = id_A\)</span>, therefore, <span class="math inline">\(\hat{f}\)</span> is a pre-inverse (section) of <span class="math inline">\(\pi_A\)</span>.</p>
+<p>This set of relationships can be expressed in the following commutative diagram:</p>
+<p>PS: see "On sections and fibers" in the "notes" file for a worked example.</p>
+<h4 class="unnumbered" id="section-13">2.7)</h4>
+<p>Let <span class="math inline">\(f = (A \to B)\)</span> be any function. Prove that the graph <span class="math inline">\(\Gamma_f\)</span> of <span class="math inline">\(f\)</span> is isomorphic to <span class="math inline">\(A\)</span>.</p>
+<p>Using the elements from the previous exercise, we know that <span class="math inline">\(\hat{f}\)</span> is injective from <span class="math inline">\(A\)</span> into <span class="math inline">\(A \times B\)</span>. This property is inherited to any restriction of the codomain <span class="math inline">\(Z \subseteq B\)</span>, and corresponding implied restriction of the domain to <span class="math inline">\(Y = f^{-1}(Z) \subseteq A\)</span>. In particular, here, <span class="math inline">\(Y = A\)</span> and <span class="math inline">\(Z = \Gamma_f = \hat{f}(A)\)</span>. We now consider <span class="math inline">\(\overline{f} \in (A \to \Gamma_f), \overline{f} = (a \mapsto \hat{f}(a))\)</span>. We can see that <span class="math inline">\(\overline{f}\)</span> is injective from being a restriction of an injective function to a smaller codomain. We also know that <span class="math inline">\(\overline{f}\)</span> is surjective, since its domain is its image. Therefore, <span class="math inline">\(\overline{f}\)</span> is a bijection. This means that <span class="math inline">\(A \simeq \Gamma_f\)</span>.</p>
+<h4 class="unnumbered" id="section-14">2.8)</h4>
+<p>Describe as explicitly as you can all terms in the canonical decomposition of the function <span class="math inline">\(f \in (\mathbb{R} \to \mathbb{C})\)</span> defined by <span class="math inline">\(f = (r \mapsto e^{2 \pi i r})\)</span>. (This exercise matches one assigned previously, which one?)</p>
+<p>Firstly, elements of <span class="math inline">\(\mathbb{R}\)</span> are equivalent by this map (they have the same output) if they vary by <span class="math inline">\(1\)</span> from each other. This is a reference to the equivalence relation <span class="math inline">\(\sim\)</span> in exercise 1.6. Therefore, we will use <span class="math inline">\(\mathbb{R}/\sim \simeq S^1\)</span> in our decomposition. Obviously, the map from <span class="math inline">\((\mathbb{R} \to \mathbb{R}/\sim)\)</span>, which maps each element of <span class="math inline">\(\mathbb{R}\)</span> to respective their equivalence class is a surjection (since there’s no empty equivalence class).</p>
+<p>Secondly, as mentioned, we have a bijection <span class="math inline">\(\tilde{f}\)</span> between <span class="math inline">\(\mathbb{R}/\sim\)</span> and <span class="math inline">\(S^1\)</span>, the circle group of unit complex numbers, namely <span class="math inline">\(\tilde{f} = (x \mapsto e^{2 \pi i x}\)</span>, where each element <span class="math inline">\(x\)</span> of <span class="math inline">\(\mathbb{R}/\sim\)</span> can be understood to correspond to a (class representative) value in the interval <span class="math inline">\([0, 1[\)</span>.</p>
+<p>Finally, we do the canonical injection of <span class="math inline">\(S^1\)</span> into its superset <span class="math inline">\(\mathbb{C}\)</span>.</p>
+<h4 class="unnumbered" id="section-15">2.9)</h4>
+<p>Show that if <span class="math inline">\(A \simeq A&#39;\)</span> and <span class="math inline">\(B \simeq B&#39;\)</span> , and further <span class="math inline">\(A \cap B = \emptyset\)</span> and <span class="math inline">\(A&#39; \cap B&#39; = \emptyset\)</span>, then <span class="math inline">\(A \cup B \simeq A&#39; \cup B&#39;\)</span>. Conclude that the operation <span class="math inline">\(A \coprod B\)</span> (as described in §1.4) is well-defined up to isomorphism.</p>
+<p>We suppose the aforementioned.</p>
+<p>Let <span class="math inline">\(f_A\)</span> be a bijection from <span class="math inline">\(A \to A&#39;\)</span>, and <span class="math inline">\(f_B\)</span> be a bijection from <span class="math inline">\(B \to B&#39;\)</span>.</p>
+<p>We define the following:</p>
+<p><span class="math display">\[f \in (A \cup B \to A&#39; \cup B&#39;),
+\text{ such that }
+\begin{cases}
+    \forall a \in A, \; f(a) = f_A(a) \\
+    \forall b \in B, \; f(b) = f_B(b)
+\end{cases}\]</span></p>
+<p>This function is a well-defined function, since <span class="math inline">\(A \cap B = \emptyset\)</span>: every element of the domain has one, and only one, possible image.</p>
+<p>Similarly, we define:</p>
+<p><span class="math display">\[g \in (A&#39; \cup B&#39; \to A \cup B),
+\text{ such that }
+\begin{cases}
+    \forall a \in A&#39;, \; g(a) = f_A^{-1}(a) \\
+    \forall b \in B&#39;, \; g(b) = f_B^{-1}(b)
+\end{cases}\]</span></p>
+<p>Similarly, because <span class="math inline">\(A&#39; \cap B&#39; = \emptyset\)</span>, <span class="math inline">\(g\)</span> is well-defined.</p>
+<p>Let us study <span class="math inline">\(g \circ f\)</span>. We have: <span class="math display">\[\begin{cases}
+    \forall a \in A, \; g(f(a)) = f_A^{-1}(f_A(a)) = a \\
+    \forall b \in B, \; g(f(b)) = f_B^{-1}(f_B(b)) = b
+\end{cases}\]</span></p>
+<p>Hence, <span class="math inline">\(g \circ f = id_{A \cup B}\)</span>. Similarly, <span class="math inline">\(f \circ g = id_{A&#39; \cup B&#39;}\)</span>. Therefore, <span class="math inline">\(g = f^{-1}\)</span>, <span class="math inline">\(f\)</span> is a bijection, and <span class="math inline">\(A \cup B \simeq A&#39; \cup B&#39;\)</span>.</p>
+<p>We’ll now do a shift in notation. Let be some arbitrary sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Let be <span class="math inline">\(A_1, A_2, B_1, B_2\)</span> such that <span class="math inline">\(A_1 = \{ 1 \} \times A\)</span>, <span class="math inline">\(A_2 = \{ 2 \} \times A\)</span>, <span class="math inline">\(B_1 = \{ 1 \} \times B\)</span>, and <span class="math inline">\(B_2 = \{ 2 \} \times B\)</span>. This means <span class="math inline">\(A \simeq A_1\)</span>, <span class="math inline">\(A \simeq A_2\)</span>, <span class="math inline">\(B \simeq B_1\)</span>, and <span class="math inline">\(B \simeq B_2\)</span>. It also means <span class="math inline">\(A_1 \cap A_2 = \emptyset\)</span> and <span class="math inline">\(B_1 \cap B_2 = \emptyset\)</span>. From the above, this implies <span class="math inline">\(A_1 \cup B_1 \simeq A_2 \cup B_2\)</span>.</p>
+<p>This means that the disjoint union of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is indeed well-defined, up to isomorphism: so long as 2 respective copies of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are made in a way that their intersection is empty, the 2 respective unions of 1 copy each will be isomorphic.</p>
+<h4 class="unnumbered" id="section-16">2.10)</h4>
+<p>Show that if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are finite sets, then <span class="math inline">\(|B^A| = |B|^{|A|}\)</span>.</p>
+<p>The number of <span class="math inline">\(|B^A|\)</span> functions in <span class="math inline">\(B^A = (A \to B)\)</span> can be counted in the following way.</p>
+<p>For each element <span class="math inline">\(a\)</span> of <span class="math inline">\(A\)</span>, of which there are <span class="math inline">\(|A|\)</span>, we can pick any element of <span class="math inline">\(|B|\)</span> as the image. This means <span class="math inline">\(|B| \times ... \times |B|\)</span>, a total of <span class="math inline">\(|A|\)</span> times. Hence, <span class="math inline">\(|B^A| = |B|^{|A|}\)</span>.</p>
+<h4 class="unnumbered" id="section-17">2.11)</h4>
+<p>In view of Exercise 2.10, it is not unreasonable to use <span class="math inline">\(2^A\)</span> to denote the set of functions from an arbitrary set <span class="math inline">\(A\)</span> to a set with <span class="math inline">\(2\)</span> elements (say <span class="math inline">\(\mathbb{B} = \{0, 1\}\)</span>). Prove that there is a bijection between <span class="math inline">\(2^A\)</span> and the power set <span class="math inline">\(\mathcal{P}(A)\)</span> of <span class="math inline">\(A\)</span>.</p>
+<p>Simply put, every subset <span class="math inline">\(A_i\)</span> of <span class="math inline">\(A\)</span> is built through a series of <span class="math inline">\(|A|\)</span> choices: for each element <span class="math inline">\(a\)</span> in <span class="math inline">\(A\)</span>, do we keep the element <span class="math inline">\(a\)</span> in our subset <span class="math inline">\(A_i\)</span> (output <span class="math inline">\(1\)</span>) or do we remove it (output <span class="math inline">\(0\)</span>) ? It is then easy to see that such a series of choices can easily be encoded as a unique function in <span class="math inline">\(A \to \mathbb{B}\)</span>. The totality of such series of choices thus corresponds both to the space <span class="math inline">\(A \to \mathbb{B}\)</span>, and to the powerset <span class="math inline">\(\mathcal{A}\)</span>, and there is a bijection between the two.</p>
+<h3 class="unnumbered" id="section-3-1">Section 3)</h3>
+<h4 class="unnumbered" id="section-18">3.1)</h4>
+<p>Let <span class="math inline">\(\mathcal{C}\)</span> be a category. Consider a structure <span class="math inline">\(\mathcal{C}^{op}\)</span> with: - <span class="math inline">\(Obj(\mathcal{C}^{op}) \coloneqq Obj(\mathcal{C})\)</span>; - for <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> objects of <span class="math inline">\(\mathcal{C}^{op}\)</span> (hence, objects of <span class="math inline">\(\mathcal{C}\)</span>), <span class="math inline">\(Hom_{\mathcal{C}^{op}} (A, B) \coloneqq Hom_{\mathcal{C}} (B, A)\)</span> Show how to make this into a category.</p>
+<h5 class="unnumbered" id="a-composition">3.1.a) Composition</h5>
+<p>First, to make things clearer and more rigorous, let us distinguish composition in <span class="math inline">\(\mathcal{C}\)</span> as <span class="math inline">\(\circ\)</span> and composition in <span class="math inline">\(\mathcal{C}^{op}\)</span> as <span class="math inline">\(\star\)</span>. We define <span class="math inline">\(\star\)</span> as: <span class="math display">\[\begin{aligned}
+    &amp; \forall f \in Hom_{\mathcal{C}^{op}} (B, A) = Hom_{\mathcal{C}} (A, B), \\
+    &amp; \forall g \in Hom_{\mathcal{C}^{op}} (C, B) = Hom_{\mathcal{C}} (B, C), \\
+    &amp; \exists h \in Hom_{\mathcal{C}^{op}} (C, A) = Hom_{\mathcal{C}} (A, C), \\
+    &amp; f \star g \coloneqq g \circ f = h
+\end{aligned}\]</span></p>
+<p>We will now show that <span class="math inline">\(\mathcal{C}^{op}\)</span> with <span class="math inline">\(\star\)</span> verifies the other axioms of a category (namely identity and assossiativity of composition).</p>
+<h5 class="unnumbered" id="b-identity">3.1.b) Identity</h5>
+<p>Since <span class="math inline">\(\mathcal{C}\)</span> is a category, since <span class="math inline">\(\mathcal{C}^{op}\)</span> has the same objects, and since, by definition, for all object <span class="math inline">\(A\)</span>, we have <span class="math inline">\(Hom_{\mathcal{C}^{op}} (A, A) = Hom_{\mathcal{C}} (A, A)\)</span>, we can take every <span class="math inline">\(id_A \in Hom_{\mathcal{C}}(A, A)\)</span> as the same identity in <span class="math inline">\(\mathcal{C}^{op}\)</span>. We can verify that this is compatible with <span class="math inline">\(\star\)</span>:</p>
+<p><span class="math display">\[\begin{aligned}
+    \forall A, B &amp; \in Obj (\mathcal{C})        &amp;=&amp; \;  Obj (\mathcal{C}^{op})        , \\
+    \exists id_A &amp; \in Hom_{\mathcal{C}} (A, A) &amp;=&amp; \;  Hom_{\mathcal{C}^{op}} (A, A) , \\
+    \exists id_B &amp; \in Hom_{\mathcal{C}} (B, B) &amp;=&amp; \;  Hom_{\mathcal{C}^{op}} (B, B) , \\
+    \forall f    &amp; \in Hom_{\mathcal{C}} (A, B) &amp;=&amp; \;  Hom_{\mathcal{C}^{op}} (B, A) , \\
+    f            &amp; =   f    \circ id_A          &amp;=&amp; \;  id_A \star f                  , \\
+    f            &amp; =   id_B \circ    f          &amp;=&amp; \;  f    \star id_B                 \\
+\end{aligned}\]</span></p>
+<h5 class="unnumbered" id="c-associativity">3.1.c) Associativity</h5>
+<p>Using associativity in <span class="math inline">\(\mathcal{C}\)</span>, we have:</p>
+<p><span class="math display">\[\begin{aligned}
+    \forall A, B, C, D &amp; \in Obj (\mathcal{C})        &amp;=&amp; \;  Obj (\mathcal{C}^{op})        , \\
+    \forall f          &amp; \in Hom_{\mathcal{C}} (A, B) &amp;=&amp; \;  Hom_{\mathcal{C}^{op}} (B, A) , \\
+    \forall g          &amp; \in Hom_{\mathcal{C}} (B, C) &amp;=&amp; \;  Hom_{\mathcal{C}^{op}} (C, B) , \\
+    \forall h          &amp; \in Hom_{\mathcal{C}} (C, D) &amp;=&amp; \;  Hom_{\mathcal{C}^{op}} (D, C) , \\
+\end{aligned}\]</span> <span class="math display">\[\begin{aligned}
+    h \star (g \star f) &amp;=&amp;  h \star (f  \circ g) \\
+                        &amp;=&amp; (f \circ  g) \circ h  \\
+                        &amp;=&amp;  f \circ  (g \circ h) \\
+                        &amp;=&amp;  (g \circ h) \star f  \\
+                        &amp;=&amp;  (h \star g) \star f  \\
+\end{aligned}\]</span></p>
+<p>Therefore, <span class="math inline">\(\star\)</span> is associative.</p>
+<p>We conclude that <span class="math inline">\(\mathcal{C}^{op}\)</span> is a category.</p>
+<h4 class="unnumbered" id="section-19">3.2)</h4>
+<p>If <span class="math inline">\(A\)</span> is a finite set, how large is <span class="math inline">\(End_{\text{Set}}(A)\)</span> ?</p>
+<p>We know that, in Set, <span class="math inline">\(End_{\text{Set}}(A) = (A \to A) = A^A\)</span>. From a previous exercise, we know that <span class="math inline">\(|B^A| = |B|^|A|\)</span>, therefore <span class="math inline">\(|End_{\text{Set}}(A)| = |A|^|A|\)</span>.</p>
+<h4 class="unnumbered" id="section-20">3.3)</h4>
+<p>Formulate precisely what it means to say that "<span class="math inline">\(1_a\)</span> is an identity with respect to composition" in Example 3.3, and prove this assertion.</p>
+<p>Example 3.3 is that of a category over a set <span class="math inline">\(S\)</span> with a (reflexive, transitive) relation <span class="math inline">\(\sim\)</span>, where the objects of the category are the elements of <span class="math inline">\(S\)</span>, and the homset between two elements <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> is the singleton <span class="math inline">\((a,b)\)</span> if <span class="math inline">\(a \sim b\)</span>, and <span class="math inline">\(\emptyset\)</span> otherwise. Composition <span class="math inline">\(\circ\)</span> is given by transitivity of <span class="math inline">\(\sim\)</span>, where <span class="math inline">\((b,c) \circ (a,b) = (a,c)\)</span>. Reflexivity gives the identities (<span class="math inline">\(id_a = (a,a)\)</span> for any element <span class="math inline">\(a\)</span>).</p>
+<p>In this context, to say that "<span class="math inline">\(1_a\)</span> is an identity with respect to composition" means that we can cancel out an element of the form <span class="math inline">\((a,a)\)</span> from a composition.</p>
+<p>Formally, we have:</p>
+<p><span class="math display">\[\forall a,b \in S, (b,b) \circ (a,b) = (a,b) = (a,b) \circ (a,a)\]</span></p>
+<p>proving that <span class="math inline">\((b,b)\)</span> is indeed a post-identity, and <span class="math inline">\((a,a)\)</span> a pre-identity, in this context.</p>
+<h4 class="unnumbered" id="section-21">3.4)</h4>
+<p>Can we define a category in the style of Example 3.3, using the relation <span class="math inline">\(&lt;\)</span> on the set <span class="math inline">\(\mathbb{Z}\)</span> ?</p>
+<p>(Description of example 3.3 in the exercise 3.3 just above.)</p>
+<p>Naively, saying like in example 3.3 "there is a singleton homset <span class="math inline">\(\text{Hom}(a,b)\)</span> each time we have <span class="math inline">\(a &lt; b\)</span>", we cannot define such a category, since <span class="math inline">\(&lt;\)</span> is not reflexive, and we would thus lack identity morphisms.</p>
+<p>However, in a roundabout way, we can define a category over the <em>negation</em> of <span class="math inline">\(&lt;\)</span>: "there is a singleton homset <span class="math inline">\(\text{Hom}(a,b)\)</span> each time we DO NOT have <span class="math inline">\(a &lt; b\)</span>". Namely this corresponds to the relation <span class="math inline">\(\ge\)</span>, which is, itself, reflexive, transitive (and antisymmetric), and is a valid instance of the kind of category presented in example 3.3.</p>
+<p>In fact, the pair <span class="math inline">\((\mathbb{Z}, \geq)\)</span> is an instance of what is called a "totally ordered set", which is a more restrictive kind of "partially ordered set" (also called "poset" for short). Consequently, this kind of category is called a "poset category".</p>
+<h4 class="unnumbered" id="section-22">3.5)</h4>
+<p>Explain in what sense Example 3.4 is an instance of the categories considered in Example 3.3.</p>
+<p>(Description of example 3.3 in the exercise 3.3 just above.)</p>
+<p>Example 3.4 describes a category <span class="math inline">\(\hat{S}\)</span> where the objects are the subsets of a set <span class="math inline">\(S\)</span> (equivalently: elements of the powerset <span class="math inline">\(\mathcal{P}(S)\)</span> of <span class="math inline">\(S\)</span>), and morphisms between two subsets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> of <span class="math inline">\(S\)</span> are singleton (or empty) homsets based on whether the inclusion is true (or false).</p>
+<p>Inclusion of sets, <span class="math inline">\(\subset\)</span>, is also an order relation, this time between the elements of a set of sets (here, <span class="math inline">\(\mathcal{P}(S)\)</span>). This means inclusion is reflexive, transitive, and antisymmetric. This makes <span class="math inline">\(\hat{S}\)</span> a poset category, and thus another instance of example 3.3.</p>
+<h4 class="unnumbered" id="section-23">3.6)</h4>
+<p>Define a category <span class="math inline">\(V\)</span> by taking <span class="math inline">\(Obj(V) = \mathbb{N}\)</span>, and <span class="math inline">\(Hom_V(n, m) = Mat_\mathbb{R}(m, n)\)</span>, the set of <span class="math inline">\(m \times n\)</span> matrices with real entries, for all <span class="math inline">\(n, m \in \mathbb{N}\)</span>. (I will leave the reader the task to make sense of a matrix with 0 rows or columns.) Use product of matrices to define composition. Does this category ’feel’ familiar ?</p>
+<p>The formulation of the exercise is strange. It says to use the product of matrices to define composition, and to have homsets be sets of matrices, but objects of the category are supposed to be integers. I don’t know of any matrix with real entries that maps an integer to an integer in this way.</p>
+<p>We thus infer that the meaning of the exercise can be one of two things.</p>
+<p>Either we suppose the set of objects could rather be understood as "something isomorphic to <span class="math inline">\(\mathbb{N}\)</span>", ie, the collection of real vector spaces with finite bases (ie, <span class="math inline">\(\forall n \in \mathbb{N}, \mathbb{R}^n\)</span>). In which case, this is just the category of real vector spaces with finite basis (and linear maps as morphisms), which is a subcategory of the category real vector spaces (commonly called <span class="math inline">\(Vect_{\mathbb{R}}\)</span>). In this context, any morphism starting from <span class="math inline">\(0 \simeq \mathbb{R}^0 = \{0\}\)</span> is just the injection of the origin into the codomain; and any morphism ending at <span class="math inline">\(0\)</span> is the mapping of all elements to the origin.</p>
+<p>Otherwise, we understand this as "yes, the objects of the category are integers: this means you should ignore the actual content of the matrices, and instead consider only their effect on the dimensionality of domains and codomains". In this case, this category is a complete directed graph over <span class="math inline">\(\mathbb{N}\)</span> where each edge corresponds to the change in dimension (from domain to codomain) caused by a given linear map.</p>
+<h4 class="unnumbered" id="section-24">3.7)</h4>
+<p>Define carefully objects and morphisms in Example 3.7, and draw the diagram corresponding to composition.</p>
+<p>Example 3.7 (on coslice categories) refers to example 3.5 (on slice categories). Let’s go over slice categories (since example 3.5 asks the reader to "check all [their various properties]").</p>
+<p>3.7.1) Slice categories</p>
+<p>Slice categories are categories made by singling out an object (say <span class="math inline">\(A\)</span>) in some parent (larger) category (say <span class="math inline">\(\mathcal{C}\)</span>), and studying all morphisms into that object. These morphisms become the objects of a new category (ie, for any <span class="math inline">\(Z\)</span> of <span class="math inline">\(\mathcal{C}\)</span>, <span class="math inline">\(f \in (Z \to A)\)</span> is an object of the slice category, called <span class="math inline">\(\mathcal{C}_A\)</span> in this context). In the slice category, morphisms are defined as those morphism in <span class="math inline">\(\mathcal{C}\)</span> that preserve composition between 2 morphisms into <span class="math inline">\(A\)</span>.</p>
+<p>Note that there exist pairs of morphisms <span class="math inline">\(f_1 \in (Z_1 \to A)\)</span> and <span class="math inline">\(f_2 \in (Z_2 \to A)\)</span> between which there is no morphism that exists in the slice category. One such example we can make is in <span class="math inline">\((Vect_\mathbb{R})_{\mathbb{R}^2}\)</span>. If we take the maps:</p>
+<p><span class="math display">\[f_1 = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)\]</span> <span class="math display">\[f_2 = \begin{bmatrix} 0 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)\]</span></p>
+<p>There exists no map <span class="math inline">\(\sigma\)</span> such that the following diagram commutes (since the output of <span class="math inline">\(f_1\)</span> will always be null in its second coordinate, and the output of <span class="math inline">\(f_2\)</span> will always be null in the first):</p>
+<p>Now, let us prove that <span class="math inline">\(\mathcal{C}_A\)</span> is indeed a category for an arbitrary object <span class="math inline">\(A\)</span> of an arbitrary category <span class="math inline">\(\mathcal{C}\)</span>.</p>
+<p>3.7.1.a) Identity</p>
+<p>A generic identity morphism is expressed diagrammatically in <span class="math inline">\(\mathcal{C}_A\)</span> as:</p>
+<p>We can see that since <span class="math inline">\(f = f \circ id_Z\)</span> in <span class="math inline">\(\mathcal{C}\)</span>, this is compatible with the definition of a (pre-/right-)unit morphism in <span class="math inline">\(\mathcal{C}_A\)</span>. Also, since the only maps post-<span class="math inline">\(f\)</span> are maps from <span class="math inline">\(A \to A\)</span>, we have <span class="math inline">\(id_A\)</span> as the (post-/left-)unit for every morphism <span class="math inline">\(f\)</span> (ie, <span class="math inline">\(f = id_A \circ f\)</span>.</p>
+<p>3.7.1.b) Composition</p>
+<p>Taking 3 objects of the slice category (<span class="math inline">\(f_1 \in (Z_1 \to A)\)</span>, <span class="math inline">\(f_2 \in (Z_2 \to A)\)</span> and <span class="math inline">\(f_3 \in (Z_3 \to A)\)</span>), and two morphisms (<span class="math inline">\(\sigma_A\)</span> mapping <span class="math inline">\(f_1\)</span> to <span class="math inline">\(f_2\)</span> via a <span class="math inline">\(\mathcal{C}\)</span>-morphism <span class="math inline">\(\sigma \in (Z_1 \to Z_2)\)</span>, and <span class="math inline">\(\tau_A\)</span> mapping <span class="math inline">\(f_2\)</span> to <span class="math inline">\(f_3\)</span> via a <span class="math inline">\(\mathcal{C}\)</span>-morphism <span class="math inline">\(\tau \in (Z_2 \to Z_3)\)</span>), we have that <span class="math inline">\(f_1 = f_2 \circ \sigma\)</span> and <span class="math inline">\(f_2 = f_3 \circ \tau\)</span>. This is expressed as the following commutative diagram.</p>
+<p>Composition of morphisms is then defined as <span class="math inline">\(\tau_A \circ_A \sigma_A\)</span> as a mapping from <span class="math inline">\(f_1\)</span> to <span class="math inline">\(f_3\)</span>, such that <span class="math inline">\(f_1 = f_3 \circ (\tau \circ \sigma)\)</span>. This can be understood through the following commutative diagram:</p>
+<p>Which commutes, because we have:</p>
+<p><span class="math display">\[\begin{aligned}
+    f_1 &amp;=&amp;  f_2              \circ \sigma  \\
+        &amp;=&amp; (f_3 \circ  \tau) \circ \sigma  \\
+        &amp;=&amp;  f_3 \circ (\tau  \circ \sigma)
+\end{aligned}\]</span></p>
+<p>Thus, we have a working composition of morphisms.</p>
+<p>3.7.1.c) Associativity</p>
+<p>We take 4 objects of the slice category (<span class="math inline">\(f_1 \in (Z_1 \to A)\)</span>, <span class="math inline">\(f_2 \in (Z_2 \to A)\)</span>, <span class="math inline">\(f_3 \in (Z_3 \to A)\)</span> and <span class="math inline">\(f_4 \in (Z_4 \to A)\)</span>), and three morphisms (<span class="math inline">\(\sigma_A\)</span> mapping <span class="math inline">\(f_1\)</span> to <span class="math inline">\(f_2\)</span>, <span class="math inline">\(\tau_A\)</span> mapping <span class="math inline">\(f_2\)</span> to <span class="math inline">\(f_3\)</span>, and <span class="math inline">\(\upsilon_A\)</span> mapping <span class="math inline">\(f_3\)</span> to <span class="math inline">\(f_4\)</span>). Using composition defined as above, we have</p>
+<p><span class="math display">\[f_1 = f_4 \circ ( \upsilon \circ (\tau  \circ \sigma))
+    = f_4 \circ ((\upsilon \circ  \tau) \circ \sigma )
+\Rightarrow
+   \upsilon_A \circ (\tau_A  \circ \sigma_A)
+= (\upsilon_A \circ  \tau_A) \circ \sigma_A\]</span> Through associativity in <span class="math inline">\(\mathcal{C}\)</span>.</p>
+<p>3.7.2) Coslice categories</p>
+<p>A coslice category <span class="math inline">\(\mathcal{C}^A\)</span> is similar, except it takes the morphisms coming <em>from</em> a chosen object <span class="math inline">\(A\)</span>, rather than those going <em>to</em> this object <span class="math inline">\(A\)</span>. Below is a commutative diagram in the style of the one of the textbook for slice categories.</p>
+<p>We can similarly show that this also defines a category.</p>
+<p>3.7.2.a) Identity</p>
+<p>A generic identity morphism is expressed diagrammatically in <span class="math inline">\(\mathcal{C}^A\)</span> as:</p>
+<p>We can see that since <span class="math inline">\(f = id_Z \circ f\)</span> in <span class="math inline">\(\mathcal{C}\)</span>, this is compatible with the definition of a (post-/left-)unit morphism in <span class="math inline">\(\mathcal{C}^A\)</span>. Also, since the only maps pre-<span class="math inline">\(f\)</span> are maps from <span class="math inline">\(A \to A\)</span>, we have <span class="math inline">\(id_A\)</span> as the (pre-/right-)unit for every morphism <span class="math inline">\(f\)</span> (ie, <span class="math inline">\(f = f \circ id_A\)</span>.</p>
+<p>3.7.2.b) Composition</p>
+<p>Taking 3 objects of the slice category (<span class="math inline">\(f_1 \in (A \to Z_1)\)</span>, <span class="math inline">\(f_2 \in (A \to Z_2)\)</span> and <span class="math inline">\(f_3 \in (A \to Z_3)\)</span>), and two morphisms (<span class="math inline">\(\sigma^A\)</span> mapping <span class="math inline">\(f_1\)</span> to <span class="math inline">\(f_2\)</span> via a <span class="math inline">\(\mathcal{C}\)</span>-morphism <span class="math inline">\(\sigma \in (Z_1 \to Z_2)\)</span>, and <span class="math inline">\(\tau^A\)</span> mapping <span class="math inline">\(f_2\)</span> to <span class="math inline">\(f_3\)</span> via a <span class="math inline">\(\mathcal{C}\)</span>-morphism <span class="math inline">\(\tau \in (Z_2 \to Z_3)\)</span>), we have that <span class="math inline">\(f_1 = \sigma \circ f_2\)</span> and <span class="math inline">\(f_2 = \tau  \circ f_3\)</span>. This is expressed as the following commutative diagram.</p>
+<p>Composition of morphisms is then defined as <span class="math inline">\(\tau^A \circ^A \sigma^A\)</span> as a mapping from <span class="math inline">\(f_1\)</span> to <span class="math inline">\(f_3\)</span>, such that <span class="math inline">\(f_3 = (\tau \circ \sigma) \circ f_1\)</span>. This can be understood through the following commutative diagram:</p>
+<p>Which commutes, because we have:</p>
+<p><span class="math display">\[\begin{aligned}
+    f_3 &amp;=&amp;  \tau \circ                f_2  \\
+        &amp;=&amp;  \tau \circ (\sigma  \circ f_1) \\
+        &amp;=&amp; (\tau \circ  \sigma) \circ f_1
+\end{aligned}\]</span></p>
+<p>Thus, we have a working composition of morphisms.</p>
+<p>3.7.2.c) Associativity</p>
+<p>We take 4 objects of the slice category (<span class="math inline">\(f_1 \in (A \to Z_1)\)</span>, <span class="math inline">\(f_2 \in (A \to Z_2)\)</span>, <span class="math inline">\(f_3 \in (A \to Z_3)\)</span> and <span class="math inline">\(f_4 \in (A \to Z_4)\)</span>), and three morphisms (<span class="math inline">\(\sigma^A\)</span> mapping <span class="math inline">\(f_1\)</span> to <span class="math inline">\(f_2\)</span>, <span class="math inline">\(\tau^A\)</span> mapping <span class="math inline">\(f_2\)</span> to <span class="math inline">\(f_3\)</span>, and <span class="math inline">\(\upsilon^A\)</span> mapping <span class="math inline">\(f_3\)</span> to <span class="math inline">\(f_4\)</span>). Using composition defined as above, we have</p>
+<p><span class="math display">\[f_4 = ( \upsilon \circ (\tau  \circ \sigma)) \circ f_1
+    = ((\upsilon \circ  \tau) \circ \sigma ) \circ f_1
+\Rightarrow
+   \upsilon^A \circ (\tau^A  \circ \sigma^A)
+= (\upsilon^A \circ  \tau^A) \circ \sigma^A\]</span> Through associativity in <span class="math inline">\(\mathcal{C}\)</span>.</p>
+<h4 class="unnumbered" id="section-25">3.8)</h4>
+<p>A subcategory <span class="math inline">\(\mathcal{C&#39;}\)</span> of a category <span class="math inline">\(\mathcal{C}\)</span> consists of a collection of objects of <span class="math inline">\(\mathcal{C}\)</span>, with morphisms <span class="math inline">\(Hom_\mathcal{C&#39;} (A, B) \subseteq Hom_\mathcal{C} (A, B)\)</span> for all objects <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> in <span class="math inline">\(Obj(\mathcal{C&#39;})\)</span>, such that identities and compositions in <span class="math inline">\(\mathcal{C}\)</span> make <span class="math inline">\(\mathcal{C&#39;}\)</span> into a category. A subcategory <span class="math inline">\(\mathcal{C&#39;}\)</span> is <em>full</em> if <span class="math inline">\(Hom_\mathcal{C&#39;} (A, B) = Hom_\mathcal{C} (A, B)\)</span> for all <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> in <span class="math inline">\(Obj(\mathcal{C&#39;})\)</span>. Construct a category of <em>infinite sets</em> and explain how it may be viewed as a full subcategory of <span class="math inline">\(\mathbf{Set}\)</span>.</p>
+<p>To put it less technically, a "subcategory" <span class="math inline">\(\mathcal{C&#39;}\)</span> is just "picking only certain items of a base category <span class="math inline">\(\mathcal{C}\)</span>, and making sure that things stay closed uneder morphism composition". It is "full" if <em>all</em> morphisms between the objects that remain are also conserved.</p>
+<p>We can construct a category <span class="math inline">\(\mathbf{InfSet}\)</span> of infinite sets by taking all the objects <span class="math inline">\(A\)</span> of <span class="math inline">\(\mathbf{Set}\)</span> such that <span class="math inline">\(\nexists n \in \mathbb{N}, |A| = n\)</span>, and only homsets between these objects. This is clearly a subcategory of <span class="math inline">\(\mathbf{Set}\)</span>, since it inherits all identity morphisms, composition works the same, and so does associativity; also, restricting the choice of homsets makes it so that the category is closed (you can’t reach a finite set via a homset that went from an infinite to a finite set).</p>
+<p>For this category to not be full, there would need to be some homset that loses a morphism, or fully disappears, in the ordeal. However, there is no restriction as to the kind of morphism that is conserved, so any homset that is kept is identical to its original version. Finally, homsets between infinite sets are also infinite sets, so they don’t disappear in this operation.</p>
+<p>Consequently <span class="math inline">\(\mathbf{InfSet}\)</span> defined as such is a full subcategory of <span class="math inline">\(\mathbf{Set}\)</span>.</p>
+<h4 class="unnumbered" id="section-26">3.9)</h4>
+<p>An alternative to the notion of multiset is obtained by considering sets endowed with equivalence relations; equivalent elements are taken to be multiple instances of elements ’of the same kind’. Define a notion of morphism between such enhanced sets, obtaining a category <span class="math inline">\(\mathbf{MSet}\)</span> containing (a ’copy’ of) <span class="math inline">\(\mathbf{Set}\)</span> as a full subcategory. (There may be more than one reasonable way to do this! This is intentionally an open-ended exercise.) Which objects in <span class="math inline">\(\mathbf{MSet}\)</span> determine ordinary multisets as defined in §2.2, and how? Spell out what a morphism of multisets would be from this point of view. (There are several natural notions of morphisms of multisets. Try to define morphisms in MSet so that the notion you obtain for ordinary multisets captures your intuitive understanding of these objects.) [§2.2, §3.2, 4.5]</p>
+<h4 class="unnumbered" id="section-27">3.10)</h4>
+<p>Since the objects of a category <span class="math inline">\(\mathcal{C}\)</span> are not (necessarily) sets, it is not clear how to make sense of a notion of ’subobject’ in general. In some situations it does make sense to talk about subobjects, and the subobjects of any given object <span class="math inline">\(A\)</span> in <span class="math inline">\(\mathcal{C}\)</span> are in one-to-one correspondence with the morphisms <span class="math inline">\(A \to \Omega\)</span> for a fixed, special object <span class="math inline">\(\Omega\)</span> of <span class="math inline">\(\mathcal{C}\)</span>, called a subobject classifier. Show that <span class="math inline">\(\mathbf{Set}\)</span> has a subobject classifier.</p>
+<h4 class="unnumbered" id="section-28">3.11)</h4>
+<p>Draw the relevant diagrams and define composition and identities for the category <span class="math inline">\(\mathcal{C}^{A,B}\)</span> mentioned in Example 3.9. Do the same for the category <span class="math inline">\(\mathcal{C}^{\alpha, \beta}\)</span> mentioned in Example 3.10. [§5.5, 5.12]</p>
+<h1 id="extra-exercises-byfor-the-group">Extra exercises by/for the group</h1>
+<h3 class="unnumbered" id="chapter-i-1-set-notation">Chapter I) 1) Set notation)</h3>
+<p>Write the following in set notation (as a list of numbers, and algebraically):</p>
+<ul>
+<li><p>the set of all odd integers</p></li>
+<li><p>the set of all integers that are not multiples of 3</p></li>
+<li><p>the set of integers from 10 (included) to 20 (included)</p></li>
+<li><p>the set of integers from 10 (included) to 20 (excluded)</p></li>
+<li><p>the set of pairs of integers with both elements of the same value</p></li>
+<li><p>the set of triplets of real numbers that together sum to 1</p></li>
+<li><p>the set of pairs of positive real numbers that together sum to 1</p></li>
+<li><p>the set of <span class="math inline">\(n\)</span>-tuplets (for any <span class="math inline">\(n\)</span>) of real number that together sum to 1</p></li>
+<li><p>the set of all natural numbers such that there exists at least one triplet of positive even numbers which are all different and which sum to that number.</p></li>
+</ul>
+<p>Now take the sets in their algebraic notation, and represent them both as a list of numbers (as a logical sequence or just a couple of examples), and as a "description" of what they are:</p>
+<ul>
+<li><p><span class="math inline">\(\{3n + 2 \; | \; n \in \mathbb{N} \}\)</span></p></li>
+<li><p><span class="math inline">\(\{3k + 2 \; | \; k \in \mathbb{Z} \}\)</span></p></li>
+<li><p><span class="math inline">\(\{ 2^i \; | \; i \in [[0, 10]] \}\)</span></p></li>
+<li><p><span class="math inline">\(\{ (x, y) \in \mathbb{R}^2 \; | \; x^2 + y^2 = 1 \}\)</span></p></li>
+<li><p><span class="math inline">\(\{ x \in \mathbb{R} \; | \; -2 \leq x \leq 2 \}\)</span></p></li>
+<li><p><span class="math inline">\(\{ (m, n, p) \in \mathbb{N}^3 \; | \; m + n + p = 10 \}\)</span></p></li>
+</ul>
+</body>
+</html>

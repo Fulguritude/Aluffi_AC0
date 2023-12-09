@@ -10,4 +10,13 @@ For now there are 3 sections:
 
   - Per chapter lexicons
 
-  - Some extra exercises that might be lacking from the book 
+  - Some extra exercises that might be lacking from the book
+
+
+# Build
+
+To run the build(s) run the appropriate build script. Note that the following packages are required.
+
+```sh
+sudo apt install pandoc texlive texlive-latex-base texlive-latex-extra
+```

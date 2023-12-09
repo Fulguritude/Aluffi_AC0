@@ -1,59 +1,61 @@
-Section 3)
+\section*{Section 3)}
 
-3.1) Let $\mathcal{C}$ be a category. Consider a structure $\mathcal{C}^{op}$ with:
+\subsection*{3.1)}
+
+Let $\mathcal{C}$ be a category. Consider a structure $\mathcal{C}^{op}$ with:
  - $Obj(\mathcal{C}^{op}) \coloneqq Obj(\mathcal{C})$;
  - for $A$, $B$ objects of $\mathcal{C}^{op}$ (hence, objects of $\mathcal{C}$), $Hom_{\mathcal{C}^{op}} (A, B) \coloneqq Hom_{\mathcal{C}} (B, A)$
 Show how to make this into a category.
 
-3.1.a) Composition
+\subsubsection*{3.1.a) Composition}
 
 First, to make things clearer and more rigorous, let us distinguish composition in $\mathcal{C}$ as $\circ$ and composition in $\mathcal{C}^{op}$ as $\star$. We define $\star$ as:
 $$
-\begin{align*}
+\begin{aligned}
 	& \forall f \in Hom_{\mathcal{C}^{op}} (B, A) = Hom_{\mathcal{C}} (A, B), \\
 	& \forall g \in Hom_{\mathcal{C}^{op}} (C, B) = Hom_{\mathcal{C}} (B, C), \\
 	& \exists h \in Hom_{\mathcal{C}^{op}} (C, A) = Hom_{\mathcal{C}} (A, C), \\
 	& f \star g \coloneqq g \circ f = h
-\end{align*}
+\end{aligned}
 $$
 
 We will now show that $\mathcal{C}^{op}$ with $\star$ verifies the other axioms of a category (namely identity and assossiativity of composition).
 
-3.1.b) Identity
+\subsubsection*{3.1.b) Identity}
 
 Since $\mathcal{C}$ is a category, since $\mathcal{C}^{op}$ has the same objects, and since, by definition, for all object $A$, we have $Hom_{\mathcal{C}^{op}} (A, A) = Hom_{\mathcal{C}} (A, A)$, we can take every $id_A \in Hom_{\mathcal{C}}(A, A)$ as the same identity in $\mathcal{C}^{op}$. We can verify that this is compatible with $\star$:
 
 $$
-\begin{align*}
+\begin{aligned}
 	\forall A, B & \in Obj (\mathcal{C})        &=& \;  Obj (\mathcal{C}^{op})        , \\
 	\exists id_A & \in Hom_{\mathcal{C}} (A, A) &=& \;  Hom_{\mathcal{C}^{op}} (A, A) , \\
 	\exists id_B & \in Hom_{\mathcal{C}} (B, B) &=& \;  Hom_{\mathcal{C}^{op}} (B, B) , \\
 	\forall f    & \in Hom_{\mathcal{C}} (A, B) &=& \;  Hom_{\mathcal{C}^{op}} (B, A) , \\
 	f            & =   f    \circ id_A          &=& \;  id_A \star f                  , \\
 	f            & =   id_B \circ    f          &=& \;  f    \star id_B                 \\
-\end{align*}
+\end{aligned}
 $$
 
-3.1.c) Associativity
+\subsubsection*{3.1.c) Associativity}
 
 Using associativity in $\mathcal{C}$, we have:
 
 $$
-\begin{align*}
+\begin{aligned}
 	\forall A, B, C, D & \in Obj (\mathcal{C})        &=& \;  Obj (\mathcal{C}^{op})        , \\
 	\forall f          & \in Hom_{\mathcal{C}} (A, B) &=& \;  Hom_{\mathcal{C}^{op}} (B, A) , \\
 	\forall g          & \in Hom_{\mathcal{C}} (B, C) &=& \;  Hom_{\mathcal{C}^{op}} (C, B) , \\
 	\forall h          & \in Hom_{\mathcal{C}} (C, D) &=& \;  Hom_{\mathcal{C}^{op}} (D, C) , \\
-\end{align*}
+\end{aligned}
 $$
 $$
-\begin{align*}
+\begin{aligned}
 	h \star (g \star f) &=&  h \star (f  \circ g) \\
 						&=& (f \circ  g) \circ h  \\
 						&=&  f \circ  (g \circ h) \\
 						&=&  (g \circ h) \star f  \\
 						&=&  (h \star g) \star f  \\
-\end{align*}
+\end{aligned}
 $$
 
 Therefore, $\star$ is associative.
@@ -62,13 +64,17 @@ We conclude that $\mathcal{C}^{op}$ is a category.
 
 
 
-3.2) If $A$ is a finite set, how large is $End_{\text{Set}}(A)$ ?
+\subsection*{3.2)}
+
+If $A$ is a finite set, how large is $End_{\text{Set}}(A)$ ?
 
 We know that, in Set, $End_{\text{Set}}(A) = (A \to A) = A^A$. From a previous exercise, we know that $|B^A| = |B|^|A|$, therefore $|End_{\text{Set}}(A)| = |A|^|A|$.
 
 
 
-3.3) Formulate precisely what it means to say that "$1_a$ is an identity with respect to composition" in Example 3.3, and prove this assertion.
+\subsection*{3.3)}
+
+Formulate precisely what it means to say that "$1_a$ is an identity with respect to composition" in Example 3.3, and prove this assertion.
 
 Example 3.3 is that of a category over a set $S$ with a (reflexive, transitive) relation $\sim$, where the objects of the category are the elements of $S$, and the homset between two elements $a$ and $b$ is the singleton $(a,b)$ if $a \sim b$, and $\emptyset$ otherwise. Composition $\circ$ is given by transitivity of $\sim$, where $(b,c) \circ (a,b) = (a,c)$. Reflexivity gives the identities ($id_a = (a,a)$ for any element $a$).
 
@@ -82,7 +88,9 @@ proving that $(b,b)$ is indeed a post-identity, and $(a,a)$ a pre-identity, in t
 
 
 
-3.4) Can we deﬁne a category in the style of Example 3.3, using the relation $<$ on the set $\mathbb{Z}$ ?
+\subsection*{3.4)}
+
+Can we define a category in the style of Example 3.3, using the relation $<$ on the set $\mathbb{Z}$ ?
 
 (Description of example 3.3 in the exercise 3.3 just above.)
 
@@ -94,7 +102,9 @@ In fact, the pair $(\mathbb{Z}, \geq)$ is an instance of what is called a "total
 
 
 
-3.5) Explain in what sense Example 3.4 is an instance of the categories considered in Example 3.3.
+\subsection*{3.5)}
+
+Explain in what sense Example 3.4 is an instance of the categories considered in Example 3.3.
 
 (Description of example 3.3 in the exercise 3.3 just above.)
 
@@ -104,7 +114,9 @@ Inclusion of sets, $\subset$, is also an order relation, this time between the e
 
 
 
-3.6) Deﬁne a category $V$ by taking $Obj(V) = \mathbb{N}$, and $Hom_V(n, m) = Mat_\mathbb{R}(m, n)$, the set of $m \times n$ matrices with real entries, for all $n, m \in \mathbb{N}$. (I will leave the reader the task to make sense of a matrix with 0 rows or columns.) Use product of matrices to deﬁne composition. Does this
+\subsection*{3.6)}
+
+Define a category $V$ by taking $Obj(V) = \mathbb{N}$, and $Hom_V(n, m) = Mat_\mathbb{R}(m, n)$, the set of $m \times n$ matrices with real entries, for all $n, m \in \mathbb{N}$. (I will leave the reader the task to make sense of a matrix with 0 rows or columns.) Use product of matrices to define composition. Does this
 category 'feel' familiar ?
 
 The formulation of the exercise is strange. It says to use the product of matrices to define composition, and to have homsets be sets of matrices, but objects of the category are supposed to be integers. I don't know of any matrix with real entries that maps an integer to an integer in this way.
@@ -117,7 +129,9 @@ Otherwise, we understand this as "yes, the objects of the category are integers:
 
 
 
-3.7) Deﬁne carefully objects and morphisms in Example 3.7, and draw the diagram corresponding to composition.
+\subsection*{3.7)}
+
+Define carefully objects and morphisms in Example 3.7, and draw the diagram corresponding to composition.
 
 Example 3.7 (on coslice categories) refers to example 3.5 (on slice categories). Let's go over slice categories (since example 3.5 asks the reader to "check all [their various properties]").
 
@@ -173,11 +187,11 @@ Z_1 \arrow[rd, "f_1"'] \arrow[rr, "\tau \circ \sigma"] &   & Z_3 \arrow[ld, "f_3
 Which commutes, because we have:
 
 $$
-\begin{align}
+\begin{aligned}
 	f_1 &=&  f_2              \circ \sigma  \\
 		&=& (f_3 \circ  \tau) \circ \sigma  \\
 		&=&  f_3 \circ (\tau  \circ \sigma)
-\end{align}
+\end{aligned}
 $$
 
 Thus, we have a working composition of morphisms.
@@ -241,11 +255,11 @@ Z_1 \arrow[rr, "\tau \circ \sigma"] &                                        & Z
 Which commutes, because we have:
 
 $$
-\begin{align}
+\begin{aligned}
 	f_3 &=&  \tau \circ                f_2  \\
 		&=&  \tau \circ (\sigma  \circ f_1) \\
 		&=& (\tau \circ  \sigma) \circ f_1
-\end{align}
+\end{aligned}
 $$
 
 Thus, we have a working composition of morphisms.
@@ -264,15 +278,29 @@ $$
 Through associativity in $\mathcal{C}$.
 
 
-3.8) A subcategory $\mathcal{C'}$ of a category $\mathcal{C}$ consists of a collection of objects of $\mathcal{C}$, with morphisms $Hom_\mathcal{C'} (A, B) \subseteq Hom_\mathcal{C} (A, B)$ for all objects $A$, $B$ in $Obj(\mathcal{C'})$, such that identities and compositions in $\mathcal{C}$ make $\mathcal{C'}$ into a category. A subcategory $\mathcal{C'}$ is \textit{full} if $Hom_\mathcal{C'} (A, B) = Hom_\mathcal{C} (A, B)$ for all $A$, $B$ in $Obj(\mathcal{C'})$. Construct a category of \textit{infinite sets} and explain how it may be viewed as a full subcategory of $Set$.
+\subsection*{3.8)}
+
+A subcategory $\mathcal{C'}$ of a category $\mathcal{C}$ consists of a collection of objects of $\mathcal{C}$, with morphisms $Hom_\mathcal{C'} (A, B) \subseteq Hom_\mathcal{C} (A, B)$ for all objects $A$, $B$ in $Obj(\mathcal{C'})$, such that identities and compositions in $\mathcal{C}$ make $\mathcal{C'}$ into a category. A subcategory $\mathcal{C'}$ is \textit{full} if $Hom_\mathcal{C'} (A, B) = Hom_\mathcal{C} (A, B)$ for all $A$, $B$ in $Obj(\mathcal{C'})$. Construct a category of \textit{infinite sets} and explain how it may be viewed as a full subcategory of $\mathbf{Set}$.
 
 To put it less technically, a "subcategory" $\mathcal{C'}$ is just "picking only certain items of a base category $\mathcal{C}$, and making sure that things stay closed uneder morphism composition". It is "full" if \textit{all} morphisms between the objects that remain are also conserved.
 
-We can construct a category $InfSet$ of infinite sets by taking all the objects $A$ of $Set$ such that $\nexists n \in \mathbb{N}, |A| = n$, and only homsets between these objects. This is clearly a subcategory of $Set$, since it inherits all identity morphisms, composition works the same, and so does associativity; also, restricting the choice of homsets makes it so that the category is closed (you can't reach a finite set via a homset that went from an infinite to a finite set).
+We can construct a category $\mathbf{InfSet}$ of infinite sets by taking all the objects $A$ of $\mathbf{Set}$ such that $\nexists n \in \mathbb{N}, |A| = n$, and only homsets between these objects. This is clearly a subcategory of $\mathbf{Set}$, since it inherits all identity morphisms, composition works the same, and so does associativity; also, restricting the choice of homsets makes it so that the category is closed (you can't reach a finite set via a homset that went from an infinite to a finite set).
 
 For this category to not be full, there would need to be some homset that loses a morphism, or fully disappears, in the ordeal. However, there is no restriction as to the kind of morphism that is conserved, so any homset that is kept is identical to its original version. Finally, homsets between infinite sets are also infinite sets, so they don't disappear in this operation.
 
-Consequently $Set'$ defined as such is a full subcategory of $Set$.
+Consequently $\mathbf{InfSet}$ defined as such is a full subcategory of $\mathbf{Set}$.
 
 
-3.9)
+\subsection*{3.9)}
+
+An alternative to the notion of multiset is obtained by considering sets endowed with equivalence relations; equivalent elements are taken to be multiple instances of elements 'of the same kind'. Define a notion of morphism between such enhanced sets, obtaining a category $\mathbf{MSet}$ containing (a 'copy' of) $\mathbf{Set}$ as a full subcategory. (There may be more than one reasonable way to do this! This is intentionally an open-ended exercise.) Which objects in $\mathbf{MSet}$ determine ordinary multisets as defined in §2.2, and how? Spell out what a morphism of multisets would be from this point of view. (There are several natural notions of morphisms of multisets. Try to define morphisms in MSet so that the notion you obtain for ordinary multisets captures your intuitive understanding of these objects.) [§2.2, §3.2, 4.5]
+
+
+\subsection*{3.10)}
+
+Since the objects of a category $\mathcal{C}$ are not (necessarily) sets, it is not clear how to make sense of a notion of 'subobject' in general. In some situations it does make sense to talk about subobjects, and the subobjects of any given object $A$ in $\mathcal{C}$ are in one-to-one correspondence with the morphisms $A \to \Omega$ for a fixed, special object $\Omega$ of $\mathcal{C}$, called a subobject classifier. Show that $\mathbf{Set}$ has a subobject classifier.
+
+
+\subsection*{3.11)}
+
+Draw the relevant diagrams and define composition and identities for the category $\mathcal{C}^{A,B}$ mentioned in Example 3.9. Do the same for the category $\mathcal{C}^{\alpha, \beta}$ mentioned in Example 3.10. [§5.5, 5.12]

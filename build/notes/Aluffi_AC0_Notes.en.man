@@ -3,71 +3,22 @@
 .\"
 .TH "" "" "" "" ""
 .hy
+.SH Summaries
 .PP
-Chapter I) 1) Set notation)
+Chapter I)
 .PP
-Write the following in set notation (as a list of numbers, and
-algebraically): - the set of all odd integers - the set of all integers
-that are not multiples of 3 - the set of integers from 10 (included) to
-20 (included) - the set of integers from 10 (included) to 20 (excluded)
-- the set of pairs of integers with both elements of the same value -
-the set of triplets of real numbers that together sum to 1 - the set of
-pairs of positive real numbers that together sum to 1 - the set of
-\f[I]n\f[R]-tuplets (for any \f[I]n\f[R]) of real number that together
-sum to 1 - the set of all natural numbers such that there exists at
-least one triplet of positive even numbers which are all different and
-which sum to that number.
+Section 1) Explains fundamentals of set theory and basic set operations
 .PP
-Now take the sets in their algebraic notation, and represent them both
-as a list of numbers (as a logical sequence or just a couple of
-examples), and as a \[dq]description\[dq] of what they are:
+Section 2) Explains set relations, set functions and some more advanced
+set operations
 .PP
--
-{3\f[I]n\f[R]\[u2005]+\[u2005]2\[u2005]|\[u2005]\f[I]n\f[R]\[u2004]\[mo]\[u2004]\[u2115]}
--
-{3\f[I]k\f[R]\[u2005]+\[u2005]2\[u2005]|\[u2005]\f[I]k\f[R]\[u2004]\[mo]\[u2004]\[u2124]}
--
-{2^\f[I]i\f[R]^\[u2005]|\[u2005]\f[I]i\f[R]\[u2004]\[mo]\[u2004][[0,\[u2006]10]]}
--
-{(\f[I]x\f[R],\[u2006]\f[I]y\f[R])\[u2004]\[mo]\[u2004]\[u211D]^2^\[u2005]|\[u2005]\f[I]x\f[R]^2^\[u2005]+\[u2005]\f[I]y\f[R]^2^\[u2004]=\[u2004]1}
--
-{\f[I]x\f[R]\[u2004]\[mo]\[u2004]\[u211D]\[u2005]|\[u2005]\[u2005]\[mi]\[u2005]2\[u2004]\[<=]\[u2004]\f[I]x\f[R]\[u2004]\[<=]\[u2004]2}
--
-{(\f[I]m\f[R],\[u2006]\f[I]n\f[R],\[u2006]\f[I]p\f[R])\[u2004]\[mo]\[u2004]\[u2115]^3^\[u2005]|\[u2005]\f[I]m\f[R]\[u2005]+\[u2005]\f[I]n\f[R]\[u2005]+\[u2005]\f[I]p\f[R]\[u2004]=\[u2004]10}
-Section 1
+Section 3) Presents categories, and multiple examples of categories.
+Some are simple, some are advanced.
+.SH Notes
+.SS Chapter 1, Section 1
 .PP
-- Set (not a multiset) - \[es]: the empty set, containing no elements; -
-N: the set of natural numbers (that is, nonnegative integers); - Z: the
-set of integers; - Q: the set of rational numbers; - R: the set of real
-numbers; - C: the set of complex numbers.
-- Singleton: - \[te]: existential quantifier, \[dq]there exists\[dq] -
-\[fa]: universal quantifier, \[dq]for all\[dq] - inclusion: - subset: -
-cardinal: - powerset: - \[cu]: the union: - \[ca]: the intersection: -
-.PD 0
-.P
-.PD
-: the difference: - : the disjoint union: - \[tmu]: the (Cartesian)
-product: - complement of a subset - relation - order relation -
-equivalence relation - re\[fl]exivity - symmetry - antisymmetry -
-transitivity - partition - quotient by an equivalence relation
-.PP
-Section 2
-.PP
-- function - graph - (categorical, function) diagram - identity function
-- kernel (of a function) - image (of a function) - restriction (of a
-function to a subset) - multiset - composition - commutative (diagram) -
-injection - surjection - bijection - isomorphism - inverse -
-pre-inverse, right-inverse - post-inverse, left-inverse - monomorphism -
-epimorphism - natural projection - natural injection - canonical
-decomposition (of a function)
-.PP
-Section 3
-.PP
-- category - object - morphism - endomorphism - operation - discrete
-category - small category - locally small category - slice category -
-coslice category - comma category (mentioned, undefined) - pointed set -
-C\[ha]A,B category ??
-.SH Chapter 1, Section 2
+Go check out the extra exercises on set notation.
+.SS Chapter 1, Section 2
 .SS On injections and surjections
 .SS Injections
 .PP
@@ -75,13 +26,22 @@ Injections (which aren\[cq]t also surjections) have multiple
 left-inverses (post-inverses).
 Eg:
 .PP
+.RS
 \f[I]A\f[R]\[u2004]=\[u2004]{\f[I]a\f[R],\[u2006]\f[I]b\f[R]}
+.RE
+.RS
 \f[I]B\f[R]\[u2004]=\[u2004]{1,\[u2006]2,\[u2006]3}
-\f[I]f\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]\[u2004]=\[u2004]{(\f[I]a\f[R],\[u2006]2),\[u2006](\f[I]b\f[R],\[u2006]3)},
-injective
+.RE
+.RS
+\f[I]f\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]\[u2004]=\[u2004]{(\f[I]a\f[R],\[u2006]2),\[u2006](\f[I]b\f[R],\[u2006]3)}, injective
+.RE
 .PP
+.RS
 \f[I]g\f[R]~1~\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]\[u2004]=\[u2004]{(1,\[u2006]\f[I]a\f[R]),\[u2006](2,\[u2006]\f[I]a\f[R]),\[u2006](3,\[u2006]\f[I]b\f[R])}
+.RE
+.RS
 \f[I]g\f[R]~2~\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]\[u2004]=\[u2004]{(1,\[u2006]\f[I]b\f[R]),\[u2006](2,\[u2006]\f[I]a\f[R]),\[u2006](3,\[u2006]\f[I]b\f[R])}
+.RE
 .PP
 .RS
 \f[I]g\f[R]~1~\[u2005]\[u2218]\[u2005]\f[I]f\f[R]\[u2004]=\[u2004]\f[I]g\f[R]~2~\[u2005]\[u2218]\[u2005]\f[I]f\f[R]\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]A\f[R]~
@@ -95,10 +55,22 @@ the overall inversion process.
 Surjections (which aren\[cq]t also injections) have multiple
 right-inverses (pre-inverses), called sections.
 .PP
-B = 123 A = ab f : B A = 1a 2a 3b, surjective
+.RS
+\f[I]B\f[R]\[u2004]=\[u2004]{1,\[u2006]2,\[u2006]3}
+.RE
+.RS
+\f[I]A\f[R]\[u2004]=\[u2004]{\f[I]a\f[R],\[u2006]\f[I]b\f[R]}
+.RE
+.RS
+\f[I]f\f[R]\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]\[u2004]=\[u2004]{(1,\[u2006]\f[I]a\f[R]),\[u2006](2,\[u2006]\f[I]a\f[R]),\[u2006](3,\[u2006]\f[I]b\f[R])}, surjective
+.RE
 .PP
-\f[I]g\f[R]~1~\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]\[u2004]=\[u2004]\f[I]a\f[R]1\f[I]b\f[R]3
-\f[I]g\f[R]~2~\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]\[u2004]=\[u2004]\f[I]a\f[R]2\f[I]b\f[R]3
+.RS
+\f[I]g\f[R]~1~\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]\[u2004]=\[u2004]{(\f[I]a\f[R],\[u2006]1),\[u2006](\f[I]b\f[R],\[u2006]3)}
+.RE
+.RS
+\f[I]g\f[R]~2~\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]\[u2004]=\[u2004]{(\f[I]a\f[R],\[u2006]2),\[u2006](\f[I]b\f[R],\[u2006]3)}
+.RE
 .PP
 .RS
 \f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R]~2~\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]A\f[R]~
@@ -123,6 +95,7 @@ f \[rs]in (A \[rs]to B), g \[rs]in (B \[rs]to A), \[rs];
         g \[rs]text{ is surjective}
     \[rs]end{cases}$$
 .RE Corollary 1: any post-inverse of an injection is a surjection.
+.PP
 Corollary 2: any pre-inverse of a surjection is an injection.
 .PP
 Proof: Let be
@@ -139,6 +112,7 @@ This means:
 \f[I]g\f[R](\f[I]x\f[R])\[u2004]=\[u2004]\f[I]g\f[R](\f[I]y\f[R])\[u2004]\[rA]\[u2004]\f[I]f\f[R](\f[I]g\f[R](\f[I]x\f[R]))\[u2004]=\[u2004]\f[I]f\f[R](\f[I]g\f[R](\f[I]y\f[R]))\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]A\f[R]~(\f[I]x\f[R])\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]A\f[R]~(\f[I]y\f[R])\[u2004]=\[u2004]\f[I]x\f[R]\[u2004]=\[u2004]\f[I]y\f[R]
 .RE This means that \f[I]f\f[R] is an injection.
 Contradiction.
+.PP
 Conclusion: in this context, \f[I]f\f[R] must be an injection.
 .PP
 b) Suppose \f[I]g\f[R] is not a surjection.
@@ -152,6 +126,7 @@ that means that
 this means that
 \f[I]a\f[R]\[u2004]\[mo]\[u2004]\f[I]g\f[R](\f[I]B\f[R]).
 Contradiction.
+.PP
 Conclusion: in this context, \f[I]g\f[R] must be a surjection.
 .SS On sections and fibers
 .PP
@@ -168,17 +143,17 @@ Each such map corresponds to a section.
 Let be
 .PP
 .RS
-$$\[rs]begin{align*}
+$$\[rs]begin{aligned}
 g_1 : S\[ha]1    & \[rs]longrightarrow  S\[ha]1 \[rs]times \[rs]mathbb{R} \[rs]\[rs]
       \[rs]theta & \[rs]longmapsto      (\[rs]theta, 1)
-\[rs]end{align*}$$
+\[rs]end{aligned}$$
 .RE
 .PP
 .RS
-$$\[rs]begin{align*}
+$$\[rs]begin{aligned}
 g_2 : S\[ha]1    & \[rs]longrightarrow  S\[ha]1 \[rs]times \[rs]mathbb{R} \[rs]\[rs]
       \[rs]theta & \[rs]longmapsto      (\[rs]theta, cos(\[rs]theta))
-\[rs]end{align*}$$
+\[rs]end{aligned}$$
 .RE
 .PP
 We have
@@ -197,9 +172,9 @@ line on the cylinder that passes by \f[I]q\f[R].
 (TODO add diagram)
 .SS Alternative characterization of a bijection
 .PP
-f is bijective \[dq]every element of \f[I]B\f[R] has a non-empty
-fiber\[dq] (surjection) and \[dq]every fiber is a singleton\[dq]
-(injection)
+\[dq]\f[I]f\f[R] is bijective\[dq] \[hA] (\[dq]every element of
+\f[I]B\f[R] has a non-empty fiber\[dq] (surjection) and \[dq]every fiber
+is a singleton\[dq] (injection))
 .SS On monomorphisms and epimorphisms
 .SS Failing the mono/epi condition
 .SS Example of failing the monomorphism definition for a non-injection
@@ -207,21 +182,40 @@ fiber\[dq] (surjection) and \[dq]every fiber is a singleton\[dq]
 Monomorphism definition:
 .PP
 .RS
-\f[I]f\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R] is a monomorphism\[u2005]\[u2005]\[hA]\[u2005]\[u2005]\[fa]\f[I]Z\f[R]\[u2004]\[mo]\[u2004]Obj(\[u1D49E]),\[u2005]\[fa]\f[I]g\f[R]~1~,\[u2006]\f[I]g\f[R]~2~\[u2004]\[mo]\[u2004]Hom(\f[I]Z\f[R],\[u2006]\f[I]A\f[R]),\[u2005](\f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R]~2~\[u2004]\[rA]\[u2004]\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]g\f[R]~2~)
+$$\[rs]text{$f : A \[rs]to B$ is a monomorphism}
+\[rs]\[rs] \[rs]Leftrightarrow \[rs]\[rs]
+\[rs]forall Z \[rs]in \[rs]text{Obj}(\[rs]mathcal{C}), \[rs];
+\[rs]forall g_1, g_2 \[rs]in \[rs]text{Hom}(Z, A), \[rs];
+(f \[rs]circ g_1 = f \[rs]circ g_2 \[rs]Rightarrow g_1 = g_2)$$
 .RE
-.PP
-A = ab B = 123 Z = xy f : A B = 1a 2a 3b, not an injection
-.PP
-\f[I]g\f[R]~1~\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]\[u2004]=\[u2004]\f[I]x\f[R]1\f[I]y\f[R]3
-\f[I]g\f[R]~2~\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]\[u2004]=\[u2004]\f[I]x\f[R]2\f[I]y\f[R]3
 .PP
 .RS
-\f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R]~2~\[u2004]=\[u2004]{(\f[I]x\f[R],\[u2006]\f[I]a\f[R]),\[u2006](\f[I]y\f[R],\[u2006]\f[I]b\f[R])}\[u2004]\[mo]\[u2004](\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R])
+\f[I]A\f[R]\[u2004]=\[u2004]{\f[I]a\f[R],\[u2006]\f[I]b\f[R],\[u2006]\f[I]c\f[R]}
+.RE
+.RS
+\f[I]B\f[R]\[u2004]=\[u2004]{1,\[u2006]2}
+.RE
+.RS
+\f[I]Z\f[R]\[u2004]=\[u2004]{\f[I]x\f[R],\[u2006]\f[I]y\f[R]}
+.RE
+.RS
+\f[I]f\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]\[u2004]=\[u2004]{(\f[I]a\f[R],\[u2006]1),\[u2006](\f[I]b\f[R],\[u2006]1),\[u2006](\f[I]c\f[R],\[u2006]2)}, not injective
 .RE
 .PP
-The multiple choice of elements in \f[I]A\f[R] which map to \f[I]a\f[R]
-in \f[I]B\f[R] (here, 1 and 2) is precisely what allows the overall
-composition to be equal, even when
+.RS
+\f[I]g\f[R]~1~\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]\[u2004]=\[u2004]{(\f[I]x\f[R],\[u2006]\f[I]a\f[R]),\[u2006](\f[I]y\f[R],\[u2006]\f[I]c\f[R])}
+.RE
+.RS
+\f[I]g\f[R]~2~\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]\[u2004]=\[u2004]{(\f[I]x\f[R],\[u2006]\f[I]b\f[R]),\[u2006](\f[I]y\f[R],\[u2006]\f[I]c\f[R])}
+.RE
+.PP
+.RS
+\f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R]~2~\[u2004]=\[u2004]{(\f[I]x\f[R],\[u2006]1),\[u2006](\f[I]y\f[R],\[u2006]2)}\[u2004]\[mo]\[u2004](\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R])
+.RE
+.PP
+The multiple choice of elements (here, \f[I]a\f[R] and \f[I]b\f[R]) in
+\f[I]A\f[R] which map to 1 in \f[I]B\f[R] is precisely what allows the
+overall composition to be equal, even when
 \f[I]g\f[R]~1~\[u2004]\[!=]\[u2004]\f[I]g\f[R]~2~.
 This provides insight into a proof of \[dq]\f[I]f\f[R] is a monomorphism
 implies that \f[I]f\f[R] is an injection\[dq].
@@ -234,13 +228,43 @@ counter-example to the implication that defines a monomorphism.
 Epimorphism definition:
 .PP
 .RS
-\f[I]f\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R] is an epimorphism\[u2005]\[u2005]\[hA]\[u2005]\[u2005]\[fa]\f[I]Z\f[R]\[u2004]\[mo]\[u2004]Obj(\[u1D49E]),\[u2005]\[fa]\f[I]g\f[R]~1~,\[u2006]\f[I]g\f[R]~2~\[u2004]\[mo]\[u2004]Hom(\f[I]B\f[R],\[u2006]\f[I]Z\f[R]),\[u2005](\f[I]g\f[R]~1~\[u2005]\[u2218]\[u2005]\f[I]f\f[R]\[u2004]=\[u2004]\f[I]g\f[R]~2~\[u2005]\[u2218]\[u2005]\f[I]f\f[R]\[u2004]\[rA]\[u2004]\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]g\f[R]~2~)
+$$\[rs]text{$f : A \[rs]to B$ is an epimorphism}
+\[rs]\[rs] \[rs]Leftrightarrow \[rs]\[rs] 
+\[rs]forall Z \[rs]in \[rs]text{Obj}(\[rs]mathcal{C}), \[rs];
+\[rs]forall g_1, g_2 \[rs]in \[rs]text{Hom}(B, Z), \[rs];
+(g_1 \[rs]circ f = g_2 \[rs]circ f \[rs]Rightarrow g_1 = g_2)$$
 .RE
 .PP
-A = ab B = 123 Z = xy f : A B = a1 b2, not an surjection
+.RS
+\f[I]g\f[R]~1~\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]\[u2004]=\[u2004]{(\f[I]x\f[R],\[u2006]\f[I]a\f[R]),\[u2006](\f[I]y\f[R],\[u2006]\f[I]c\f[R])}
+.RE
+.RS
+\f[I]g\f[R]~2~\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]\[u2004]=\[u2004]{(\f[I]x\f[R],\[u2006]\f[I]b\f[R]),\[u2006](\f[I]y\f[R],\[u2006]\f[I]c\f[R])}
+.RE
 .PP
-\f[I]g\f[R]~1~\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]\[u2004]=\[u2004]1\f[I]x\f[R]2\f[I]y\f[R]3\f[I]x\f[R]
-\f[I]g\f[R]~2~\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]\[u2004]=\[u2004]1\f[I]x\f[R]2\f[I]y\f[R]3\f[I]y\f[R]
+.RS
+\f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R]~2~\[u2004]=\[u2004]{(\f[I]x\f[R],\[u2006]1),\[u2006](\f[I]y\f[R],\[u2006]2)}\[u2004]\[mo]\[u2004](\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R])
+.RE
+.PP
+.RS
+\f[I]A\f[R]\[u2004]=\[u2004]{\f[I]a\f[R],\[u2006]\f[I]b\f[R]}
+.RE
+.RS
+\f[I]B\f[R]\[u2004]=\[u2004]{1,\[u2006]2,\[u2006]3}
+.RE
+.RS
+\f[I]Z\f[R]\[u2004]=\[u2004]{\f[I]x\f[R],\[u2006]\f[I]y\f[R]}
+.RE
+.RS
+\f[I]f\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]\[u2004]=\[u2004]{(\f[I]a\f[R],\[u2006]1),\[u2006](\f[I]b\f[R],\[u2006]2)}, not surjective
+.RE
+.PP
+.RS
+\f[I]g\f[R]~1~\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]\[u2004]=\[u2004]{(1,\[u2006]\f[I]x\f[R]),\[u2006](2,\[u2006]\f[I]y\f[R]),\[u2006](3,\[u2006]\f[I]x\f[R])}
+.RE
+.RS
+\f[I]g\f[R]~2~\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]\[u2004]=\[u2004]{(1,\[u2006]\f[I]x\f[R]),\[u2006](2,\[u2006]\f[I]y\f[R]),\[u2006](3,\[u2006]\f[I]y\f[R])}
+.RE
 .PP
 .RS
 \f[I]g\f[R]~1~\[u2005]\[u2218]\[u2005]\f[I]f\f[R]\[u2004]=\[u2004]\f[I]g\f[R]~2~\[u2005]\[u2218]\[u2005]\f[I]f\f[R]\[u2004]=\[u2004]{(\f[I]a\f[R],\[u2006]\f[I]x\f[R]),\[u2006](\f[I]b\f[R],\[u2006]\f[I]y\f[R])}\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R])
@@ -344,9 +368,9 @@ but \f[I]g\f[R]~1~\[u2004]\[!=]\[u2004]\f[I]g\f[R]~2~, using such a pair
 Thereby, we prove that \f[I]f\f[R] is not an monomorphism and arrive at
 a contradiction.
 .PP
-(If \f[I]Z\f[R] is the empty set, being initial in , there is only 1 map
-into \f[I]A\f[R] (the empty map) and
-\f[I]a\f[R]\[u2004]=\[u2004]\f[I]b\f[R] always hold.
+(If \f[I]Z\f[R] is the empty set, being initial in
+\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R], there is only 1 map into \f[I]A\f[R]
+(the empty map) and \f[I]a\f[R]\[u2004]=\[u2004]\f[I]b\f[R] always hold.
 Therefore, any counterexample to the epimorphism definition needs to
 have at least 1 element.)
 .PP
@@ -391,9 +415,9 @@ but \f[I]g\f[R]~1~\[u2004]\[!=]\[u2004]\f[I]g\f[R]~2~, using such an
 Thereby, we prove that \f[I]f\f[R] is not an epimorphism and arrive at a
 contradiction.
 .PP
-(If \f[I]Z\f[R] is the singleton set, being terminal in , there is only
-1 map into \f[I]Z\f[R] and \f[I]a\f[R]\[u2004]=\[u2004]\f[I]b\f[R]
-always hold.
+(If \f[I]Z\f[R] is the singleton set, being terminal in
+\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R], there is only 1 map into \f[I]Z\f[R]
+and \f[I]a\f[R]\[u2004]=\[u2004]\f[I]b\f[R] always hold.
 Therefore, any counterexample to the epimorphism definition needs to
 have at least 2 elements.
 We will however use a 3-element set, since it makes things more
@@ -430,7 +454,7 @@ However, since \f[I]A\f[R] is the domain of \f[I]f\f[R], of
 This means that \f[I]f\f[R] is not an epimorphism: contradiction.
 .PP
 Conclusion: \f[I]f\f[R] is a surjection.
-.SH Chapter 1, Section 3
+.SS Chapter 1, Section 3
 .SS On terminal and initial objects in \f[B]Set\f[R]
 .PP
 If $\[rs]empty$ is initial and {\[u2005]\[u22C6]\[u2005]} is terminal,
@@ -456,7 +480,7 @@ element of \f[I]Z\f[R]).
 .PP
 Similarly, in the case of the (unique up-to-isomorphism) singleton set
 {\[u2005]\[u22C6]\[u2005]} as the output, you\[cq]d have multiple
-functions (precisely $2\[ha]{#Z}$) into it, if you could ignore some
+functions (precisely 2^|\f[I]Z\f[R]|^) into it, if you could ignore some
 elements of the input set.
 However, if all elements of the input set are required, that leaves you
 with only one function possible from
@@ -464,8 +488,13 @@ with only one function possible from
 which maps all elements to \[u22C6].
 .SS Restrictions and extensions of functions, and its consequences on a function\[cq]s nature
 .PP
-8 possibilities to study, based on the following binary dichotomies: -
-injection or surjection - enlarging or restricting - domain or codomain
+8 possibilities to study, based on the following binary dichotomies:
+.IP \[bu] 2
+injection or surjection
+.IP \[bu] 2
+enlarging or restricting
+.IP \[bu] 2
+domain or codomain
 .PP
 Note that enlarging the domain sometimes implies enlarging the codomain,
 and restricting the codomain sometimes implies restricting the domain.
@@ -514,7 +543,7 @@ Theorems:
 A) if
 \f[I]f\f[R]\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]),\[u2006]\f[I]f\f[R] injective (resp. surjective),
 then
-$\[rs]forall Z \[rs]subseteq B, \[rs]hat{f} \[rs]in ((A \[rs]ap f\[ha]{-1}(Z)) \[rs]to Z), \[rs]hat{f} = f|_{f\[ha]{-1}(Z)}$,
+\[fa]\f[I]Z\f[R]\[u2004]\[ib]\[u2004]\f[I]B\f[R],\[u2006]\f[I]f\[u0302]\f[R]\[u2004]\[mo]\[u2004]((\f[I]f\f[R]^\[u2005]\[mi]\[u2005]1^(\f[I]Z\f[R])\[u2004]\[ib]\[u2004]\f[I]A\f[R])\[u2004]\[->]\[u2004]\f[I]Z\f[R]),\[u2006]\f[I]f\[u0302]\f[R]\[u2004]=\[u2004]\f[I]f\f[R]|~\f[I]f\f[R]^\[u2005]\[mi]\[u2005]1^(\f[I]Z\f[R])~,
 the restriction of the function to the corresponding smaller codomain,
 is also an injection (resp.
 surjection).
@@ -545,15 +574,138 @@ However, one can construct \f[I]Z\f[R]\[u2004]\[ib]\[u2004]\f[I]A\f[R]
 such that \f[I]f\f[R] stops being a injection.
 .PP
 Proof: TODO
-.PP
-Chapter I)
-.PP
-Section 1) Explains fundamentals of set theory and basic set operations
-.PP
-Section 2) Explains set relations, set functions and some more advanced
-set operations
-.PP
-Section 3) Presents categories, and multiple examples of categories.
-Some are simple, some are advanced.
+.SH Lexicon
+.SS Chapter 1
+.SS Section 1
+.IP \[bu] 2
+Set (not a multiset)
+.IP \[bu] 2
+\[es]: the empty set, containing no elements;
+.IP \[bu] 2
+N: the set of natural numbers (that is, nonnegative integers);
+.IP \[bu] 2
+Z: the set of integers;
+.IP \[bu] 2
+Q: the set of rational numbers;
+.IP \[bu] 2
+R: the set of real numbers;
+.IP \[bu] 2
+C: the set of complex numbers.
+.IP \[bu] 2
+Singleton:
+.IP \[bu] 2
+\[te]: existential quantifier, \[dq]there exists\[dq]
+.IP \[bu] 2
+\[fa]: universal quantifier, \[dq]for all\[dq]
+.IP \[bu] 2
+inclusion:
+.IP \[bu] 2
+subset:
+.IP \[bu] 2
+cardinal:
+.IP \[bu] 2
+powerset:
+.IP \[bu] 2
+\[cu]: the union:
+.IP \[bu] 2
+\[ca]: the intersection:
+.IP \[bu] 2
+$\[rs]\[rs]$: the difference:
+.IP \[bu] 2
+\[coproduct]: the disjoint union:
+.IP \[bu] 2
+\[tmu]: the (Cartesian) product:
+.IP \[bu] 2
+complement of a subset
+.IP \[bu] 2
+relation
+.IP \[bu] 2
+order relation
+.IP \[bu] 2
+equivalence relation
+.IP \[bu] 2
+reflexivity
+.IP \[bu] 2
+symmetry
+.IP \[bu] 2
+antisymmetry
+.IP \[bu] 2
+transitivity
+.IP \[bu] 2
+partition
+.IP \[bu] 2
+quotient by an equivalence relation
+.SS Section 2
+.IP \[bu] 2
+function
+.IP \[bu] 2
+graph
+.IP \[bu] 2
+(categorical, function) diagram
+.IP \[bu] 2
+identity function
+.IP \[bu] 2
+kernel (of a function)
+.IP \[bu] 2
+image (of a function)
+.IP \[bu] 2
+restriction (of a function to a subset)
+.IP \[bu] 2
+multiset
+.IP \[bu] 2
+composition
+.IP \[bu] 2
+commutative (diagram)
+.IP \[bu] 2
+injection
+.IP \[bu] 2
+surjection
+.IP \[bu] 2
+bijection
+.IP \[bu] 2
+isomorphism
+.IP \[bu] 2
+inverse
+.IP \[bu] 2
+pre-inverse, right-inverse
+.IP \[bu] 2
+post-inverse, left-inverse
+.IP \[bu] 2
+monomorphism
+.IP \[bu] 2
+epimorphism
+.IP \[bu] 2
+natural projection
+.IP \[bu] 2
+natural injection
+.IP \[bu] 2
+canonical decomposition (of a function)
+.SS Section 3
+.IP \[bu] 2
+category
+.IP \[bu] 2
+object
+.IP \[bu] 2
+morphism
+.IP \[bu] 2
+endomorphism
+.IP \[bu] 2
+operation
+.IP \[bu] 2
+discrete category
+.IP \[bu] 2
+small category
+.IP \[bu] 2
+locally small category
+.IP \[bu] 2
+slice category
+.IP \[bu] 2
+coslice category
+.IP \[bu] 2
+comma category (mentioned, undefined)
+.IP \[bu] 2
+pointed set
+.IP \[bu] 2
+\f[I]C\f[R]^\f[I]A\f[R],\[u2006]\f[I]B\f[R]^ category ??
 .SH AUTHORS
 Multiversity \f[I]Algebra Chapter 0\f[R] Reading Group.

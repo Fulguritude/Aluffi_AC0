@@ -31,8 +31,8 @@ print_error()   { { printf "%s%s%s%s\n" "$io_red"    "error"   "$io_reset: " "$@
 # build config
 
 SRCDIR=src
-OUTDIR=build/full
-NAME=Aluffi_AC0
+OUTDIR=build/notes
+NAME=Aluffi_AC0_Notes
 
 PDFLATEX=pdflatex
 # for macos, uncomment line below
@@ -92,21 +92,17 @@ for lang in $tex_langs
 do
 	print_message "Creating LaTeX document (language:'$lang')..."
 	echo "" > $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/include.tex                   | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/header.tex                    | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/index.tex                     | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/Summaries/*.tex               | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/Lexicon/header.tex            | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/Lexicon/Lexicon*.tex          | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/Exercise_solutions/header.tex | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/Exercise_solutions/*/*.tex    | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/Exercise_solutions/footer.tex | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/Extra_exercises/*.tex         | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/Notes/header.tex              | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/Notes/Notes*.tex              | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/Notes/footer.tex              | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-	cat $SRCDIR/footer.tex                    | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
-#	echo "\\includ ecomment{$lang}" >> $OUTDIR/$NAME.$lang.tex
+	cat $SRCDIR/include.tex          | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
+	cat $SRCDIR/header.tex           | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
+	cat $SRCDIR/index.tex            | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
+	cat $SRCDIR/Summaries/*.tex      | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
+	cat $SRCDIR/Notes/header.tex     | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
+	cat $SRCDIR/Notes/Notes*.tex     | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
+	cat $SRCDIR/Notes/footer.tex     | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
+	cat $SRCDIR/Lexicon/header.tex   | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
+	cat $SRCDIR/Lexicon/Lexicon*.tex | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
+	cat $SRCDIR/footer.tex           | awk -v lang=$lang -v regexp="$tex_langs_regexp" "$tex_awk" >> $OUTDIR/$NAME.$lang.tex
+#	echo "\\includecomment{$lang}" >> $OUTDIR/$NAME.$lang.tex
 #	for otherlang in $tex_langs
 #	do
 #		if [ "$otherlang" = "$lang" ]
@@ -129,25 +125,3 @@ do
 	build_pandoc "Rich-text"  $NAME.$lang.tex latex $NAME.$lang.rtf  rtf
 	build_pandoc "MS Word"    $NAME.$lang.tex latex $NAME.$lang.docx docx
 done
-
-
-
-# build website
-
-mkdir -p $OUTDIR/web
-
-print_message "Creating website..."
-for i in "$SRCDIR/index.tex" "$SRCDIR/error.tex" $SRCDIR/**/*.tex
-do
-	file="$( basename $i .tex )"
-	cat \
-		$SRCDIR/include.tex \
-		$SRCDIR/header.tex \
-		$SRCDIR/$file.tex \
-		$SRCDIR/footer.tex \
-	>> $OUTDIR/temp.html
-	pandoc $OUTDIR/temp.html -f latex --mathjax -t html -s -o $OUTDIR/web/$file.html --metadata title="$file"
-	print_success "Created website page: $OUTDIR/web/$file.html"
-	rm -f $OUTDIR/temp.html
-done
-print_success "Created website: $OUTDIR/web/index.html"

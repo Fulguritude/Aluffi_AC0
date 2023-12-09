@@ -1,33 +1,35 @@
-\section{Chapter 1, Section 2}
+\chapter*{Chapter 1, Section 2}
 
-\subsection{On injections and surjections}
+\section*{On injections and surjections}
 
-\subsubsection{Injections}
+\subsection*{Injections}
 
 Injections (which aren't also surjections) have multiple left-inverses (post-inverses). Eg:
 
-$A = \{ a, b    \}$
-$B = \{ 1, 2, 3 \}$
-$f : A \to B = \{ (a, 2), (b, 3) \}$, injective
+$$A = \{ a, b    \}$$
+$$B = \{ 1, 2, 3 \}$$
+$$f : A \to B = \{ (a, 2), (b, 3) \} \text{, injective}$$
 
-$g_1 : B \to A = \{ (1, a), (2, a), (3, b) \}$
-$g_2 : B \to A = \{ (1, b), (2, a), (3, b) \}$
+$$g_1 : B \to A = \{ (1, a), (2, a), (3, b) \}$$
+$$g_2 : B \to A = \{ (1, b), (2, a), (3, b) \}$$
 
 $$g_1 \circ f = g_2 \circ f = id_A$$
 
 It is precisely the free element with no antecedent in $B$ (here, $1$) which leaves room for multiple choices, but doesn't affect the overall inversion process.
 
 
-\subsubsection{Surjections}
+\subsection*{Surjections}
 
 Surjections (which aren't also injections) have multiple right-inverses (pre-inverses), called sections.
 
-B = 123
-A = ab
-f : B \to A = 1a 2a 3b, surjective
 
-$g_1 : A \to B = a1 b3$
-$g_2 : A \to B = a2 b3$
+
+$$B = \{ 1, 2, 3 \}$$
+$$A = \{ a, b    \}$$
+$$f : B \to A = \{ (1, a), (2, a), (3, b) \} \text{, surjective}$$
+
+$$g_1 : A \to B = \{(a, 1), (b, 3) \}$$
+$$g_2 : A \to B = \{(a, 2), (b, 3) \}$$
 
 $$f \circ g_1 = f \circ g_2 = id_A$$
 
@@ -35,7 +37,7 @@ It is precisely the fact that there are multiple elements that map to the same e
 
 
 
-\subsubsection{Cancellations}
+\subsection*{Cancellations}
 
 Function Cancellation Lemma: If a composition of functions cancels out, then the first of the pair is an injection, and the second of the pair is a surjection. Algebraically:
 $$
@@ -49,6 +51,7 @@ f \in (A \to B), g \in (B \to A), \;
 	\end{cases}
 $$
 Corollary 1: any post-inverse of an injection is a surjection.
+
 Corollary 2: any pre-inverse of a surjection is an injection.
 
 Proof: Let be 
@@ -59,16 +62,18 @@ $$\exists x, y \in B, \; x \neq y \text{ and } g(x) = g(y)$$
 However, with such an $f$, we have:
 $$g(x) = g(y) \Rightarrow f(g(x)) = f(g(y)) = id_A(x) = id_A(y) = x = y$$
 This means that $f$ is an injection. Contradiction.
+
 Conclusion: in this context, $f$ must be an injection.
 
 b) Suppose $g$ is not a surjection. This means:
 $$\exists a \in A, \; a \notin g(B)$$
 Since $g \circ f = id_A$, that means that $g(f(a)) = id_A(a) = a$, this means that $a \in g(B)$. Contradiction.
+
 Conclusion: in this context, $g$ must be a surjection.
 
 
 
-\subsection{On sections and fibers}
+\section*{On sections and fibers}
 
 Section example with a tangent bundle.
 
@@ -77,18 +82,18 @@ Consider the cylinder $S^1 \times \mathbb{R}$, and the function $f : S^1 \times 
 Let be 
 
 $$
-\begin{align*}
+\begin{aligned}
 g_1 : S^1    & \longrightarrow  S^1 \times \mathbb{R} \\
       \theta & \longmapsto      (\theta, 1)
-\end{align*}
+\end{aligned}
 $$
 
 
 $$
-\begin{align*}
+\begin{aligned}
 g_2 : S^1    & \longrightarrow  S^1 \times \mathbb{R} \\
       \theta & \longmapsto      (\theta, cos(\theta))
-\end{align*}
+\end{aligned}
 $$
 
 We have
@@ -105,61 +110,74 @@ A fiber is the preimage of a singleton. In the case of $f$ above, for every $q \
 
 
 
-\subsection{Alternative characterization of a bijection}
-f is bijective \Leftrightarrow "every element of $B$ has a non-empty fiber" (surjection) and "every fiber is a singleton" (injection)
+\section*{Alternative characterization of a bijection}
+"$f$ is bijective" $\Leftrightarrow$ ("every element of $B$ has a non-empty fiber" (surjection) and "every fiber is a singleton" (injection))
 
 
 
 
 
-\subsection{On monomorphisms and epimorphisms}
+\section*{On monomorphisms and epimorphisms}
 
-\subsubsection{Failing the mono/epi condition}
+\subsection*{Failing the mono/epi condition}
 
-\subsubsection{Example of failing the monomorphism definition for a non-injection}
+
+\subsubsection*{Example of failing the monomorphism definition for a non-injection}
 
 Monomorphism definition:
 
 $$
 \text{$f : A \to B$ is a monomorphism}
-\; \; \Leftrightarrow \; \; 
+\\ \Leftrightarrow \\
 \forall Z \in \text{Obj}(\mathcal{C}), \;
 \forall g_1, g_2 \in \text{Hom}(Z, A), \;
 (f \circ g_1 = f \circ g_2 \Rightarrow g_1 = g_2)
 $$
 
-A = ab
-B = 123
-Z = xy
-f : A \to B = 1a 2a 3b, not an injection
-
-$g_1 : Z \to A = x1 y3$
-$g_2 : Z \to A = x2 y3$
-
-$$f \circ g_1 = f \circ g_2 = \{(x, a), (y, b)\} \in (Z \to B)$$
-
-The multiple choice of elements in $A$ which map to $a$ in $B$ (here, $1$ and $2$) is precisely what allows the overall composition to be equal, even when $g_1 \neq g_2$. This provides insight into a proof of "$f$ is a monomorphism implies that $f$ is an injection". If you suppose that $f$ is a monomorphism and not an injection, you can easily reach a contradiction, since you can use elements like $1$ and $2$ that both map to the same $a$ to construct a counter-example to the implication that defines a monomorphism.
 
 
-\subsubsection{Example of failing the epimorphism definition for a non-surjection}
+$$A = \{ a, b, c \}$$
+$$B = \{ 1, 2    \}$$
+$$Z = \{ x, y    \}$$
+$$f : A \to B = \{ (a, 1), (b, 1), (c, 2) \} \text{, not injective}$$
+
+$$g_1 : Z \to A = \{ (x, a), (y, c) \}$$
+$$g_2 : Z \to A = \{ (x, b), (y, c) \}$$
+
+$$f \circ g_1 = f \circ g_2 = \{(x, 1), (y, 2)\} \in (Z \to B)$$
+
+The multiple choice of elements (here, $a$ and $b$) in $A$ which map to $1$ in $B$ is precisely what allows the overall composition to be equal, even when $g_1 \neq g_2$. This provides insight into a proof of "$f$ is a monomorphism implies that $f$ is an injection". If you suppose that $f$ is a monomorphism and not an injection, you can easily reach a contradiction, since you can use elements like $1$ and $2$ that both map to the same $a$ to construct a counter-example to the implication that defines a monomorphism.
+
+
+
+\subsubsection*{Example of failing the epimorphism definition for a non-surjection}
 
 Epimorphism definition:
 
 $$
 \text{$f : A \to B$ is an epimorphism}
-\; \; \Leftrightarrow \; \; 
+\\ \Leftrightarrow \\ 
 \forall Z \in \text{Obj}(\mathcal{C}), \;
 \forall g_1, g_2 \in \text{Hom}(B, Z), \;
 (g_1 \circ f = g_2 \circ f \Rightarrow g_1 = g_2)
 $$
 
-A = ab
-B = 123
-Z = xy
-f : A \to B = a1 b2, not an surjection
 
-$g_1 : B \to Z = 1x 2y 3x$
-$g_2 : B \to Z = 1x 2y 3y$
+
+$$g_1 : Z \to A = \{ (x, a), (y, c) \}$$
+$$g_2 : Z \to A = \{ (x, b), (y, c) \}$$
+
+$$f \circ g_1 = f \circ g_2 = \{(x, 1), (y, 2)\} \in (Z \to B)$$
+
+
+$$A = \{ a, b    \}$$
+$$B = \{ 1, 2, 3 \}$$
+$$Z = \{ x, y    \}$$
+$$f : A \to B = \{ (a, 1), (b, 2) \} \text{, not surjective}$$
+
+
+$$g_1 : B \to Z = \{ (1, x), (2, y), (3, x) \}$$
+$$g_2 : B \to Z = \{ (1, x), (2, y), (3, y) \}$$
 
 $$g_1 \circ f = g_2 \circ f = \{(a, x), (b, y)\} \in (A \to Z)$$
 
@@ -167,7 +185,7 @@ The element $3$ in $B$ not being reached by $f$ is precisely that which provides
 
 
 
-\subsubsection{Proofs of mono/inj and epi/surj equivalence}
+\subsection*{Proofs of mono/inj and epi/surj equivalence}
 
 Let $f : A \to B$.
 
@@ -181,7 +199,8 @@ $$
 \Leftrightarrow ( \neg (p  \cap \neg q))
 $$
 
-\subsubsection{Injection => Monomorphism}
+
+\subsubsection*{Injection => Monomorphism}
 
 Suppose that $f$ is an injection. It thus has post-inverses.
 
@@ -205,7 +224,7 @@ $$
 We conclude that $f$ is also a monomorphism.
 
 
-\subsubsection{Surjection => Epimorphism}
+\subsubsection*{Surjection => Epimorphism}
 
 Suppose that $f$ is a surjection. It thus has pre-inverses.
 
@@ -229,7 +248,7 @@ $$
 We conclude that $f$ is also an epimorphism.
 
 
-\subsubsection{Monomorphism => Injection}
+\subsubsection*{Monomorphism => Injection}
 
 Suppose that $f$ is a monomorphism.
 
@@ -245,7 +264,7 @@ $$\exists (x, y) \in A^2, \text{ such that } x \neq y \text{ and } f(x) = f(y)$$
 
 We can construct $g_1$ and $g_2$ such that $f \circ g_1 = f \circ g_2$ but $g_1 \neq g_2$, using such a pair $(x, y)$. Thereby, we prove that $f$ is not an monomorphism and arrive at a contradiction.
 
-(If $Z$ is the empty set, being initial in \bold{Set}, there is only 1 map into $A$ (the empty map) and $a = b$ always hold. Therefore, any counterexample to the epimorphism definition needs to have at least 1 element.)
+(If $Z$ is the empty set, being initial in $\mathbf{Set}$, there is only 1 map into $A$ (the empty map) and $a = b$ always hold. Therefore, any counterexample to the epimorphism definition needs to have at least 1 element.)
 
 Let $Z = \{a\}$.
 
@@ -264,7 +283,7 @@ This means that $f$ is not a monomorphism: contradiction.
 Conclusion: $f$ is an injection.
 
 
-\subsubsection{Epimorphism => Surjection}
+\subsubsection*{Epimorphism => Surjection}
 
 Suppose that $f$ is an epimorphism.
 
@@ -280,7 +299,7 @@ $$\exists x \in B, x \notin f(A)$$
 
 We can construct $g_1$ and $g_2$ such that $g_1 \circ f = g_2 \circ f$ but $g_1 \neq g_2$, using such an $x \notin f(A)$. Thereby, we prove that $f$ is not an epimorphism and arrive at a contradiction.
 
-(If $Z$ is the singleton set, being terminal in \bold{Set}, there is only 1 map into $Z$ and $a = b$ always hold. Therefore, any counterexample to the epimorphism definition needs to have at least 2 elements. We will however use a 3-element set, since it makes things more intuitive and pedagogical.)
+(If $Z$ is the singleton set, being terminal in $\mathbf{Set}$, there is only 1 map into $Z$ and $a = b$ always hold. Therefore, any counterexample to the epimorphism definition needs to have at least 2 elements. We will however use a 3-element set, since it makes things more intuitive and pedagogical.)
 
 Let $Z = \{a, b, c\}$.
 
