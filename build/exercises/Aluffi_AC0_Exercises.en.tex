@@ -519,7 +519,7 @@ Define carefully objects and morphisms in Example 3.7, and draw the diagram corr
 
 Example 3.7 (on coslice categories) refers to example 3.5 (on slice categories). Let's go over slice categories (since example 3.5 asks the reader to "check all [their various properties]").
 
-3.7.1) Slice categories
+\subsubsection*{3.7.1) Slice categories}
 
 Slice categories are categories made by singling out an object (say $A$) in some parent (larger) category (say $\mathcal{C}$), and studying all morphisms into that object. These morphisms become the objects of a new category (ie, for any $Z$ of $\mathcal{C}$, $f \in (Z \to A)$ is an object of the slice category, called $\mathcal{C}_A$ in this context). In the slice category, morphisms are defined as those morphism in $\mathcal{C}$ that preserve composition between 2 morphisms into $A$.
 
@@ -585,16 +585,19 @@ Thus, we have a working composition of morphisms.
 We take 4 objects of the slice category ($f_1 \in (Z_1 \to A)$, $f_2 \in (Z_2 \to A)$, $f_3 \in (Z_3 \to A)$ and  $f_4 \in (Z_4 \to A)$), and three morphisms ($\sigma_A$ mapping $f_1$ to $f_2$, $\tau_A$ mapping $f_2$ to $f_3$, and $\upsilon_A$ mapping $f_3$ to $f_4$). Using composition defined as above, we have
 
 $$
-f_1 = f_4 \circ ( \upsilon \circ (\tau  \circ \sigma))
-	= f_4 \circ ((\upsilon \circ  \tau) \circ \sigma )
-\Rightarrow
-   \upsilon_A \circ (\tau_A  \circ \sigma_A)
-= (\upsilon_A \circ  \tau_A) \circ \sigma_A
+\begin{aligned}
+f_1 &=& f_4 \circ ( \upsilon \circ (\tau  \circ \sigma)) \\
+    &=& f_4 \circ ((\upsilon \circ  \tau) \circ \sigma ) \\
+\Rightarrow && \\
+& &  \upsilon_A \circ (\tau_A  \circ \sigma_A) \\
+&=& (\upsilon_A \circ  \tau_A) \circ \sigma_A
+\end{aligned}
 $$
+
 Through associativity in $\mathcal{C}$.
 
 
-3.7.2) Coslice categories
+\subsubsection*{3.7.2) Coslice categories}
 
 A coslice category $\mathcal{C}^A$ is similar, except it takes the morphisms coming \textit{from} a chosen object $A$, rather than those going \textit{to} this object $A$. Below is a commutative diagram in the style of the one of the textbook for slice categories.
 
@@ -606,7 +609,8 @@ Z_1 \arrow[rr, "\sigma"] &                                        & Z_2
 
 We can similarly show that this also defines a category.
 
-3.7.2.a) Identity
+\vspace{5mm}
+\underline{3.7.2.a) Identity}
 
 A generic identity morphism is expressed diagrammatically in $\mathcal{C}^A$ as:
 
@@ -618,7 +622,8 @@ Z \arrow[r, "id_Z"']                                                            
 
 We can see that since $f = id_Z \circ f$ in $\mathcal{C}$, this is compatible with the definition of a (post-/left-)unit morphism in $\mathcal{C}^A$. Also, since the only maps pre-$f$ are maps from $A \to A$, we have $id_A$ as the (pre-/right-)unit for every morphism $f$ (ie, $f = f \circ id_A$. 
 
-3.7.2.b) Composition
+\vspace{5mm}
+\underline{3.7.2.b) Composition}
 
 Taking 3 objects of the slice category ($f_1 \in (A \to Z_1)$, $f_2 \in (A \to Z_2)$ and $f_3 \in (A \to Z_3)$), and two morphisms ($\sigma^A$ mapping $f_1$ to $f_2$ via a $\mathcal{C}$-morphism $\sigma \in (Z_1 \to Z_2)$, and $\tau^A$ mapping $f_2$ to $f_3$ via a $\mathcal{C}$-morphism $\tau \in (Z_2 \to Z_3)$), we have that $f_1 = \sigma \circ f_2$ and $f_2 = \tau  \circ f_3$. This is expressed as the following commutative diagram.
 
@@ -648,17 +653,21 @@ $$
 
 Thus, we have a working composition of morphisms.
 
-3.7.2.c) Associativity
+\vspace{5mm}
+\underline{3.7.2.c) Associativity}
 
 We take 4 objects of the slice category ($f_1 \in (A \to Z_1)$, $f_2 \in (A \to Z_2)$, $f_3 \in (A \to Z_3)$ and  $f_4 \in (A \to Z_4)$), and three morphisms ($\sigma^A$ mapping $f_1$ to $f_2$, $\tau^A$ mapping $f_2$ to $f_3$, and $\upsilon^A$ mapping $f_3$ to $f_4$). Using composition defined as above, we have
 
 $$
-f_4 = ( \upsilon \circ (\tau  \circ \sigma)) \circ f_1
-	= ((\upsilon \circ  \tau) \circ \sigma ) \circ f_1
-\Rightarrow
-   \upsilon^A \circ (\tau^A  \circ \sigma^A)
-= (\upsilon^A \circ  \tau^A) \circ \sigma^A
+\begin{aligned}
+f_4 &=& ( \upsilon \circ (\tau  \circ \sigma)) \circ f_1 \\
+	&=& ((\upsilon \circ  \tau) \circ \sigma ) \circ f_1 \\
+\Rightarrow && \\
+    & &  \upsilon^A \circ (\tau^A  \circ \sigma^A) \\
+    &=& (\upsilon^A \circ  \tau^A) \circ \sigma^A
+\end{aligned}
 $$
+
 Through associativity in $\mathcal{C}$.
 
 
@@ -677,17 +686,320 @@ Consequently $\mathbf{InfSet}$ defined as such is a full subcategory of $\mathbf
 
 \subsection*{3.9)}
 
-An alternative to the notion of multiset is obtained by considering sets endowed with equivalence relations; equivalent elements are taken to be multiple instances of elements 'of the same kind'. Define a notion of morphism between such enhanced sets, obtaining a category $\mathbf{MSet}$ containing (a 'copy' of) $\mathbf{Set}$ as a full subcategory. (There may be more than one reasonable way to do this! This is intentionally an open-ended exercise.) Which objects in $\mathbf{MSet}$ determine ordinary multisets as defined in §2.2, and how? Spell out what a morphism of multisets would be from this point of view. (There are several natural notions of morphisms of multisets. Try to define morphisms in MSet so that the notion you obtain for ordinary multisets captures your intuitive understanding of these objects.) [§2.2, §3.2, 4.5]
+An alternative to the notion of multiset introduced in §2.2 is obtained by considering sets endowed with equivalence relations; equivalent elements are taken to be multiple instances of elements 'of the same kind'. Define a notion of morphism between such enhanced sets, obtaining a category $\mathbf{MSet}$ containing (a 'copy' of) $\mathbf{Set}$ as a full subcategory. (There may be more than one reasonable way to do this! This is intentionally an open-ended exercise.) Which objects in $\mathbf{MSet}$ determine ordinary multisets as defined in §2.2, and how? Spell out what a morphism of multisets would be from this point of view. (There are several natural notions of morphisms of multisets. Try to define morphisms in MSet so that the notion you obtain for ordinary multisets captures your intuitive understanding of these objects.) [§2.2, §3.2, 4.5]
+
+Let us recall how multisets were defined in §2.2. Since duplicate elements do not exist in sets, multisets were instead defined as functions from a set $S$ to $\mathbb{N}*$, the set of (nonzero) positive integers. This allows each element in $S$ to have a "count", thereby encoding the intuitive notion of multiset. A similar, and equivalent (isomorphic), way of defining it is \textit{via} pairs $(s, n) \in S \times \mathbb{N}*$, which is simpler to think about. We'll call this category $\mathbf{CMSet}$, for "count multiset" (TODO: probably has a conventional and better name, but I don't know it). As for morphisms in $\mathbf{CMSet}$, we can consider that for any multisets $A = S_A \times \mathbb{N}*$ and $B = S_B \times \mathbb{N}*$, the homset from $A$ to $B$ is simply the set functions from $S_A \times \mathbb{N}*$ to $S_B \times \mathbb{N}*$ as usual.
+
+We first notice that if we restrict $\mathbf{CMSet}$ to only the objects for which all elements have a count of $1$, and where morphisms only ever output to $\{ 1 \}$ in the second coordinate (a subcategory we can call $\mathbf{C1MSet}$, for example), we get a "copy" of $\mathbf{Set}$: $\mathbf{C1MSet}$ and $\mathbf{Set}$ are isomorphic. This is a full subcategory because there are no morphisms that map counts to anything else than $\{ 1 \}$ if we restrict our objects to this form; so all morphisms between the kept objects are also kept. 
+
+Now let us do a similar construction, but based on equivalence classes instead. We know that each equivalence class over a set corresponds uniquely to a partition of that set. By considering only these partitions (these "sets of sets") as objects, we can build a category $\mathbf{EMSet}$ (for "equivalence multiset"). The "count" corresponds simply to the cardinal of a top-level element in the partition. For example, the top-level elements of $M = \{ S_1, S_2, S_3 \}= \{ \{a\}, \{b, c\}, \{d, e, f\} \}$ would be understood to have counts $|S_1| = 1$, $|S_2| = 2$ and $|S_3| = 3$ respectively.
+
+As for morphisms in $\mathbf{EMSet}$, they simply map each top-level element of the domain multiset (a distinct subset of the original set) to some other top-level elements in the codomain multiset. This has precisely the same effect as mapping pairs of "value and count" as seen in the previous $\mathbf{CMSet}$ construction.
+
+In this example, any set itself, when "injected" (by a functor) into $\mathbf{EMSet}$ would just nest all of its elements into singletons. I.e., $S = \{ a, b, c \}$ in $\mathbf{Set}$ would become $S = \{ \{a\}, \{b\}, \{c\} \}$ in $\mathbf{EMSet}$. This also shows how restricting $\mathbf{EMSet}$ to "only objects that are a set of (toplevel) singletons" makes $\mathbf{EMSet}$ have a "copy" of $\mathbf{Set}$ as a full subcategory (for similar arguments as above).
+
 
 
 \subsection*{3.10)}
 
 Since the objects of a category $\mathcal{C}$ are not (necessarily) sets, it is not clear how to make sense of a notion of 'subobject' in general. In some situations it does make sense to talk about subobjects, and the subobjects of any given object $A$ in $\mathcal{C}$ are in one-to-one correspondence with the morphisms $A \to \Omega$ for a fixed, special object $\Omega$ of $\mathcal{C}$, called a subobject classifier. Show that $\mathbf{Set}$ has a subobject classifier.
 
+We define the set $\mathbb{B} = \{ 0, 1 \}$, aka the binary alphabet or booleans, as the subobject classifier of $\mathbf{Set}$. For any subset $A$ of $B$, there is a unique map $f: B \to \mathbb{B}$, such that $\forall b \in B, f(b) = 1 \Leftrightarrow b \in A$ (otherwise $f(b) = 0$, of course, as the equivalence and lack of alternatives to $0$ as an output imply). The map $f$ always fully describes $A$ from its relationship with $B$.
+
+
 
 \subsection*{3.11)}
 
 Draw the relevant diagrams and define composition and identities for the category $\mathcal{C}^{A,B}$ mentioned in Example 3.9. Do the same for the category $\mathcal{C}^{\alpha, \beta}$ mentioned in Example 3.10. [§5.5, 5.12]
+
+For lack of a better term, we will refer to the categories of the form $\mathcal{C}_{A,B}$ represented by Example 3.9 as "bi-slice categories". The first part of the exercise is thus asking us to define and explain what "bi-coslice categories" (of the form $\mathcal{C}^{A,B}$) are.
+
+Similarly, we will refer to the categories of the form $\mathcal{C}_{\alpha, \beta}$ represented by Example 3.10 as "fibered bi-slice categories". The second part of the exercise is thus asking us to define and explain what "fibered bi-coslice categories" (of the form $\mathcal{C}^{\alpha, \beta}$) are.
+
+We will, of course, attempt to make more formal and pedagogical all definitions broached in the textbook's examples as well.
+
+
+\subsubsection*{3.11.1) Bi-slice categories}
+
+\vspace{5mm}
+\underline{3.11.1.a) Objects and morphisms}
+
+To make a bi-slice category $\mathcal{C}_{A,B}$, we pick 2 objects $A$ and $B$ of a base category $\mathcal{C}$, and consider for all other objects $Z$ of $\mathcal{C}$, all pairs of morphisms $(f, g) \in (Z \to A) \times (Z \to B)$. These pairs of morphisms are the objects of the bi-slice category $\mathcal{C}_{A,B}$. Morphisms $\sigma_{A,B}$ are defined from an object $p_1 = (f_1, g_1) \in (Z_1 \to A) \times (Z_1 \to B)$ to an object $p_2 = (f_2, g_2) \in (Z_2 \to A) \times (Z_2 \to B)$ so that we have both $f_1 = f_2 \circ \sigma$ and $g_1 = g_2 \circ \sigma$, for some $\sigma \in (Z_1 \to Z_2)$.
+
+A generic object in $\mathcal{C}_{A,B}$ is of the form:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqWLU6TVuwBaPPiAzY8BImQBMEhizaIQAIR4SYUAObwioAGYAnCAFskZEDghJRkneysgajegBGMIwACgIqwiA2WKYAFjjy1naOiM6uSOo02tJ6pr4g-kGh4ULsjDBWCdyU3EA
+\begin{tikzcd}
+                                   & A \\
+Z \arrow[ru, "f"'] \arrow[rd, "g"] &   \\
+                                   & B
+\end{tikzcd}
+
+
+\vspace{5mm}
+\underline{3.11.1.b) Morphisms}
+
+Morphisms are defined between objects as
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAFgBoBGAXVJADcBDAGwFcYkQAtAfQCYQBfUuky58hFOVIAGanSat2AQQFCQGbHgJFJPWQxZtEIAEIrhGsUSkU98w5y7kzakZvHIArNNsGlz9aJaKF66NPoKRqaC5oHuPDZhduz+rpYoAMwJcr5GArIwUADm8ESgAGYAThAAtkiZIDgQSJLZESBljiA0jPQARjCMAAqpQSAVWIUAFjhdIHCTWGUziFLR7VW1iPWNSPGt9oWd3X0DwxajjDBLzpU1SNYNTYhe++yHfMf9QyPiIJfXa1umweO0QZFeRg6fEBGyQADYaKCAOyJHIgAA66OwhWq9C4wEUpGM-Dy-CAA
+\begin{tikzcd}
+                                         & A &                                &    &                                         & A \\
+Z_1 \arrow[ru, "f_1"'] \arrow[rd, "g_1"] &   & {} \arrow[r, "{\sigma_{A,B}}"] & {} & Z_2 \arrow[rd, "g_2"] \arrow[ru, "f_2"] &   \\
+                                         & B &                                &    &                                         & B
+\end{tikzcd}
+
+such that the following diagram commutes
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqWLU6TVuwBaAfWI8+IDNjwEiZcTQYs2iEPIBMS-mqGbSRibukGAQjwkwoAc3hFQAMwBOEALZIZCA4EEiiknrsXgogNIz0AEYwjAAKAurCIIwwXjimIL4BQTShSEY6UvogADo12K7+9HHZSSnp5hoGOXkFRYGIwWWIAMyVUQausfFtaRkWBj5YrgAW+bzefgMVIWGIEbbVMSYzyXOdWUur68r95aV7Y5F2IFMnrWcdgl3ZueuU3CAA
+\begin{tikzcd}
+                                                             & A                                      \\
+Z_1 \arrow[ru, "f_1"] \arrow[r, "\sigma"] \arrow[rd, "g_1"'] & Z_2 \arrow[u, "f_2"'] \arrow[d, "g_2"] \\
+                                                             & B                                     
+\end{tikzcd}
+
+
+\vspace{5mm}
+\underline{3.11.1.c) Identity}
+
+It is clear that identity morphisms exist for all objects, simply by taking $Z = Z_1 = Z_2$, $f_1 = f_2$, $g_1 = g_2$ and $\sigma = id_Z$, in the diagram above.
+
+
+\vspace{5mm}
+\underline{3.11.1.d) Composition}
+
+Let be 3 objects of $\mathcal{C}_{A,B}$, which we will name $p_1$, $p_2$ and $p_3$ (and define with the respective $(Z_n, f_n, g_n)$ triplet for $p_n$).
+
+Composition $\tau_{A, B} \circ \sigma_{A, B} = p_1 \mapsto p_3$ of two morphisms $\sigma_{A, B} = p_1 \mapsto p_2$ and $\tau_{A, B} = p_2 \mapsto p_3$ is defined so that the following diagram commutes.
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqWLU6TVuwBaAfWI8+IDNjwEiZcTQYs2iEPIBMS-mqFEjYibukH5AZlMqB64SVJGbU-SABCPBIwUADm8ESgAGYAThAAtkhWIDgQSKKSeuyRciY0jPQARjCMAAquFgbRWCEAFjjOMfFIZMmpiOm2vtmKeYXFZeYaBowwkfW8UbEJiA40KWk6PllyTr1FpeVDIFW148qN0y3ziEmd7AA659ghcfQga-2bwiAjYw1TiXNtsxl2IJc4ejMe4vPobQbPV57SZNE5fJAAFkWmQMIRyIPy6wGgi2UPesKObSRv18aJ6oKxT3YOzq+OmP2OxLOqJWGLB2Lc7Dx3Eo3CAA
+\begin{tikzcd}
+                                                             & A                                                        &                                          \\
+Z_1 \arrow[ru, "f_1"] \arrow[r, "\sigma"] \arrow[rd, "g_1"'] & Z_2 \arrow[u, "f_2"'] \arrow[r, "\tau"] \arrow[d, "g_2"] & Z_3 \arrow[lu, "f_3"'] \arrow[ld, "g_3"] \\
+                                                             & B                                                        &                                         
+\end{tikzcd}
+
+
+\vspace{5mm}
+\underline{3.11.1.e) Associativity}
+
+Associativity follows from associativity of morphisms in $\mathcal{C}$, similarly to what was done for slice categories in exercise 3.7 .
+
+
+
+\subsubsection*{3.11.2) Bi-coslice categories}
+
+\vspace{5mm}
+\underline{3.11.2.a) Objects and morphisms}
+
+To make a bi-coslice category $\mathcal{C}^{A,B}$, we similarly pick 2 objects $A$ and $B$ of our base category $\mathcal{C}$, but instead consider, for all other objects $Z$ of $\mathcal{C}$, all pairs of morphisms $(f, g) \in (A \to Z) \times (B \to Z)$.
+
+A generic object in $\mathcal{C}^{A,B}$ is of the form:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAC0QBfU9TXfIRQAGUsKq1GLNgEFuvEBmx4CRUQCYJ9Zq0QgAQtwkwoAc3hFQAMwBOEALZIyIHBCSjJOtlfnW7jxHVqV3dqbWk9UxBqBjoAIxgGAAV+FSEQGyxTAAscIy4gA
+\begin{tikzcd}
+A \arrow[rd, "f"]  &   \\
+                   & Z \\
+B \arrow[ru, "g"'] &  
+\end{tikzcd}
+
+
+\vspace{5mm}
+\underline{3.11.2.b) Morphisms}
+
+Morphisms are defined between objects as
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAVgBoBGAXVJADcBDAGwFcYkQAtAfQCYQBfUuky58hFAAZSE6nSat2AQQFCQGbHgJEpPWQxZtEIAEIrhGsUXIU98w5y7kzakZvHIALNNsGlz9aJaKF66NPoKRqaC5oHuPDZhduz+rpYoAMwJcr5GArIwUADm8ESgAGYAThAAtkjWIDgQSJnZESBljiA0jPQARjCMAAqpQSCMMGU4zpU1SPENTYgt4faFnd19A8MWoxVYhQAWU9HtVbWIZAtIUq2rvF1jm0Mj4iB7h8eqM+deV4g3K3YHT4J2+SAAbDRGkgAOyJHIgAA6iOwhWq9AAesBFKRjPw8vwgA
+\begin{tikzcd}
+A \arrow[rd, "f_1"]  &     &                                &    & A \arrow[rd, "f_2"]  &     \\
+                     & Z_1 & {} \arrow[r, "{\sigma^{A,B}}"] & {} &                      & Z_2 \\
+B \arrow[ru, "g_1"'] &     &                                &    & B \arrow[ru, "g_2"'] &    
+\end{tikzcd}
+
+such that the following diagram commutes
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEQBfU9TXfIRRkAjFVqMWbAFoB9Ed14gM2PASIjSY6vWatEIOQCZFfVYKJkj43VIMAhbuJhQA5vCKgAZgCcIAWyQyEBwIJCMdSX0QL1kTagY6ACMYBgAFfjUhEAYYLxxTGL9AxGDQpE0JPTZYhQTk1IzzdQMfLFcACwKeb2KK6nLECKq7EAAdMexXfzoQepT0zIsDXPzC3wCkAGYBsKHI6oNXOLmchsXm7LbO7qUNkp2QvcrEhaaBFpy8goPR44UuBQuEA
+\begin{tikzcd}
+A \arrow[rd, "f_2"] \arrow[d, "f_1"'] &     \\
+Z_1 \arrow[r, "\sigma"]               & Z_2 \\
+B \arrow[ru, "g_2"'] \arrow[u, "g_1"] &    
+\end{tikzcd}
+
+
+\vspace{5mm}
+\underline{3.11.2.c) Identity}
+
+It is clear that identity morphisms exist for all objects, simply by taking $Z = Z_1 = Z_2$, $f_1 = f_2$, $g_1 = g_2$ and $\sigma = id_Z$, in the diagram above.
+
+\vspace{5mm}
+\underline{3.11.2.d) Composition}
+
+Let be 3 objects of $\mathcal{C}^{A,B}$, which we will name $p_1$, $p_2$ and $p_3$ (and define with the respective $(Z_n, f_n, g_n)$ triplet for $p_n$).
+
+Composition $\tau^{A, B} \circ \sigma^{A, B} = p_1 \mapsto p_3$ of two morphisms $\sigma^{A, B} = p_1 \mapsto p_2$ and $\tau^{A, B} = p_2 \mapsto p_3$ is defined so that the following diagram commutes.
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqWLU6TVuwBaAfWI8+IDNjwEiZcTQYs2iEPIBMS-mqGbSRibukGAQqZUD1w5EbE2p+w3IDMPBIwUADm8ESgAGYAThAAtkiiIDgQSB6SeuyRciY0jPQARjCMAAouFgaMMJE4TjHxiTQpSGQZdiDZinmFxWXmGgbRWCEAFrW8UbEJiK3NiOm2PgA6S9ghcfQg3UWl5QMgVTV1U0h+TanzOt7sITlbBz27-cIgQ6PjyvXTZ8kXrYs3BT3fI7PqCfaHD6TBqXX5IAAsV0yBhWOHozGOMKSc0RbR82QCEw6J0QPxxSPatwC216exebzGgW4QA
+\begin{tikzcd}
+                        & A \arrow[d, "f_2"] \arrow[ld, "f_1"'] \arrow[rd, "f_3"]  &     \\
+Z_1 \arrow[r, "\sigma"] & Z_2 \arrow[r, "\tau"]                                    & Z_3 \\
+                        & B \arrow[u, "g_2"'] \arrow[lu, "g_1"] \arrow[ru, "g_3"'] &    
+\end{tikzcd}
+
+\vspace{5mm}
+\underline{3.11.2.e) Associativity}
+
+Associativity follows from associativity of morphisms in $\mathcal{C}$, similarly to what was done for slice categories in exercise 3.7 .
+
+
+
+\subsubsection*{3.11.3) Fibered bi-slice categories}
+
+\vspace{5mm}
+\underline{3.11.3.a) Objects}
+
+To build a fibered bi-slice category $\mathcal{C}_{\alpha, \beta}$, one takes a base category $\mathcal{C}$, as well as a fixed pair of morphisms $\alpha : A \to C$ and $\beta : B \to C$ in $\mathcal{C}$, that point to a common object $C$ of $\mathcal{C}$. Our basic "fixed construct" from $\mathcal{C}$ looks like so: 
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEQBfU9TXfIRQBGUsKq1GLNgGFuvEBmx4CRMgCYJ9Zq0QgAQtwkwoAc3hFQAMwBOEALZIyIHBCSjJOtgB1vjNAAWdPLWdo6I6tSu7tTa0nq+AEYwOMHUDHTJDAAK-CpCIDZYpgE4RlxAA
+\begin{tikzcd}
+A \arrow[rd, "\alpha"] &   \\
+                       & C \\
+B \arrow[ru, "\beta"'] &  
+\end{tikzcd}
+
+The role of the category $\mathcal{C}_{\alpha, \beta}$ is now to study the morphisms into this construct. A generic object from this new category looks like so:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKAEyli1Ok1bsAwjz4gM2PASJkRkhizaIQAIQX8VQouXFbpukAC0ekmFADm8IqABmAJwgBbJOZAcCCQyKR12AB0IpjQAC3ojEC9fJDFA4MRQ7Rk9KIAjGBwEmkZ6AsYABQFVYRBPLCdYnETkv0QAZhog-xps63cW7zbO9NSSsphK6tM9esbm3qt2J3tuIA
+\begin{tikzcd}
+                                   & A \arrow[rd, "\alpha"] &   \\
+Z \arrow[ru, "f"] \arrow[rd, "g"'] &                        & C \\
+                                   & B \arrow[ru, "\beta"'] &  
+\end{tikzcd}
+
+such that the diagram commutes. This means that valid object in $\mathcal{C}_{\alpha, \beta}$ are triplets $(Z, f, g)$, with $f : Z \to A$ and $g : Z \to B$, such that $\alpha \circ f = \beta \circ g$. In a caricatural way, this boils down to studying "the comparison of the different paths one can use to reach $C$, knowing that the last steps are on one hand, $\alpha$, and on the other, $\beta$".
+
+\vspace{5mm}
+\underline{3.11.3.b) Morphisms}
+
+Morphisms are defined between objects as:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKAEyli1Ok1bsAwjz4gM2PASJkRkhizaIQAIQX8VQouXFbpukAC0A+sSNKBq4cgDMFmtpl6nywTUUABYvKR12fxdTFABWMJ9rexEokyDkADYKSwi9Ll5jQLcAdgSrOVSioizNb3K9Q25JGCgAc3giUAAzACcIAFskcxAcCCQycN8QAB1ppjQAC3onXoGkMRGxxAnE9lmAIxgcZZpGekPGAAVooJAerFaFnBW+wcRPTaG63JAuhxe1u8aKN1qdzjArjdhHcHk8QN8pq1-gVfq8kKFPoh4pNrLNsK1+vQ7MBZvMlqQDkd6NwAW8spjSjj2H8UijVm9GSDEAAOBG4uaMRbLNloxAATmBW15TL0lOO8JAZwu1zS0Puj2eIsB9K5EplICRKTByqh7HVcKa3CAA
+\begin{tikzcd}
+                                         & A \arrow[rd, "\alpha"] &   &                                         &    &                                          & A \arrow[rd, "\alpha"] &   \\
+Z_1 \arrow[ru, "f_1"] \arrow[rd, "g_1"'] &                        & C & {} \arrow[r, "{\sigma_{\alpha,\beta}}"] & {} & Z_2 \arrow[ru, "f_2"] \arrow[rd, "g_2"'] &                        & C \\
+                                         & B \arrow[ru, "\beta"'] &   &                                         &    &                                          & B \arrow[ru, "\beta"'] &  
+\end{tikzcd}
+
+such that the following diagram commutes
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAC0B9AJhAF9S6TLnyEU3UgAYqtRizYBBfoJAZseAkQDM5GfWatEIAMLKh60UQnc9cwyABCZ1cI1jkk3dX3yjXYvwyMFAA5vBEoABmAE4QALZIniA4EEhksgZskTwg1Ax0AEYwDAAKrpZG0VghABY4zjHxadQpSBIZviAAOl2MaDV0DbEJiDrJqYjtPvY9RTiDeYXFZRaaldV1Q02ISa2j3nZsITmLRaXlayAMMJH1AlHDSAAsLRPp01mcAdRwNVi3SAAtNx7iBGiMXuMkGMPkZjt8QL9-vVJqdlhcxCAqrU7ipwc9XokDpkjD1sCE4gsrktzqtMVgwNhYLlEX8ATs+BQ+EA
+\begin{tikzcd}
+                                                                                                        &                                          & A \arrow[rd, "\alpha"] &   \\
+Z_1 \arrow[rru, "f_1", shift left=2] \arrow[rrd, "g_1"', shift right=2] \arrow[r, "\sigma" description] & Z_2 \arrow[ru, "f_2"'] \arrow[rd, "g_2"] &                        & C \\
+                                                                                                        &                                          & B \arrow[ru, "\beta"'] &  
+\end{tikzcd}
+
+
+\vspace{5mm}
+\underline{3.11.3.c) Identity}
+
+Once again, it is clear that identity morphisms exist for all objects, simply by taking $Z = Z_1 = Z_2$, $f_1 = f_2$, $g_1 = g_2$ and $\sigma = id_Z$, in the diagram above.
+
+
+\vspace{5mm}
+\underline{3.11.3.d) Composition}
+
+Let be 3 objects of $\mathcal{C}_{\alpha, \beta}$, which we will name $p_1$, $p_2$ and $p_3$ (and define with the respective $(Z_n, f_n, g_n)$ triplet for $p_n$).
+
+Composition $\tau_{\alpha, \beta} \circ \sigma_{\alpha, \beta} = p_1 \mapsto p_3$ of two morphisms $\sigma_{\alpha, \beta} = p_1 \mapsto p_2$ and $\tau_{\alpha, \beta} = p_2 \mapsto p_3$ is defined so that the following diagram commutes.
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAC0B9AJhAF9S6TLnyEUAZlIAGKrUYs2AQX6CQGbHgJEALOVn1mrRCADCKoRtFFJ3ffKMgAQubXDNY5FL3UDC412IXdREtFG5vOUM2LnF+WRgoAHN4IlAAMwAnCABbJC8QHAgkMki-EDSeEGoGOgAjGAYABTcrYywwbFgXTJzi6kKkcNKHAB0RxjQACzpurNzESQKixCHfUZH6nBnquobmy1CQDKxEyZxZ3sR8gYWfezZEyp36ppbD9s7WAXS5pF0lvrDNgVQLUOCTLBpc6IAC03G+5V+iH+N0WawenFBIHBkOhQxqL32ITERxOZwu8xRy3y6OMY2wiWy2xABL2bxJHywXTBEKheQRPXmAFZ+ssSrTypxYs82QcScdTucBUiRQDbkDjI9YsrLtdlqrWa85WxOdyNSAxlsmHE+EA
+\begin{tikzcd}
+                                                                                                          &                                                                                                 &                                          & A \arrow[rd, "\alpha"] &   \\
+Z_1 \arrow[rrru, "f_1", shift left=2] \arrow[rrrd, "g_1"', shift right=2] \arrow[r, "\sigma" description] & Z_2 \arrow[rru, "f_2" description] \arrow[rrd, "g_2" description] \arrow[r, "\tau" description] & Z_3 \arrow[ru, "f_3"'] \arrow[rd, "g_3"] &                        & C \\
+                                                                                                          &                                                                                                 &                                          & B \arrow[ru, "\beta"'] &  
+\end{tikzcd}
+
+
+\vspace{5mm}
+\underline{3.11.3.e) Associativity}
+
+Associativity follows from associativity of morphisms in $\mathcal{C}$, similarly to what was done for slice categories in exercise 3.7 .
+
+
+
+\subsubsection*{3.11.4) Fibered bi-coslice categories}
+
+\vspace{5mm}
+\underline{3.11.4.a) Objects}
+
+To build a fibered bi-coslice category $\mathcal{C}^{\alpha, \beta}$, one takes a base category $\mathcal{C}$, as well as a fixed pair of morphisms $\alpha : C \to A$ and $\beta : C \to B$ in $\mathcal{C}$, that originate from a common object $C$ of $\mathcal{C}$. Our basic "fixed construct" from $\mathcal{C}$ looks like so: 
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqWLU6TVuwDCPPiAzY8BImQBMEhizaIQAIR4SYUAObwioAGYAnCAFskZEDghJRknewA63pmgALehAaRnoAIxhGAAUBFWEQGyxTAJx5aztHRGdXJHUabWk9X0icYNCIqNjlIXZGGCs07kpuIA
+\begin{tikzcd}
+                                            & A \\
+C \arrow[ru, "\alpha"'] \arrow[rd, "\beta"] &   \\
+                                            & B
+\end{tikzcd}
+
+The role of the category $\mathcal{C}^{\alpha, \beta}$ is now to study the morphisms from this construct. A generic object from this new category looks like so:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKAEyli1Ok1bsAWjz4gM2PASLlxkhizaIQAYQX8VQomRFbpukACEekmFADm8IqABmAJwgBbJGJAcCCQNKR12AB0IpjQAC3oQGkZ6ACMYRgAFAVVhEE8sJ1icIxAvXxCaIKQyMJk9d0SQZLTM7NM9fMLi3g9vP0QAZkrgxBrtOpAnRub0rJM1PUYYd27FMv6AqsGacesotJwEpNTZtoWm5e7KbiA
+\begin{tikzcd}
+                                            & A \arrow[rd, "f"'] &   \\
+C \arrow[ru, "\alpha"'] \arrow[rd, "\beta"] &                    & Z \\
+                                            & B \arrow[ru, "g"]  &  
+\end{tikzcd}
+
+such that the diagram commutes. This means that valid object in $\mathcal{C}^{\alpha, \beta}$ are triplets $(Z, f, g)$, with $f : A \to Z$ and $g : B \to Z$, such that $f \circ \alpha = g \circ \beta$. In a caricatural way, this boils down to studying "the comparison of the different paths one can build by starting from $C$, knowing that the choice of first step is on one hand, $\alpha$, and on the other, $\beta$".
+
+
+\vspace{5mm}
+\underline{3.11.4.b) Morphisms}
+
+Morphisms are defined between objects as:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKAGwVqdJq3Zde-bHgJEATKWISGLNohAAtAPrEefEBgVCi5NRqnaQAYWPzBSlAGZrNTdJ1PTAxWFkABZPSS12PzMXIIB2MO87A2UogIsUAFYE23ZHOX9zVxJSZRsInQAhVMKgsVKvHMqeCRgoAHN4IlAAMwAnCABbJA8QHAgkK3CfEAAdGaY0AAt6EBpGegAjGEYABTTXEF6sNsWcPz7BpHjR8cQyKbs5heXVkHWt3f3hQ+PT8-6hohJmMkKoHuxuoZXu9tnsauwjiczvkLoCABw0EGIMGJdhtKFrTawr7sRgwbrIkyopChG5ILLgnRzbBtAb0AB6wCejCW9FIcy2OHo3GhRM+8J0ZIp-0ud0xtzEjJAkJShI+cJiCN+lJ6AKQAE55UhFbidPjVW8xRrAqTyTrlXrECMsRilQKYELReqSZK7TLAdcsYa3TNBSs1cSJW8-dxKNwgA
+\begin{tikzcd}
+                                            & A \arrow[rd, "f_1"'] &     &                                         &    &                                             & A \arrow[rd, "f_2"'] &     \\
+C \arrow[ru, "\alpha"'] \arrow[rd, "\beta"] &                      & Z_1 & {} \arrow[r, "{\sigma^{\alpha,\beta}}"] & {} & C \arrow[ru, "\alpha"'] \arrow[rd, "\beta"] &                      & Z_2 \\
+                                            & B \arrow[ru, "g_1"]  &     &                                         &    &                                             & B \arrow[ru, "g_2"]  &    
+\end{tikzcd}
+
+such that the following diagram commutes
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKAEyli1Ok1bsAWgH1iPPiAzY8BIgGZxkhizaIQCkcv7qhRcrpr6ZRgMJnVAjcJKkRe6YZAAhHkkYKABzeCJQADMAJwgAWyQdEBwIJGspA3YAHSymNAALehAaRnoAIxhGAAVXSyNorBD8nGcY+LSaFKQyDPsQSMVikFKK6trNesbmobh8rEiWxGJeKNiExAAWTtSl2x92EMGS8sqaiwnhmAWZuevEAFpllTb1nq7EMV7fHOwQuKLjqMzoILlgwNhYK01h1kjtPnZfANTIDTuNhJdrit+tDNtskPD9kZDsjhicxud0Q0mi0sS9EnjcV9slkKjgAaSgWj2IwrjTKNwgA
+\begin{tikzcd}
+                                            & A \arrow[rd, "f_1"', shift right] \arrow[rrd, "f_2"] &                                     &     \\
+C \arrow[ru, "\alpha"'] \arrow[rd, "\beta"] &                                                      & Z_1 \arrow[r, "\sigma" description] & Z_2 \\
+                                            & B \arrow[ru, "g_1", shift left] \arrow[rru, "g_2"']  &                                     &    
+\end{tikzcd}
+
+
+\vspace{5mm}
+\underline{3.11.4.c) Identity}
+
+Once again, it is clear that identity morphisms exist for all objects, simply by taking $Z = Z_1 = Z_2$, $f_1 = f_2$, $g_1 = g_2$ and $\sigma = id_Z$, in the diagram above.
+
+
+\vspace{5mm}
+\underline{3.11.4.d) Composition}
+
+
+Let be 3 objects of $\mathcal{C}^{\alpha, \beta}$, which we will name $p_1$, $p_2$ and $p_3$ (and define with the respective $(Z_n, f_n, g_n)$ triplet for $p_n$).
+
+Composition $\tau^{\alpha, \beta} \circ \sigma^{\alpha, \beta} = p_1 \mapsto p_3$ of two morphisms $\sigma^{\alpha, \beta} = p_1 \mapsto p_2$ and $\tau^{\alpha, \beta} = p_2 \mapsto p_3$ is defined so that the following diagram commutes.
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKAEyli1Ok1bsAWgH1iPPiAzY8BIgGZxkhizaIQCkcv7qhRACy6a+mUYVazqgRuHJytqQfYBhFzVBTRQyET1pQxAAIR5JGCgAc3giUAAzACcIAFskGxAcCCQvHwcQAB1ypjQAC3oQGkZ6ACMYRgAFN0sjDKxEmpwXTJzimkKkMlKotMUGkCbWjq6QkF7+wZo4Gqw0wcRyXnSs3MQAVjGixEn7KMTZxpa2zosVxhhdua2dvYOVYZPJuNEGIpuxKthEtl6g9Fs9gsIQFgwNhYENjqMCpcQTd2DNTDCnssEUiUWxDiB-khzpikNjIuw7vj5o8li9icisKjyZTgRckDpQUZKjh6Mw5gtCWz2CTOWS-uj9nzEAKcUYZs4Caz4ew3h9NtsPogALQibkK6lAlX0ox3DXM2FE9hrAafA17U3ykaIfJA6mqirlVoi8UsuHuHXvQbcSjcIA
+\begin{tikzcd}
+                                            & A \arrow[rd, "f_1"'] \arrow[rrd, "f_2" description] \arrow[rrrd, "f_3", shift left=2]  &                                     &                                   &     \\
+C \arrow[ru, "\alpha"'] \arrow[rd, "\beta"] &                                                                                        & Z_1 \arrow[r, "\sigma" description] & Z_2 \arrow[r, "\tau" description] & Z_3 \\
+                                            & B \arrow[ru, "g_1"] \arrow[rru, "g_2" description] \arrow[rrru, "g_3"', shift right=2] &                                     &                                   &    
+\end{tikzcd}
+
+
+\vspace{5mm}
+\underline{3.11.4.e) Associativity}
+
+Associativity follows from associativity of morphisms in $\mathcal{C}$, similarly to what was done for slice categories in exercise 3.7 .
 \newpage
 \part{Extra exercises by/for the group}
 

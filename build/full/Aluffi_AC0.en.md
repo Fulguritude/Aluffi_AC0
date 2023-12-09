@@ -812,7 +812,7 @@ Example 3.7 (on coslice categories) refers to example 3.5 (on slice
 categories). Let's go over slice categories (since example 3.5 asks the
 reader to \"check all \[their various properties\]\").
 
-3.7.1) Slice categories
+##### 3.7.1) Slice categories {#slice-categories .unnumbered}
 
 Slice categories are categories made by singling out an object (say $A$)
 in some parent (larger) category (say $\mathcal{C}$), and studying all
@@ -881,14 +881,17 @@ and three morphisms ($\sigma_A$ mapping $f_1$ to $f_2$, $\tau_A$ mapping
 $f_2$ to $f_3$, and $\upsilon_A$ mapping $f_3$ to $f_4$). Using
 composition defined as above, we have
 
-$$f_1 = f_4 \circ ( \upsilon \circ (\tau  \circ \sigma))
-    = f_4 \circ ((\upsilon \circ  \tau) \circ \sigma )
-\Rightarrow
-   \upsilon_A \circ (\tau_A  \circ \sigma_A)
-= (\upsilon_A \circ  \tau_A) \circ \sigma_A$$ Through associativity in
-$\mathcal{C}$.
+$$\begin{aligned}
+f_1 &=& f_4 \circ ( \upsilon \circ (\tau  \circ \sigma)) \\
+    &=& f_4 \circ ((\upsilon \circ  \tau) \circ \sigma ) \\
+\Rightarrow && \\
+& &  \upsilon_A \circ (\tau_A  \circ \sigma_A) \\
+&=& (\upsilon_A \circ  \tau_A) \circ \sigma_A
+\end{aligned}$$
 
-3.7.2) Coslice categories
+Through associativity in $\mathcal{C}$.
+
+##### 3.7.2) Coslice categories {#coslice-categories .unnumbered}
 
 A coslice category $\mathcal{C}^A$ is similar, except it takes the
 morphisms coming *from* a chosen object $A$, rather than those going
@@ -897,7 +900,7 @@ one of the textbook for slice categories.
 
 We can similarly show that this also defines a category.
 
-3.7.2.a) Identity
+[3.7.2.a) Identity]{.underline}
 
 A generic identity morphism is expressed diagrammatically in
 $\mathcal{C}^A$ as:
@@ -908,7 +911,7 @@ $\mathcal{C}^A$. Also, since the only maps pre-$f$ are maps from
 $A \to A$, we have $id_A$ as the (pre-/right-)unit for every morphism
 $f$ (ie, $f = f \circ id_A$.
 
-3.7.2.b) Composition
+[3.7.2.b) Composition]{.underline}
 
 Taking 3 objects of the slice category ($f_1 \in (A \to Z_1)$,
 $f_2 \in (A \to Z_2)$ and $f_3 \in (A \to Z_3)$), and two morphisms
@@ -933,7 +936,7 @@ $$\begin{aligned}
 
 Thus, we have a working composition of morphisms.
 
-3.7.2.c) Associativity
+[3.7.2.c) Associativity]{.underline}
 
 We take 4 objects of the slice category ($f_1 \in (A \to Z_1)$,
 $f_2 \in (A \to Z_2)$, $f_3 \in (A \to Z_3)$ and $f_4 \in (A \to Z_4)$),
@@ -941,12 +944,15 @@ and three morphisms ($\sigma^A$ mapping $f_1$ to $f_2$, $\tau^A$ mapping
 $f_2$ to $f_3$, and $\upsilon^A$ mapping $f_3$ to $f_4$). Using
 composition defined as above, we have
 
-$$f_4 = ( \upsilon \circ (\tau  \circ \sigma)) \circ f_1
-    = ((\upsilon \circ  \tau) \circ \sigma ) \circ f_1
-\Rightarrow
-   \upsilon^A \circ (\tau^A  \circ \sigma^A)
-= (\upsilon^A \circ  \tau^A) \circ \sigma^A$$ Through associativity in
-$\mathcal{C}$.
+$$\begin{aligned}
+f_4 &=& ( \upsilon \circ (\tau  \circ \sigma)) \circ f_1 \\
+    &=& ((\upsilon \circ  \tau) \circ \sigma ) \circ f_1 \\
+\Rightarrow && \\
+    & &  \upsilon^A \circ (\tau^A  \circ \sigma^A) \\
+    &=& (\upsilon^A \circ  \tau^A) \circ \sigma^A
+\end{aligned}$$
+
+Through associativity in $\mathcal{C}$.
 
 #### 3.8) {#section-27 .unnumbered}
 
@@ -987,19 +993,67 @@ $\mathbf{Set}$.
 
 #### 3.9) {#section-28 .unnumbered}
 
-An alternative to the notion of multiset is obtained by considering sets
-endowed with equivalence relations; equivalent elements are taken to be
-multiple instances of elements 'of the same kind'. Define a notion of
-morphism between such enhanced sets, obtaining a category
-$\mathbf{MSet}$ containing (a 'copy' of) $\mathbf{Set}$ as a full
-subcategory. (There may be more than one reasonable way to do this! This
-is intentionally an open-ended exercise.) Which objects in
+An alternative to the notion of multiset introduced in §2.2 is obtained
+by considering sets endowed with equivalence relations; equivalent
+elements are taken to be multiple instances of elements 'of the same
+kind'. Define a notion of morphism between such enhanced sets, obtaining
+a category $\mathbf{MSet}$ containing (a 'copy' of) $\mathbf{Set}$ as a
+full subcategory. (There may be more than one reasonable way to do this!
+This is intentionally an open-ended exercise.) Which objects in
 $\mathbf{MSet}$ determine ordinary multisets as defined in §2.2, and
 how? Spell out what a morphism of multisets would be from this point of
 view. (There are several natural notions of morphisms of multisets. Try
 to define morphisms in MSet so that the notion you obtain for ordinary
 multisets captures your intuitive understanding of these objects.)
 \[§2.2, §3.2, 4.5\]
+
+Let us recall how multisets were defined in §2.2. Since duplicate
+elements do not exist in sets, multisets were instead defined as
+functions from a set $S$ to $\mathbb{N}*$, the set of (nonzero) positive
+integers. This allows each element in $S$ to have a \"count\", thereby
+encoding the intuitive notion of multiset. A similar, and equivalent
+(isomorphic), way of defining it is *via* pairs
+$(s, n) \in S \times \mathbb{N}*$, which is simpler to think about.
+We'll call this category $\mathbf{CMSet}$, for \"count multiset\" (TODO:
+probably has a conventional and better name, but I don't know it). As
+for morphisms in $\mathbf{CMSet}$, we can consider that for any
+multisets $A = S_A \times \mathbb{N}*$ and $B = S_B \times \mathbb{N}*$,
+the homset from $A$ to $B$ is simply the set functions from
+$S_A \times \mathbb{N}*$ to $S_B \times \mathbb{N}*$ as usual.
+
+We first notice that if we restrict $\mathbf{CMSet}$ to only the objects
+for which all elements have a count of $1$, and where morphisms only
+ever output to $\{ 1 \}$ in the second coordinate (a subcategory we can
+call $\mathbf{C1MSet}$, for example), we get a \"copy\" of
+$\mathbf{Set}$: $\mathbf{C1MSet}$ and $\mathbf{Set}$ are isomorphic.
+This is a full subcategory because there are no morphisms that map
+counts to anything else than $\{ 1 \}$ if we restrict our objects to
+this form; so all morphisms between the kept objects are also kept.
+
+Now let us do a similar construction, but based on equivalence classes
+instead. We know that each equivalence class over a set corresponds
+uniquely to a partition of that set. By considering only these
+partitions (these \"sets of sets\") as objects, we can build a category
+$\mathbf{EMSet}$ (for \"equivalence multiset\"). The \"count\"
+corresponds simply to the cardinal of a top-level element in the
+partition. For example, the top-level elements of
+$M = \{ S_1, S_2, S_3 \}= \{ \{a\}, \{b, c\}, \{d, e, f\} \}$ would be
+understood to have counts $|S_1| = 1$, $|S_2| = 2$ and $|S_3| = 3$
+respectively.
+
+As for morphisms in $\mathbf{EMSet}$, they simply map each top-level
+element of the domain multiset (a distinct subset of the original set)
+to some other top-level elements in the codomain multiset. This has
+precisely the same effect as mapping pairs of \"value and count\" as
+seen in the previous $\mathbf{CMSet}$ construction.
+
+In this example, any set itself, when \"injected\" (by a functor) into
+$\mathbf{EMSet}$ would just nest all of its elements into singletons.
+I.e., $S = \{ a, b, c \}$ in $\mathbf{Set}$ would become
+$S = \{ \{a\}, \{b\}, \{c\} \}$ in $\mathbf{EMSet}$. This also shows how
+restricting $\mathbf{EMSet}$ to \"only objects that are a set of
+(toplevel) singletons\" makes $\mathbf{EMSet}$ have a \"copy\" of
+$\mathbf{Set}$ as a full subcategory (for similar arguments as above).
 
 #### 3.10) {#section-29 .unnumbered}
 
@@ -1011,12 +1065,221 @@ one-to-one correspondence with the morphisms $A \to \Omega$ for a fixed,
 special object $\Omega$ of $\mathcal{C}$, called a subobject classifier.
 Show that $\mathbf{Set}$ has a subobject classifier.
 
+We define the set $\mathbb{B} = \{ 0, 1 \}$, aka the binary alphabet or
+booleans, as the subobject classifier of $\mathbf{Set}$. For any subset
+$A$ of $B$, there is a unique map $f: B \to \mathbb{B}$, such that
+$\forall b \in B, f(b) = 1 \Leftrightarrow b \in A$ (otherwise
+$f(b) = 0$, of course, as the equivalence and lack of alternatives to
+$0$ as an output imply). The map $f$ always fully describes $A$ from its
+relationship with $B$.
+
 #### 3.11) {#section-30 .unnumbered}
 
 Draw the relevant diagrams and define composition and identities for the
 category $\mathcal{C}^{A,B}$ mentioned in Example 3.9. Do the same for
 the category $\mathcal{C}^{\alpha, \beta}$ mentioned in Example 3.10.
 \[§5.5, 5.12\]
+
+For lack of a better term, we will refer to the categories of the form
+$\mathcal{C}_{A,B}$ represented by Example 3.9 as \"bi-slice
+categories\". The first part of the exercise is thus asking us to define
+and explain what \"bi-coslice categories\" (of the form
+$\mathcal{C}^{A,B}$) are.
+
+Similarly, we will refer to the categories of the form
+$\mathcal{C}_{\alpha, \beta}$ represented by Example 3.10 as \"fibered
+bi-slice categories\". The second part of the exercise is thus asking us
+to define and explain what \"fibered bi-coslice categories\" (of the
+form $\mathcal{C}^{\alpha, \beta}$) are.
+
+We will, of course, attempt to make more formal and pedagogical all
+definitions broached in the textbook's examples as well.
+
+##### 3.11.1) Bi-slice categories {#bi-slice-categories .unnumbered}
+
+[3.11.1.a) Objects and morphisms]{.underline}
+
+To make a bi-slice category $\mathcal{C}_{A,B}$, we pick 2 objects $A$
+and $B$ of a base category $\mathcal{C}$, and consider for all other
+objects $Z$ of $\mathcal{C}$, all pairs of morphisms
+$(f, g) \in (Z \to A) \times (Z \to B)$. These pairs of morphisms are
+the objects of the bi-slice category $\mathcal{C}_{A,B}$. Morphisms
+$\sigma_{A,B}$ are defined from an object
+$p_1 = (f_1, g_1) \in (Z_1 \to A) \times (Z_1 \to B)$ to an object
+$p_2 = (f_2, g_2) \in (Z_2 \to A) \times (Z_2 \to B)$ so that we have
+both $f_1 = f_2 \circ \sigma$ and $g_1 = g_2 \circ \sigma$, for some
+$\sigma \in (Z_1 \to Z_2)$.
+
+A generic object in $\mathcal{C}_{A,B}$ is of the form:
+
+[3.11.1.b) Morphisms]{.underline}
+
+Morphisms are defined between objects as
+
+such that the following diagram commutes
+
+[3.11.1.c) Identity]{.underline}
+
+It is clear that identity morphisms exist for all objects, simply by
+taking $Z = Z_1 = Z_2$, $f_1 = f_2$, $g_1 = g_2$ and $\sigma = id_Z$, in
+the diagram above.
+
+[3.11.1.d) Composition]{.underline}
+
+Let be 3 objects of $\mathcal{C}_{A,B}$, which we will name $p_1$, $p_2$
+and $p_3$ (and define with the respective $(Z_n, f_n, g_n)$ triplet for
+$p_n$).
+
+Composition $\tau_{A, B} \circ \sigma_{A, B} = p_1 \mapsto p_3$ of two
+morphisms $\sigma_{A, B} = p_1 \mapsto p_2$ and
+$\tau_{A, B} = p_2 \mapsto p_3$ is defined so that the following diagram
+commutes.
+
+[3.11.1.e) Associativity]{.underline}
+
+Associativity follows from associativity of morphisms in $\mathcal{C}$,
+similarly to what was done for slice categories in exercise 3.7 .
+
+##### 3.11.2) Bi-coslice categories {#bi-coslice-categories .unnumbered}
+
+[3.11.2.a) Objects and morphisms]{.underline}
+
+To make a bi-coslice category $\mathcal{C}^{A,B}$, we similarly pick 2
+objects $A$ and $B$ of our base category $\mathcal{C}$, but instead
+consider, for all other objects $Z$ of $\mathcal{C}$, all pairs of
+morphisms $(f, g) \in (A \to Z) \times (B \to Z)$.
+
+A generic object in $\mathcal{C}^{A,B}$ is of the form:
+
+[3.11.2.b) Morphisms]{.underline}
+
+Morphisms are defined between objects as
+
+such that the following diagram commutes
+
+[3.11.2.c) Identity]{.underline}
+
+It is clear that identity morphisms exist for all objects, simply by
+taking $Z = Z_1 = Z_2$, $f_1 = f_2$, $g_1 = g_2$ and $\sigma = id_Z$, in
+the diagram above.
+
+[3.11.2.d) Composition]{.underline}
+
+Let be 3 objects of $\mathcal{C}^{A,B}$, which we will name $p_1$, $p_2$
+and $p_3$ (and define with the respective $(Z_n, f_n, g_n)$ triplet for
+$p_n$).
+
+Composition $\tau^{A, B} \circ \sigma^{A, B} = p_1 \mapsto p_3$ of two
+morphisms $\sigma^{A, B} = p_1 \mapsto p_2$ and
+$\tau^{A, B} = p_2 \mapsto p_3$ is defined so that the following diagram
+commutes.
+
+[3.11.2.e) Associativity]{.underline}
+
+Associativity follows from associativity of morphisms in $\mathcal{C}$,
+similarly to what was done for slice categories in exercise 3.7 .
+
+##### 3.11.3) Fibered bi-slice categories {#fibered-bi-slice-categories .unnumbered}
+
+[3.11.3.a) Objects]{.underline}
+
+To build a fibered bi-slice category $\mathcal{C}_{\alpha, \beta}$, one
+takes a base category $\mathcal{C}$, as well as a fixed pair of
+morphisms $\alpha : A \to C$ and $\beta : B \to C$ in $\mathcal{C}$,
+that point to a common object $C$ of $\mathcal{C}$. Our basic \"fixed
+construct\" from $\mathcal{C}$ looks like so:
+
+The role of the category $\mathcal{C}_{\alpha, \beta}$ is now to study
+the morphisms into this construct. A generic object from this new
+category looks like so:
+
+such that the diagram commutes. This means that valid object in
+$\mathcal{C}_{\alpha, \beta}$ are triplets $(Z, f, g)$, with
+$f : Z \to A$ and $g : Z \to B$, such that
+$\alpha \circ f = \beta \circ g$. In a caricatural way, this boils down
+to studying \"the comparison of the different paths one can use to reach
+$C$, knowing that the last steps are on one hand, $\alpha$, and on the
+other, $\beta$\".
+
+[3.11.3.b) Morphisms]{.underline}
+
+Morphisms are defined between objects as:
+
+such that the following diagram commutes
+
+[3.11.3.c) Identity]{.underline}
+
+Once again, it is clear that identity morphisms exist for all objects,
+simply by taking $Z = Z_1 = Z_2$, $f_1 = f_2$, $g_1 = g_2$ and
+$\sigma = id_Z$, in the diagram above.
+
+[3.11.3.d) Composition]{.underline}
+
+Let be 3 objects of $\mathcal{C}_{\alpha, \beta}$, which we will name
+$p_1$, $p_2$ and $p_3$ (and define with the respective $(Z_n, f_n, g_n)$
+triplet for $p_n$).
+
+Composition
+$\tau_{\alpha, \beta} \circ \sigma_{\alpha, \beta} = p_1 \mapsto p_3$ of
+two morphisms $\sigma_{\alpha, \beta} = p_1 \mapsto p_2$ and
+$\tau_{\alpha, \beta} = p_2 \mapsto p_3$ is defined so that the
+following diagram commutes.
+
+[3.11.3.e) Associativity]{.underline}
+
+Associativity follows from associativity of morphisms in $\mathcal{C}$,
+similarly to what was done for slice categories in exercise 3.7 .
+
+##### 3.11.4) Fibered bi-coslice categories {#fibered-bi-coslice-categories .unnumbered}
+
+[3.11.4.a) Objects]{.underline}
+
+To build a fibered bi-coslice category $\mathcal{C}^{\alpha, \beta}$,
+one takes a base category $\mathcal{C}$, as well as a fixed pair of
+morphisms $\alpha : C \to A$ and $\beta : C \to B$ in $\mathcal{C}$,
+that originate from a common object $C$ of $\mathcal{C}$. Our basic
+\"fixed construct\" from $\mathcal{C}$ looks like so:
+
+The role of the category $\mathcal{C}^{\alpha, \beta}$ is now to study
+the morphisms from this construct. A generic object from this new
+category looks like so:
+
+such that the diagram commutes. This means that valid object in
+$\mathcal{C}^{\alpha, \beta}$ are triplets $(Z, f, g)$, with
+$f : A \to Z$ and $g : B \to Z$, such that
+$f \circ \alpha = g \circ \beta$. In a caricatural way, this boils down
+to studying \"the comparison of the different paths one can build by
+starting from $C$, knowing that the choice of first step is on one hand,
+$\alpha$, and on the other, $\beta$\".
+
+[3.11.4.b) Morphisms]{.underline}
+
+Morphisms are defined between objects as:
+
+such that the following diagram commutes
+
+[3.11.4.c) Identity]{.underline}
+
+Once again, it is clear that identity morphisms exist for all objects,
+simply by taking $Z = Z_1 = Z_2$, $f_1 = f_2$, $g_1 = g_2$ and
+$\sigma = id_Z$, in the diagram above.
+
+[3.11.4.d) Composition]{.underline}
+
+Let be 3 objects of $\mathcal{C}^{\alpha, \beta}$, which we will name
+$p_1$, $p_2$ and $p_3$ (and define with the respective $(Z_n, f_n, g_n)$
+triplet for $p_n$).
+
+Composition
+$\tau^{\alpha, \beta} \circ \sigma^{\alpha, \beta} = p_1 \mapsto p_3$ of
+two morphisms $\sigma^{\alpha, \beta} = p_1 \mapsto p_2$ and
+$\tau^{\alpha, \beta} = p_2 \mapsto p_3$ is defined so that the
+following diagram commutes.
+
+[3.11.4.e) Associativity]{.underline}
+
+Associativity follows from associativity of morphisms in $\mathcal{C}$,
+similarly to what was done for slice categories in exercise 3.7 .
 
 Extra exercises by/for the group
 ================================
@@ -1122,8 +1385,9 @@ f \in (A \to B), g \in (B \to A), \;
         f \text{ is injective} \\
         g \text{ is surjective}
     \end{cases}$$ Corollary 1: any post-inverse of an injection is a
-surjection. Corollary 2: any pre-inverse of a surjection is an
-injection.
+surjection.
+
+Corollary 2: any pre-inverse of a surjection is an injection.
 
 Proof: Let be
 $$A, B \in Obj(\textbf{Set}), f \in (A \to B), g \in (B \to A), \; g \circ f = id_A$$
@@ -1132,13 +1396,16 @@ a\) Suppose $f$ is not an injection. This means:
 $$\exists x, y \in B, \; x \neq y \text{ and } g(x) = g(y)$$ However,
 with such an $f$, we have:
 $$g(x) = g(y) \Rightarrow f(g(x)) = f(g(y)) = id_A(x) = id_A(y) = x = y$$
-This means that $f$ is an injection. Contradiction. Conclusion: in this
-context, $f$ must be an injection.
+This means that $f$ is an injection. Contradiction.
+
+Conclusion: in this context, $f$ must be an injection.
 
 b\) Suppose $g$ is not a surjection. This means:
 $$\exists a \in A, \; a \notin g(B)$$ Since $g \circ f = id_A$, that
 means that $g(f(a)) = id_A(a) = a$, this means that $a \in g(B)$.
-Contradiction. Conclusion: in this context, $g$ must be a surjection.
+Contradiction.
+
+Conclusion: in this context, $g$ must be a surjection.
 
 ### On sections and fibers {#on-sections-and-fibers .unnumbered}
 
@@ -1186,7 +1453,7 @@ non-empty fiber\" (surjection) and \"every fiber is a singleton\"
 Monomorphism definition:
 
 $$\text{$f : A \to B$ is a monomorphism}
-\; \; \Leftrightarrow \; \; 
+\\ \Leftrightarrow \\
 \forall Z \in \text{Obj}(\mathcal{C}), \;
 \forall g_1, g_2 \in \text{Hom}(Z, A), \;
 (f \circ g_1 = f \circ g_2 \Rightarrow g_1 = g_2)$$
@@ -1213,7 +1480,7 @@ defines a monomorphism.
 Epimorphism definition:
 
 $$\text{$f : A \to B$ is an epimorphism}
-\; \; \Leftrightarrow \; \; 
+\\ \Leftrightarrow \\ 
 \forall Z \in \text{Obj}(\mathcal{C}), \;
 \forall g_1, g_2 \in \text{Hom}(B, Z), \;
 (g_1 \circ f = g_2 \circ f \Rightarrow g_1 = g_2)$$

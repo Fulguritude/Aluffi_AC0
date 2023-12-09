@@ -944,8 +944,7 @@ Example 3.7 (on coslice categories) refers to example 3.5 (on slice
 categories).
 Let\[cq]s go over slice categories (since example 3.5 asks the reader to
 \[dq]check all [their various properties]\[dq]).
-.PP
-3.7.1) Slice categories
+.SS 3.7.1) Slice categories
 .PP
 Slice categories are categories made by singling out an object (say
 \f[I]A\f[R]) in some parent (larger) category (say \[u1D49E]), and
@@ -1050,10 +1049,17 @@ to \f[I]f\f[R]~3~, and \f[I]\[*u]\f[R]~\f[I]A\f[R]~ mapping
 Using composition defined as above, we have
 .PP
 .RS
-\f[I]f\f[R]~1~\[u2004]=\[u2004]\f[I]f\f[R]~4~\[u2005]\[u2218]\[u2005](\f[I]\[*u]\f[R]\[u2005]\[u2218]\[u2005](\f[I]\[*t]\f[R]\[u2005]\[u2218]\[u2005]\f[I]\[*s]\f[R]))\[u2004]=\[u2004]\f[I]f\f[R]~4~\[u2005]\[u2218]\[u2005]((\f[I]\[*u]\f[R]\[u2005]\[u2218]\[u2005]\f[I]\[*t]\f[R])\[u2005]\[u2218]\[u2005]\f[I]\[*s]\f[R])\[u2004]\[rA]\[u2004]\f[I]\[*u]\f[R]~\f[I]A\f[R]~\[u2005]\[u2218]\[u2005](\f[I]\[*t]\f[R]~\f[I]A\f[R]~\[u2005]\[u2218]\[u2005]\f[I]\[*s]\f[R]~\f[I]A\f[R]~)\[u2004]=\[u2004](\f[I]\[*u]\f[R]~\f[I]A\f[R]~\[u2005]\[u2218]\[u2005]\f[I]\[*t]\f[R]~\f[I]A\f[R]~)\[u2005]\[u2218]\[u2005]\f[I]\[*s]\f[R]~\f[I]A\f[R]~
-.RE Through associativity in \[u1D49E].
+$$\[rs]begin{aligned}
+f_1 &=& f_4 \[rs]circ ( \[rs]upsilon \[rs]circ (\[rs]tau  \[rs]circ \[rs]sigma)) \[rs]\[rs]
+    &=& f_4 \[rs]circ ((\[rs]upsilon \[rs]circ  \[rs]tau) \[rs]circ \[rs]sigma ) \[rs]\[rs]
+\[rs]Rightarrow && \[rs]\[rs]
+& &  \[rs]upsilon_A \[rs]circ (\[rs]tau_A  \[rs]circ \[rs]sigma_A) \[rs]\[rs]
+&=& (\[rs]upsilon_A \[rs]circ  \[rs]tau_A) \[rs]circ \[rs]sigma_A
+\[rs]end{aligned}$$
+.RE
 .PP
-3.7.2) Coslice categories
+Through associativity in \[u1D49E].
+.SS 3.7.2) Coslice categories
 .PP
 A coslice category \[u1D49E]^\f[I]A\f[R]^ is similar, except it takes
 the morphisms coming \f[I]from\f[R] a chosen object \f[I]A\f[R], rather
@@ -1130,8 +1136,16 @@ to \f[I]f\f[R]~3~, and \f[I]\[*u]\f[R]^\f[I]A\f[R]^ mapping
 Using composition defined as above, we have
 .PP
 .RS
-\f[I]f\f[R]~4~\[u2004]=\[u2004](\f[I]\[*u]\f[R]\[u2005]\[u2218]\[u2005](\f[I]\[*t]\f[R]\[u2005]\[u2218]\[u2005]\f[I]\[*s]\f[R]))\[u2005]\[u2218]\[u2005]\f[I]f\f[R]~1~\[u2004]=\[u2004]((\f[I]\[*u]\f[R]\[u2005]\[u2218]\[u2005]\f[I]\[*t]\f[R])\[u2005]\[u2218]\[u2005]\f[I]\[*s]\f[R])\[u2005]\[u2218]\[u2005]\f[I]f\f[R]~1~\[u2004]\[rA]\[u2004]\f[I]\[*u]\f[R]^\f[I]A\f[R]^\[u2005]\[u2218]\[u2005](\f[I]\[*t]\f[R]^\f[I]A\f[R]^\[u2005]\[u2218]\[u2005]\f[I]\[*s]\f[R]^\f[I]A\f[R]^)\[u2004]=\[u2004](\f[I]\[*u]\f[R]^\f[I]A\f[R]^\[u2005]\[u2218]\[u2005]\f[I]\[*t]\f[R]^\f[I]A\f[R]^)\[u2005]\[u2218]\[u2005]\f[I]\[*s]\f[R]^\f[I]A\f[R]^
-.RE Through associativity in \[u1D49E].
+$$\[rs]begin{aligned}
+f_4 &=& ( \[rs]upsilon \[rs]circ (\[rs]tau  \[rs]circ \[rs]sigma)) \[rs]circ f_1 \[rs]\[rs]
+    &=& ((\[rs]upsilon \[rs]circ  \[rs]tau) \[rs]circ \[rs]sigma ) \[rs]circ f_1 \[rs]\[rs]
+\[rs]Rightarrow && \[rs]\[rs]
+    & &  \[rs]upsilon\[ha]A \[rs]circ (\[rs]tau\[ha]A  \[rs]circ \[rs]sigma\[ha]A) \[rs]\[rs]
+    &=& (\[rs]upsilon\[ha]A \[rs]circ  \[rs]tau\[ha]A) \[rs]circ \[rs]sigma\[ha]A
+\[rs]end{aligned}$$
+.RE
+.PP
+Through associativity in \[u1D49E].
 .SS 3.8)
 .PP
 A subcategory \[u1D49E]\[fm] of a category \[u1D49E] consists of a
@@ -1179,9 +1193,10 @@ defined as such is a full subcategory of
 \f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R].
 .SS 3.9)
 .PP
-An alternative to the notion of multiset is obtained by considering sets
-endowed with equivalence relations; equivalent elements are taken to be
-multiple instances of elements \[cq]of the same kind\[cq].
+An alternative to the notion of multiset introduced in \[sc]2.2 is
+obtained by considering sets endowed with equivalence relations;
+equivalent elements are taken to be multiple instances of elements
+\[cq]of the same kind\[cq].
 Define a notion of morphism between such enhanced sets, obtaining a
 category \f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] containing (a
 \[cq]copy\[cq] of) \f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] as a full
@@ -1195,6 +1210,82 @@ Spell out what a morphism of multisets would be from this point of view.
 Try to define morphisms in MSet so that the notion you obtain for
 ordinary multisets captures your intuitive understanding of these
 objects.) [\[sc]2.2, \[sc]3.2, 4.5]
+.PP
+Let us recall how multisets were defined in \[sc]2.2.
+Since duplicate elements do not exist in sets, multisets were instead
+defined as functions from a set \f[I]S\f[R] to \[u2115]*, the set of
+(nonzero) positive integers.
+This allows each element in \f[I]S\f[R] to have a \[dq]count\[dq],
+thereby encoding the intuitive notion of multiset.
+A similar, and equivalent (isomorphic), way of defining it is
+\f[I]via\f[R] pairs
+(\f[I]s\f[R],\[u2006]\f[I]n\f[R])\[u2004]\[mo]\[u2004]\f[I]S\f[R]\[u2005]\[tmu]\[u2005]\[u2115]*,
+which is simpler to think about.
+We\[cq]ll call this category
+\f[B]C\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R], for \[dq]count
+multiset\[dq] (TODO: probably has a conventional and better name, but I
+don\[cq]t know it).
+As for morphisms in
+\f[B]C\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R], we can consider
+that for any multisets
+\f[I]A\f[R]\[u2004]=\[u2004]\f[I]S\f[R]~\f[I]A\f[R]~\[u2005]\[tmu]\[u2005]\[u2115]*
+and
+\f[I]B\f[R]\[u2004]=\[u2004]\f[I]S\f[R]~\f[I]B\f[R]~\[u2005]\[tmu]\[u2005]\[u2115]*,
+the homset from \f[I]A\f[R] to \f[I]B\f[R] is simply the set functions
+from \f[I]S\f[R]~\f[I]A\f[R]~\[u2005]\[tmu]\[u2005]\[u2115]* to
+\f[I]S\f[R]~\f[I]B\f[R]~\[u2005]\[tmu]\[u2005]\[u2115]* as usual.
+.PP
+We first notice that if we restrict
+\f[B]C\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] to only the
+objects for which all elements have a count of 1, and where morphisms
+only ever output to {1} in the second coordinate (a subcategory we can
+call \f[B]C\f[R]\f[B]1\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R],
+for example), we get a \[dq]copy\[dq] of
+\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R]:
+\f[B]C\f[R]\f[B]1\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] and
+\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] are isomorphic.
+This is a full subcategory because there are no morphisms that map
+counts to anything else than {1} if we restrict our objects to this
+form; so all morphisms between the kept objects are also kept.
+.PP
+Now let us do a similar construction, but based on equivalence classes
+instead.
+We know that each equivalence class over a set corresponds uniquely to a
+partition of that set.
+By considering only these partitions (these \[dq]sets of sets\[dq]) as
+objects, we can build a category
+\f[B]E\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] (for
+\[dq]equivalence multiset\[dq]).
+The \[dq]count\[dq] corresponds simply to the cardinal of a top-level
+element in the partition.
+For example, the top-level elements of
+\f[I]M\f[R]\[u2004]=\[u2004]{\f[I]S\f[R]~1~,\[u2006]\f[I]S\f[R]~2~,\[u2006]\f[I]S\f[R]~3~}\[u2004]=\[u2004]{{\f[I]a\f[R]},\[u2006]{\f[I]b\f[R],\[u2006]\f[I]c\f[R]},\[u2006]{\f[I]d\f[R],\[u2006]\f[I]e\f[R],\[u2006]\f[I]f\f[R]}}
+would be understood to have counts |\f[I]S\f[R]~1~|\[u2004]=\[u2004]1,
+|\f[I]S\f[R]~2~|\[u2004]=\[u2004]2 and
+|\f[I]S\f[R]~3~|\[u2004]=\[u2004]3 respectively.
+.PP
+As for morphisms in
+\f[B]E\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R], they simply map
+each top-level element of the domain multiset (a distinct subset of the
+original set) to some other top-level elements in the codomain multiset.
+This has precisely the same effect as mapping pairs of \[dq]value and
+count\[dq] as seen in the previous
+\f[B]C\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] construction.
+.PP
+In this example, any set itself, when \[dq]injected\[dq] (by a functor)
+into \f[B]E\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] would just
+nest all of its elements into singletons.
+I.e.,
+\f[I]S\f[R]\[u2004]=\[u2004]{\f[I]a\f[R],\[u2006]\f[I]b\f[R],\[u2006]\f[I]c\f[R]}
+in \f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] would become
+\f[I]S\f[R]\[u2004]=\[u2004]{{\f[I]a\f[R]},\[u2006]{\f[I]b\f[R]},\[u2006]{\f[I]c\f[R]}}
+in \f[B]E\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R].
+This also shows how restricting
+\f[B]E\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] to \[dq]only
+objects that are a set of (toplevel) singletons\[dq] makes
+\f[B]E\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] have a
+\[dq]copy\[dq] of \f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] as a full
+subcategory (for similar arguments as above).
 .SS 3.10)
 .PP
 Since the objects of a category \[u1D49E] are not (necessarily) sets, it
@@ -1206,6 +1297,18 @@ one-to-one correspondence with the morphisms
 \f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]\[*W]\f[R] for a fixed, special
 object \f[I]\[*W]\f[R] of \[u1D49E], called a subobject classifier.
 Show that \f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] has a subobject classifier.
+.PP
+We define the set \[u1D539]\[u2004]=\[u2004]{0,\[u2006]1}, aka the
+binary alphabet or booleans, as the subobject classifier of
+\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R].
+For any subset \f[I]A\f[R] of \f[I]B\f[R], there is a unique map
+\f[I]f\f[R]\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\[u1D539],
+such that
+\[fa]\f[I]b\f[R]\[u2004]\[mo]\[u2004]\f[I]B\f[R],\[u2006]\f[I]f\f[R](\f[I]b\f[R])\[u2004]=\[u2004]1\[u2004]\[hA]\[u2004]\f[I]b\f[R]\[u2004]\[mo]\[u2004]\f[I]A\f[R]
+(otherwise \f[I]f\f[R](\f[I]b\f[R])\[u2004]=\[u2004]0, of course, as the
+equivalence and lack of alternatives to 0 as an output imply).
+The map \f[I]f\f[R] always fully describes \f[I]A\f[R] from its
+relationship with \f[I]B\f[R].
 .SS 3.11)
 .PP
 Draw the relevant diagrams and define composition and identities for the
@@ -1215,6 +1318,272 @@ Do the same for the category
 \[u1D49E]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^ mentioned in Example
 3.10.
 [\[sc]5.5, 5.12]
+.PP
+For lack of a better term, we will refer to the categories of the form
+\[u1D49E]~\f[I]A\f[R],\[u2006]\f[I]B\f[R]~ represented by Example 3.9 as
+\[dq]bi-slice categories\[dq].
+The first part of the exercise is thus asking us to define and explain
+what \[dq]bi-coslice categories\[dq] (of the form
+\[u1D49E]^\f[I]A\f[R],\[u2006]\f[I]B\f[R]^) are.
+.PP
+Similarly, we will refer to the categories of the form
+\[u1D49E]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~ represented by
+Example 3.10 as \[dq]fibered bi-slice categories\[dq].
+The second part of the exercise is thus asking us to define and explain
+what \[dq]fibered bi-coslice categories\[dq] (of the form
+\[u1D49E]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^) are.
+.PP
+We will, of course, attempt to make more formal and pedagogical all
+definitions broached in the textbook\[cq]s examples as well.
+.SS 3.11.1) Bi-slice categories
+.PP
+3.11.1.a) Objects and morphisms
+.PP
+To make a bi-slice category \[u1D49E]~\f[I]A\f[R],\[u2006]\f[I]B\f[R]~,
+we pick 2 objects \f[I]A\f[R] and \f[I]B\f[R] of a base category
+\[u1D49E], and consider for all other objects \f[I]Z\f[R] of \[u1D49E],
+all pairs of morphisms
+(\f[I]f\f[R],\[u2006]\f[I]g\f[R])\[u2004]\[mo]\[u2004](\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R])\[u2005]\[tmu]\[u2005](\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]).
+These pairs of morphisms are the objects of the bi-slice category
+\[u1D49E]~\f[I]A\f[R],\[u2006]\f[I]B\f[R]~.
+Morphisms \f[I]\[*s]\f[R]~\f[I]A\f[R],\[u2006]\f[I]B\f[R]~ are defined
+from an object
+\f[I]p\f[R]~1~\[u2004]=\[u2004](\f[I]f\f[R]~1~,\[u2006]\f[I]g\f[R]~1~)\[u2004]\[mo]\[u2004](\f[I]Z\f[R]~1~\[u2004]\[->]\[u2004]\f[I]A\f[R])\[u2005]\[tmu]\[u2005](\f[I]Z\f[R]~1~\[u2004]\[->]\[u2004]\f[I]B\f[R])
+to an object
+\f[I]p\f[R]~2~\[u2004]=\[u2004](\f[I]f\f[R]~2~,\[u2006]\f[I]g\f[R]~2~)\[u2004]\[mo]\[u2004](\f[I]Z\f[R]~2~\[u2004]\[->]\[u2004]\f[I]A\f[R])\[u2005]\[tmu]\[u2005](\f[I]Z\f[R]~2~\[u2004]\[->]\[u2004]\f[I]B\f[R])
+so that we have both
+\f[I]f\f[R]~1~\[u2004]=\[u2004]\f[I]f\f[R]~2~\[u2005]\[u2218]\[u2005]\f[I]\[*s]\f[R]
+and
+\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]g\f[R]~2~\[u2005]\[u2218]\[u2005]\f[I]\[*s]\f[R],
+for some
+\f[I]\[*s]\f[R]\[u2004]\[mo]\[u2004](\f[I]Z\f[R]~1~\[u2004]\[->]\[u2004]\f[I]Z\f[R]~2~).
+.PP
+A generic object in \[u1D49E]~\f[I]A\f[R],\[u2006]\f[I]B\f[R]~ is of the
+form:
+.PP
+3.11.1.b) Morphisms
+.PP
+Morphisms are defined between objects as
+.PP
+such that the following diagram commutes
+.PP
+3.11.1.c) Identity
+.PP
+It is clear that identity morphisms exist for all objects, simply by
+taking
+\f[I]Z\f[R]\[u2004]=\[u2004]\f[I]Z\f[R]~1~\[u2004]=\[u2004]\f[I]Z\f[R]~2~,
+\f[I]f\f[R]~1~\[u2004]=\[u2004]\f[I]f\f[R]~2~,
+\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]g\f[R]~2~ and
+\f[I]\[*s]\f[R]\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]Z\f[R]~, in
+the diagram above.
+.PP
+3.11.1.d) Composition
+.PP
+Let be 3 objects of \[u1D49E]~\f[I]A\f[R],\[u2006]\f[I]B\f[R]~, which we
+will name \f[I]p\f[R]~1~, \f[I]p\f[R]~2~ and \f[I]p\f[R]~3~ (and define
+with the respective
+(\f[I]Z\f[R]~\f[I]n\f[R]~,\[u2006]\f[I]f\f[R]~\f[I]n\f[R]~,\[u2006]\f[I]g\f[R]~\f[I]n\f[R]~)
+triplet for \f[I]p\f[R]~\f[I]n\f[R]~).
+.PP
+Composition
+\f[I]\[*t]\f[R]~\f[I]A\f[R],\[u2006]\f[I]B\f[R]~\[u2005]\[u2218]\[u2005]\f[I]\[*s]\f[R]~\f[I]A\f[R],\[u2006]\f[I]B\f[R]~\[u2004]=\[u2004]\f[I]p\f[R]~1~\[u2004]\[u21A6]\[u2004]\f[I]p\f[R]~3~
+of two morphisms
+\f[I]\[*s]\f[R]~\f[I]A\f[R],\[u2006]\f[I]B\f[R]~\[u2004]=\[u2004]\f[I]p\f[R]~1~\[u2004]\[u21A6]\[u2004]\f[I]p\f[R]~2~
+and
+\f[I]\[*t]\f[R]~\f[I]A\f[R],\[u2006]\f[I]B\f[R]~\[u2004]=\[u2004]\f[I]p\f[R]~2~\[u2004]\[u21A6]\[u2004]\f[I]p\f[R]~3~
+is defined so that the following diagram commutes.
+.PP
+3.11.1.e) Associativity
+.PP
+Associativity follows from associativity of morphisms in \[u1D49E],
+similarly to what was done for slice categories in exercise 3.7 .
+.SS 3.11.2) Bi-coslice categories
+.PP
+3.11.2.a) Objects and morphisms
+.PP
+To make a bi-coslice category
+\[u1D49E]^\f[I]A\f[R],\[u2006]\f[I]B\f[R]^, we similarly pick 2 objects
+\f[I]A\f[R] and \f[I]B\f[R] of our base category \[u1D49E], but instead
+consider, for all other objects \f[I]Z\f[R] of \[u1D49E], all pairs of
+morphisms
+(\f[I]f\f[R],\[u2006]\f[I]g\f[R])\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R])\[u2005]\[tmu]\[u2005](\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]).
+.PP
+A generic object in \[u1D49E]^\f[I]A\f[R],\[u2006]\f[I]B\f[R]^ is of the
+form:
+.PP
+3.11.2.b) Morphisms
+.PP
+Morphisms are defined between objects as
+.PP
+such that the following diagram commutes
+.PP
+3.11.2.c) Identity
+.PP
+It is clear that identity morphisms exist for all objects, simply by
+taking
+\f[I]Z\f[R]\[u2004]=\[u2004]\f[I]Z\f[R]~1~\[u2004]=\[u2004]\f[I]Z\f[R]~2~,
+\f[I]f\f[R]~1~\[u2004]=\[u2004]\f[I]f\f[R]~2~,
+\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]g\f[R]~2~ and
+\f[I]\[*s]\f[R]\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]Z\f[R]~, in
+the diagram above.
+.PP
+3.11.2.d) Composition
+.PP
+Let be 3 objects of \[u1D49E]^\f[I]A\f[R],\[u2006]\f[I]B\f[R]^, which we
+will name \f[I]p\f[R]~1~, \f[I]p\f[R]~2~ and \f[I]p\f[R]~3~ (and define
+with the respective
+(\f[I]Z\f[R]~\f[I]n\f[R]~,\[u2006]\f[I]f\f[R]~\f[I]n\f[R]~,\[u2006]\f[I]g\f[R]~\f[I]n\f[R]~)
+triplet for \f[I]p\f[R]~\f[I]n\f[R]~).
+.PP
+Composition
+\f[I]\[*t]\f[R]^\f[I]A\f[R],\[u2006]\f[I]B\f[R]^\[u2005]\[u2218]\[u2005]\f[I]\[*s]\f[R]^\f[I]A\f[R],\[u2006]\f[I]B\f[R]^\[u2004]=\[u2004]\f[I]p\f[R]~1~\[u2004]\[u21A6]\[u2004]\f[I]p\f[R]~3~
+of two morphisms
+\f[I]\[*s]\f[R]^\f[I]A\f[R],\[u2006]\f[I]B\f[R]^\[u2004]=\[u2004]\f[I]p\f[R]~1~\[u2004]\[u21A6]\[u2004]\f[I]p\f[R]~2~
+and
+\f[I]\[*t]\f[R]^\f[I]A\f[R],\[u2006]\f[I]B\f[R]^\[u2004]=\[u2004]\f[I]p\f[R]~2~\[u2004]\[u21A6]\[u2004]\f[I]p\f[R]~3~
+is defined so that the following diagram commutes.
+.PP
+3.11.2.e) Associativity
+.PP
+Associativity follows from associativity of morphisms in \[u1D49E],
+similarly to what was done for slice categories in exercise 3.7 .
+.SS 3.11.3) Fibered bi-slice categories
+.PP
+3.11.3.a) Objects
+.PP
+To build a fibered bi-slice category
+\[u1D49E]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~, one takes a base
+category \[u1D49E], as well as a fixed pair of morphisms
+\f[I]\[*a]\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]C\f[R]
+and
+\f[I]\[*b]\f[R]\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]C\f[R]
+in \[u1D49E], that point to a common object \f[I]C\f[R] of \[u1D49E].
+Our basic \[dq]fixed construct\[dq] from \[u1D49E] looks like so:
+.PP
+The role of the category
+\[u1D49E]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~ is now to study the
+morphisms into this construct.
+A generic object from this new category looks like so:
+.PP
+such that the diagram commutes.
+This means that valid object in
+\[u1D49E]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~ are triplets
+(\f[I]Z\f[R],\[u2006]\f[I]f\f[R],\[u2006]\f[I]g\f[R]), with
+\f[I]f\f[R]\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]
+and
+\f[I]g\f[R]\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R],
+such that
+\f[I]\[*a]\f[R]\[u2005]\[u2218]\[u2005]\f[I]f\f[R]\[u2004]=\[u2004]\f[I]\[*b]\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R].
+In a caricatural way, this boils down to studying \[dq]the comparison of
+the different paths one can use to reach \f[I]C\f[R], knowing that the
+last steps are on one hand, \f[I]\[*a]\f[R], and on the other,
+\f[I]\[*b]\f[R]\[dq].
+.PP
+3.11.3.b) Morphisms
+.PP
+Morphisms are defined between objects as:
+.PP
+such that the following diagram commutes
+.PP
+3.11.3.c) Identity
+.PP
+Once again, it is clear that identity morphisms exist for all objects,
+simply by taking
+\f[I]Z\f[R]\[u2004]=\[u2004]\f[I]Z\f[R]~1~\[u2004]=\[u2004]\f[I]Z\f[R]~2~,
+\f[I]f\f[R]~1~\[u2004]=\[u2004]\f[I]f\f[R]~2~,
+\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]g\f[R]~2~ and
+\f[I]\[*s]\f[R]\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]Z\f[R]~, in
+the diagram above.
+.PP
+3.11.3.d) Composition
+.PP
+Let be 3 objects of \[u1D49E]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~,
+which we will name \f[I]p\f[R]~1~, \f[I]p\f[R]~2~ and \f[I]p\f[R]~3~
+(and define with the respective
+(\f[I]Z\f[R]~\f[I]n\f[R]~,\[u2006]\f[I]f\f[R]~\f[I]n\f[R]~,\[u2006]\f[I]g\f[R]~\f[I]n\f[R]~)
+triplet for \f[I]p\f[R]~\f[I]n\f[R]~).
+.PP
+Composition
+\f[I]\[*t]\f[R]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~\[u2005]\[u2218]\[u2005]\f[I]\[*s]\f[R]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~\[u2004]=\[u2004]\f[I]p\f[R]~1~\[u2004]\[u21A6]\[u2004]\f[I]p\f[R]~3~
+of two morphisms
+\f[I]\[*s]\f[R]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~\[u2004]=\[u2004]\f[I]p\f[R]~1~\[u2004]\[u21A6]\[u2004]\f[I]p\f[R]~2~
+and
+\f[I]\[*t]\f[R]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~\[u2004]=\[u2004]\f[I]p\f[R]~2~\[u2004]\[u21A6]\[u2004]\f[I]p\f[R]~3~
+is defined so that the following diagram commutes.
+.PP
+3.11.3.e) Associativity
+.PP
+Associativity follows from associativity of morphisms in \[u1D49E],
+similarly to what was done for slice categories in exercise 3.7 .
+.SS 3.11.4) Fibered bi-coslice categories
+.PP
+3.11.4.a) Objects
+.PP
+To build a fibered bi-coslice category
+\[u1D49E]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^, one takes a base
+category \[u1D49E], as well as a fixed pair of morphisms
+\f[I]\[*a]\f[R]\[u2004]:\[u2004]\f[I]C\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]
+and
+\f[I]\[*b]\f[R]\[u2004]:\[u2004]\f[I]C\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]
+in \[u1D49E], that originate from a common object \f[I]C\f[R] of
+\[u1D49E].
+Our basic \[dq]fixed construct\[dq] from \[u1D49E] looks like so:
+.PP
+The role of the category
+\[u1D49E]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^ is now to study the
+morphisms from this construct.
+A generic object from this new category looks like so:
+.PP
+such that the diagram commutes.
+This means that valid object in
+\[u1D49E]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^ are triplets
+(\f[I]Z\f[R],\[u2006]\f[I]f\f[R],\[u2006]\f[I]g\f[R]), with
+\f[I]f\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]
+and
+\f[I]g\f[R]\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R],
+such that
+\f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]\[*a]\f[R]\[u2004]=\[u2004]\f[I]g\f[R]\[u2005]\[u2218]\[u2005]\f[I]\[*b]\f[R].
+In a caricatural way, this boils down to studying \[dq]the comparison of
+the different paths one can build by starting from \f[I]C\f[R], knowing
+that the choice of first step is on one hand, \f[I]\[*a]\f[R], and on
+the other, \f[I]\[*b]\f[R]\[dq].
+.PP
+3.11.4.b) Morphisms
+.PP
+Morphisms are defined between objects as:
+.PP
+such that the following diagram commutes
+.PP
+3.11.4.c) Identity
+.PP
+Once again, it is clear that identity morphisms exist for all objects,
+simply by taking
+\f[I]Z\f[R]\[u2004]=\[u2004]\f[I]Z\f[R]~1~\[u2004]=\[u2004]\f[I]Z\f[R]~2~,
+\f[I]f\f[R]~1~\[u2004]=\[u2004]\f[I]f\f[R]~2~,
+\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]g\f[R]~2~ and
+\f[I]\[*s]\f[R]\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]Z\f[R]~, in
+the diagram above.
+.PP
+3.11.4.d) Composition
+.PP
+Let be 3 objects of \[u1D49E]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^,
+which we will name \f[I]p\f[R]~1~, \f[I]p\f[R]~2~ and \f[I]p\f[R]~3~
+(and define with the respective
+(\f[I]Z\f[R]~\f[I]n\f[R]~,\[u2006]\f[I]f\f[R]~\f[I]n\f[R]~,\[u2006]\f[I]g\f[R]~\f[I]n\f[R]~)
+triplet for \f[I]p\f[R]~\f[I]n\f[R]~).
+.PP
+Composition
+\f[I]\[*t]\f[R]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^\[u2005]\[u2218]\[u2005]\f[I]\[*s]\f[R]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^\[u2004]=\[u2004]\f[I]p\f[R]~1~\[u2004]\[u21A6]\[u2004]\f[I]p\f[R]~3~
+of two morphisms
+\f[I]\[*s]\f[R]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^\[u2004]=\[u2004]\f[I]p\f[R]~1~\[u2004]\[u21A6]\[u2004]\f[I]p\f[R]~2~
+and
+\f[I]\[*t]\f[R]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^\[u2004]=\[u2004]\f[I]p\f[R]~2~\[u2004]\[u21A6]\[u2004]\f[I]p\f[R]~3~
+is defined so that the following diagram commutes.
+.PP
+3.11.4.e) Associativity
+.PP
+Associativity follows from associativity of morphisms in \[u1D49E],
+similarly to what was done for slice categories in exercise 3.7 .
 .SH Extra exercises by/for the group
 .SS Chapter I) 1) Set notation)
 .PP
@@ -1338,6 +1707,7 @@ f \[rs]in (A \[rs]to B), g \[rs]in (B \[rs]to A), \[rs];
         g \[rs]text{ is surjective}
     \[rs]end{cases}$$
 .RE Corollary 1: any post-inverse of an injection is a surjection.
+.PP
 Corollary 2: any pre-inverse of a surjection is an injection.
 .PP
 Proof: Let be
@@ -1354,6 +1724,7 @@ This means:
 \f[I]g\f[R](\f[I]x\f[R])\[u2004]=\[u2004]\f[I]g\f[R](\f[I]y\f[R])\[u2004]\[rA]\[u2004]\f[I]f\f[R](\f[I]g\f[R](\f[I]x\f[R]))\[u2004]=\[u2004]\f[I]f\f[R](\f[I]g\f[R](\f[I]y\f[R]))\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]A\f[R]~(\f[I]x\f[R])\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]A\f[R]~(\f[I]y\f[R])\[u2004]=\[u2004]\f[I]x\f[R]\[u2004]=\[u2004]\f[I]y\f[R]
 .RE This means that \f[I]f\f[R] is an injection.
 Contradiction.
+.PP
 Conclusion: in this context, \f[I]f\f[R] must be an injection.
 .PP
 b) Suppose \f[I]g\f[R] is not a surjection.
@@ -1367,6 +1738,7 @@ that means that
 this means that
 \f[I]a\f[R]\[u2004]\[mo]\[u2004]\f[I]g\f[R](\f[I]B\f[R]).
 Contradiction.
+.PP
 Conclusion: in this context, \f[I]g\f[R] must be a surjection.
 .SS On sections and fibers
 .PP
@@ -1422,7 +1794,11 @@ is a singleton\[dq] (injection))
 Monomorphism definition:
 .PP
 .RS
-\f[I]f\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R] is a monomorphism\[u2005]\[u2005]\[hA]\[u2005]\[u2005]\[fa]\f[I]Z\f[R]\[u2004]\[mo]\[u2004]Obj(\[u1D49E]),\[u2005]\[fa]\f[I]g\f[R]~1~,\[u2006]\f[I]g\f[R]~2~\[u2004]\[mo]\[u2004]Hom(\f[I]Z\f[R],\[u2006]\f[I]A\f[R]),\[u2005](\f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R]~2~\[u2004]\[rA]\[u2004]\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]g\f[R]~2~)
+$$\[rs]text{$f : A \[rs]to B$ is a monomorphism}
+\[rs]\[rs] \[rs]Leftrightarrow \[rs]\[rs]
+\[rs]forall Z \[rs]in \[rs]text{Obj}(\[rs]mathcal{C}), \[rs];
+\[rs]forall g_1, g_2 \[rs]in \[rs]text{Hom}(Z, A), \[rs];
+(f \[rs]circ g_1 = f \[rs]circ g_2 \[rs]Rightarrow g_1 = g_2)$$
 .RE
 .PP
 .RS
@@ -1464,7 +1840,11 @@ counter-example to the implication that defines a monomorphism.
 Epimorphism definition:
 .PP
 .RS
-\f[I]f\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R] is an epimorphism\[u2005]\[u2005]\[hA]\[u2005]\[u2005]\[fa]\f[I]Z\f[R]\[u2004]\[mo]\[u2004]Obj(\[u1D49E]),\[u2005]\[fa]\f[I]g\f[R]~1~,\[u2006]\f[I]g\f[R]~2~\[u2004]\[mo]\[u2004]Hom(\f[I]B\f[R],\[u2006]\f[I]Z\f[R]),\[u2005](\f[I]g\f[R]~1~\[u2005]\[u2218]\[u2005]\f[I]f\f[R]\[u2004]=\[u2004]\f[I]g\f[R]~2~\[u2005]\[u2218]\[u2005]\f[I]f\f[R]\[u2004]\[rA]\[u2004]\f[I]g\f[R]~1~\[u2004]=\[u2004]\f[I]g\f[R]~2~)
+$$\[rs]text{$f : A \[rs]to B$ is an epimorphism}
+\[rs]\[rs] \[rs]Leftrightarrow \[rs]\[rs] 
+\[rs]forall Z \[rs]in \[rs]text{Obj}(\[rs]mathcal{C}), \[rs];
+\[rs]forall g_1, g_2 \[rs]in \[rs]text{Hom}(B, Z), \[rs];
+(g_1 \[rs]circ f = g_2 \[rs]circ f \[rs]Rightarrow g_1 = g_2)$$
 .RE
 .PP
 .RS

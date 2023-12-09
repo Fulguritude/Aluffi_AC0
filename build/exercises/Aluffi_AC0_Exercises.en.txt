@@ -688,7 +688,14 @@ f₃ ∈ (Z₃ → A) and f₄ ∈ (Z₄ → A)), and three morp
 to f₂, τ_(A) mapping f₂ to f₃, and υ_(A) mapping f₃ to f₄). Using
 composition defined as above, we have
 
-f₁ = f₄ ∘ (υ ∘ (τ ∘ σ)) = f₄ ∘ ((υ ∘ τ) ∘ σ) ⇒ υ_(A) ∘ (τ_(A) ∘ σ_(A)) = (υ_(A) ∘ τ_(A)) ∘ σ_(A)
+$$\begin{aligned}
+f_1 &=& f_4 \circ ( \upsilon \circ (\tau  \circ \sigma)) \\
+    &=& f_4 \circ ((\upsilon \circ  \tau) \circ \sigma ) \\
+\Rightarrow && \\
+& &  \upsilon_A \circ (\tau_A  \circ \sigma_A) \\
+&=& (\upsilon_A \circ  \tau_A) \circ \sigma_A
+\end{aligned}$$
+
 Through associativity in 𝒞.
 
 3.7.2) Coslice categories
@@ -738,7 +745,14 @@ f₃ ∈ (A → Z₃) and f₄ ∈ (A → Z₄)), and three morp
 to f₂, τ^(A) mapping f₂ to f₃, and υ^(A) mapping f₃ to f₄). Using
 composition defined as above, we have
 
-f₄ = (υ ∘ (τ ∘ σ)) ∘ f₁ = ((υ ∘ τ) ∘ σ) ∘ f₁ ⇒ υ^(A) ∘ (τ^(A) ∘ σ^(A)) = (υ^(A) ∘ τ^(A)) ∘ σ^(A)
+$$\begin{aligned}
+f_4 &=& ( \upsilon \circ (\tau  \circ \sigma)) \circ f_1 \\
+    &=& ((\upsilon \circ  \tau) \circ \sigma ) \circ f_1 \\
+\Rightarrow && \\
+    & &  \upsilon^A \circ (\tau^A  \circ \sigma^A) \\
+    &=& (\upsilon^A \circ  \tau^A) \circ \sigma^A
+\end{aligned}$$
+
 Through associativity in 𝒞.
 
 3.8)
@@ -774,18 +788,62 @@ Consequently InfSet defined as such is a full subcategory of Set.
 
 3.9)
 
-An alternative to the notion of multiset is obtained by considering sets
-endowed with equivalence relations; equivalent elements are taken to be
-multiple instances of elements ’of the same kind’. Define a notion of
-morphism between such enhanced sets, obtaining a category MSet
-containing (a ’copy’ of) Set as a full subcategory. (There may be more
-than one reasonable way to do this! This is intentionally an open-ended
-exercise.) Which objects in MSet determine ordinary multisets as defined
-in §2.2, and how? Spell out what a morphism of multisets would be from
-this point of view. (There are several natural notions of morphisms of
-multisets. Try to define morphisms in MSet so that the notion you obtain
-for ordinary multisets captures your intuitive understanding of these
-objects.) [§2.2, §3.2, 4.5]
+An alternative to the notion of multiset introduced in §2.2 is obtained
+by considering sets endowed with equivalence relations; equivalent
+elements are taken to be multiple instances of elements ’of the same
+kind’. Define a notion of morphism between such enhanced sets, obtaining
+a category MSet containing (a ’copy’ of) Set as a full subcategory.
+(There may be more than one reasonable way to do this! This is
+intentionally an open-ended exercise.) Which objects in MSet determine
+ordinary multisets as defined in §2.2, and how? Spell out what a
+morphism of multisets would be from this point of view. (There are
+several natural notions of morphisms of multisets. Try to define
+morphisms in MSet so that the notion you obtain for ordinary multisets
+captures your intuitive understanding of these objects.) [§2.2, §3.2,
+4.5]
+
+Let us recall how multisets were defined in §2.2. Since duplicate
+elements do not exist in sets, multisets were instead defined as
+functions from a set S to ℕ*, the set of (nonzero) positive integers.
+This allows each element in S to have a "count", thereby encoding the
+intuitive notion of multiset. A similar, and equivalent (isomorphic),
+way of defining it is via pairs (s, n) ∈ S × ℕ*, which is simpler to
+think about. We’ll call this category CMSet, for "count multiset" (TODO:
+probably has a conventional and better name, but I don’t know it). As
+for morphisms in CMSet, we can consider that for any multisets
+A = S_(A) × ℕ* and B = S_(B) × ℕ*, the homset from A to B is simply the
+set functions from S_(A) × ℕ* to S_(B) × ℕ* as usual.
+
+We first notice that if we restrict CMSet to only the objects for which
+all elements have a count of 1, and where morphisms only ever output to
+{1} in the second coordinate (a subcategory we can call C1MSet, for
+example), we get a "copy" of Set: C1MSet and Set are isomorphic. This is
+a full subcategory because there are no morphisms that map counts to
+anything else than {1} if we restrict our objects to this form; so all
+morphisms between the kept objects are also kept.
+
+Now let us do a similar construction, but based on equivalence classes
+instead. We know that each equivalence class over a set corresponds
+uniquely to a partition of that set. By considering only these
+partitions (these "sets of sets") as objects, we can build a category
+EMSet (for "equivalence multiset"). The "count" corresponds simply to
+the cardinal of a top-level element in the partition. For example, the
+top-level elements of M = {S₁, S₂, S₃} = {{a}, {b, c}, {d, e, f}} would
+be understood to have counts |S₁| = 1, |S₂| = 2 and |S₃| = 3
+respectively.
+
+As for morphisms in EMSet, they simply map each top-level element of the
+domain multiset (a distinct subset of the original set) to some other
+top-level elements in the codomain multiset. This has precisely the same
+effect as mapping pairs of "value and count" as seen in the previous
+CMSet construction.
+
+In this example, any set itself, when "injected" (by a functor) into
+EMSet would just nest all of its elements into singletons. I.e.,
+S = {a, b, c} in Set would become S = {{a}, {b}, {c}} in EMSet. This
+also shows how restricting EMSet to "only objects that are a set of
+(toplevel) singletons" makes EMSet have a "copy" of Set as a full
+subcategory (for similar arguments as above).
 
 3.10)
 
@@ -796,11 +854,196 @@ subobjects of any given object A in 𝒞 are in one-to-one correspondence
 with the morphisms A → Ω for a fixed, special object Ω of 𝒞, called a
 subobject classifier. Show that Set has a subobject classifier.
 
+We define the set 𝔹 = {0, 1}, aka the binary alphabet or booleans, as
+the subobject classifier of Set. For any subset A of B, there is a
+unique map f : B → 𝔹, such that ∀b ∈ B, f(b) = 1 ⇔ b ∈ A (otherwise
+f(b) = 0, of course, as the equivalence and lack of alternatives to 0 as
+an output imply). The map f always fully describes A from its
+relationship with B.
+
 3.11)
 
 Draw the relevant diagrams and define composition and identities for the
 category 𝒞^(A, B) mentioned in Example 3.9. Do the same for the category
 𝒞^(α, β) mentioned in Example 3.10. [§5.5, 5.12]
+
+For lack of a better term, we will refer to the categories of the form
+𝒞_(A, B) represented by Example 3.9 as "bi-slice categories". The first
+part of the exercise is thus asking us to define and explain what
+"bi-coslice categories" (of the form 𝒞^(A, B)) are.
+
+Similarly, we will refer to the categories of the form 𝒞_(α, β)
+represented by Example 3.10 as "fibered bi-slice categories". The second
+part of the exercise is thus asking us to define and explain what
+"fibered bi-coslice categories" (of the form 𝒞^(α, β)) are.
+
+We will, of course, attempt to make more formal and pedagogical all
+definitions broached in the textbook’s examples as well.
+
+3.11.1) Bi-slice categories
+
+3.11.1.a) Objects and morphisms
+
+To make a bi-slice category 𝒞_(A, B), we pick 2 objects A and B of a
+base category 𝒞, and consider for all other objects Z of 𝒞, all pairs of
+morphisms (f, g) ∈ (Z → A) × (Z → B). These pairs of morphisms are the
+objects of the bi-slice category 𝒞_(A, B). Morphisms σ_(A, B) are
+defined from an object p₁ = (f₁, g₁) ∈ (Z₁ → A) × (Z₁ → B) to an object
+p₂ = (f₂, g₂) ∈ (Z₂ → A) × (Z₂ → B) so that we have both f₁ = f₂ ∘ σ and
+g₁ = g₂ ∘ σ, for some σ ∈ (Z₁ → Z₂).
+
+A generic object in 𝒞_(A, B) is of the form:
+
+3.11.1.b) Morphisms
+
+Morphisms are defined between objects as
+
+such that the following diagram commutes
+
+3.11.1.c) Identity
+
+It is clear that identity morphisms exist for all objects, simply by
+taking Z = Z₁ = Z₂, f₁ = f₂, g₁ = g₂ and σ = id_(Z), in the diagram
+above.
+
+3.11.1.d) Composition
+
+Let be 3 objects of 𝒞_(A, B), which we will name p₁, p₂ and p₃ (and
+define with the respective (Z_(n), f_(n), g_(n)) triplet for p_(n)).
+
+Composition τ_(A, B) ∘ σ_(A, B) = p₁ ↦ p₃ of two morphisms
+σ_(A, B) = p₁ ↦ p₂ and τ_(A, B) = p₂ ↦ p₃ is defined so that the
+following diagram commutes.
+
+3.11.1.e) Associativity
+
+Associativity follows from associativity of morphisms in 𝒞, similarly to
+what was done for slice categories in exercise 3.7 .
+
+3.11.2) Bi-coslice categories
+
+3.11.2.a) Objects and morphisms
+
+To make a bi-coslice category 𝒞^(A, B), we similarly pick 2 objects A
+and B of our base category 𝒞, but instead consider, for all other
+objects Z of 𝒞, all pairs of morphisms (f, g) ∈ (A → Z) × (B → Z).
+
+A generic object in 𝒞^(A, B) is of the form:
+
+3.11.2.b) Morphisms
+
+Morphisms are defined between objects as
+
+such that the following diagram commutes
+
+3.11.2.c) Identity
+
+It is clear that identity morphisms exist for all objects, simply by
+taking Z = Z₁ = Z₂, f₁ = f₂, g₁ = g₂ and σ = id_(Z), in the diagram
+above.
+
+3.11.2.d) Composition
+
+Let be 3 objects of 𝒞^(A, B), which we will name p₁, p₂ and p₃ (and
+define with the respective (Z_(n), f_(n), g_(n)) triplet for p_(n)).
+
+Composition τ^(A, B) ∘ σ^(A, B) = p₁ ↦ p₃ of two morphisms
+σ^(A, B) = p₁ ↦ p₂ and τ^(A, B) = p₂ ↦ p₃ is defined so that the
+following diagram commutes.
+
+3.11.2.e) Associativity
+
+Associativity follows from associativity of morphisms in 𝒞, similarly to
+what was done for slice categories in exercise 3.7 .
+
+3.11.3) Fibered bi-slice categories
+
+3.11.3.a) Objects
+
+To build a fibered bi-slice category 𝒞_(α, β), one takes a base category
+𝒞, as well as a fixed pair of morphisms α : A → C and β : B → C in 𝒞,
+that point to a common object C of 𝒞. Our basic "fixed construct" from 𝒞
+looks like so:
+
+The role of the category 𝒞_(α, β) is now to study the morphisms into
+this construct. A generic object from this new category looks like so:
+
+such that the diagram commutes. This means that valid object in 𝒞_(α, β)
+are triplets (Z, f, g), with f : Z → A and g : Z → B, such that
+α ∘ f = β ∘ g. In a caricatural way, this boils down to studying "the
+comparison of the different paths one can use to reach C, knowing that
+the last steps are on one hand, α, and on the other, β".
+
+3.11.3.b) Morphisms
+
+Morphisms are defined between objects as:
+
+such that the following diagram commutes
+
+3.11.3.c) Identity
+
+Once again, it is clear that identity morphisms exist for all objects,
+simply by taking Z = Z₁ = Z₂, f₁ = f₂, g₁ = g₂ and σ = id_(Z), in the
+diagram above.
+
+3.11.3.d) Composition
+
+Let be 3 objects of 𝒞_(α, β), which we will name p₁, p₂ and p₃ (and
+define with the respective (Z_(n), f_(n), g_(n)) triplet for p_(n)).
+
+Composition τ_(α, β) ∘ σ_(α, β) = p₁ ↦ p₃ of two morphisms
+σ_(α, β) = p₁ ↦ p₂ and τ_(α, β) = p₂ ↦ p₃ is defined so that the
+following diagram commutes.
+
+3.11.3.e) Associativity
+
+Associativity follows from associativity of morphisms in 𝒞, similarly to
+what was done for slice categories in exercise 3.7 .
+
+3.11.4) Fibered bi-coslice categories
+
+3.11.4.a) Objects
+
+To build a fibered bi-coslice category 𝒞^(α, β), one takes a base
+category 𝒞, as well as a fixed pair of morphisms α : C → A and β : C → B
+in 𝒞, that originate from a common object C of 𝒞. Our basic "fixed
+construct" from 𝒞 looks like so:
+
+The role of the category 𝒞^(α, β) is now to study the morphisms from
+this construct. A generic object from this new category looks like so:
+
+such that the diagram commutes. This means that valid object in 𝒞^(α, β)
+are triplets (Z, f, g), with f : A → Z and g : B → Z, such that
+f ∘ α = g ∘ β. In a caricatural way, this boils down to studying "the
+comparison of the different paths one can build by starting from C,
+knowing that the choice of first step is on one hand, α, and on the
+other, β".
+
+3.11.4.b) Morphisms
+
+Morphisms are defined between objects as:
+
+such that the following diagram commutes
+
+3.11.4.c) Identity
+
+Once again, it is clear that identity morphisms exist for all objects,
+simply by taking Z = Z₁ = Z₂, f₁ = f₂, g₁ = g₂ and σ = id_(Z), in the
+diagram above.
+
+3.11.4.d) Composition
+
+Let be 3 objects of 𝒞^(α, β), which we will name p₁, p₂ and p₃ (and
+define with the respective (Z_(n), f_(n), g_(n)) triplet for p_(n)).
+
+Composition τ^(α, β) ∘ σ^(α, β) = p₁ ↦ p₃ of two morphisms
+σ^(α, β) = p₁ ↦ p₂ and τ^(α, β) = p₂ ↦ p₃ is defined so that the
+following diagram commutes.
+
+3.11.4.e) Associativity
+
+Associativity follows from associativity of morphisms in 𝒞, similarly to
+what was done for slice categories in exercise 3.7 .
 
 Extra exercises by/for the group
 
