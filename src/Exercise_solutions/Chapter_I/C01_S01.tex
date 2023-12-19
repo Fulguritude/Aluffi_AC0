@@ -37,13 +37,16 @@ b) Symmetry:
 $$\forall S_i, S_j \in \mathcal{P}, \forall x \in S_i, \forall y \in S_j, x \sim y \Leftrightarrow S_i = S_j \Leftrightarrow S_j = S_i \Leftrightarrow y \sim x$$
 
 c) Transitivity:
-$$
-\forall S_i, S_j, S_k \in \mathcal{P}, \forall x \in S_i, \forall y \in S_j, \forall z \in S_k, x \sim y \cap y \sim z \\
+\begin{aligned}
+\forall S_i, S_j, S_k \in \mathcal{P}, \forall x \in S_i, \forall y \in S_j, \forall z \in S_k, \\
+(x \sim y) \cap (y \sim z) \\
 	\Leftrightarrow \\
-S_i = S_j \cap S_j = S_k \Rightarrow S_i = S_k \\
+(S_i = S_j) \cap (S_j = S_k) \\
+	\Rightarrow \\
+S_i = S_k \\
 	\Leftrightarrow \\
 x \sim z
-$$
+\end{aligned}
 
 Therefore, $\sim$ is indeed an equivalence relation, and is generated uniquely by the partition.
 
@@ -89,6 +92,8 @@ In a relation which is reflexive and symmetric, but not transitive, you would ha
 \subsection*{1.6)}
 
 Define a relation $\sim$ on the set $\mathbb{R}$ of real numbers, by setting $a \sim b \Leftrightarrow b - a \in \mathbb{Z}$. Prove that this is an equivalence relation, and find a 'compelling' description for $\mathbb{R}/\sim$. Do the same for the relation $\approx$ on the plane $\mathbb{R} \times \mathbb{R}$ defined by declaring $(a_1, a_2) \approx (b_1, b_2) \Leftrightarrow b_1 - a_1 \in \mathbb{Z} \text{ and } b_2 - a_2 \in \mathbb{Z}$.
+
+TODO: forgot to prove that it's an equivalence relation
 
 $b - a \in \mathbb{Z}$ means that 2 real numbers differ by an integral amount. This means that the equivalence relation algebraically describes the idea that "with this relation, 2 real numbers are the same iff they have the same fractional component $x$ (or $1 - x$ for negative numbers)". Eg, $4.76 \sim 1024.76 \sim -5.34$, since $-5.34 + 10 = 4.76$, etc.
 
