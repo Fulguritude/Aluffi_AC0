@@ -37,6 +37,8 @@ b) Symmetry:
 $$\forall S_i, S_j \in \mathcal{P}, \forall x \in S_i, \forall y \in S_j, x \sim y \Leftrightarrow S_i = S_j \Leftrightarrow S_j = S_i \Leftrightarrow y \sim x$$
 
 c) Transitivity:
+
+$$
 \begin{aligned}
 \forall S_i, S_j, S_k \in \mathcal{P}, \forall x \in S_i, \forall y \in S_j, \forall z \in S_k, \\
 (x \sim y) \cap (y \sim z) \\
@@ -47,6 +49,7 @@ S_i = S_k \\
 	\Leftrightarrow \\
 x \sim z
 \end{aligned}
+$$
 
 Therefore, $\sim$ is indeed an equivalence relation, and is generated uniquely by the partition.
 
@@ -77,14 +80,25 @@ See the Bell numbers: https://oeis.org/A000110
 
 Give an example of a relation that is reflexive and symmetric, but not transitive. What happens if you attempt to use this relation to define a partition on the set?
 
-In terms of graph theory, if we express a set with an internal relation as a graph, we can represent elements are nodes and relationships are edges. Reflexivity means that every node has a loop (unary, self-edge). Symmetry means that the graph is not directed (since every relationship goes both ways). Transitivity means that every connected subset of nodes is a maximal clique (synonymously, every connected component is a complete subgraph).
+Let's imagine a "similarity relation" we can notate with $\simeq$. We can imagine it to work like a looser version of equality (say for example, if an integer is only $1$ away, then it counts as similar).
+\begin{itemize}
+	\item reflexive: $\forall a \in S, a \simeq a$ (an element is always "similar" to itself)
+	\item symmetric: $\forall a, b \in S, a \simeq b \Rightarrow b \simeq a$ ("similarity" goes both ways)
+	\item not transitive: $\exists a, b, c \in S, (a \simeq b) \land (b \simeq c) \land \lnot (a \simeq c)$ (just because $a \simeq b$ and $b \simeq c$ are similar, that doesn't mean $a \simeq c$ works, because it is possible for the "similarity gap" to be too large to qualify as "similar". E.g.: $(a, b, c) = (1, 2, 3)$.).
+\end{itemize}
+
+If we use this to define a partition $P$ on some set $S$: $S/\simeq := P_\simeq$, there is ambiguity as to which element should go into which equivalence class.
+
+This idea deserves further discussion.
+
+In terms of graph theory, if we express a set with an internal relation as a graph, we can represent elements as nodes and relationships as edges. Reflexivity means that every node has a loop (unary, self-edge). Symmetry means that the graph is not directed (since every relationship goes both ways). Transitivity means that every connected subset of nodes is a maximal clique (synonymously, every connected component is a complete subgraph).
 
 In a relation which is reflexive and symmetric, but not transitive, you would have connected components of this graph which are not cliques. For these, there is ambiguity as to how you would group their nodes. Two obvious choices would be either:
 
 \begin{itemize}
-	\item to remove the minimal number of edges to obtain n distinct cliques (thereby gaining the transitive restriction of the relation) from a given non-clique;
+	\item to remove the minimal number of edges to obtain n distinct cliques (thereby gaining the \textit{transitive restriction} of the relation) from a given non-clique; or
 
-	\item to complete the connected subgraph into a clique (thereby gaining the transitive closure of the relation).
+	\item to complete the connected subgraph into a clique (thereby gaining the \textit{transitive closure} of the relation).
 \end{itemize}
 
 
