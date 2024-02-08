@@ -16,6 +16,41 @@ set operations
 Section 3) Presents categories, and multiple examples of categories.
 Some are simple, some are advanced.
 
+Group Weekly Reports
+====================
+
+Week 1 : Today we mostly talked about the first chapter first section's
+reading; going over the vocabulary term by term (see the lexicon on the
+github repo), and going more in depth over certain concepts
+(particularly relating to set relations). We also saw a bit of a
+\"teaser\" of how these notions are used. We did not go over the
+exercises since not everyone had done them.
+
+Week 2 : Today we continued on discussing the first chapter, it was
+mostly freeform. We mostly talked about foundations of set theory
+(mostly stemming from the discussion of exercise 1 on russell's
+paradox), why we use function notation the way we do, and about some of
+the operators over sets themselves (including through some examples from
+linear algebra and things like the subobject classifier which is seen at
+the end of section 3).
+
+Week 3 : Today we finished discussing the first chapter. We went over
+all exercises. We mostly spoke about equivalence relations and
+partitions. We also spoke about the geometry/topology of quotients of
+sets by equivalence relations. This was naturally related to exercises
+1.2 to 1.7.
+
+Week 4 : We went over monomorphisms and epimorphisms in more depth. We
+corrected exercises 2.1 to 2.3 (included)
+
+Week 5 : We went in depth over the distinction between isomorphisms and
+bijections (foreshadowing a bunch of category theory while we were at
+it) and corrected exercises 2.4 and 2.5.
+
+Week 6 : We went in depth over the notion of section. We corrected
+exercises 2.6 and 2.7. For the latter exercise, we understood Tristan's
+solution by ourselves ! (written by Amric)
+
 Notes
 =====
 
@@ -74,8 +109,9 @@ f \in (A \to B), g \in (B \to A), \;
     \begin{cases}
         f \text{ is injective} \\
         g \text{ is surjective}
-    \end{cases}$$ Corollary 1: any post-inverse of an injection is a
-surjection.
+    \end{cases}$$
+
+Corollary 1: any post-inverse of an injection is a surjection.
 
 Corollary 2: any pre-inverse of a surjection is an injection.
 

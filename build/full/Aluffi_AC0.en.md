@@ -16,6 +16,41 @@ set operations
 Section 3) Presents categories, and multiple examples of categories.
 Some are simple, some are advanced.
 
+Group Weekly Reports
+====================
+
+Week 1 : Today we mostly talked about the first chapter first section's
+reading; going over the vocabulary term by term (see the lexicon on the
+github repo), and going more in depth over certain concepts
+(particularly relating to set relations). We also saw a bit of a
+\"teaser\" of how these notions are used. We did not go over the
+exercises since not everyone had done them.
+
+Week 2 : Today we continued on discussing the first chapter, it was
+mostly freeform. We mostly talked about foundations of set theory
+(mostly stemming from the discussion of exercise 1 on russell's
+paradox), why we use function notation the way we do, and about some of
+the operators over sets themselves (including through some examples from
+linear algebra and things like the subobject classifier which is seen at
+the end of section 3).
+
+Week 3 : Today we finished discussing the first chapter. We went over
+all exercises. We mostly spoke about equivalence relations and
+partitions. We also spoke about the geometry/topology of quotients of
+sets by equivalence relations. This was naturally related to exercises
+1.2 to 1.7.
+
+Week 4 : We went over monomorphisms and epimorphisms in more depth. We
+corrected exercises 2.1 to 2.3 (included)
+
+Week 5 : We went in depth over the distinction between isomorphisms and
+bijections (foreshadowing a bunch of category theory while we were at
+it) and corrected exercises 2.4 and 2.5.
+
+Week 6 : We went in depth over the notion of section. We corrected
+exercises 2.6 and 2.7. For the latter exercise, we understood Tristan's
+solution by ourselves ! (written by Amric)
+
 Lexicon
 =======
 
@@ -220,11 +255,17 @@ b\) Symmetry:
 $$\forall S_i, S_j \in \mathcal{P}, \forall x \in S_i, \forall y \in S_j, x \sim y \Leftrightarrow S_i = S_j \Leftrightarrow S_j = S_i \Leftrightarrow y \sim x$$
 
 c\) Transitivity:
-$$\forall S_i, S_j, S_k \in \mathcal{P}, \forall x \in S_i, \forall y \in S_j, \forall z \in S_k, x \sim y \cap y \sim z \\
+
+$$\begin{aligned}
+\forall S_i, S_j, S_k \in \mathcal{P}, \forall x \in S_i, \forall y \in S_j, \forall z \in S_k, \\
+(x \sim y) \cap (y \sim z) \\
     \Leftrightarrow \\
-S_i = S_j \cap S_j = S_k \Rightarrow S_i = S_k \\
+(S_i = S_j) \cap (S_j = S_k) \\
+    \Rightarrow \\
+S_i = S_k \\
     \Leftrightarrow \\
-x \sim z$$
+x \sim z
+\end{aligned}$$
 
 Therefore, $\sim$ is indeed an equivalence relation, and is generated
 uniquely by the partition.
@@ -259,8 +300,31 @@ Give an example of a relation that is reflexive and symmetric, but not
 transitive. What happens if you attempt to use this relation to define a
 partition on the set?
 
+Let's imagine a \"similarity relation\" we can notate with $\simeq$. We
+can imagine it to work like a looser version of equality (say for
+example, if an integer is only $1$ away, then it counts as similar).
+
+-   reflexive: $\forall a \in S, a \simeq a$ (an element is always
+    \"similar\" to itself)
+
+-   symmetric: $\forall a, b \in S, a \simeq b \Rightarrow b \simeq a$
+    (\"similarity\" goes both ways)
+
+-   not transitive:
+    $\exists a, b, c \in S, (a \simeq b) \land (b \simeq c) \land \lnot (a \simeq c)$
+    (just because $a \simeq b$ and $b \simeq c$ are similar, that
+    doesn't mean $a \simeq c$ works, because it is possible for the
+    \"similarity gap\" to be too large to qualify as \"similar\". E.g.:
+    $(a, b, c) = (1, 2, 3)$.).
+
+If we use this to define a partition $P$ on some set $S$:
+$S/\simeq := P_\simeq$, there is ambiguity as to which element should go
+into which equivalence class.
+
+This idea deserves further discussion.
+
 In terms of graph theory, if we express a set with an internal relation
-as a graph, we can represent elements are nodes and relationships are
+as a graph, we can represent elements as nodes and relationships as
 edges. Reflexivity means that every node has a loop (unary, self-edge).
 Symmetry means that the graph is not directed (since every relationship
 goes both ways). Transitivity means that every connected subset of nodes
@@ -273,11 +337,11 @@ these, there is ambiguity as to how you would group their nodes. Two
 obvious choices would be either:
 
 -   to remove the minimal number of edges to obtain n distinct cliques
-    (thereby gaining the transitive restriction of the relation) from a
-    given non-clique;
+    (thereby gaining the *transitive restriction* of the relation) from
+    a given non-clique; or
 
 -   to complete the connected subgraph into a clique (thereby gaining
-    the transitive closure of the relation).
+    the *transitive closure* of the relation).
 
 #### 1.6) {#section-8 .unnumbered}
 
@@ -287,6 +351,8 @@ is an equivalence relation, and find a 'compelling' description for
 $\mathbb{R}/\sim$. Do the same for the relation $\approx$ on the plane
 $\mathbb{R} \times \mathbb{R}$ defined by declaring
 $(a_1, a_2) \approx (b_1, b_2) \Leftrightarrow b_1 - a_1 \in \mathbb{Z} \text{ and } b_2 - a_2 \in \mathbb{Z}$.
+
+TODO: forgot to prove that it's an equivalence relation
 
 $b - a \in \mathbb{Z}$ means that 2 real numbers differ by an integral
 amount. This means that the equivalence relation algebraically describes
@@ -331,25 +397,27 @@ elements and itself?
 
 Any bijection is a choice of a pairs from 2 sets of the same size, where
 each element is used only once, and each pair has one element from each
-set. At first there are n choices in each set. If we pick a pair, we
-pick from $n^2$ possibilities
+set. At first there are $n$ choices in each set. We go through each
+possible input element in order (no choice), for each one, we pick one
+amongst $n$ possibilities for an output.
 
-There are then $(n-1)^2$ choices of pairs left, etc.
+There are then $(n-1)$ choice of output left, etc.
 
-Ccl°: $\prod_{i=1}^{i=n} i^2 = (n!)^2$
+Ccl°: $\prod_{i=1}^{i=n} i = n!$
 
 #### 2.2) {#section-10 .unnumbered}
 
-Prove that a function has a right-inverse iff it is surjective (can use
-AC)
+Prove that a function has a right-inverse (pre-inverse) iff it is
+surjective (can use AC).
 
 Let $f \in (A \to B)$.
 
-##### 2.2.a) $\Rightarrow$: Suppose that $f$ has a right-inverse (pre-inverse). {#a-rightarrow-suppose-that-f-has-a-right-inverse-pre-inverse. .unnumbered}
+##### 2.2.a) $\Rightarrow$ {#a-rightarrow .unnumbered}
 
-We have $\exists g \in (B \to A), f \circ g = id_B$
+Suppose that $f$ has a right-inverse (pre-inverse). We have
+$\exists g \in (B \to A), f \circ g = id_B$
 
-Suppose that $f$ is not a a surjection. This means
+Suppose that $f$ is not a surjection. This means
 $\exists b \in B, \nexists a \in A, b = f(a)$
 
 $f(g(b))= id_B (b) = b$ Necessarily, $g(b)$ is such an $a$, so
@@ -357,7 +425,9 @@ $\exists a \in A, b = f(a)$. Contradiction.
 
 Ccl°:: f is a surjection.
 
-##### 2.2.b) $\Leftarrow$: Suppose that f is a surjection. {#b-leftarrow-suppose-that-f-is-a-surjection. .unnumbered}
+##### 2.2.b) $\Leftarrow$ {#b-leftarrow .unnumbered}
+
+Suppose that f is a surjection.
 
 $\forall b \in B, \exists a \in A, b = f(a)$
 
@@ -389,19 +459,17 @@ the respective singleton.
 Prove that the inverse of a bijection is a bijection, and that the
 composition of two bijections is a bijection.
 
-##### 2.3.a) Using the fact that a function is a bijection iff it has a two-sided  {#a-using-the-fact-that-a-function-is-a-bijection-iff-it-has-a-two-sided .unnumbered}
+##### 2.3.a) {#a .unnumbered}
 
-inverse (
-
-#### Corollary 2.2) {#corollary-2.2 .unnumbered}
-
-we can see from this defining fact,
-$f \in (A \to B) \text{bijective } \Leftrightarrow, \exists f^{-1} \in (B \to A), f^{-1} \circ f = id_A \text { and } f \circ f^{-1} = id_B$
+Using the fact that a function is a bijection iff it has a two-sided
+inverse (Corollary 2.2) we can see from this defining fact,
+$f \in (A \to B) \text{ bijective } \Leftrightarrow \exists f^{-1} \in (B \to A), (f^{-1} \circ f = id_A \text { and } f \circ f^{-1} = id_B)$
 that $f$ is naturally $f^{-1}$'s (unique) two-sided inverse, and so
 $f^{-1}$ is also a bijection.
 
-##### 2.3.b) Let be $f \in (A \to B), g \in (B \to C)$, both bijective (hence with  {#b-let-be-f-in-a-to-b-g-in-b-to-c-both-bijective-hence-with .unnumbered}
+##### 2.3.b) {#b .unnumbered}
 
+Let be $f \in (A \to B), g \in (B \to C)$, both bijective (hence with
 inverses in the respective function spaces). Let
 $h \in (A \to C), h = g \circ f$ and
 $h^{-1} \in (C \to A), h^{-1} = f^{-1} \circ g^{-1}$. We have:
@@ -461,9 +529,8 @@ Therefore, $\simeq$ is symmetric.
 Let be $X, Y, Z \in \mathcal{A}$. Suppose that $X \simeq Y$ and
 $Y \simeq Z$. This means $\exists f \in (X \to Y), g \in (Y \to Z)$,
 both bijections. Let be $h \in (X \to Z), h = g \circ f$. $h$ is also a
-bijection since the composition of
-
-#### two bijections is also a bijection (exercise 2.3) {#two-bijections-is-also-a-bijection-exercise-2.3 .unnumbered}
+bijection since the composition of two bijections is also a bijection
+(exercise 2.3).
 
 The existence of $h$ implies $X \simeq Z$.
 
@@ -510,14 +577,15 @@ example.
 
 #### 2.7) {#section-15 .unnumbered}
 
-Let $f = (A \to B)$ be any function. Prove that the graph $\Gamma_f$ of
-$f$ is isomorphic to $A$.
+Let $f \in (A \to B)$ be any function. Prove that the graph $\Gamma_f$
+of $f$ is isomorphic to $A$.
 
 Using the elements from the previous exercise, we know that $\hat{f}$ is
 injective from $A$ into $A \times B$. This property is inherited to any
-restriction of the codomain $Z \subseteq B$, and corresponding implied
-restriction of the domain to $Y = f^{-1}(Z) \subseteq A$. In particular,
-here, $Y = A$ and $Z = \Gamma_f = \hat{f}(A)$. We now consider
+restriction of the codomain $Z \subseteq A \times B$, and corresponding
+implied restriction of the domain to $Y = \hat{f}^{-1}(Z) \subseteq A$.
+In particular, here, $Y = A$ and $Z = \Gamma_f = \hat{f}(A)$. We now
+consider
 $\overline{f} \in (A \to \Gamma_f), \overline{f} = (a \mapsto \hat{f}(a))$.
 We can see that $\overline{f}$ is injective from being a restriction of
 an injective function to a smaller codomain. We also know that
@@ -1025,10 +1093,11 @@ We first notice that if we restrict $\mathbf{CMSet}$ to only the objects
 for which all elements have a count of $1$, and where morphisms only
 ever output to $\{ 1 \}$ in the second coordinate (a subcategory we can
 call $\mathbf{C1MSet}$, for example), we get a \"copy\" of
-$\mathbf{Set}$: $\mathbf{C1MSet}$ and $\mathbf{Set}$ are isomorphic.
-This is a full subcategory because there are no morphisms that map
-counts to anything else than $\{ 1 \}$ if we restrict our objects to
-this form; so all morphisms between the kept objects are also kept.
+$\mathbf{Set}$: $\mathbf{C1MSet}$ and $\mathbf{Set}$ are isomorphic in
+$\mathbf{Cat}$. This is a full subcategory because there are no
+morphisms that map counts to anything else than $\{ 1 \}$ if we restrict
+our objects to this form; so all morphisms between the kept objects are
+also kept.
 
 Now let us do a similar construction, but based on equivalence classes
 instead. We know that each equivalence class over a set corresponds
@@ -1054,6 +1123,11 @@ $S = \{ \{a\}, \{b\}, \{c\} \}$ in $\mathbf{EMSet}$. This also shows how
 restricting $\mathbf{EMSet}$ to \"only objects that are a set of
 (toplevel) singletons\" makes $\mathbf{EMSet}$ have a \"copy\" of
 $\mathbf{Set}$ as a full subcategory (for similar arguments as above).
+
+Yet another example could be something akin to polynomials with integer
+coefficients on freeform indeterminates of degree 1 (which would be our
+set elements); raising the operators one rank, a product of freeform
+variables with integer powers (multiplicities), etc.
 
 #### 3.10) {#section-29 .unnumbered}
 
@@ -1281,6 +1355,245 @@ following diagram commutes.
 Associativity follows from associativity of morphisms in $\mathcal{C}$,
 similarly to what was done for slice categories in exercise 3.7 .
 
+### Section 4) {#section-4-1 .unnumbered}
+
+#### 4.1) {#section-31 .unnumbered}
+
+Composition is defined for *two* morphisms. If more than 2 morphisms are
+given, one may compose them in several ways, so that every step only
+consists in composing 2 morphisms. Prove that for any such valid
+sequence of morphisms, the order of parentheses doesn't matter.
+
+This boils down to showing that associativity is a global property, that
+doesn't just make parentheses meaningless when there are 3 elements and
+2 operators between them, but in general $n$ elements with $(n-1)$
+operators between them.
+
+Note: A useful way of visualizing this is representing the order of
+operations as a binary tree, and noticing that applying associativity
+(forwards or backwards) is just a tree rotation (resp. right or left) at
+a given node. Then it is easy to show that one can always obtain a
+\"left comb binary tree\". Since every choice of parentheses is equal to
+this left comb choice, and equality is transitive, every choice of
+parentheses is equal to every other choice.
+
+To be more rigorous, we will proceed by induction.
+
+[Hypothesis:]{.underline} $P(n)$ = \"for a given $n$, for
+$f_n f_{n-1} \cdot f_1$ any valid, composable, ordered sequence of
+morphisms in our base category $\mathcal{C}$, any choice $H$ of
+parentheses to compose elements of this sequence 2-by-2, giving a
+formula $s_H$, will lead to the same result, which can be seen by always
+having $s_H = (\cdot(f_n f_{n-1}) \cdot) f_1$\".
+
+[Initialization:]{.underline} We initialize at $n = 3$; the validity is
+immediate as it is precisely the definition of associativity.
+
+[Heredity:]{.underline} We suppose the hypothesis $P(n)$ true for a
+given $n \geq 3$; let us show that this implies that the hypothesis is
+true for $P(n+1)$.
+
+What this means is that, no matter the composable ordered sequence
+$f_n f_{n-1} \cdot f_1$ of $n$ functions, for a fixed $n$, the order of
+parentheses does not matter. Note that though $n$ is chosen and fixed;
+the statement is true for EVERY (ordered, composable) sequence of
+functions. We add a new function $g$ to this sequence. By a simple
+renaming of the functions, we deduce that it doesn't matter where we
+insert $g$, so we'll insert it at the very right to simplify our
+argument, giving us the sequence $f_n f_{n-1} \cdot f_1 g$.
+
+Here, there are 3 cases. Either:
+
+-   $g$ is part of the last composition (i.e., it's not in a
+    semantically necessary parenthethical grouping; it can be made
+    external to all parentheses),
+
+-   $g$ is part of the first composition (i.e., the first operation is
+    $(f_1 g)$)
+
+-   it isn't either (it's inside some non-removable parentheses, and
+    needs to be composed earlier on, but not as the first operation).
+
+If $g$ is part of the last composition, then by applying the hypothesis
+$P(n)$ to the terms $f_n f_{n-1} \cdot f_1$, we immediately find that
+our new sequence can be made equal to
+$((\cdot(f_n f_{n-1}) \cdot) f_1) g$, which is precisely what we wanted
+for $P(n+1)$.
+
+If $g$ is part of the first composition, we isolate it so that it isn't
+anymore. To do so, we apply \"backwards\" associativity on the grouping
+of terms $F_k (f_1 g)$ in order to obtain $(F_k f_1) g$, where $F_k$ is
+the appropriate choice of $(f_k \cdot f_2)$ such that associativity can
+be applied (with $2 \leq k \leq n$). This makes it so that our problem
+is identical to our final case, solved just below.
+
+If $g$ is part of neither the first nor last composition, then we
+consider the innermost composition $(f_k f_{k-1})$ to be a single
+element $h$. We now have a sequence of only $n$ terms. We apply our
+hypothesis $P(n)$. This makes $g$ the outermost right term, part of the
+last composition. Unravelling $h$ back into two members, we see that we
+are back at our initial case, with an arbitrary order of parentheses for
+the $f_n f_{n-1} \cdot f_1$ terms, and $g$ outermost. We already saw
+that this implied $P(n+1)$.
+
+[Conclusion:]{.underline} since we have initialization and heredity of
+our hypothesis in all cases, we can conclude by induction that it is
+true for all $n \geq 3$.
+
+#### 4.2) {#section-32 .unnumbered}
+
+In Example 3.3 we have seen how to construct a category from a set
+endowed with a relation, provided the latter is reflexive and
+transitive. For what types of relations is the corresponding category a
+groupoid (cf. Example 4.6) ?
+
+We remind example 4.6 : a groupoid is a category in which every morphism
+is an isomorphism. This means that every morphism needs to be 2-way
+invertible.
+
+In this context, this means that for every morphism $a \sim b$, there
+should be a corresponding inverse morphism $b \sim a$. This property is
+precisely the symmetry of a relation.
+
+This means that all sets with an equivalence relation can be
+reconstructed into a groupoid.
+
+#### 4.3) {#section-33 .unnumbered}
+
+Let $A$, $B$ be objects of a category $\mathcal{C}$, and
+$f \in Hom_{\mathcal{C}} (A, B)$ a morphism. Prove that if $f$ has a
+pre-inverse, then $f$ is an epimorphism. Show that the converse does not
+hold, by giving an explicit example of a category and an epimorphism
+without a pre-inverse.
+
+##### 4.3.a) {#a-1 .unnumbered}
+
+$f$ has a pre-inverse $\Rightarrow$ $f$ is an epimorphism
+
+Let $\mathcal{C}$ be a category. Let $f \in Hom_{\mathcal{C}} (A, B)$,
+having some pre-inverse which we'll call
+$g \in Hom_{\mathcal{C}} (B, A)$:
+
+Let $Z$ be an arbitrary object of $\mathcal{C}$, and
+$\beta', \beta" \in Hom_{\mathcal{C}} (B, Z)$:
+
+$$\begin{aligned}
+    \beta' \circ f = \beta'' \circ f
+        & \Rightarrow (\beta' \circ  f) \circ g  = (\beta'' \circ  f) \circ g  \\
+        & =            \beta' \circ (f  \circ g) =  \beta'' \circ (f  \circ g) \\
+        & =            \beta' \circ id_B         =  \beta'' \circ id_B \\
+        & =            \beta'                    =  \beta''
+\end{aligned}$$
+
+This means that $f$ is an epimorphism.
+
+##### 4.3.b) {#b-1 .unnumbered}
+
+$f$ is an epimorphism $\;\not\!\!\!\Rightarrow$ $f$ has a pre-inverse
+
+As was mentioned in the text, \"order\" categories (poset categories)
+where there's only at most one morphism between any two objects makes it
+so that every morphism is trivially an epimorphism. However, only
+identities have any kind of inverse (since they are isomorphisms, they
+are their own inverse).
+
+See also [here](https://ncatlab.org/nlab/show/partial+order) and
+[here](https://math.stackexchange.com/questions/81123/examples-of-categories-where-epimorphism-does-not-have-a-right-inverse-not-surj).
+
+#### 4.4) {#section-34 .unnumbered}
+
+Prove that the composition of two monomorphisms is a monomorphism.
+Deduce that one can define a subcategory $\mathcal{C}_{mono}$ of a
+category $\mathcal{C}$ by taking the same objects as in $\mathcal{C}$,
+and defining $Hom_{\mathcal{C}_{mono}} (A, B)$ to be the subset of
+$Hom_\mathcal{C} (A, B)$ consisting of monomorphisms, for all objects
+$A$, $B$. (Cf. Exercise 3.8; of course, in general $\mathcal{C}_{mono}$
+is not full in $\mathcal{C}$.) Do the same for epimorphisms. Can you
+define a subcategory $\mathcal{C}_{nonmono}$ of $\mathcal{C}$ by
+restricting to morphisms that are not monomorphisms?
+
+##### 4.4.a) {#a-2 .unnumbered}
+
+Mono
+
+Let be $f \in Hom_{\mathcal{C}} (A, B)$ and
+$g \in Hom_{\mathcal{C}} (B, C)$ be monomorphisms. Let us show that
+$g \circ f$ is also a monomorphism.
+
+Let $Z$ be an arbitrary object of $\mathcal{C}$, and
+$\alpha', \alpha" \in Hom_{\mathcal{A}} (Z, A)$:
+
+$$\begin{aligned}
+    (g \circ f) \circ \alpha' = (g \circ f) \circ \alpha''
+        & = g \circ (f \circ \alpha') = g \circ (f \circ \alpha'') \\
+        & \Rightarrow f \circ \alpha' = f \circ \alpha'' \text{ because $g$ is mono} \\
+        & \Rightarrow         \alpha' =         \alpha'' \text{ because $f$ is mono}
+\end{aligned}$$
+
+This means that the composition of 2 monomorphisms is always an
+monomorphism. We can thus make a subcategory. Taking all objects,
+properties, and homsets of $\mathcal{C}$, but restricting the homsets
+only to the monomorphisms, we know that this makes a new category
+$\mathcal{C}_{mono}$ since it is closed under composition, has
+identities (which are iso, and *a fortiori* mono) and associativity.
+
+##### 4.4.b) {#b-2 .unnumbered}
+
+Epi
+
+Let be $f \in Hom_{\mathcal{C}} (A, B)$ and
+$g \in Hom_{\mathcal{C}} (B, C)$ be epimorphisms. Let us show that
+$g \circ f$ is also a epimorphism.
+
+Let $Z$ be an arbitrary object of $\mathcal{C}$, and
+$\beta', \beta" \in Hom_{\mathcal{C}} (C, Z)$:
+
+$$\begin{aligned}
+    \beta' \circ (g \circ f) = \beta'' \circ (g \circ f)
+        & = (\beta' \circ g) \circ f = (\beta'' \circ g) \circ f \\
+        & \Rightarrow \beta' \circ g =  \beta'' \circ g \text{ because $f$ is epi} \\
+        & \Rightarrow \beta'         =  \beta''         \text{ because $g$ is epi}
+\end{aligned}$$
+
+This means that the composition of 2 epimorphisms is always an
+epimorphism. We can thus make a subcategory. Taking all objects,
+properties, and homsets of $\mathcal{C}$, but restricting the homsets
+only to the epimorphisms, we know that this makes a new category
+$\mathcal{C}_{epi}$ since it is closed under composition, has identities
+(which are iso, and *a fortiori* epi) and associativity.
+
+##### 4.4.c) {#c .unnumbered}
+
+Nonmono and nonepi
+
+We could consider the fact that (TODO prove lol) we can't obtain a
+monomorphism from the composition of two non-monomorphisms (you need at
+least one monomorphism in the mix). However, the real problem is
+identities. Identities are iso, and thus mono. You can't make a category
+without identities, so there is no such $\mathcal{C}_{nonmono}$. the
+same reasoning applies to $\mathcal{C}_{nonepi}$.
+
+#### 4.5) {#section-35 .unnumbered}
+
+Give a concrete description of monomorphisms and epimorphisms in the
+category $\mathbf{MSet}$ you constructed in Exercise 3.9. (Your answer
+will depend on the notion of morphism you defined in that exercise!)
+
+We'll use our $\mathbf{CMSet}$ construction, where elements of multisets
+consisted of a pair of the set-element and its count in the multiset.
+
+We recall that in the way we formulated this, morphisms were just simple
+set functions on \"(element, count)\" pairs (i.e., returning any other
+\"(element, count)\" pair of the codomain). Let be a morphism of
+multisets $f \in (A \to B)$. Labelling the elements of the domain $A$ as
+$a_i$ and of the codomain $B$ as $b_j$ with $i \in I$, $j \in J$, and
+$I, J$ any two indexing sets such that $card(A) = card(I)$ and
+$card(B) = card(J)$, we can see that $A$ and $B$ now just look like
+\"normal\" sets.
+
+We now simply recycle the notion of injections and surjections. These
+form our monomorphisms and epimorphisms respectively.
+
 Extra exercises by/for the group
 ================================
 
@@ -1384,8 +1697,9 @@ f \in (A \to B), g \in (B \to A), \;
     \begin{cases}
         f \text{ is injective} \\
         g \text{ is surjective}
-    \end{cases}$$ Corollary 1: any post-inverse of an injection is a
-surjection.
+    \end{cases}$$
+
+Corollary 1: any post-inverse of an injection is a surjection.
 
 Corollary 2: any pre-inverse of a surjection is an injection.
 

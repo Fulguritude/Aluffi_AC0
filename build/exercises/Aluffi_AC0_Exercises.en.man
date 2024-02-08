@@ -76,12 +76,18 @@ b) Symmetry:
 .RE
 .PP
 c) Transitivity:
+.PP
 .RS
-$$\[rs]forall S_i, S_j, S_k \[rs]in \[rs]mathcal{P}, \[rs]forall x \[rs]in S_i, \[rs]forall y \[rs]in S_j, \[rs]forall z \[rs]in S_k, x \[rs]sim y \[rs]cap y \[rs]sim z \[rs]\[rs]
+$$\[rs]begin{aligned}
+\[rs]forall S_i, S_j, S_k \[rs]in \[rs]mathcal{P}, \[rs]forall x \[rs]in S_i, \[rs]forall y \[rs]in S_j, \[rs]forall z \[rs]in S_k, \[rs]\[rs]
+(x \[rs]sim y) \[rs]cap (y \[rs]sim z) \[rs]\[rs]
     \[rs]Leftrightarrow \[rs]\[rs]
-S_i = S_j \[rs]cap S_j = S_k \[rs]Rightarrow S_i = S_k \[rs]\[rs]
+(S_i = S_j) \[rs]cap (S_j = S_k) \[rs]\[rs]
+    \[rs]Rightarrow \[rs]\[rs]
+S_i = S_k \[rs]\[rs]
     \[rs]Leftrightarrow \[rs]\[rs]
-x \[rs]sim z$$
+x \[rs]sim z
+\[rs]end{aligned}$$
 .RE
 .PP
 Therefore, \[ap] is indeed an equivalence relation, and is generated
@@ -116,8 +122,39 @@ transitive.
 What happens if you attempt to use this relation to define a partition
 on the set?
 .PP
+Let\[cq]s imagine a \[dq]similarity relation\[dq] we can notate with
+\[|=].
+We can imagine it to work like a looser version of equality (say for
+example, if an integer is only 1 away, then it counts as similar).
+.IP \[bu] 2
+reflexive:
+\[fa]\f[I]a\f[R]\[u2004]\[mo]\[u2004]\f[I]S\f[R],\[u2006]\f[I]a\f[R]\[u2004]\[|=]\[u2004]\f[I]a\f[R]
+(an element is always \[dq]similar\[dq] to itself)
+.IP \[bu] 2
+symmetric:
+\[fa]\f[I]a\f[R],\[u2006]\f[I]b\f[R]\[u2004]\[mo]\[u2004]\f[I]S\f[R],\[u2006]\f[I]a\f[R]\[u2004]\[|=]\[u2004]\f[I]b\f[R]\[u2004]\[rA]\[u2004]\f[I]b\f[R]\[u2004]\[|=]\[u2004]\f[I]a\f[R]
+(\[dq]similarity\[dq] goes both ways)
+.IP \[bu] 2
+not transitive:
+\[te]\f[I]a\f[R],\[u2006]\f[I]b\f[R],\[u2006]\f[I]c\f[R]\[u2004]\[mo]\[u2004]\f[I]S\f[R],\[u2006](\f[I]a\f[R]\[u2004]\[|=]\[u2004]\f[I]b\f[R])\[u2005]\[AN]\[u2005](\f[I]b\f[R]\[u2004]\[|=]\[u2004]\f[I]c\f[R])\[u2005]\[AN]\[u2005]\[tno](\f[I]a\f[R]\[u2004]\[|=]\[u2004]\f[I]c\f[R])
+(just because \f[I]a\f[R]\[u2004]\[|=]\[u2004]\f[I]b\f[R] and
+\f[I]b\f[R]\[u2004]\[|=]\[u2004]\f[I]c\f[R] are similar, that
+doesn\[cq]t mean \f[I]a\f[R]\[u2004]\[|=]\[u2004]\f[I]c\f[R] works,
+because it is possible for the \[dq]similarity gap\[dq] to be too large
+to qualify as \[dq]similar\[dq].
+E.g.:
+(\f[I]a\f[R],\[u2006]\f[I]b\f[R],\[u2006]\f[I]c\f[R])\[u2004]=\[u2004](1,\[u2006]2,\[u2006]3).).
+.PP
+If we use this to define a partition \f[I]P\f[R] on some set
+\f[I]S\f[R]:
+\f[I]S\f[R]/\[u2004]\[|=]\[u2004]\[u2004]:=\[u2004]\f[I]P\f[R]~\[|=]~,
+there is ambiguity as to which element should go into which equivalence
+class.
+.PP
+This idea deserves further discussion.
+.PP
 In terms of graph theory, if we express a set with an internal relation
-as a graph, we can represent elements are nodes and relationships are
+as a graph, we can represent elements as nodes and relationships as
 edges.
 Reflexivity means that every node has a loop (unary, self-edge).
 Symmetry means that the graph is not directed (since every relationship
@@ -131,11 +168,11 @@ For these, there is ambiguity as to how you would group their nodes.
 Two obvious choices would be either:
 .IP \[bu] 2
 to remove the minimal number of edges to obtain n distinct cliques
-(thereby gaining the transitive restriction of the relation) from a
-given non-clique;
+(thereby gaining the \f[I]transitive restriction\f[R] of the relation)
+from a given non-clique; or
 .IP \[bu] 2
 to complete the connected subgraph into a clique (thereby gaining the
-transitive closure of the relation).
+\f[I]transitive closure\f[R] of the relation).
 .SS 1.6)
 .PP
 Define a relation \[ap] on the set \[u211D] of real numbers, by setting
@@ -145,6 +182,8 @@ Prove that this is an equivalence relation, and find a
 Do the same for the relation \[~=] on the plane
 \[u211D]\[u2005]\[tmu]\[u2005]\[u211D] defined by declaring
 (\f[I]a\f[R]~1~,\[u2006]\f[I]a\f[R]~2~)\[u2004]\[~=]\[u2004](\f[I]b\f[R]~1~,\[u2006]\f[I]b\f[R]~2~)\[u2004]\[hA]\[u2004]\f[I]b\f[R]~1~\[u2005]\[mi]\[u2005]\f[I]a\f[R]~1~\[u2004]\[mo]\[u2004]\[u2124] and \f[I]b\f[R]~2~\[u2005]\[mi]\[u2005]\f[I]a\f[R]~2~\[u2004]\[mo]\[u2004]\[u2124].
+.PP
+TODO: forgot to prove that it\[cq]s an equivalence relation
 .PP
 \f[I]b\f[R]\[u2005]\[mi]\[u2005]\f[I]a\f[R]\[u2004]\[mo]\[u2004]\[u2124]
 means that 2 real numbers differ by an integral amount.
@@ -199,26 +238,28 @@ How many different bijections are there between a set \f[I]S\f[R] with
 Any bijection is a choice of a pairs from 2 sets of the same size, where
 each element is used only once, and each pair has one element from each
 set.
-At first there are n choices in each set.
-If we pick a pair, we pick from \f[I]n\f[R]^2^ possibilities
+At first there are \f[I]n\f[R] choices in each set.
+We go through each possible input element in order (no choice), for each
+one, we pick one amongst \f[I]n\f[R] possibilities for an output.
 .PP
-There are then (\f[I]n\f[R]\[u2005]\[mi]\[u2005]1)^2^ choices of pairs
+There are then (\f[I]n\f[R]\[u2005]\[mi]\[u2005]1) choice of output
 left, etc.
 .PP
-Ccl\[de]: $\[rs]prod_{i=1}\[ha]{i=n} i\[ha]2 = (n!)\[ha]2$
+Ccl\[de]: $\[rs]prod_{i=1}\[ha]{i=n} i = n!$
 .SS 2.2)
 .PP
-Prove that a function has a right-inverse iff it is surjective (can use
-AC)
+Prove that a function has a right-inverse (pre-inverse) iff it is
+surjective (can use AC).
 .PP
 Let
 \f[I]f\f[R]\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]).
-.SS 2.2.a) \[rA]: Suppose that \f[I]f\f[R] has a right-inverse (pre-inverse).
+.SS 2.2.a) \[rA]
 .PP
+Suppose that \f[I]f\f[R] has a right-inverse (pre-inverse).
 We have
 \[te]\f[I]g\f[R]\[u2004]\[mo]\[u2004](\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]),\[u2006]\f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R]\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]B\f[R]~
 .PP
-Suppose that \f[I]f\f[R] is not a a surjection.
+Suppose that \f[I]f\f[R] is not a surjection.
 This means
 \[te]\f[I]b\f[R]\[u2004]\[mo]\[u2004]\f[I]B\f[R],\[u2006]\[u2204]\f[I]a\f[R]\[u2004]\[mo]\[u2004]\f[I]A\f[R],\[u2006]\f[I]b\f[R]\[u2004]=\[u2004]\f[I]f\f[R](\f[I]a\f[R])
 .PP
@@ -228,7 +269,9 @@ Necessarily, \f[I]g\f[R](\f[I]b\f[R]) is such an \f[I]a\f[R], so
 Contradiction.
 .PP
 Ccl\[de]:: f is a surjection.
-.SS 2.2.b) \[lA]: Suppose that f is a surjection.
+.SS 2.2.b) \[lA]
+.PP
+Suppose that f is a surjection.
 .PP
 \[fa]\f[I]b\f[R]\[u2004]\[mo]\[u2004]\f[I]B\f[R],\[u2006]\[te]\f[I]a\f[R]\[u2004]\[mo]\[u2004]\f[I]A\f[R],\[u2006]\f[I]b\f[R]\[u2004]=\[u2004]\f[I]f\f[R](\f[I]a\f[R])
 .PP
@@ -266,19 +309,19 @@ the respective singleton.
 .PP
 Prove that the inverse of a bijection is a bijection, and that the
 composition of two bijections is a bijection.
-.SS 2.3.a) Using the fact that a function is a bijection iff it has a two-sided 
+.SS 2.3.a)
 .PP
-inverse (
-.SS Corollary 2.2)
-.PP
-we can see from this defining fact,
-\f[I]f\f[R]\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R])bijective \[hA],\[te]\f[I]f\f[R]^\[u2005]\[mi]\[u2005]1^\[u2004]\[mo]\[u2004](\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]),\[u2006]\f[I]f\f[R]^\[u2005]\[mi]\[u2005]1^\[u2005]\[u2218]\[u2005]\f[I]f\f[R]\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]A\f[R]~ and \f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]f\f[R]^\[u2005]\[mi]\[u2005]1^\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]B\f[R]~
+Using the fact that a function is a bijection iff it has a two-sided
+inverse (Corollary 2.2) we can see from this defining fact,
+\f[I]f\f[R]\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]) bijective \[u2004]\[hA]\[u2004]\[te]\f[I]f\f[R]^\[u2005]\[mi]\[u2005]1^\[u2004]\[mo]\[u2004](\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]),\[u2006](\f[I]f\f[R]^\[u2005]\[mi]\[u2005]1^\[u2005]\[u2218]\[u2005]\f[I]f\f[R]\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]A\f[R]~ and \f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]f\f[R]^\[u2005]\[mi]\[u2005]1^\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]B\f[R]~)
 that \f[I]f\f[R] is naturally \f[I]f\f[R]^\[u2005]\[mi]\[u2005]1^\[cq]s
 (unique) two-sided inverse, and so \f[I]f\f[R]^\[u2005]\[mi]\[u2005]1^
 is also a bijection.
-.SS 2.3.b) Let be \f[I]f\f[R]\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]),\[u2006]\f[I]g\f[R]\[u2004]\[mo]\[u2004](\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]C\f[R]), both bijective (hence with 
+.SS 2.3.b)
 .PP
-inverses in the respective function spaces).
+Let be
+\f[I]f\f[R]\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]),\[u2006]\f[I]g\f[R]\[u2004]\[mo]\[u2004](\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]C\f[R]),
+both bijective (hence with inverses in the respective function spaces).
 Let
 \f[I]h\f[R]\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]C\f[R]),\[u2006]\f[I]h\f[R]\[u2004]=\[u2004]\f[I]g\f[R]\[u2005]\[u2218]\[u2005]\f[I]f\f[R]
 and
@@ -353,8 +396,8 @@ This means
 both bijections.
 Let be
 \f[I]h\f[R]\[u2004]\[mo]\[u2004](\f[I]X\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]),\[u2006]\f[I]h\f[R]\[u2004]=\[u2004]\f[I]g\f[R]\[u2005]\[u2218]\[u2005]\f[I]f\f[R].
-\f[I]h\f[R] is also a bijection since the composition of
-.SS two bijections is also a bijection (exercise 2.3)
+\f[I]h\f[R] is also a bijection since the composition of two bijections
+is also a bijection (exercise 2.3).
 .PP
 The existence of \f[I]h\f[R] implies
 \f[I]X\f[R]\[u2004]\[|=]\[u2004]\f[I]Z\f[R].
@@ -409,7 +452,7 @@ a worked example.
 .SS 2.7)
 .PP
 Let
-\f[I]f\f[R]\[u2004]=\[u2004](\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R])
+\f[I]f\f[R]\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R])
 be any function.
 Prove that the graph \f[I]\[*G]\f[R]~\f[I]f\f[R]~ of \f[I]f\f[R] is
 isomorphic to \f[I]A\f[R].
@@ -418,9 +461,9 @@ Using the elements from the previous exercise, we know that
 \f[I]f\[u0302]\f[R] is injective from \f[I]A\f[R] into
 \f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R].
 This property is inherited to any restriction of the codomain
-\f[I]Z\f[R]\[u2004]\[ib]\[u2004]\f[I]B\f[R], and corresponding implied
-restriction of the domain to
-\f[I]Y\f[R]\[u2004]=\[u2004]\f[I]f\f[R]^\[u2005]\[mi]\[u2005]1^(\f[I]Z\f[R])\[u2004]\[ib]\[u2004]\f[I]A\f[R].
+\f[I]Z\f[R]\[u2004]\[ib]\[u2004]\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R],
+and corresponding implied restriction of the domain to
+\f[I]Y\f[R]\[u2004]=\[u2004]\f[I]f\[u0302]\f[R]^\[u2005]\[mi]\[u2005]1^(\f[I]Z\f[R])\[u2004]\[ib]\[u2004]\f[I]A\f[R].
 In particular, here, \f[I]Y\f[R]\[u2004]=\[u2004]\f[I]A\f[R] and
 \f[I]Z\f[R]\[u2004]=\[u2004]\f[I]\[*G]\f[R]~\f[I]f\f[R]~\[u2004]=\[u2004]\f[I]f\[u0302]\f[R](\f[I]A\f[R]).
 We now consider
@@ -1098,7 +1141,8 @@ call \f[B]C\f[R]\f[B]1\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R],
 for example), we get a \[dq]copy\[dq] of
 \f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R]:
 \f[B]C\f[R]\f[B]1\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] and
-\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] are isomorphic.
+\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] are isomorphic in
+\f[B]C\f[R]\f[B]a\f[R]\f[B]t\f[R].
 This is a full subcategory because there are no morphisms that map
 counts to anything else than {1} if we restrict our objects to this
 form; so all morphisms between the kept objects are also kept.
@@ -1141,6 +1185,11 @@ objects that are a set of (toplevel) singletons\[dq] makes
 \f[B]E\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] have a
 \[dq]copy\[dq] of \f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] as a full
 subcategory (for similar arguments as above).
+.PP
+Yet another example could be something akin to polynomials with integer
+coefficients on freeform indeterminates of degree 1 (which would be our
+set elements); raising the operators one rank, a product of freeform
+variables with integer powers (multiplicities), etc.
 .SS 3.10)
 .PP
 Since the objects of a category \[u1D49E] are not (necessarily) sets, it
@@ -1439,6 +1488,308 @@ is defined so that the following diagram commutes.
 .PP
 Associativity follows from associativity of morphisms in \[u1D49E],
 similarly to what was done for slice categories in exercise 3.7 .
+.SS Section 4)
+.SS 4.1)
+.PP
+Composition is defined for \f[I]two\f[R] morphisms.
+If more than 2 morphisms are given, one may compose them in several
+ways, so that every step only consists in composing 2 morphisms.
+Prove that for any such valid sequence of morphisms, the order of
+parentheses doesn\[cq]t matter.
+.PP
+This boils down to showing that associativity is a global property, that
+doesn\[cq]t just make parentheses meaningless when there are 3 elements
+and 2 operators between them, but in general \f[I]n\f[R] elements with
+(\f[I]n\f[R]\[u2005]\[mi]\[u2005]1) operators between them.
+.PP
+Note: A useful way of visualizing this is representing the order of
+operations as a binary tree, and noticing that applying associativity
+(forwards or backwards) is just a tree rotation (resp.
+right or left) at a given node.
+Then it is easy to show that one can always obtain a \[dq]left comb
+binary tree\[dq].
+Since every choice of parentheses is equal to this left comb choice, and
+equality is transitive, every choice of parentheses is equal to every
+other choice.
+.PP
+To be more rigorous, we will proceed by induction.
+.PP
+Hypothesis: \f[I]P\f[R](\f[I]n\f[R]) = \[dq]for a given \f[I]n\f[R], for
+\f[I]f\f[R]~\f[I]n\f[R]~\f[I]f\f[R]~\f[I]n\f[R]\[u2005]\[mi]\[u2005]1~\[u2005]\[md]\[u2005]\f[I]f\f[R]~1~
+any valid, composable, ordered sequence of morphisms in our base
+category \[u1D49E], any choice \f[I]H\f[R] of parentheses to compose
+elements of this sequence 2-by-2, giving a formula
+\f[I]s\f[R]~\f[I]H\f[R]~, will lead to the same result, which can be
+seen by always having
+\f[I]s\f[R]~\f[I]H\f[R]~\[u2004]=\[u2004](\[u2005]\[md]\[u2005](\f[I]f\f[R]~\f[I]n\f[R]~\f[I]f\f[R]~\f[I]n\f[R]\[u2005]\[mi]\[u2005]1~)\[u2005]\[md]\[u2005])\f[I]f\f[R]~1~\[dq].
+.PP
+Initialization: We initialize at \f[I]n\f[R]\[u2004]=\[u2004]3; the
+validity is immediate as it is precisely the definition of
+associativity.
+.PP
+Heredity: We suppose the hypothesis \f[I]P\f[R](\f[I]n\f[R]) true for a
+given \f[I]n\f[R]\[u2004]\[>=]\[u2004]3; let us show that this implies
+that the hypothesis is true for
+\f[I]P\f[R](\f[I]n\f[R]\[u2005]+\[u2005]1).
+.PP
+What this means is that, no matter the composable ordered sequence
+\f[I]f\f[R]~\f[I]n\f[R]~\f[I]f\f[R]~\f[I]n\f[R]\[u2005]\[mi]\[u2005]1~\[u2005]\[md]\[u2005]\f[I]f\f[R]~1~
+of \f[I]n\f[R] functions, for a fixed \f[I]n\f[R], the order of
+parentheses does not matter.
+Note that though \f[I]n\f[R] is chosen and fixed; the statement is true
+for EVERY (ordered, composable) sequence of functions.
+We add a new function \f[I]g\f[R] to this sequence.
+By a simple renaming of the functions, we deduce that it doesn\[cq]t
+matter where we insert \f[I]g\f[R], so we\[cq]ll insert it at the very
+right to simplify our argument, giving us the sequence
+\f[I]f\f[R]~\f[I]n\f[R]~\f[I]f\f[R]~\f[I]n\f[R]\[u2005]\[mi]\[u2005]1~\[u2005]\[md]\[u2005]\f[I]f\f[R]~1~\f[I]g\f[R].
+.PP
+Here, there are 3 cases.
+Either:
+.IP \[bu] 2
+\f[I]g\f[R] is part of the last composition (i.e., it\[cq]s not in a
+semantically necessary parenthethical grouping; it can be made external
+to all parentheses),
+.IP \[bu] 2
+\f[I]g\f[R] is part of the first composition (i.e., the first operation
+is (\f[I]f\f[R]~1~\f[I]g\f[R]))
+.IP \[bu] 2
+it isn\[cq]t either (it\[cq]s inside some non-removable parentheses, and
+needs to be composed earlier on, but not as the first operation).
+.PP
+If \f[I]g\f[R] is part of the last composition, then by applying the
+hypothesis \f[I]P\f[R](\f[I]n\f[R]) to the terms
+\f[I]f\f[R]~\f[I]n\f[R]~\f[I]f\f[R]~\f[I]n\f[R]\[u2005]\[mi]\[u2005]1~\[u2005]\[md]\[u2005]\f[I]f\f[R]~1~,
+we immediately find that our new sequence can be made equal to
+((\[u2005]\[md]\[u2005](\f[I]f\f[R]~\f[I]n\f[R]~\f[I]f\f[R]~\f[I]n\f[R]\[u2005]\[mi]\[u2005]1~)\[u2005]\[md]\[u2005])\f[I]f\f[R]~1~)\f[I]g\f[R],
+which is precisely what we wanted for
+\f[I]P\f[R](\f[I]n\f[R]\[u2005]+\[u2005]1).
+.PP
+If \f[I]g\f[R] is part of the first composition, we isolate it so that
+it isn\[cq]t anymore.
+To do so, we apply \[dq]backwards\[dq] associativity on the grouping of
+terms \f[I]F\f[R]~\f[I]k\f[R]~(\f[I]f\f[R]~1~\f[I]g\f[R]) in order to
+obtain (\f[I]F\f[R]~\f[I]k\f[R]~\f[I]f\f[R]~1~)\f[I]g\f[R], where
+\f[I]F\f[R]~\f[I]k\f[R]~ is the appropriate choice of
+(\f[I]f\f[R]~\f[I]k\f[R]~\[u2005]\[md]\[u2005]\f[I]f\f[R]~2~) such that
+associativity can be applied (with
+2\[u2004]\[<=]\[u2004]\f[I]k\f[R]\[u2004]\[<=]\[u2004]\f[I]n\f[R]).
+This makes it so that our problem is identical to our final case, solved
+just below.
+.PP
+If \f[I]g\f[R] is part of neither the first nor last composition, then
+we consider the innermost composition
+(\f[I]f\f[R]~\f[I]k\f[R]~\f[I]f\f[R]~\f[I]k\f[R]\[u2005]\[mi]\[u2005]1~)
+to be a single element \f[I]h\f[R].
+We now have a sequence of only \f[I]n\f[R] terms.
+We apply our hypothesis \f[I]P\f[R](\f[I]n\f[R]).
+This makes \f[I]g\f[R] the outermost right term, part of the last
+composition.
+Unravelling \f[I]h\f[R] back into two members, we see that we are back
+at our initial case, with an arbitrary order of parentheses for the
+\f[I]f\f[R]~\f[I]n\f[R]~\f[I]f\f[R]~\f[I]n\f[R]\[u2005]\[mi]\[u2005]1~\[u2005]\[md]\[u2005]\f[I]f\f[R]~1~
+terms, and \f[I]g\f[R] outermost.
+We already saw that this implied
+\f[I]P\f[R](\f[I]n\f[R]\[u2005]+\[u2005]1).
+.PP
+Conclusion: since we have initialization and heredity of our hypothesis
+in all cases, we can conclude by induction that it is true for all
+\f[I]n\f[R]\[u2004]\[>=]\[u2004]3.
+.SS 4.2)
+.PP
+In Example 3.3 we have seen how to construct a category from a set
+endowed with a relation, provided the latter is reflexive and
+transitive.
+For what types of relations is the corresponding category a groupoid
+(cf.
+Example 4.6) ?
+.PP
+We remind example 4.6 : a groupoid is a category in which every morphism
+is an isomorphism.
+This means that every morphism needs to be 2-way invertible.
+.PP
+In this context, this means that for every morphism
+\f[I]a\f[R]\[u2004]\[ap]\[u2004]\f[I]b\f[R], there should be a
+corresponding inverse morphism
+\f[I]b\f[R]\[u2004]\[ap]\[u2004]\f[I]a\f[R].
+This property is precisely the symmetry of a relation.
+.PP
+This means that all sets with an equivalence relation can be
+reconstructed into a groupoid.
+.SS 4.3)
+.PP
+Let \f[I]A\f[R], \f[I]B\f[R] be objects of a category \[u1D49E], and
+\f[I]f\f[R]\[u2004]\[mo]\[u2004]\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]~(\f[I]A\f[R],\[u2006]\f[I]B\f[R])
+a morphism.
+Prove that if \f[I]f\f[R] has a pre-inverse, then \f[I]f\f[R] is an
+epimorphism.
+Show that the converse does not hold, by giving an explicit example of a
+category and an epimorphism without a pre-inverse.
+.SS 4.3.a)
+.PP
+\f[I]f\f[R] has a pre-inverse \[rA] \f[I]f\f[R] is an epimorphism
+.PP
+Let \[u1D49E] be a category.
+Let
+\f[I]f\f[R]\[u2004]\[mo]\[u2004]\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]~(\f[I]A\f[R],\[u2006]\f[I]B\f[R]),
+having some pre-inverse which we\[cq]ll call
+\f[I]g\f[R]\[u2004]\[mo]\[u2004]\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]~(\f[I]B\f[R],\[u2006]\f[I]A\f[R]):
+.PP
+Let \f[I]Z\f[R] be an arbitrary object of \[u1D49E], and
+$\[rs]beta\[aq], \[rs]beta\[dq] \[rs]in Hom_{\[rs]mathcal{C}} (B, Z)$:
+.PP
+.RS
+$$\[rs]begin{aligned}
+    \[rs]beta\[aq] \[rs]circ f = \[rs]beta\[aq]\[aq] \[rs]circ f
+        & \[rs]Rightarrow (\[rs]beta\[aq] \[rs]circ  f) \[rs]circ g  = (\[rs]beta\[aq]\[aq] \[rs]circ  f) \[rs]circ g  \[rs]\[rs]
+        & =            \[rs]beta\[aq] \[rs]circ (f  \[rs]circ g) =  \[rs]beta\[aq]\[aq] \[rs]circ (f  \[rs]circ g) \[rs]\[rs]
+        & =            \[rs]beta\[aq] \[rs]circ id_B         =  \[rs]beta\[aq]\[aq] \[rs]circ id_B \[rs]\[rs]
+        & =            \[rs]beta\[aq]                    =  \[rs]beta\[aq]\[aq]
+\[rs]end{aligned}$$
+.RE
+.PP
+This means that \f[I]f\f[R] is an epimorphism.
+.SS 4.3.b)
+.PP
+\f[I]f\f[R] is an epimorphism
+$\[rs];\[rs]not\[rs]!\[rs]!\[rs]!\[rs]Rightarrow$ \f[I]f\f[R] has a
+pre-inverse
+.PP
+As was mentioned in the text, \[dq]order\[dq] categories (poset
+categories) where there\[cq]s only at most one morphism between any two
+objects makes it so that every morphism is trivially an epimorphism.
+However, only identities have any kind of inverse (since they are
+isomorphisms, they are their own inverse).
+.PP
+See also here (https://ncatlab.org/nlab/show/partial+order) and
+here (https://math.stackexchange.com/questions/81123/examples-of-categories-where-epimorphism-does-not-have-a-right-inverse-not-surj).
+.SS 4.4)
+.PP
+Prove that the composition of two monomorphisms is a monomorphism.
+Deduce that one can define a subcategory
+\[u1D49E]~\f[I]m\f[R]\f[I]o\f[R]\f[I]n\f[R]\f[I]o\f[R]~ of a category
+\[u1D49E] by taking the same objects as in \[u1D49E], and defining
+\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]~\f[I]m\f[R]\f[I]o\f[R]\f[I]n\f[R]\f[I]o\f[R]~~(\f[I]A\f[R],\[u2006]\f[I]B\f[R])
+to be the subset of
+\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]~(\f[I]A\f[R],\[u2006]\f[I]B\f[R])
+consisting of monomorphisms, for all objects \f[I]A\f[R], \f[I]B\f[R].
+(Cf.
+Exercise 3.8; of course, in general
+\[u1D49E]~\f[I]m\f[R]\f[I]o\f[R]\f[I]n\f[R]\f[I]o\f[R]~ is not full in
+\[u1D49E].) Do the same for epimorphisms.
+Can you define a subcategory
+\[u1D49E]~\f[I]n\f[R]\f[I]o\f[R]\f[I]n\f[R]\f[I]m\f[R]\f[I]o\f[R]\f[I]n\f[R]\f[I]o\f[R]~
+of \[u1D49E] by restricting to morphisms that are not monomorphisms?
+.SS 4.4.a)
+.PP
+Mono
+.PP
+Let be
+\f[I]f\f[R]\[u2004]\[mo]\[u2004]\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]~(\f[I]A\f[R],\[u2006]\f[I]B\f[R])
+and
+\f[I]g\f[R]\[u2004]\[mo]\[u2004]\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]~(\f[I]B\f[R],\[u2006]\f[I]C\f[R])
+be monomorphisms.
+Let us show that \f[I]g\f[R]\[u2005]\[u2218]\[u2005]\f[I]f\f[R] is also
+a monomorphism.
+.PP
+Let \f[I]Z\f[R] be an arbitrary object of \[u1D49E], and
+$\[rs]alpha\[aq], \[rs]alpha\[dq] \[rs]in Hom_{\[rs]mathcal{A}} (Z, A)$:
+.PP
+.RS
+$$\[rs]begin{aligned}
+    (g \[rs]circ f) \[rs]circ \[rs]alpha\[aq] = (g \[rs]circ f) \[rs]circ \[rs]alpha\[aq]\[aq]
+        & = g \[rs]circ (f \[rs]circ \[rs]alpha\[aq]) = g \[rs]circ (f \[rs]circ \[rs]alpha\[aq]\[aq]) \[rs]\[rs]
+        & \[rs]Rightarrow f \[rs]circ \[rs]alpha\[aq] = f \[rs]circ \[rs]alpha\[aq]\[aq] \[rs]text{ because $g$ is mono} \[rs]\[rs]
+        & \[rs]Rightarrow         \[rs]alpha\[aq] =         \[rs]alpha\[aq]\[aq] \[rs]text{ because $f$ is mono}
+\[rs]end{aligned}$$
+.RE
+.PP
+This means that the composition of 2 monomorphisms is always an
+monomorphism.
+We can thus make a subcategory.
+Taking all objects, properties, and homsets of \[u1D49E], but
+restricting the homsets only to the monomorphisms, we know that this
+makes a new category
+\[u1D49E]~\f[I]m\f[R]\f[I]o\f[R]\f[I]n\f[R]\f[I]o\f[R]~ since it is
+closed under composition, has identities (which are iso, and \f[I]a
+fortiori\f[R] mono) and associativity.
+.SS 4.4.b)
+.PP
+Epi
+.PP
+Let be
+\f[I]f\f[R]\[u2004]\[mo]\[u2004]\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]~(\f[I]A\f[R],\[u2006]\f[I]B\f[R])
+and
+\f[I]g\f[R]\[u2004]\[mo]\[u2004]\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]~(\f[I]B\f[R],\[u2006]\f[I]C\f[R])
+be epimorphisms.
+Let us show that \f[I]g\f[R]\[u2005]\[u2218]\[u2005]\f[I]f\f[R] is also
+a epimorphism.
+.PP
+Let \f[I]Z\f[R] be an arbitrary object of \[u1D49E], and
+$\[rs]beta\[aq], \[rs]beta\[dq] \[rs]in Hom_{\[rs]mathcal{C}} (C, Z)$:
+.PP
+.RS
+$$\[rs]begin{aligned}
+    \[rs]beta\[aq] \[rs]circ (g \[rs]circ f) = \[rs]beta\[aq]\[aq] \[rs]circ (g \[rs]circ f)
+        & = (\[rs]beta\[aq] \[rs]circ g) \[rs]circ f = (\[rs]beta\[aq]\[aq] \[rs]circ g) \[rs]circ f \[rs]\[rs]
+        & \[rs]Rightarrow \[rs]beta\[aq] \[rs]circ g =  \[rs]beta\[aq]\[aq] \[rs]circ g \[rs]text{ because $f$ is epi} \[rs]\[rs]
+        & \[rs]Rightarrow \[rs]beta\[aq]         =  \[rs]beta\[aq]\[aq]         \[rs]text{ because $g$ is epi}
+\[rs]end{aligned}$$
+.RE
+.PP
+This means that the composition of 2 epimorphisms is always an
+epimorphism.
+We can thus make a subcategory.
+Taking all objects, properties, and homsets of \[u1D49E], but
+restricting the homsets only to the epimorphisms, we know that this
+makes a new category \[u1D49E]~\f[I]e\f[R]\f[I]p\f[R]\f[I]i\f[R]~ since
+it is closed under composition, has identities (which are iso, and
+\f[I]a fortiori\f[R] epi) and associativity.
+.SS 4.4.c)
+.PP
+Nonmono and nonepi
+.PP
+We could consider the fact that (TODO prove lol) we can\[cq]t obtain a
+monomorphism from the composition of two non-monomorphisms (you need at
+least one monomorphism in the mix).
+However, the real problem is identities.
+Identities are iso, and thus mono.
+You can\[cq]t make a category without identities, so there is no such
+\[u1D49E]~\f[I]n\f[R]\f[I]o\f[R]\f[I]n\f[R]\f[I]m\f[R]\f[I]o\f[R]\f[I]n\f[R]\f[I]o\f[R]~.
+the same reasoning applies to
+\[u1D49E]~\f[I]n\f[R]\f[I]o\f[R]\f[I]n\f[R]\f[I]e\f[R]\f[I]p\f[R]\f[I]i\f[R]~.
+.SS 4.5)
+.PP
+Give a concrete description of monomorphisms and epimorphisms in the
+category \f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] you constructed in
+Exercise 3.9.
+(Your answer will depend on the notion of morphism you defined in that
+exercise!)
+.PP
+We\[cq]ll use our
+\f[B]C\f[R]\f[B]M\f[R]\f[B]S\f[R]\f[B]e\f[R]\f[B]t\f[R] construction,
+where elements of multisets consisted of a pair of the set-element and
+its count in the multiset.
+.PP
+We recall that in the way we formulated this, morphisms were just simple
+set functions on \[dq](element, count)\[dq] pairs (i.e., returning any
+other \[dq](element, count)\[dq] pair of the codomain).
+Let be a morphism of multisets
+\f[I]f\f[R]\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]).
+Labelling the elements of the domain \f[I]A\f[R] as
+\f[I]a\f[R]~\f[I]i\f[R]~ and of the codomain \f[I]B\f[R] as
+\f[I]b\f[R]~\f[I]j\f[R]~ with
+\f[I]i\f[R]\[u2004]\[mo]\[u2004]\f[I]I\f[R],
+\f[I]j\f[R]\[u2004]\[mo]\[u2004]\f[I]J\f[R], and
+\f[I]I\f[R],\[u2006]\f[I]J\f[R] any two indexing sets such that
+\f[I]c\f[R]\f[I]a\f[R]\f[I]r\f[R]\f[I]d\f[R](\f[I]A\f[R])\[u2004]=\[u2004]\f[I]c\f[R]\f[I]a\f[R]\f[I]r\f[R]\f[I]d\f[R](\f[I]I\f[R])
+and
+\f[I]c\f[R]\f[I]a\f[R]\f[I]r\f[R]\f[I]d\f[R](\f[I]B\f[R])\[u2004]=\[u2004]\f[I]c\f[R]\f[I]a\f[R]\f[I]r\f[R]\f[I]d\f[R](\f[I]J\f[R]),
+we can see that \f[I]A\f[R] and \f[I]B\f[R] now just look like
+\[dq]normal\[dq] sets.
+.PP
+We now simply recycle the notion of injections and surjections.
+These form our monomorphisms and epimorphisms respectively.
 .SH Extra exercises by/for the group
 .SS Chapter I) 1) Set notation)
 .PP
