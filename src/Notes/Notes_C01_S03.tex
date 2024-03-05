@@ -1,5 +1,21 @@
 \chapter*{Chapter 1, Section 3}
 
+\section*{Example summary}
+
+\begin{itemize}
+	\item (3.2): Set, category of sets as objects and set functions as morphisms.
+	\item (3.3): preorder (or order, or equivalence relation) over a (single) set, transformed into a category; elements of the set as objects, and elements of the preorder (which is a relation, hence a subset of the cartesian product) as morphisms.
+	\item (3.4): the powerset with the inclusion operator, transformed into a category; elements of the powerset (i.e., subsets of the set) as objects, and inclusion relations as morphisms (this is just an example of a preorder / order / equivalence category seen in 3.3).
+	\item (3.5): slice categories $\mathcal{C}_A$, categories which isolate a specific object $A$ of a given category $\mathcal{C}$, and studies the morphisms into that object; an object of $\mathcal{C}_A$ is any morphism from any arbitrary objet $Z$ into $A$ (not the homset $Hom(Z, A)$ itself !) and a morphism in $\mathcal{C}_A$ (from $z_1 \in Z_1 \to A$ to $z_2 \in Z_2 \to A$) is a "raising" $\sigma_A$ into $\mathcal{C}_A$ of a morphism $\sigma \in Z_1 \to Z_2$ in $\mathcal{C}$ that preserves composition on morphisms in $\mathcal{C}$ (i.e., $z_1 = z_2 \sigma \Rightarrow \sigma_A z_1 = z_2$).
+	\item (3.6): combining examples 3.3 and 3.5, first start with an order category on the set $\mathbb{Z}$ (there is a morphism $m \to n$ iff $m \leq n$), then select a specific object (here, $A = 3$) then study all morphisms of the category into $A$ (so the relation $n \leq 3$ for any $Z = n$); the morphisms $\sigma_3 = (m, 3) \to (n, 3)$ are then simply given by the transitivity of $\leq$, i.e., $m \leq n \leq 3$ ($(m, 3) \to (n, 3)$ corresponds to $m \leq 3 \Rightarrow n \leq 3$, meaning our $z_1 = z_2 \sigma$ transforming into $\sigma_A z_1 = z_2$, here, corresponds to $(m \leq 3) = (n \leq 3) \cap (m \leq n)$ is transformed into $(m \leq 3 \Rightarrow n \leq 3) \cap (m \leq 3) \Leftrightarrow (n \leq 3)$).
+	\item (3.7): coslice categories (morphisms out of a chosen object).
+	\item (3.8): the category \textbf{Set$^\star$} of pointed sets, a coslice category over \textbf{Set} and any singleton set $\{ \star \}$. Objects in \textbf{Set$^\star$} are regular sets, but with a unique distinguished element; morphisms are any set functions that map the domain's distinguised element to the codomain's distinguished element.
+	\item (3.9): "bislice" and "bicoslice" categories, basically a similar construct as slice and coslice, but taking two objects of the starting category, and studying pairs of morphisms (from a common domain, resp codomain) into (resp from) this pair.
+	\item (3.10): "fibered bislice" and "fibered bicoslice" categories, once again a similair construct, but this time taking two \textif{morphisms} into a common set C (resp. from a common set C).
+\end{itemize}
+
+
+
 \section*{On terminal and initial objects in \textbf{Set}}
 
 If $\empty$ is initial and $\{ \star \}$ is terminal, it is because a function in $Set$ (in categorical terms) must always have an output for every input. Ie, in category theory, all functions are maps ("applications").

@@ -3,8 +3,10 @@
 \subsection*{3.1)}
 
 Let $\mathcal{C}$ be a category. Consider a structure $\mathcal{C}^{op}$ with:
- - $Obj(\mathcal{C}^{op}) \coloneqq Obj(\mathcal{C})$;
- - for $A$, $B$ objects of $\mathcal{C}^{op}$ (hence, objects of $\mathcal{C}$), $Hom_{\mathcal{C}^{op}} (A, B) \coloneqq Hom_{\mathcal{C}} (B, A)$
+\begin{itemize}
+	\item $Obj(\mathcal{C}^{op}) \coloneqq Obj(\mathcal{C})$;
+	\item for $A$, $B$ objects of $\mathcal{C}^{op}$ (hence, objects of $\mathcal{C}$), $Hom_{\mathcal{C}^{op}} (A, B) \coloneqq Hom_{\mathcal{C}} (B, A)$
+\end{itemize}
 Show how to make this into a category.
 
 \subsubsection*{3.1.a) Composition}
@@ -19,7 +21,7 @@ $$
 \end{aligned}
 $$
 
-We will now show that $\mathcal{C}^{op}$ with $\star$ verifies the other axioms of a category (namely identity and assossiativity of composition).
+We will now show that $\mathcal{C}^{op}$ with $\star$ verifies the other axioms of a category (namely identity and associativity of composition).
 
 \subsubsection*{3.1.b) Identity}
 
@@ -68,7 +70,7 @@ We conclude that $\mathcal{C}^{op}$ is a category.
 
 If $A$ is a finite set, how large is $End_{\text{Set}}(A)$ ?
 
-We know that, in Set, $End_{\text{Set}}(A) = (A \to A) = A^A$. From a previous exercise, we know that $|B^A| = |B|^|A|$, therefore $|End_{\text{Set}}(A)| = |A|^|A|$.
+We know that, in Set, $End_{\text{Set}}(A) = (A \to A) = A^A$. From a previous exercise, we know that $|B^A| = |B|^{|A|}$, therefore $|End_{\text{Set}}(A)| = |A|^{|A|}$.
 
 
 

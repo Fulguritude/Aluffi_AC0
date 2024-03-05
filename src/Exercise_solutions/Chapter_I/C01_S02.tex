@@ -200,7 +200,7 @@ Using the elements from the previous exercise, we know that $\hat{f}$ is injecti
 
 Describe as explicitly as you can all terms in the canonical decomposition of the function $f \in (\mathbb{R} \to \mathbb{C})$ defined by $f = (r \mapsto e^{2 \pi i r})$. (This exercise matches one assigned previously, which one?)
 
-Firstly, elements of $\mathbb{R}$ are equivalent by this map (they have the same output) if they vary by $1$ from each other. This is a reference to the equivalence relation $\sim$ in exercise 1.6. Therefore, we will use $\mathbb{R}/\sim \simeq S^1$ in our decomposition. Obviously, the map from $(\mathbb{R} \to \mathbb{R}/\sim)$, which maps each element of $\mathbb{R}$ to respective their equivalence class is a surjection (since there's no empty equivalence class).
+Firstly, elements of $\mathbb{R}$ are equivalent by this map (they have the same output) if they vary by $1$ from each other. This is a reference to the equivalence relation $\sim$ in exercise 1.6. Therefore, we will use $\mathbb{R}/\sim \; \simeq S^1$ in our decomposition. Obviously, the map from $(\mathbb{R} \to \mathbb{R}/\sim)$, which maps each element of $\mathbb{R}$ to respective their equivalence class is a surjection (since there's no empty equivalence class).
 
 Secondly, as mentioned, we have a bijection $\tilde{f}$ between $\mathbb{R}/\sim$ and $S^1$, the circle group of unit complex numbers, namely $\tilde{f} = (x \mapsto e^{2 \pi i x}$, where each element $x$ of $\mathbb{R}/\sim$ can be understood to correspond to a (class representative) value in the interval $[0, 1[$.
 
@@ -266,7 +266,7 @@ Show that if $A$ and $B$ are finite sets, then $|B^A| = |B|^{|A|}$.
 
 The number of $|B^A|$ functions in $B^A = (A \to B)$ can be counted in the following way.
 
-For each element $a$ of $A$, of which there are $|A|$, we can pick any element of $|B|$ as the image. This means $|B| \times ... \times |B|$, a total of $|A|$ times. Hence, $|B^A| = |B|^{|A|}$.
+For each element $a$ of $A$, of which there are $|A|$, we can pick any element of $B$ as the image; a total of $|B|$ choices per choice of $a$. This means $|B| \times ... \times |B|$, a total of $|A|$ times. Hence, $|B^A| = |B|^{|A|}$.
 
 
 
@@ -274,4 +274,4 @@ For each element $a$ of $A$, of which there are $|A|$, we can pick any element o
 
 In view of Exercise 2.10, it is not unreasonable to use $2^A$ to denote the set of functions from an arbitrary set $A$ to a set with $2$ elements (say $\mathbb{B} = \{0, 1\}$). Prove that there is a bijection between $2^A$ and the power set $\mathcal{P}(A)$ of $A$.
 
-Simply put, every subset $A_i$ of $A$ is built through a series of $|A|$ choices: for each element $a$ in $A$, do we keep the element $a$ in our subset $A_i$ (output $1$) or do we remove it (output $0$) ? It is then easy to see that such a series of choices can easily be encoded as a unique function in $A \to \mathbb{B}$. The totality of such series of choices thus corresponds both to the space $A \to \mathbb{B}$, and to the powerset $\mathcal{A}$, and there is a bijection between the two. 
+Simply put, every subset $A_i$ of $A$ is built through a series of $|A|$ choices: for each element $a$ in $A$, do we keep the element $a$ in our subset $A_i$ (output $1$) or do we remove it (output $0$) ? It is then easy to see that such a series of choices can easily be encoded as a unique function in $A \to \mathbb{B}$. The totality of such series of choices thus corresponds both to the space $A \to \mathbb{B}$, and to the powerset $\mathcal{P}(A)$, and there is a bijection between the two. 
