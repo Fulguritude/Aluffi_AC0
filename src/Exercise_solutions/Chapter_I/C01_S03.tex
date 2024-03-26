@@ -141,20 +141,7 @@ Example 3.7 (on coslice categories) refers to example 3.5 (on slice categories).
 
 Slice categories are categories made by singling out an object (say $A$) in some parent (larger) category (say $\mathcal{C}$), and studying all morphisms into that object. These morphisms become the objects of a new category (ie, for any $Z$ of $\mathcal{C}$, $f \in (Z \to A)$ is an object of the slice category, called $\mathcal{C}_A$ in this context). In the slice category, morphisms are defined as those morphism in $\mathcal{C}$ that preserve composition between 2 morphisms into $A$.
 
-Note that there exist pairs of morphisms $f_1 \in (Z_1 \to A)$ and $f_2 \in (Z_2 \to A)$ between which there is no morphism that exists in the slice category. One such example we can make is in $(Vect_\mathbb{R})_{\mathbb{R}^2}$. If we take the maps:
-
-$$f_1 = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)$$
-$$f_2 = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)$$
-
-There exists no map $\sigma$ such that the following diagram commutes (since the output of $f_1$ will always be null in its second coordinate, and the output of $f_2$ will always be null in the first):
-
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBGA4ACUAvgD0ATCDGl0mXPkIoAjOSq1GLNpx78hoyTLkLseAkTKrN9Zq0QduvQcPHTZmmFADm8IqAAZgBOEFxIZCA4EEhS1HY6joEA+qog1Ax0AjAMAAqKFiogwVg+fDiy8iAhYUjqUTGIcVr2bCkmVTXhiJHRdfHaDk7YPjyeYkA
-\begin{tikzcd}
-\mathbb{R}^2 \arrow[d, "f_1"'] \arrow[r, "\sigma"] & \mathbb{R}^2 \arrow[ld, "f_2"] \\
-\mathbb{R}^2                                       &                               
-\end{tikzcd}
-
-Now, let us prove that $\mathcal{C}_A$ is indeed a category for an arbitrary object $A$ of an arbitrary category $\mathcal{C}$.
+Note that there exist pairs of morphisms $f_1 \in (Z_1 \to A)$ and $f_2 \in (Z_2 \to A)$ between which there is no morphism that exists in the slice category. One such example we can make is in $(Vect_\mathbb{R})_{\mathbb{R}^2}$ (see notes "On the morphisms of slice and coslice categories" for more details).
 
 3.7.1.a) Identity
 

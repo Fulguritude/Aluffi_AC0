@@ -11,7 +11,7 @@
 	\item (3.7): coslice categories (morphisms out of a chosen object).
 	\item (3.8): the category \textbf{Set$^\star$} of pointed sets, a coslice category over \textbf{Set} and any singleton set $\{ \star \}$. Objects in \textbf{Set$^\star$} are regular sets, but with a unique distinguished element; morphisms are any set functions that map the domain's distinguised element to the codomain's distinguished element.
 	\item (3.9): "bislice" and "bicoslice" categories, basically a similar construct as slice and coslice, but taking two objects of the starting category, and studying pairs of morphisms (from a common domain, resp codomain) into (resp from) this pair.
-	\item (3.10): "fibered bislice" and "fibered bicoslice" categories, once again a similair construct, but this time taking two \textif{morphisms} into a common set C (resp. from a common set C).
+	\item (3.10): "fibered bislice" and "fibered bicoslice" categories, once again a similair construct, but this time taking two \textit{morphisms} into a common set C (resp. from a common set C).
 \end{itemize}
 
 
@@ -68,3 +68,66 @@ D) if $f \in (A \to B), f \text{ surjective}$, then $\forall Z \supseteq A, \hat
 
 Proof: TODO
 
+
+
+
+
+\section*{On the morphisms of slice and coslice categories}
+
+Given a base category $\mathcal{C}$, and some set $A$ we wish to study the homsets of the slice (resp. coslice) category $\mathcal{C}_A$ (resp. $\mathcal{C}^A$. \textbf{These homsets might be empty, or have more than one element.}
+
+We remind that slice categories consider \textit{morphisms to A} as their \textit{objects} (written as $(Z, \varphi)$ for any $\varphi : Z \to A$), while coslice categories consider \textit{morphisms from A} as their \textit{objects} (written as $(\varphi, Z)$ for any $\varphi : A \to Z$. \textit{Morphisms}, of the form $\sigma_A : (Z_1, \varphi_1) \to (Z_2, \varphi_2)$ (resp. $\sigma^A : (\varphi_1, Z_1) \to (\varphi_2, Z_2)$) in a slice category $\mathcal{C}_A$ (resp. coslice category $\mathcal{C}^A$) map such objects to one another if and only if there exists a morphism in $\mathcal{C}$ (the base category!) such that $\varphi_1 = \varphi_2 \sigma$ (resp. $\sigma \varphi_1 = \varphi_2$).
+
+
+\subsection*{Example of no $\sigma$ for a slice category}
+
+For example, note that there exist pairs of morphisms $f_1 \in (Z_1 \to A)$ and $f_2 \in (Z_2 \to A)$ between which there is no morphism that exists in the slice category. One such example we can make is in $(Vect_\mathbb{R})_{\mathbb{R}^2}$. If we take the maps:
+
+$$f_1 = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)$$
+$$f_2 = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)$$
+
+There exists no map $\sigma$ such that the following diagram commutes (since the output of $f_1$ will always be null in its second coordinate, and the output of $f_2$ will always be null in the first):
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACwBGA4ACUAvgD0ATCDGl0mXPkIoAjOSq1GLNpx78hoyTLkLseAkTKrN9Zq0QduvQcPHTZmmFADm8IqAAZgBOEFxIZCA4EEhS1HY6joEA+qog1Ax0AjAMAAqKFiogwVg+fDiy8iAhYUjqUTGIcVr2bCkmVTXhiJHRdfHaDk7YPjyeYkA
+\begin{tikzcd}
+\mathbb{R}^2 \arrow[d, "f_1"'] \arrow[r, "\sigma"] & \mathbb{R}^2 \arrow[ld, "f_2"] \\
+\mathbb{R}^2                                       &                               
+\end{tikzcd}
+
+
+\subsection*{Example of no $\sigma$ for a coslice category}
+
+TODO add potato diagram
+
+Take $A = Z_2 = \{ a, b, c \}$, $\varphi_2 = id_A$, and $Z_1 = \{ 1, 2 \}$. Since $|Z_1| = |dom(\sigma)| < |cod(\sigma)| = |Z_2|$, there is no possible case in which $\text{Im} (\sigma) = \text{Im} (id_A)$ (even if $\varphi_1$ is epi).
+
+
+\subsection*{Example of multiple $\sigma$}
+
+TODO add potato diagram
+
+Another example, this time in a coslice category, with $A = \{ a, b, c \}$, we take $\text{\textbf{Set}}_A$. We take $Z_1 = \{ 1, 2, 3 \}$, $Z_2 = \{T, F\}$. For $\varphi_1 : A \to Z_1 = \{(a, 1), (b, 1), (c, 3)\}$ and $\varphi_2 : A \to Z_2 = \{(a, T), (b, T), (c, F)\}$ there exists two elements in $Hom_{\mathcal{Set}^A} (Z_1, Z_2)$. These originate from two functions in \textbf{Set}: $\sigma_\alpha = \{ (1, T), (2, T), (3, F) \}$ and $\sigma_\beta = \{ (1, T), (2, F), (3, F) \}$. The free element in $2 \in Z_1$ which is not in $\text{Im} (\varphi_1)$ offers a degree of freedom.
+
+
+\subsection*{Explanations on the conditions for $\sigma$}
+
+In the first example, what causes the issue is the fact that the images of $f_1$ and $f_2$ in $A$ are distinct.
+
+In the second example, what causes the issue is the fact that we've reduced our common domain $A$ to an insufficient intermediary object $Z_1$. 
+
+The "element which isn't mapped to offers a degree of freedom and thus breaks unicity" in the last example should remind you of the notes on surjections. Indeed, when comparing $\sigma_\alpha$ and $\sigma_\beta$, we're in a context which is reminiscent of the definition of an epimorphism.
+
+$$\varphi_2 = \sigma_\alpha \varphi_1 = \sigma_\alpha \varphi_1 $$
+
+We can be assured of being able to cancel $\varphi 1$ iff $\varphi_1$ is an epimorphism, and thus $\sigma$, if it exists, is unique. The proof for slice categories is similar, but given the reverse orders, uses monomorphisms.
+
+More generally: 
+
+\begin{itemize}
+	\item a) in a slice category, there will be no $\sigma$ if $\text{Im} (\varphi_1) \neq \text{Im} (\varphi_2)$ (proof ? and in more general categories than concrete categories ? TODO: iff ?)
+	\item b) in a coslice category, there will be no $\sigma$ if $\text{Pr} (\text{Im} (\varphi_1) \neq \text{Pr} (\text{Im} (\varphi_2))$ (proof ? and in more general categories than concrete categories ? TODO: iff ?)
+	\item c) in a slice category, there is at most a single $\sigma$ iff $\varphi_2$ is mono
+	\item d) in a coslice category, there is at most a single $\sigma$ iff $\varphi_1$ is epi
+\end{itemize}
+
+(see perhaps https://ncatlab.org/nlab/show/over+category and https://ncatlab.org/nlab/show/under+category )

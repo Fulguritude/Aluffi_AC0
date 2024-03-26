@@ -14,6 +14,15 @@ set operations
 .PP
 Section 3) Presents categories, and multiple examples of categories.
 Some are simple, some are advanced.
+.PP
+Section 4) Presents monomorphisms and epimorphisms in more detail,
+taking care to distinguish general morphisms from set functions and
+their accolytes (inj, surj, etc)
+.PP
+Section 5) Presents more advanced concepts from category theory, mostly
+some important universal properties
+.PP
+Chapter II)
 .SH Group Weekly Reports
 .PP
 Week 1 : Today we mostly talked about the first chapter first
@@ -50,6 +59,26 @@ Week 6 : We went in depth over the notion of section.
 We corrected exercises 2.6 and 2.7.
 For the latter exercise, we understood Tristan\[cq]s solution by
 ourselves ! (written by Amric)
+.PP
+Week 7 : We reviewed the notions of algebraic quotient and
+well-definition.
+We broached the notion of universal property.
+We used this to correct exercises 2.8 and 2.9.
+.PP
+Week 8 : We corrected exercises 2.10 and 2.11.
+We then did some preliminary explanations to present categories and help
+with the reading of section 3.
+.PP
+Week 9 : We spoke more in depth about category theory, concrete
+categories, local smallness, algebraic structures (and their vocabulary)
+and applied category theory.
+.PP
+Week 10 : We reviewed examples 3.2, 3.3, 3.4 and gave a bunch of
+disambiguation ideas for 3.5.
+Next week we\[cq]ll go over 3.5 and 3.6 in a bit more detail, and start
+correcting the exercises for this section.
+We\[cq]ll leave 3.7 and above for when we get to their respective
+exercises
 .SH Lexicon
 .SS Chapter 1
 .SS Section 1
@@ -183,6 +212,23 @@ comma category (mentioned, undefined)
 pointed set
 .IP \[bu] 2
 \f[I]C\f[R]^\f[I]A\f[R],\[u2006]\f[I]B\f[R]^ category ??
+(bislice, bicoslice, fibered bislice, fibered bicoslice)
+.IP \[bu] 2
+dual category
+.SS Section 4
+.IP \[bu] 2
+automorphism
+.SS Section 5
+.IP \[bu] 2
+universal property
+.IP \[bu] 2
+initial object
+.IP \[bu] 2
+terminal object
+.IP \[bu] 2
+(categorical) product
+.IP \[bu] 2
+(categorical) coproduct
 .SH Exercise solutions
 .SS Chapter I)
 .SS Section 1)
@@ -669,7 +715,7 @@ Firstly, elements of \[u211D] are equivalent by this map (they have the
 same output) if they vary by 1 from each other.
 This is a reference to the equivalence relation \[ap] in exercise 1.6.
 Therefore, we will use
-\[u211D]/\[u2004]\[ap]\[u2004]\[u2004]\[|=]\[u2004]\f[I]S\f[R]^1^ in our
+\[u211D]/\[ap]\[u2005]\[u2004]\[|=]\[u2004]\f[I]S\f[R]^1^ in our
 decomposition.
 Obviously, the map from
 (\[u211D]\[u2004]\[->]\[u2004]\[u211D]/\[u2004]\[ap]\[u2004]), which
@@ -786,7 +832,8 @@ The number of |\f[I]B\f[R]^\f[I]A\f[R]^| functions in
 can be counted in the following way.
 .PP
 For each element \f[I]a\f[R] of \f[I]A\f[R], of which there are
-|\f[I]A\f[R]|, we can pick any element of |\f[I]B\f[R]| as the image.
+|\f[I]A\f[R]|, we can pick any element of \f[I]B\f[R] as the image; a
+total of |\f[I]B\f[R]| choices per choice of \f[I]a\f[R].
 This means
 |\f[I]B\f[R]|\[u2005]\[tmu]\[u2005]...\[u2005]\[tmu]\[u2005]|\f[I]B\f[R]|,
 a total of |\f[I]A\f[R]| times.
@@ -810,16 +857,19 @@ encoded as a unique function in
 \f[I]A\f[R]\[u2004]\[->]\[u2004]\[u1D539].
 The totality of such series of choices thus corresponds both to the
 space \f[I]A\f[R]\[u2004]\[->]\[u2004]\[u1D539], and to the powerset
-\[u1D49C], and there is a bijection between the two.
+\[u1D4AB](\f[I]A\f[R]), and there is a bijection between the two.
 .SS Section 3)
 .SS 3.1)
 .PP
 Let \[u1D49E] be a category.
-Consider a structure \[u1D49E]^\f[I]o\f[R]\f[I]p\f[R]^ with: -
+Consider a structure \[u1D49E]^\f[I]o\f[R]\f[I]p\f[R]^ with:
+.IP \[bu] 2
 \f[I]O\f[R]\f[I]b\f[R]\f[I]j\f[R](\[u1D49E]^\f[I]o\f[R]\f[I]p\f[R]^)\[u2004]\[u2254]\[u2004]\f[I]O\f[R]\f[I]b\f[R]\f[I]j\f[R](\[u1D49E]);
-- for \f[I]A\f[R], \f[I]B\f[R] objects of
+.IP \[bu] 2
+for \f[I]A\f[R], \f[I]B\f[R] objects of
 \[u1D49E]^\f[I]o\f[R]\f[I]p\f[R]^ (hence, objects of \[u1D49E]),
 \f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]^\f[I]o\f[R]\f[I]p\f[R]^~(\f[I]A\f[R],\[u2006]\f[I]B\f[R])\[u2004]\[u2254]\[u2004]\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]~(\f[I]B\f[R],\[u2006]\f[I]A\f[R])
+.PP
 Show how to make this into a category.
 .SS 3.1.a) Composition
 .PP
@@ -838,7 +888,7 @@ $$\[rs]begin{aligned}
 .PP
 We will now show that \[u1D49E]^\f[I]o\f[R]\f[I]p\f[R]^ with \[u22C6]
 verifies the other axioms of a category (namely identity and
-assossiativity of composition).
+associativity of composition).
 .SS 3.1.b) Identity
 .PP
 Since \[u1D49E] is a category, since \[u1D49E]^\f[I]o\f[R]\f[I]p\f[R]^
@@ -893,9 +943,9 @@ If \f[I]A\f[R] is a finite set, how large is
 We know that, in Set,
 \f[I]E\f[R]\f[I]n\f[R]\f[I]d\f[R]~Set~(\f[I]A\f[R])\[u2004]=\[u2004](\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R])\[u2004]=\[u2004]\f[I]A\f[R]^\f[I]A\f[R]^.
 From a previous exercise, we know that
-|\f[I]B\f[R]^\f[I]A\f[R]^|\[u2004]=\[u2004]|\f[I]B\f[R]|^|^\f[I]A\f[R]|,
+|\f[I]B\f[R]^\f[I]A\f[R]^|\[u2004]=\[u2004]|\f[I]B\f[R]|^|\f[I]A\f[R]|^,
 therefore
-|\f[I]E\f[R]\f[I]n\f[R]\f[I]d\f[R]~Set~(\f[I]A\f[R])|\[u2004]=\[u2004]|\f[I]A\f[R]|^|^\f[I]A\f[R]|.
+|\f[I]E\f[R]\f[I]n\f[R]\f[I]d\f[R]~Set~(\f[I]A\f[R])|\[u2004]=\[u2004]|\f[I]A\f[R]|^|\f[I]A\f[R]|^.
 .SS 3.3)
 .PP
 Formulate precisely what it means to say that \[dq]1~\f[I]a\f[R]~ is an
@@ -1043,23 +1093,9 @@ and
 \f[I]f\f[R]~2~\[u2004]\[mo]\[u2004](\f[I]Z\f[R]~2~\[u2004]\[->]\[u2004]\f[I]A\f[R])
 between which there is no morphism that exists in the slice category.
 One such example we can make is in
-(\f[I]V\f[R]\f[I]e\f[R]\f[I]c\f[R]\f[I]t\f[R]~\[u211D]~)~\[u211D]^2^~.
-If we take the maps:
-.PP
-.RS
-$$f_1 = \[rs]begin{bmatrix} 1 & 0 \[rs]\[rs] 0 & 0 \[rs]end{bmatrix} \[rs]in \[rs]mathcal{L}(\[rs]mathbb{R}\[ha]2)$$
-.RE
-.RS
-$$f_2 = \[rs]begin{bmatrix} 0 & 0 \[rs]\[rs] 0 & 1 \[rs]end{bmatrix} \[rs]in \[rs]mathcal{L}(\[rs]mathbb{R}\[ha]2)$$
-.RE
-.PP
-There exists no map \f[I]\[*s]\f[R] such that the following diagram
-commutes (since the output of \f[I]f\f[R]~1~ will always be null in its
-second coordinate, and the output of \f[I]f\f[R]~2~ will always be null
-in the first):
-.PP
-Now, let us prove that \[u1D49E]~\f[I]A\f[R]~ is indeed a category for
-an arbitrary object \f[I]A\f[R] of an arbitrary category \[u1D49E].
+(\f[I]V\f[R]\f[I]e\f[R]\f[I]c\f[R]\f[I]t\f[R]~\[u211D]~)~\[u211D]^2^~
+(see notes \[dq]On the morphisms of slice and coslice categories\[dq]
+for more details).
 .PP
 3.7.1.a) Identity
 .PP
@@ -1971,6 +2007,357 @@ we can see that \f[I]A\f[R] and \f[I]B\f[R] now just look like
 .PP
 We now simply recycle the notion of injections and surjections.
 These form our monomorphisms and epimorphisms respectively.
+.SS Section 5)
+.SS 5.1)
+.PP
+Prove that a final object in a category \[u1D49E] is initial in the
+opposite category \[u1D49E]^\f[I]o\f[R]\f[I]p\f[R]^
+.PP
+Let \[u1D49E] be a category.
+Let \[u1D49E]^\f[I]o\f[R]\f[I]p\f[R]^ be the dual category on \[u1D49E].
+Let \f[I]F\f[R] be a final object in \[u1D49E].
+This means that for every object \f[I]Z\f[R] in \[u1D49E], there is a
+single morphism from \f[I]Z\f[R] to \f[I]F\f[R].
+We will call this morphism \f[I]f\f[R]~\f[I]Z\f[R]~ (respectively).
+.PP
+We remind how we defined composition in
+\[u1D49E]^\f[I]o\f[R]\f[I]p\f[R]^ as \[u22C6], respecting:
+.RS
+$$\[rs]begin{aligned}
+    & \[rs]forall f \[rs]in Hom_{\[rs]mathcal{C}\[ha]{op}} (B, A) = Hom_{\[rs]mathcal{C}} (A, B), \[rs]\[rs]
+    & \[rs]forall g \[rs]in Hom_{\[rs]mathcal{C}\[ha]{op}} (C, B) = Hom_{\[rs]mathcal{C}} (B, C), \[rs]\[rs]
+    & \[rs]exists h \[rs]in Hom_{\[rs]mathcal{C}\[ha]{op}} (C, A) = Hom_{\[rs]mathcal{C}} (A, C), \[rs]\[rs]
+    & f \[rs]star g \[rs]coloneqq g \[rs]circ f = h
+\[rs]end{aligned}$$
+.RE
+.PP
+In this case, we see that
+\[fa]\f[I]Z\f[R]\[u2004]\[mo]\[u2004]\f[I]O\f[R]\f[I]b\f[R]\f[I]j\f[R](\[u1D49E]^\f[I]o\f[R]\f[I]p\f[R]^)\[u2004]=\[u2004]\f[I]O\f[R]\f[I]b\f[R]\f[I]j\f[R](\[u1D49E]),\[u2006]\f[I]f\f[R]~\f[I]Z\f[R]~\[u2004]\[mo]\[u2004]\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]^\f[I]o\f[R]\f[I]p\f[R]^~(\f[I]F\f[R],\[u2006]\f[I]Z\f[R])\[u2004]=\[u2004]\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]~(\f[I]Z\f[R],\[u2006]\f[I]F\f[R]).
+This implies that the homset
+\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]^\f[I]o\f[R]\f[I]p\f[R]^~(\f[I]F\f[R],\[u2006]\f[I]Z\f[R])
+contains a single morphism, \f[I]f\f[R]~\f[I]Z\f[R]~.
+This means that \f[I]F\f[R] is initial in
+\f[I]m\f[R]\f[I]a\f[R]\f[I]t\f[R]\f[I]h\f[R]\f[I]c\f[R]\f[I]a\f[R]\f[I]l\f[R]\f[I]C\f[R]^\f[I]o\f[R]\f[I]p\f[R]^.
+.SS 5.2)
+.PP
+Prove that \[es] is the \f[I]unique\f[R] initial object in
+\f[B]Set\f[R].
+.PP
+First we will prove that it is initial, then that it is unique.
+.PP
+Initiality: we take an arbitrary set \f[I]Z\f[R] in \f[B]Set\f[R].
+We wish to study
+$Hom_{\[rs]text{\[rs]textbf{Set}}}(\[rs]emptyset, Z) = Z\[ha]\[rs]emptyset$.
+We recall that functions (in category theory) are defined as
+\[dq]applications\[dq] / \[dq]mappings\[dq] are in traditional set
+theory (i.e., as a relation between sets where every antecedent in the
+domain has a singleton image in the codomain; the key point being that
+\[dq]no input has no result when passed through the function\[dq]).
+Let \f[I]I\f[R] be an initial element in \f[B]Set\f[R].
+We write |\f[I]I\f[R]|\[u2004]=\[u2004]\f[I]n\f[R] and
+|\f[I]Z\f[R]|\[u2004]=\[u2004]\f[I]m\f[R].
+We know that
+|\f[I]Z\f[R]^\f[I]I\f[R]^|\[u2004]=\[u2004]|\f[I]Z\f[R]|^|\f[I]I\f[R]|^\[u2004]=\[u2004]\f[I]m\f[R]^\f[I]n\f[R]^.
+For \f[I]I\f[R] to be initial, this is true if and only if
+\f[I]m\f[R]^\f[I]n\f[R]^\[u2004]=\[u2004]1 for all \f[I]m\f[R], and so
+if and only if \f[I]n\f[R]\[u2004]=\[u2004]0.
+We recall that the empty set is the only set with
+|\[es]|\[u2004]=\[u2004]0, therefore \f[I]I\f[R]\[u2004]=\[u2004]\[es].
+.PP
+Now this is already enough to prove unicity, but let us spell it out for
+pedagogy\[cq]s sake.
+.PP
+Unicity: We recall that two objects of \f[B]Set\f[R] are isomorphic if,
+and only if, there exists a bijection between them.
+This is equivalent to saying that two sets have the same cardinal.
+We once again recall that the empty set is the only set with
+|\[es]|\[u2004]=\[u2004]0; there are no bijections relating to the empty
+set, other than its identity, the unique morphism in
+$Hom_{\[rs]text{\[rs]textbf{Set}}}(\[rs]emptyset, \[rs]emptyset)$ .
+Using proposition 5.4 (that terminal objects are unique
+up-to-isomorphism), we finally deduce that \[es] is the unique initial
+object in \f[B]Set\f[R].
+.PP
+NB: the unique function in \f[I]Z\f[R]^\[es]^ is always the empty
+function.
+.SS 5.3)
+.PP
+Prove that final objects are unique up to isomorphism.
+.PP
+Let us suppose we have a category \[u1D49E] with two final objects,
+\f[I]F\f[R]~1~ and \f[I]F\f[R]~2~.
+.PP
+For every object \f[I]A\f[R] of \[u1D49E] there is at least one element
+in
+\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]~(\f[I]A\f[R],\[u2006]\f[I]A\f[R]),
+namely the identity 1~\f[I]A\f[R]~.
+If \f[I]F\f[R] is final, then there is a unique morphism
+\f[I]F\f[R]\[u2004]\[->]\[u2004]\f[I]F\f[R], which therefore must be the
+identity 1~\f[I]F\f[R]~.
+.PP
+Now assume \f[I]F\f[R]~1~ and \f[I]F\f[R]~2~ are both final in
+\[u1D49E].
+Since \f[I]F\f[R]~1~ is final, there is a unique morphism
+\f[I]f\f[R]\[u2004]:\[u2004]\f[I]F\f[R]~2~\[u2004]\[->]\[u2004]\f[I]F\f[R]~1~
+in \[u1D49E].
+Since \f[I]F\f[R]~2~ is final, there is a unique morphism
+\f[I]g\f[R]\[u2004]:\[u2004]\f[I]F\f[R]~1~\[u2004]\[->]\[u2004]\f[I]F\f[R]~2~
+in \[u1D49E].
+Consider
+\f[I]g\f[R]\f[I]f\f[R]\[u2004]:\[u2004]\f[I]F\f[R]~1~\[u2004]\[->]\[u2004]\f[I]F\f[R]~1~
+; as observed, necessarily
+\f[I]g\f[R]\f[I]f\f[R]\[u2004]=\[u2004]1~\f[I]F\f[R]~2~~ since
+\f[I]F\f[R]~1~ is final.
+By the same token
+\f[I]f\f[R]\f[I]g\f[R]\[u2004]=\[u2004]1\f[I]F\f[R]~1~, proving
+\f[I]f\f[R] is an isomorphism.
+Thus \f[I]F\f[R]~1~\[u2004]\[|=]\[u2004]\f[I]F\f[R]~2~.
+.SS 5.4)
+.PP
+What are initial and final objects in the category of \[dq]pointed
+sets\[dq] (Example 3.8)?
+Are they unique?
+.PP
+We recall that a pointed set is just a regular set with a special,
+identified point, and that the category of pointed sets \f[B]Set*\f[R]
+is built upon the same objects as \f[B]Set\f[R], but where each object
+\f[I]A\f[R] in \f[B]Set\f[R] is multiplied into |\f[I]A\f[R]| copies of
+itself in \f[B]Set*\f[R] (one for each choice of special point; this
+implies that the empty set is not a part of \f[B]Set*\f[R], since it has
+no point).
+Morphisms in \f[B]Set*\f[R] are set functions, but with the restriction
+of mapping the special point in the domain to the special point in the
+codomain.
+.PP
+Given this information, we will prove that the initial and final objects
+in \f[B]Set*\f[R] are the singleton sets.
+.PP
+Let (\f[I]O\f[R],\[u2006]\f[I]o\f[R]) be a singleton set in
+\f[B]Set*\f[R].
+Let \f[I]o\f[R] be the single element of \f[I]O\f[R]; it is necessarily
+also the special point, as there is no other choice.
+For any codomain (\f[I]Z\f[R],\[u2006]\f[I]z\f[R]~0~) in \f[B]Set*\f[R],
+the condition that \[dq]special points map to special points\[dq]
+restricts our choice of function to the unique function
+(\f[I]o\f[R],\[u2006]\f[I]z\f[R]~0~), thus, \f[I]O\f[R] is initial.
+If \f[I]O\f[R] had more than one element, there would exist some
+\f[I]Z\f[R] (non-singletons) for which the other element would allow
+another degree of freedom (and thus \f[I]O\f[R] would not be initial).
+.PP
+Similarly, now studying \f[I]Z\f[R] as a domain and \f[I]O\f[R] as a
+codomain, we see that that only function from \f[I]Z\f[R] to \f[I]O\f[R]
+is (like in \f[B]Set\f[R]) the function which maps everything (including
+\f[I]Z\f[R]\[cq]s special point) to \f[I]o\f[R].
+Thus, \f[I]O\f[R] is final.
+If \f[I]O\f[R] had more than one element, there would similarly be many
+choices for any \f[I]Z\f[R] of cardinal \[u2004]\[>=]\[u2004]2, so long
+as the special point maps to the special point.
+.PP
+Every singleton pointed set is both initial and final in \f[B]Set*\f[R]
+and is thus a zero object.
+These are also the only such pointed sets.
+.SS 5.5)
+.PP
+What are the final objects in the category considered in \[sc]5.3?
+.PP
+The category considered in paragraph 5.3 is the coslice category over
+some set \f[I]A\f[R].
+However, what is presented in this paragraph is some extra structure
+that arises when considering the statement \[dq]The quotient
+\f[I]A\f[R]/\[ap] is universal with respect to the property of mapping
+\f[I]A\f[R] to a set in such a way that equivalent elements have the
+same image\[dq].
+We thus give some equivalence relation \[ap] on \f[I]A\f[R] and study
+the quotient set \f[I]A\f[R]/\[ap] in the general coslice category; to
+do this, we consider the subcategory \[u1D4AC] of \[u1D49E]~\f[I]A\f[R]~
+where only \f[I]\[+f]\f[R] such that \[dq]equivalence is preserved\[dq]
+(i.e., such that
+\[fa]\f[I]a\f[R]\[fm],\[u2006]\f[I]a\f[R]\[sd]\[u2004]\[mo]\[u2004]\f[I]A\f[R],\[u2006]\f[I]a\f[R]\[fm]\[u2004]\[ap]\[u2004]\f[I]a\f[R]\[sd]\[u2004]\[rA]\[u2004]\f[I]\[+f]\f[R](\f[I]a\f[R]\[fm])\[u2004]=\[u2004]\f[I]\[+f]\f[R](\f[I]a\f[R]\[sd])).
+.PP
+With:
+.IP \[bu] 2
+\f[I]s\f[R] the canonical surjection of \f[I]A\f[R] onto its quotient
+\f[I]A\f[R]/\[ap],
+.IP \[bu] 2
+\f[I]\[+f]\f[R]~1~ (resp.
+\f[I]\[+f]\f[R]~2~) being some arbitrary function from \f[I]A\f[R] to
+some arbitrary \f[I]Z\f[R]~1~ (resp.
+\f[I]Z\f[R]~2~),
+.IP \[bu] 2
+\f[I]\[*s]\f[R] any function (if it exists) such that
+\f[I]\[*s]\f[R]\f[I]\[+f]\f[R]~1~\[u2004]=\[u2004]\f[I]\[+f]\f[R]~2~
+.IP \[bu] 2
+\f[I]f\f[R]~1~ (resp.
+\f[I]f\f[R]~2~) is the (unique!) function such that
+\f[I]s\f[R]\f[I]f\f[R]~1~\[u2004]=\[u2004]\f[I]\[+f]\f[R]~1~ (resp.
+\f[I]s\f[R]\f[I]f\f[R]~2~\[u2004]=\[u2004]\f[I]\[+f]\f[R]~2~)
+.PP
+The following diagram commutes, and summarizes the situation.
+.PP
+Objects in this category are denoted as
+(\f[I]\[+f]\f[R],\[u2006]\f[I]Z\f[R]) and are obtained from what used to
+be \f[I]morphisms\f[R] (regular functions) in \f[B]Set\f[R].
+Morphisms are mappings
+\f[I]\[*s]\f[R]~\[u1D4AC]~\[u2004]:\[u2004](\f[I]\[+f]\f[R]~1~,\[u2006]\f[I]Z\f[R]~1~)\[u2004]\[->]\[u2004](\f[I]\[+f]\f[R]~2~,\[u2006]\f[I]Z\f[R]~2~)
+such that one exists if and only if
+\[te]\f[I]\[*s]\f[R]\[u2004]\[mo]\[u2004](\f[I]Z\f[R]~1~\[u2004]\[->]\[u2004]\f[I]Z\f[R]~2~),\[u2006]\f[I]\[*s]\f[R]\f[I]\[+f]\f[R]~1~\[u2004]=\[u2004]\f[I]\[+f]\f[R]~2~,
+and
+\[fa]\f[I]a\f[R]\[fm],\[u2006]\f[I]a\f[R]\[sd]\[u2004]\[mo]\[u2004]\f[I]A\f[R],\[u2006]\f[I]a\f[R]\[fm]\[u2004]\[ap]\[u2004]\f[I]a\f[R]\[sd]\[u2004]\[rA]\[u2004]\f[I]\[+f]\f[R](\f[I]a\f[R]\[fm])\[u2004]=\[u2004]\f[I]\[+f]\f[R](\f[I]a\f[R]\[sd]).
+.PP
+Since the textbook also asks whether such a category has initial
+objects, we will first also answer this and consider all terminal
+objects.
+.PP
+The initial object of a general coslice category is
+\f[I]i\f[R]\f[I]d\f[R]~\f[I]A\f[R]~.
+This is easily verified by doing
+\f[I]\[+f]\f[R]~1~\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]A\f[R]~,
+necessarily
+\f[I]\[*s]\f[R]\f[I]\[+f]\f[R]~1~\[u2004]=\[u2004]\f[I]\[*s]\f[R]\f[I]i\f[R]\f[I]d\f[R]~\f[I]A\f[R]~\[u2004]=\[u2004]\f[I]\[*s]\f[R]\[u2004]=\[u2004]\f[I]\[+f]\f[R]~2~,
+and so \f[I]\[*s]\f[R] always exists and is unique.
+We also see that this object satisfies the \[dq]equivalence
+preservation\[dq] condition, hence it exists in \[u1D4AC], and is also
+the initial object in \[u1D4AC].
+.PP
+A general coslice category has a final object
+(\f[I]t\f[R],\[u2006]\f[I]F\f[R]) (or many final objects
+(\f[I]t\f[R]~\f[I]i\f[R]~,\[u2006]\f[I]F\f[R]~\f[I]i\f[R]~)) iff
+\[u1D49E] has a final object \f[I]F\f[R] (or many final objects
+\f[I]F\f[R]~\f[I]i\f[R]~).
+In that case, any final object (\f[I]t\f[R],\[u2006]\f[I]F\f[R]) in
+\[u1D49E]~\f[I]A\f[R]~ corresponds to the unique morphism from
+\f[I]A\f[R] to \f[I]F\f[R] (for any final \f[I]F\f[R]) in \[u1D49E].
+Let us verify this.
+.PP
+Let \f[I]F\f[R] be final in \[u1D49E], and \f[I]t\f[R] be the unique
+morphism
+\f[I]t\f[R]\[u2004]\[mo]\[u2004]\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D49E]~(\f[I]A\f[R],\[u2006]\f[I]F\f[R]).
+Let (\f[I]\[+f]\f[R],\[u2006]\f[I]Z\f[R]) be an arbitrary object of
+\[u1D49E]~\f[I]A\f[R]~.
+Let be \f[I]\[*s]\f[R] such that
+\f[I]\[*s]\f[R]\f[I]\[+f]\f[R]\[u2004]=\[u2004]\f[I]t\f[R].
+We consider the following diagram:
+.PP
+Since \f[I]F\f[R] is final in \[u1D49E], \f[I]\[*s]\f[R] is unique and
+always exists.
+Also, since \f[I]\[*s]\f[R] is unique and always exist, the choice of
+\f[I]\[+f]\f[R] is irrelevant: this same \f[I]\[*s]\f[R] works for all
+choices of \f[I]\[+f]\f[R] for a given arbitrary \f[I]Z\f[R].
+This proves that \f[I]\[*s]\f[R]~\[u1D49E]~\f[I]A\f[R]~~ exists and is
+unique for all (\f[I]\[+f]\f[R],\[u2006]\f[I]Z\f[R]).
+Finally, since \f[I]\[*s]\f[R] works for all choices of \f[I]\[+f]\f[R],
+it works for those that satisfy the \[dq]equivalence preservation\[dq]
+condition, and so does \f[I]t\f[R]: this means that
+(\f[I]t\f[R],\[u2006]\f[I]F\f[R]) is indeed a final object in \[u1D4AC].
+.SS 5.6)
+.PP
+Consider the category corresponding to endowing (as in Example 3.3) the
+set \[u2124]^+^ of positive integers with the divisibility relation.
+Thus there is exactly one morphism
+\f[I]d\f[R]\[u2004]\[->]\[u2004]\f[I]m\f[R] in this category if and only
+if \f[I]d\f[R] divides \f[I]m\f[R] without remainder; there is no
+morphism between \f[I]d\f[R] and \f[I]m\f[R] otherwise.
+Show that this category has products and coproducts.
+What are their \[cq]conventional\[cq] names?
+[\[sc]VII.5.1]
+.PP
+Like example 3.3, this is a case of \[dq]category made from an order
+relation over a set\[dq], since divisibility is an order relation
+(reflexive, antisymmetric, transitive).
+.PP
+Let us remind the definition of categorical products and coproducts.
+We consider some general category \[u1D49E].
+.PP
+An object \f[I]A\f[R]\[product]\f[I]B\f[R] is the product of two objects
+\f[I]A\f[R] and \f[I]B\f[R] iff there is a unique morphism
+\f[I]\[*p]\f[R]~\f[I]A\f[R]~ (resp.
+\f[I]\[*p]\f[R]~\f[I]B\f[R]~) from \f[I]A\f[R]\[product]\f[I]B\f[R] to
+\f[I]A\f[R] (resp.
+\f[I]B\f[R]), and for every \f[I]Z\f[R] in \[u1D49E], and for every pair
+of morphisms
+\f[I]f\f[R]~\f[I]A\f[R]~\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]
+and
+\f[I]f\f[R]~\f[I]B\f[R]~\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R],
+there exists a single morphism
+\f[I]\[*s]\f[R]\[u2004]=\[u2004]\f[I]f\f[R]~\f[I]A\f[R]~\[product]\f[I]f\f[R]~\f[I]B\f[R]~
+such that
+\f[I]\[*p]\f[R]~\f[I]A\f[R]~\f[I]\[*s]\f[R]\[u2004]=\[u2004]\f[I]f\f[R]~\f[I]A\f[R]~
+and
+\f[I]\[*p]\f[R]~\f[I]B\f[R]~\f[I]\[*s]\f[R]\[u2004]=\[u2004]\f[I]f\f[R]~\f[I]B\f[R]~.
+This is summarized in the following commutative diagram.
+.PP
+An object \f[I]A\f[R]\[coproduct]\f[I]B\f[R] is the coproduct of two
+objects \f[I]A\f[R] and \f[I]B\f[R] iff there is a unique morphism
+\f[I]i\f[R]~\f[I]A\f[R]~ (resp.
+\f[I]i\f[R]~\f[I]B\f[R]~) from \f[I]A\f[R] (resp.
+\f[I]B\f[R]) into \f[I]A\f[R]\[coproduct]\f[I]B\f[R], and for every
+\f[I]Z\f[R] in \[u1D49E], and for every pair of morphisms
+\f[I]f\f[R]~\f[I]A\f[R]~\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]
+and
+\f[I]f\f[R]~\f[I]B\f[R]~\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R],
+there exists a single
+\f[I]\[*s]\f[R]\[u2004]=\[u2004]\f[I]f\f[R]~\f[I]A\f[R]~\[coproduct]\f[I]f\f[R]~\f[I]B\f[R]~)
+such that
+\f[I]\[*s]\f[R]\f[I]i\f[R]~\f[I]A\f[R]~\[u2004]=\[u2004]\f[I]f\f[R]~\f[I]A\f[R]~
+and
+\f[I]\[*s]\f[R]\f[I]i\f[R]~\f[I]B\f[R]~\[u2004]=\[u2004]\f[I]f\f[R]~\f[I]B\f[R]~.
+This is summarized in the following commutative diagram.
+.PP
+We now return to our \[dq]divisibility order category\[dq].
+We write its objects as simple integers, and the (if it exists, unique)
+morphism representing \[dq]divisibility of \f[I]m\f[R] by
+\f[I]n\f[R]\[dq] as (\f[I]n\f[R]|\f[I]m\f[R]).
+The conventional name of the product for this category is \[dq]greatest
+common divisor\[dq] (or \[dq]meet\[dq]), and of the coproduct,
+\[dq]least common multiple\[dq] (or \[dq]join\[dq]).
+.PP
+The following commutative diagrams represent this fact.
+Take two arbitrary naturals \f[I]m\f[R] and \f[I]n\f[R].
+Any number \f[I]k\f[R] which divides both \f[I]m\f[R] and \f[I]n\f[R]
+also divides their GCD.
+Likewise, if \f[I]k\f[R] is a multiple of both \f[I]n\f[R] and
+\f[I]m\f[R], then it is a multiple of their LCM.
+.SS 5.7)
+.PP
+Redo Exercise 2.9 (\[dq]Show that if
+\f[I]A\f[R]\[u2004]\[|=]\[u2004]\f[I]A\f[R]\[fm] and
+\f[I]B\f[R]\[u2004]\[|=]\[u2004]\f[I]B\f[R]\[fm] , and further
+\f[I]A\f[R]\[u2005]\[ca]\[u2005]\f[I]B\f[R]\[u2004]=\[u2004]\[es] and
+\f[I]A\f[R]\[fm]\[u2005]\[ca]\[u2005]\f[I]B\f[R]\[fm]\[u2004]=\[u2004]\[es],
+then
+\f[I]A\f[R]\[u2005]\[cu]\[u2005]\f[I]B\f[R]\[u2004]\[|=]\[u2004]\f[I]A\f[R]\[fm]\[u2005]\[cu]\[u2005]\f[I]B\f[R]\[fm].
+Conclude that the operation \f[I]A\f[R]\[coproduct]\f[I]B\f[R] (as
+described in \[sc]1.4) is well-defined up to isomorphism\[dq]) this time
+using Proposition 5.4.
+(the unicity up-to-isomorphism of terminal objects).
+.PP
+We define $\[rs]text{\[rs]textbf{Set}}\[ha]{A,B}$ as the \[dq]bicoslice
+category of \f[I]A\f[R] and \f[I]B\f[R] over \f[B]Set\f[R]\[dq].
+Objects in this category are pairs of morphisms
+(\f[I]f\f[R],\[u2006]\f[I]g\f[R]) from \f[I]A\f[R] and \f[I]B\f[R],
+respectively, into sets \f[I]Z\f[R].
+They can be diagrammed as follows.
+.PP
+Morphisms are defined between objects as
+.PP
+such that the following diagram commutes
+.PP
+Let us call \f[I]I\f[R] the following object of
+$\[rs]text{\[rs]textbf{Set}}\[ha]{A,B}$, where
+\f[I]A\f[R]\[coproduct]\f[I]B\f[R] is any choice of valid disjoint union
+of \f[I]A\f[R] and \f[I]B\f[R]:
+.PP
+By definition of a coproduct, we know that in such a configuration, a
+morphism \f[I]\[*s]\f[R]^\f[I]A\f[R],\[u2006]\f[I]B\f[R]^ from this
+object into any other object of $\[rs]text{\[rs]textbf{Set}}\[ha]{A,B}$
+exists and is unique, and so is the \f[I]\[*s]\f[R] on which it is
+based.
+This means that \f[I]I\f[R] is initial in
+$\[rs]text{\[rs]textbf{Set}}\[ha]{A,B}$.
+Consequently, using prop 5.4., the fact that if an initial object
+exists, it is unique up-to-isomorphism, we conclude that
+\f[I]A\f[R]\[coproduct]\f[I]B\f[R] is unique up-to-isomorphism.
+.SS 5.8)
 .SH Extra exercises by/for the group
 .SS Chapter I) 1) Set notation)
 .PP
@@ -2456,6 +2843,77 @@ This means that \f[I]f\f[R] is not an epimorphism: contradiction.
 .PP
 Conclusion: \f[I]f\f[R] is a surjection.
 .SS Chapter 1, Section 3
+.SS Example summary
+.IP \[bu] 2
+(3.2): Set, category of sets as objects and set functions as morphisms.
+.IP \[bu] 2
+(3.3): preorder (or order, or equivalence relation) over a (single) set,
+transformed into a category; elements of the set as objects, and
+elements of the preorder (which is a relation, hence a subset of the
+cartesian product) as morphisms.
+.IP \[bu] 2
+(3.4): the powerset with the inclusion operator, transformed into a
+category; elements of the powerset (i.e., subsets of the set) as
+objects, and inclusion relations as morphisms (this is just an example
+of a preorder / order / equivalence category seen in 3.3).
+.IP \[bu] 2
+(3.5): slice categories \[u1D49E]~\f[I]A\f[R]~, categories which isolate
+a specific object \f[I]A\f[R] of a given category \[u1D49E], and studies
+the morphisms into that object; an object of \[u1D49E]~\f[I]A\f[R]~ is
+any morphism from any arbitrary objet \f[I]Z\f[R] into \f[I]A\f[R] (not
+the homset
+\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R](\f[I]Z\f[R],\[u2006]\f[I]A\f[R])
+itself !) and a morphism in \[u1D49E]~\f[I]A\f[R]~ (from
+\f[I]z\f[R]~1~\[u2004]\[mo]\[u2004]\f[I]Z\f[R]~1~\[u2004]\[->]\[u2004]\f[I]A\f[R]
+to
+\f[I]z\f[R]~2~\[u2004]\[mo]\[u2004]\f[I]Z\f[R]~2~\[u2004]\[->]\[u2004]\f[I]A\f[R])
+is a \[dq]raising\[dq] \f[I]\[*s]\f[R]~\f[I]A\f[R]~ into
+\[u1D49E]~\f[I]A\f[R]~ of a morphism
+\f[I]\[*s]\f[R]\[u2004]\[mo]\[u2004]\f[I]Z\f[R]~1~\[u2004]\[->]\[u2004]\f[I]Z\f[R]~2~
+in \[u1D49E] that preserves composition on morphisms in \[u1D49E] (i.e.,
+\f[I]z\f[R]~1~\[u2004]=\[u2004]\f[I]z\f[R]~2~\f[I]\[*s]\f[R]\[u2004]\[rA]\[u2004]\f[I]\[*s]\f[R]~\f[I]A\f[R]~\f[I]z\f[R]~1~\[u2004]=\[u2004]\f[I]z\f[R]~2~).
+.IP \[bu] 2
+(3.6): combining examples 3.3 and 3.5, first start with an order
+category on the set \[u2124] (there is a morphism
+\f[I]m\f[R]\[u2004]\[->]\[u2004]\f[I]n\f[R] iff
+\f[I]m\f[R]\[u2004]\[<=]\[u2004]\f[I]n\f[R]), then select a specific
+object (here, \f[I]A\f[R]\[u2004]=\[u2004]3) then study all morphisms of
+the category into \f[I]A\f[R] (so the relation
+\f[I]n\f[R]\[u2004]\[<=]\[u2004]3 for any
+\f[I]Z\f[R]\[u2004]=\[u2004]\f[I]n\f[R]); the morphisms
+\f[I]\[*s]\f[R]~3~\[u2004]=\[u2004](\f[I]m\f[R],\[u2006]3)\[u2004]\[->]\[u2004](\f[I]n\f[R],\[u2006]3)
+are then simply given by the transitivity of \[<=], i.e.,
+\f[I]m\f[R]\[u2004]\[<=]\[u2004]\f[I]n\f[R]\[u2004]\[<=]\[u2004]3
+((\f[I]m\f[R],\[u2006]3)\[u2004]\[->]\[u2004](\f[I]n\f[R],\[u2006]3)
+corresponds to
+\f[I]m\f[R]\[u2004]\[<=]\[u2004]3\[u2004]\[rA]\[u2004]\f[I]n\f[R]\[u2004]\[<=]\[u2004]3,
+meaning our \f[I]z\f[R]~1~\[u2004]=\[u2004]\f[I]z\f[R]~2~\f[I]\[*s]\f[R]
+transforming into
+\f[I]\[*s]\f[R]~\f[I]A\f[R]~\f[I]z\f[R]~1~\[u2004]=\[u2004]\f[I]z\f[R]~2~,
+here, corresponds to
+(\f[I]m\f[R]\[u2004]\[<=]\[u2004]3)\[u2004]=\[u2004](\f[I]n\f[R]\[u2004]\[<=]\[u2004]3)\[u2005]\[ca]\[u2005](\f[I]m\f[R]\[u2004]\[<=]\[u2004]\f[I]n\f[R])
+is transformed into
+(\f[I]m\f[R]\[u2004]\[<=]\[u2004]3\[u2004]\[rA]\[u2004]\f[I]n\f[R]\[u2004]\[<=]\[u2004]3)\[u2005]\[ca]\[u2005](\f[I]m\f[R]\[u2004]\[<=]\[u2004]3)\[u2004]\[hA]\[u2004](\f[I]n\f[R]\[u2004]\[<=]\[u2004]3)).
+.IP \[bu] 2
+(3.7): coslice categories (morphisms out of a chosen object).
+.IP \[bu] 2
+(3.8): the category \f[B]Set^\[u22C6]^\f[R] of pointed sets, a coslice
+category over \f[B]Set\f[R] and any singleton set
+{\[u2005]\[u22C6]\[u2005]}.
+Objects in \f[B]Set^\[u22C6]^\f[R] are regular sets, but with a unique
+distinguished element; morphisms are any set functions that map the
+domain\[cq]s distinguised element to the codomain\[cq]s distinguished
+element.
+.IP \[bu] 2
+(3.9): \[dq]bislice\[dq] and \[dq]bicoslice\[dq] categories, basically a
+similar construct as slice and coslice, but taking two objects of the
+starting category, and studying pairs of morphisms (from a common
+domain, resp codomain) into (resp from) this pair.
+.IP \[bu] 2
+(3.10): \[dq]fibered bislice\[dq] and \[dq]fibered bicoslice\[dq]
+categories, once again a similair construct, but this time taking two
+\f[I]morphisms\f[R] into a common set C (resp.
+from a common set C).
 .SS On terminal and initial objects in \f[B]Set\f[R]
 .PP
 If $\[rs]empty$ is initial and {\[u2005]\[u22C6]\[u2005]} is terminal,
@@ -2575,5 +3033,182 @@ However, one can construct \f[I]Z\f[R]\[u2004]\[ib]\[u2004]\f[I]A\f[R]
 such that \f[I]f\f[R] stops being a injection.
 .PP
 Proof: TODO
+.SS On the morphisms of slice and coslice categories
+.PP
+Given a base category \[u1D49E], and some set \f[I]A\f[R] we wish to
+study the homsets of the slice (resp.
+coslice) category \[u1D49E]~\f[I]A\f[R]~ (resp.
+\[u1D49E]^\f[I]A\f[R]^.
+\f[B]These homsets might be empty, or have more than one element.\f[R]
+.PP
+We remind that slice categories consider \f[I]morphisms to A\f[R] as
+their \f[I]objects\f[R] (written as
+(\f[I]Z\f[R],\[u2006]\f[I]\[+f]\f[R]) for any
+\f[I]\[+f]\f[R]\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]),
+while coslice categories consider \f[I]morphisms from A\f[R] as their
+\f[I]objects\f[R] (written as (\f[I]\[+f]\f[R],\[u2006]\f[I]Z\f[R]) for
+any
+\f[I]\[+f]\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R].
+\f[I]Morphisms\f[R], of the form
+\f[I]\[*s]\f[R]~\f[I]A\f[R]~\[u2004]:\[u2004](\f[I]Z\f[R]~1~,\[u2006]\f[I]\[+f]\f[R]~1~)\[u2004]\[->]\[u2004](\f[I]Z\f[R]~2~,\[u2006]\f[I]\[+f]\f[R]~2~)
+(resp.
+\f[I]\[*s]\f[R]^\f[I]A\f[R]^\[u2004]:\[u2004](\f[I]\[+f]\f[R]~1~,\[u2006]\f[I]Z\f[R]~1~)\[u2004]\[->]\[u2004](\f[I]\[+f]\f[R]~2~,\[u2006]\f[I]Z\f[R]~2~))
+in a slice category \[u1D49E]~\f[I]A\f[R]~ (resp.
+coslice category \[u1D49E]^\f[I]A\f[R]^) map such objects to one another
+if and only if there exists a morphism in \[u1D49E] (the base category!)
+such that
+\f[I]\[+f]\f[R]~1~\[u2004]=\[u2004]\f[I]\[+f]\f[R]~2~\f[I]\[*s]\f[R]
+(resp.
+\f[I]\[*s]\f[R]\f[I]\[+f]\f[R]~1~\[u2004]=\[u2004]\f[I]\[+f]\f[R]~2~).
+.SS Example of no \f[I]\[*s]\f[R] for a slice category
+.PP
+For example, note that there exist pairs of morphisms
+\f[I]f\f[R]~1~\[u2004]\[mo]\[u2004](\f[I]Z\f[R]~1~\[u2004]\[->]\[u2004]\f[I]A\f[R])
+and
+\f[I]f\f[R]~2~\[u2004]\[mo]\[u2004](\f[I]Z\f[R]~2~\[u2004]\[->]\[u2004]\f[I]A\f[R])
+between which there is no morphism that exists in the slice category.
+One such example we can make is in
+(\f[I]V\f[R]\f[I]e\f[R]\f[I]c\f[R]\f[I]t\f[R]~\[u211D]~)~\[u211D]^2^~.
+If we take the maps:
+.PP
+.RS
+$$f_1 = \[rs]begin{bmatrix} 1 & 0 \[rs]\[rs] 0 & 0 \[rs]end{bmatrix} \[rs]in \[rs]mathcal{L}(\[rs]mathbb{R}\[ha]2)$$
+.RE
+.RS
+$$f_2 = \[rs]begin{bmatrix} 0 & 0 \[rs]\[rs] 0 & 1 \[rs]end{bmatrix} \[rs]in \[rs]mathcal{L}(\[rs]mathbb{R}\[ha]2)$$
+.RE
+.PP
+There exists no map \f[I]\[*s]\f[R] such that the following diagram
+commutes (since the output of \f[I]f\f[R]~1~ will always be null in its
+second coordinate, and the output of \f[I]f\f[R]~2~ will always be null
+in the first):
+.SS Example of no \f[I]\[*s]\f[R] for a coslice category
+.PP
+TODO add potato diagram
+.PP
+Take
+\f[I]A\f[R]\[u2004]=\[u2004]\f[I]Z\f[R]~2~\[u2004]=\[u2004]{\f[I]a\f[R],\[u2006]\f[I]b\f[R],\[u2006]\f[I]c\f[R]},
+\f[I]\[+f]\f[R]~2~\[u2004]=\[u2004]\f[I]i\f[R]\f[I]d\f[R]~\f[I]A\f[R]~,
+and \f[I]Z\f[R]~1~\[u2004]=\[u2004]{1,\[u2006]2}.
+Since
+|\f[I]Z\f[R]~1~|\[u2004]=\[u2004]|\f[I]d\f[R]\f[I]o\f[R]\f[I]m\f[R](\f[I]\[*s]\f[R])|\[u2004]<\[u2004]|\f[I]c\f[R]\f[I]o\f[R]\f[I]d\f[R](\f[I]\[*s]\f[R])|\[u2004]=\[u2004]|\f[I]Z\f[R]~2~|,
+there is no possible case in which
+Im(\f[I]\[*s]\f[R])\[u2004]=\[u2004]Im(\f[I]i\f[R]\f[I]d\f[R]~\f[I]A\f[R]~)
+(even if \f[I]\[+f]\f[R]~1~ is epi).
+.SS Example of multiple \f[I]\[*s]\f[R]
+.PP
+TODO add potato diagram
+.PP
+Another example, this time in a coslice category, with
+\f[I]A\f[R]\[u2004]=\[u2004]{\f[I]a\f[R],\[u2006]\f[I]b\f[R],\[u2006]\f[I]c\f[R]},
+we take $\[rs]text{\[rs]textbf{Set}}_A$.
+We take \f[I]Z\f[R]~1~\[u2004]=\[u2004]{1,\[u2006]2,\[u2006]3},
+\f[I]Z\f[R]~2~\[u2004]=\[u2004]{\f[I]T\f[R],\[u2006]\f[I]F\f[R]}.
+For
+\f[I]\[+f]\f[R]~1~\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]~1~\[u2004]=\[u2004]{(\f[I]a\f[R],\[u2006]1),\[u2006](\f[I]b\f[R],\[u2006]1),\[u2006](\f[I]c\f[R],\[u2006]3)}
+and
+\f[I]\[+f]\f[R]~2~\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]~2~\[u2004]=\[u2004]{(\f[I]a\f[R],\[u2006]\f[I]T\f[R]),\[u2006](\f[I]b\f[R],\[u2006]\f[I]T\f[R]),\[u2006](\f[I]c\f[R],\[u2006]\f[I]F\f[R])}
+there exists two elements in
+\f[I]H\f[R]\f[I]o\f[R]\f[I]m\f[R]~\[u1D4AE]\[u212F]\[u1D4C9]^\f[I]A\f[R]^~(\f[I]Z\f[R]~1~,\[u2006]\f[I]Z\f[R]~2~).
+These originate from two functions in \f[B]Set\f[R]:
+\f[I]\[*s]\f[R]~\f[I]\[*a]\f[R]~\[u2004]=\[u2004]{(1,\[u2006]\f[I]T\f[R]),\[u2006](2,\[u2006]\f[I]T\f[R]),\[u2006](3,\[u2006]\f[I]F\f[R])}
+and
+\f[I]\[*s]\f[R]~\f[I]\[*b]\f[R]~\[u2004]=\[u2004]{(1,\[u2006]\f[I]T\f[R]),\[u2006](2,\[u2006]\f[I]F\f[R]),\[u2006](3,\[u2006]\f[I]F\f[R])}.
+The free element in 2\[u2004]\[mo]\[u2004]\f[I]Z\f[R]~1~ which is not in
+Im(\f[I]\[+f]\f[R]~1~) offers a degree of freedom.
+.SS Explanations on the conditions for \f[I]\[*s]\f[R]
+.PP
+In the first example, what causes the issue is the fact that the images
+of \f[I]f\f[R]~1~ and \f[I]f\f[R]~2~ in \f[I]A\f[R] are distinct.
+.PP
+In the second example, what causes the issue is the fact that we\[cq]ve
+reduced our common domain \f[I]A\f[R] to an insufficient intermediary
+object \f[I]Z\f[R]~1~.
+.PP
+The \[dq]element which isn\[cq]t mapped to offers a degree of freedom
+and thus breaks unicity\[dq] in the last example should remind you of
+the notes on surjections.
+Indeed, when comparing \f[I]\[*s]\f[R]~\f[I]\[*a]\f[R]~ and
+\f[I]\[*s]\f[R]~\f[I]\[*b]\f[R]~, we\[cq]re in a context which is
+reminiscent of the definition of an epimorphism.
+.PP
+.RS
+\f[I]\[+f]\f[R]~2~\[u2004]=\[u2004]\f[I]\[*s]\f[R]~\f[I]\[*a]\f[R]~\f[I]\[+f]\f[R]~1~\[u2004]=\[u2004]\f[I]\[*s]\f[R]~\f[I]\[*a]\f[R]~\f[I]\[+f]\f[R]~1~
+.RE
+.PP
+We can be assured of being able to cancel \f[I]\[+f]\f[R]1 iff
+\f[I]\[+f]\f[R]~1~ is an epimorphism, and thus \f[I]\[*s]\f[R], if it
+exists, is unique.
+The proof for slice categories is similar, but given the reverse orders,
+uses monomorphisms.
+.PP
+More generally:
+.IP \[bu] 2
+a) in a slice category, there will be no \f[I]\[*s]\f[R] if
+Im(\f[I]\[+f]\f[R]~1~)\[u2004]\[!=]\[u2004]Im(\f[I]\[+f]\f[R]~2~) (proof
+?
+and in more general categories than concrete categories ?
+TODO: iff ?)
+.IP \[bu] 2
+b) in a coslice category, there will be no \f[I]\[*s]\f[R] if
+Pr(Im(\f[I]\[+f]\f[R]~1~)\[u2004]\[!=]\[u2004]Pr(Im(\f[I]\[+f]\f[R]~2~))
+(proof ?
+and in more general categories than concrete categories ?
+TODO: iff ?)
+.IP \[bu] 2
+c) in a slice category, there is at most a single \f[I]\[*s]\f[R] iff
+\f[I]\[+f]\f[R]~2~ is mono
+.IP \[bu] 2
+d) in a coslice category, there is at most a single \f[I]\[*s]\f[R] iff
+\f[I]\[+f]\f[R]~1~ is epi
+.PP
+(see perhaps https://ncatlab.org/nlab/show/over+category and
+https://ncatlab.org/nlab/show/under+category )
+.SS Chapter 1, Section 4
+.SS Notes on counterintuitive rules
+.IP \[bu] 2
+in some categories (such as \[u2124] with \[<=]; or \f[B]Ring\f[R]),
+\[dq]mono and epi\[dq] does not imply \[dq]iso\[dq]
+.IP \[bu] 2
+in every \f[I]abelian\f[R] category, we have that \[dq]iso \[hA] epi and
+mono\[dq] (and though \f[B]Set\f[R] is not abelian, the property still
+holds)
+.IP \[bu] 2
+while in \f[B]Set\f[R], a function is an epimorphism (surjective) iff it
+has a pre-inverse, in \f[B]Grp\f[R], some epimorphisms do not have right
+inverses.
+.SS Chapter 1, Section 5
+.SS Initial and terminal objects
+.IP \[bu] 2
+there are categories without either initial or terminal objects, such as
+the preorder category of \[u2124] with \[<=].
+.IP \[bu] 2
+there are categories with multiple initial or terminal objects (for
+example, in \f[B]Set\f[R], every singleton set is a terminal object);
+however, these are respectively unique up to isomorphism
+.IP \[bu] 2
+any object which is both initial and terminal is called a zero object.
+.SS Universal properties
+.SS \[dq]Normal\[dq] universal properties
+.PP
+Verbatim: \[dq]The most natural context in which to introduce universal
+properties requires a good familiarity with the language of functors,
+which we will only introduce at a later stage.
+[...] We say that a construction satis\[fi]es a universal property (or:
+\[cq]is the solution to a universal problem\[cq]) when it may be viewed
+as a terminal object of a category.\[dq]
+.PP
+Then: \[dq]The declaration/explanation of a universal property generally
+follows the pattern \[cq]object X is universal with respect to the
+following property: for any Y such that..., there exists a unique
+morphism Y \[->] X such that...\[cq]; this explanation hides the
+de\[fi]nition of an accessory category, and the statement that X is
+terminal.\[dq]
+.PP
+This is a complicated way to say: there is some construct to decompose a
+morphism which is \[dq]universal\[dq] (always exists) and reduces the
+rest of the information of the morphism into something \[dq]unique\[dq]
+(hence terminal object of some subcategory).
+.SS Dual universal properties
 .SH AUTHORS
 Multiversity \f[I]Algebra Chapter 0\f[R] Reading Group.

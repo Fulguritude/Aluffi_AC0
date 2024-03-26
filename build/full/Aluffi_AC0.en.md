@@ -16,6 +16,15 @@ set operations
 Section 3) Presents categories, and multiple examples of categories.
 Some are simple, some are advanced.
 
+Section 4) Presents monomorphisms and epimorphisms in more detail,
+taking care to distinguish general morphisms from set functions and
+their accolytes (inj, surj, etc)
+
+Section 5) Presents more advanced concepts from category theory, mostly
+some important universal properties
+
+Chapter II)
+
 Group Weekly Reports
 ====================
 
@@ -50,6 +59,23 @@ it) and corrected exercises 2.4 and 2.5.
 Week 6 : We went in depth over the notion of section. We corrected
 exercises 2.6 and 2.7. For the latter exercise, we understood Tristan's
 solution by ourselves ! (written by Amric)
+
+Week 7 : We reviewed the notions of algebraic quotient and
+well-definition. We broached the notion of universal property. We used
+this to correct exercises 2.8 and 2.9.
+
+Week 8 : We corrected exercises 2.10 and 2.11. We then did some
+preliminary explanations to present categories and help with the reading
+of section 3.
+
+Week 9 : We spoke more in depth about category theory, concrete
+categories, local smallness, algebraic structures (and their vocabulary)
+and applied category theory.
+
+Week 10 : We reviewed examples 3.2, 3.3, 3.4 and gave a bunch of
+disambiguation ideas for 3.5. Next week we'll go over 3.5 and 3.6 in a
+bit more detail, and start correcting the exercises for this section.
+We'll leave 3.7 and above for when we get to their respective exercises
 
 Lexicon
 =======
@@ -189,7 +215,26 @@ Chapter 1 {#chapter-1 .unnumbered}
 
 -   pointed set
 
--   $C^{A, B}$ category ??
+-   $C^{A, B}$ category ?? (bislice, bicoslice, fibered bislice, fibered
+    bicoslice)
+
+-   dual category
+
+### Section 4 {#section-4 .unnumbered}
+
+-   automorphism
+
+### Section 5 {#section-5 .unnumbered}
+
+-   universal property
+
+-   initial object
+
+-   terminal object
+
+-   (categorical) product
+
+-   (categorical) coproduct
 
 Exercise solutions
 ==================
@@ -209,7 +254,7 @@ does contain itself\", and should be excluded); nor can it exclude it
 itself (since in that case, it would be a \"set that doesn't contain
 itself\", and should be included).
 
-#### 1.2) {#section-4 .unnumbered}
+#### 1.2) {#section-6 .unnumbered}
 
 Prove that any equivalence relation over a set $S$ defines a partition
 of $\mathcal{P}_S$.
@@ -234,7 +279,7 @@ in (a), $x$ exists in at least one equivalence class, the class which
 contains only $x$ itself. This is one of ou $S_i$ sets. Contradiction.
 Therefore, $\bigcup_{S_i \in \mathcal{P}_S} S_i = S$
 
-#### 1.3) {#section-5 .unnumbered}
+#### 1.3) {#section-7 .unnumbered}
 
 Given a partition $\mathcal{P}$ on a set $S$, show how to define a
 relation $\sim$ on $S$ such that $P$ is the corresponding partition.
@@ -270,7 +315,7 @@ x \sim z
 Therefore, $\sim$ is indeed an equivalence relation, and is generated
 uniquely by the partition.
 
-#### 1.4) {#section-6 .unnumbered}
+#### 1.4) {#section-8 .unnumbered}
 
 How many different equivalence relations may be defined on the set
 $\{1, 2, 3\}$?
@@ -294,7 +339,7 @@ Hence, there are five equivalence classes on the 3 element set.
 
 See the Bell numbers: https://oeis.org/A000110
 
-#### 1.5) {#section-7 .unnumbered}
+#### 1.5) {#section-9 .unnumbered}
 
 Give an example of a relation that is reflexive and symmetric, but not
 transitive. What happens if you attempt to use this relation to define a
@@ -343,7 +388,7 @@ obvious choices would be either:
 -   to complete the connected subgraph into a clique (thereby gaining
     the *transitive closure* of the relation).
 
-#### 1.6) {#section-8 .unnumbered}
+#### 1.6) {#section-10 .unnumbered}
 
 Define a relation $\sim$ on the set $\mathbb{R}$ of real numbers, by
 setting $a \sim b \Leftrightarrow b - a \in \mathbb{Z}$. Prove that this
@@ -390,7 +435,7 @@ torus, of area $1$.
 
 ### Section 2) {#section-2-1 .unnumbered}
 
-#### 2.1) {#section-9 .unnumbered}
+#### 2.1) {#section-11 .unnumbered}
 
 How many different bijections are there between a set $S$ with $n$
 elements and itself?
@@ -405,7 +450,7 @@ There are then $(n-1)$ choice of output left, etc.
 
 Ccl°: $\prod_{i=1}^{i=n} i = n!$
 
-#### 2.2) {#section-10 .unnumbered}
+#### 2.2) {#section-12 .unnumbered}
 
 Prove that a function has a right-inverse (pre-inverse) iff it is
 surjective (can use AC).
@@ -454,7 +499,7 @@ A summary of this idea: all surjection preinverses are simply a choice
 of a representative for each fiber of the surjection as the output to
 the respective singleton.
 
-#### 2.3) {#section-11 .unnumbered}
+#### 2.3) {#section-13 .unnumbered}
 
 Prove that the inverse of a bijection is a bijection, and that the
 composition of two bijections is a bijection.
@@ -494,7 +539,7 @@ Therefore $h$ and $h^{-1}$ are two-sided inverses of each other, and
 thus bijections. From this we conclude that the composition of any two
 bijections is also a bijection.
 
-#### 2.4) {#section-12 .unnumbered}
+#### 2.4) {#section-14 .unnumbered}
 
 Prove that 'isomorphism' is an equivalence relation (on any set of
 sets).
@@ -542,7 +587,7 @@ Isomorphism, $\simeq$, is a relation on an arbitrary set (of sets) which
 is always reflexive, symmetric and transitive. It is thus an equivalence
 relation.
 
-#### 2.5) {#section-13 .unnumbered}
+#### 2.5) {#section-15 .unnumbered}
 
 Formulate a notion of epimorphism and prove that epimorphisms and
 surjections are equivalent.
@@ -550,7 +595,7 @@ surjections are equivalent.
 See \"notes\" file: section \"Proofs of mono/inj and epi/surj
 equivalence\".
 
-#### 2.6) {#section-14 .unnumbered}
+#### 2.6) {#section-16 .unnumbered}
 
 With notation as in Example 2.4, explain how any function
 $f \in (A \to B)$ determines a section of $\pi_A$.
@@ -575,7 +620,7 @@ diagram:
 PS: see \"On sections and fibers\" in the \"notes\" file for a worked
 example.
 
-#### 2.7) {#section-15 .unnumbered}
+#### 2.7) {#section-17 .unnumbered}
 
 Let $f \in (A \to B)$ be any function. Prove that the graph $\Gamma_f$
 of $f$ is isomorphic to $A$.
@@ -592,7 +637,7 @@ an injective function to a smaller codomain. We also know that
 $\overline{f}$ is surjective, since its domain is its image. Therefore,
 $\overline{f}$ is a bijection. This means that $A \simeq \Gamma_f$.
 
-#### 2.8) {#section-16 .unnumbered}
+#### 2.8) {#section-18 .unnumbered}
 
 Describe as explicitly as you can all terms in the canonical
 decomposition of the function $f \in (\mathbb{R} \to \mathbb{C})$
@@ -602,7 +647,7 @@ assigned previously, which one?)
 Firstly, elements of $\mathbb{R}$ are equivalent by this map (they have
 the same output) if they vary by $1$ from each other. This is a
 reference to the equivalence relation $\sim$ in exercise 1.6. Therefore,
-we will use $\mathbb{R}/\sim \simeq S^1$ in our decomposition.
+we will use $\mathbb{R}/\sim \; \simeq S^1$ in our decomposition.
 Obviously, the map from $(\mathbb{R} \to \mathbb{R}/\sim)$, which maps
 each element of $\mathbb{R}$ to respective their equivalence class is a
 surjection (since there's no empty equivalence class).
@@ -616,7 +661,7 @@ representative) value in the interval $[0, 1[$.
 Finally, we do the canonical injection of $S^1$ into its superset
 $\mathbb{C}$.
 
-#### 2.9) {#section-17 .unnumbered}
+#### 2.9) {#section-19 .unnumbered}
 
 Show that if $A \simeq A'$ and $B \simeq B'$ , and further
 $A \cap B = \emptyset$ and $A' \cap B' = \emptyset$, then
@@ -673,7 +718,7 @@ well-defined, up to isomorphism: so long as 2 respective copies of $A$
 and $B$ are made in a way that their intersection is empty, the 2
 respective unions of 1 copy each will be isomorphic.
 
-#### 2.10) {#section-18 .unnumbered}
+#### 2.10) {#section-20 .unnumbered}
 
 Show that if $A$ and $B$ are finite sets, then $|B^A| = |B|^{|A|}$.
 
@@ -681,10 +726,11 @@ The number of $|B^A|$ functions in $B^A = (A \to B)$ can be counted in
 the following way.
 
 For each element $a$ of $A$, of which there are $|A|$, we can pick any
-element of $|B|$ as the image. This means $|B| \times ... \times |B|$, a
-total of $|A|$ times. Hence, $|B^A| = |B|^{|A|}$.
+element of $B$ as the image; a total of $|B|$ choices per choice of $a$.
+This means $|B| \times ... \times |B|$, a total of $|A|$ times. Hence,
+$|B^A| = |B|^{|A|}$.
 
-#### 2.11) {#section-19 .unnumbered}
+#### 2.11) {#section-21 .unnumbered}
 
 In view of Exercise 2.10, it is not unreasonable to use $2^A$ to denote
 the set of functions from an arbitrary set $A$ to a set with $2$
@@ -697,17 +743,22 @@ subset $A_i$ (output $1$) or do we remove it (output $0$) ? It is then
 easy to see that such a series of choices can easily be encoded as a
 unique function in $A \to \mathbb{B}$. The totality of such series of
 choices thus corresponds both to the space $A \to \mathbb{B}$, and to
-the powerset $\mathcal{A}$, and there is a bijection between the two.
+the powerset $\mathcal{P}(A)$, and there is a bijection between the two.
 
 ### Section 3) {#section-3-1 .unnumbered}
 
-#### 3.1) {#section-20 .unnumbered}
+#### 3.1) {#section-22 .unnumbered}
 
 Let $\mathcal{C}$ be a category. Consider a structure $\mathcal{C}^{op}$
-with: - $Obj(\mathcal{C}^{op}) \coloneqq Obj(\mathcal{C})$; - for $A$,
-$B$ objects of $\mathcal{C}^{op}$ (hence, objects of $\mathcal{C}$),
-$Hom_{\mathcal{C}^{op}} (A, B) \coloneqq Hom_{\mathcal{C}} (B, A)$ Show
-how to make this into a category.
+with:
+
+-   $Obj(\mathcal{C}^{op}) \coloneqq Obj(\mathcal{C})$;
+
+-   for $A$, $B$ objects of $\mathcal{C}^{op}$ (hence, objects of
+    $\mathcal{C}$),
+    $Hom_{\mathcal{C}^{op}} (A, B) \coloneqq Hom_{\mathcal{C}} (B, A)$
+
+Show how to make this into a category.
 
 ##### 3.1.a) Composition {#a-composition .unnumbered}
 
@@ -721,8 +772,7 @@ $\mathcal{C}^{op}$ as $\star$. We define $\star$ as: $$\begin{aligned}
 \end{aligned}$$
 
 We will now show that $\mathcal{C}^{op}$ with $\star$ verifies the other
-axioms of a category (namely identity and assossiativity of
-composition).
+axioms of a category (namely identity and associativity of composition).
 
 ##### 3.1.b) Identity {#b-identity .unnumbered}
 
@@ -762,15 +812,15 @@ Therefore, $\star$ is associative.
 
 We conclude that $\mathcal{C}^{op}$ is a category.
 
-#### 3.2) {#section-21 .unnumbered}
+#### 3.2) {#section-23 .unnumbered}
 
 If $A$ is a finite set, how large is $End_{\text{Set}}(A)$ ?
 
 We know that, in Set, $End_{\text{Set}}(A) = (A \to A) = A^A$. From a
-previous exercise, we know that $|B^A| = |B|^|A|$, therefore
-$|End_{\text{Set}}(A)| = |A|^|A|$.
+previous exercise, we know that $|B^A| = |B|^{|A|}$, therefore
+$|End_{\text{Set}}(A)| = |A|^{|A|}$.
 
-#### 3.3) {#section-22 .unnumbered}
+#### 3.3) {#section-24 .unnumbered}
 
 Formulate precisely what it means to say that \"$1_a$ is an identity
 with respect to composition\" in Example 3.3, and prove this assertion.
@@ -794,7 +844,7 @@ $$\forall a,b \in S, (b,b) \circ (a,b) = (a,b) = (a,b) \circ (a,a)$$
 proving that $(b,b)$ is indeed a post-identity, and $(a,a)$ a
 pre-identity, in this context.
 
-#### 3.4) {#section-23 .unnumbered}
+#### 3.4) {#section-25 .unnumbered}
 
 Can we define a category in the style of Example 3.3, using the relation
 $<$ on the set $\mathbb{Z}$ ?
@@ -817,7 +867,7 @@ a \"totally ordered set\", which is a more restrictive kind of
 \"partially ordered set\" (also called \"poset\" for short).
 Consequently, this kind of category is called a \"poset category\".
 
-#### 3.5) {#section-24 .unnumbered}
+#### 3.5) {#section-26 .unnumbered}
 
 Explain in what sense Example 3.4 is an instance of the categories
 considered in Example 3.3.
@@ -835,7 +885,7 @@ between the elements of a set of sets (here, $\mathcal{P}(S)$). This
 means inclusion is reflexive, transitive, and antisymmetric. This makes
 $\hat{S}$ a poset category, and thus another instance of example 3.3.
 
-#### 3.6) {#section-25 .unnumbered}
+#### 3.6) {#section-27 .unnumbered}
 
 Define a category $V$ by taking $Obj(V) = \mathbb{N}$, and
 $Hom_V(n, m) = Mat_\mathbb{R}(m, n)$, the set of $m \times n$ matrices
@@ -871,7 +921,7 @@ directed graph over $\mathbb{N}$ where each edge corresponds to the
 change in dimension (from domain to codomain) caused by a given linear
 map.
 
-#### 3.7) {#section-26 .unnumbered}
+#### 3.7) {#section-28 .unnumbered}
 
 Define carefully objects and morphisms in Example 3.7, and draw the
 diagram corresponding to composition.
@@ -893,17 +943,8 @@ $\mathcal{C}$ that preserve composition between 2 morphisms into $A$.
 Note that there exist pairs of morphisms $f_1 \in (Z_1 \to A)$ and
 $f_2 \in (Z_2 \to A)$ between which there is no morphism that exists in
 the slice category. One such example we can make is in
-$(Vect_\mathbb{R})_{\mathbb{R}^2}$. If we take the maps:
-
-$$f_1 = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)$$
-$$f_2 = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)$$
-
-There exists no map $\sigma$ such that the following diagram commutes
-(since the output of $f_1$ will always be null in its second coordinate,
-and the output of $f_2$ will always be null in the first):
-
-Now, let us prove that $\mathcal{C}_A$ is indeed a category for an
-arbitrary object $A$ of an arbitrary category $\mathcal{C}$.
+$(Vect_\mathbb{R})_{\mathbb{R}^2}$ (see notes \"On the morphisms of
+slice and coslice categories\" for more details).
 
 3.7.1.a) Identity
 
@@ -1022,7 +1063,7 @@ f_4 &=& ( \upsilon \circ (\tau  \circ \sigma)) \circ f_1 \\
 
 Through associativity in $\mathcal{C}$.
 
-#### 3.8) {#section-27 .unnumbered}
+#### 3.8) {#section-29 .unnumbered}
 
 A subcategory $\mathcal{C'}$ of a category $\mathcal{C}$ consists of a
 collection of objects of $\mathcal{C}$, with morphisms
@@ -1059,7 +1100,7 @@ disappear in this operation.
 Consequently $\mathbf{InfSet}$ defined as such is a full subcategory of
 $\mathbf{Set}$.
 
-#### 3.9) {#section-28 .unnumbered}
+#### 3.9) {#section-30 .unnumbered}
 
 An alternative to the notion of multiset introduced in §2.2 is obtained
 by considering sets endowed with equivalence relations; equivalent
@@ -1129,7 +1170,7 @@ coefficients on freeform indeterminates of degree 1 (which would be our
 set elements); raising the operators one rank, a product of freeform
 variables with integer powers (multiplicities), etc.
 
-#### 3.10) {#section-29 .unnumbered}
+#### 3.10) {#section-31 .unnumbered}
 
 Since the objects of a category $\mathcal{C}$ are not (necessarily)
 sets, it is not clear how to make sense of a notion of 'subobject' in
@@ -1147,7 +1188,7 @@ $f(b) = 0$, of course, as the equivalence and lack of alternatives to
 $0$ as an output imply). The map $f$ always fully describes $A$ from its
 relationship with $B$.
 
-#### 3.11) {#section-30 .unnumbered}
+#### 3.11) {#section-32 .unnumbered}
 
 Draw the relevant diagrams and define composition and identities for the
 category $\mathcal{C}^{A,B}$ mentioned in Example 3.9. Do the same for
@@ -1357,7 +1398,7 @@ similarly to what was done for slice categories in exercise 3.7 .
 
 ### Section 4) {#section-4-1 .unnumbered}
 
-#### 4.1) {#section-31 .unnumbered}
+#### 4.1) {#section-33 .unnumbered}
 
 Composition is defined for *two* morphisms. If more than 2 morphisms are
 given, one may compose them in several ways, so that every step only
@@ -1440,7 +1481,7 @@ that this implied $P(n+1)$.
 our hypothesis in all cases, we can conclude by induction that it is
 true for all $n \geq 3$.
 
-#### 4.2) {#section-32 .unnumbered}
+#### 4.2) {#section-34 .unnumbered}
 
 In Example 3.3 we have seen how to construct a category from a set
 endowed with a relation, provided the latter is reflexive and
@@ -1458,7 +1499,7 @@ precisely the symmetry of a relation.
 This means that all sets with an equivalence relation can be
 reconstructed into a groupoid.
 
-#### 4.3) {#section-33 .unnumbered}
+#### 4.3) {#section-35 .unnumbered}
 
 Let $A$, $B$ be objects of a category $\mathcal{C}$, and
 $f \in Hom_{\mathcal{C}} (A, B)$ a morphism. Prove that if $f$ has a
@@ -1500,7 +1541,7 @@ are their own inverse).
 See also [here](https://ncatlab.org/nlab/show/partial+order) and
 [here](https://math.stackexchange.com/questions/81123/examples-of-categories-where-epimorphism-does-not-have-a-right-inverse-not-surj).
 
-#### 4.4) {#section-34 .unnumbered}
+#### 4.4) {#section-36 .unnumbered}
 
 Prove that the composition of two monomorphisms is a monomorphism.
 Deduce that one can define a subcategory $\mathcal{C}_{mono}$ of a
@@ -1573,7 +1614,7 @@ identities. Identities are iso, and thus mono. You can't make a category
 without identities, so there is no such $\mathcal{C}_{nonmono}$. the
 same reasoning applies to $\mathcal{C}_{nonepi}$.
 
-#### 4.5) {#section-35 .unnumbered}
+#### 4.5) {#section-37 .unnumbered}
 
 Give a concrete description of monomorphisms and epimorphisms in the
 category $\mathbf{MSet}$ you constructed in Exercise 3.9. (Your answer
@@ -1593,6 +1634,267 @@ $card(B) = card(J)$, we can see that $A$ and $B$ now just look like
 
 We now simply recycle the notion of injections and surjections. These
 form our monomorphisms and epimorphisms respectively.
+
+### Section 5) {#section-5-1 .unnumbered}
+
+#### 5.1) {#section-38 .unnumbered}
+
+Prove that a final object in a category $\mathcal{C}$ is initial in the
+opposite category $\mathcal{C}^{op}$
+
+Let $\mathcal{C}$ be a category. Let $\mathcal{C}^{op}$ be the dual
+category on $\mathcal{C}$. Let $F$ be a final object in $\mathcal{C}$.
+This means that for every object $Z$ in $\mathcal{C}$, there is a single
+morphism from $Z$ to $F$. We will call this morphism $f_Z$
+(respectively).
+
+We remind how we defined composition in $\mathcal{C}^{op}$ as $\star$,
+respecting: $$\begin{aligned}
+    & \forall f \in Hom_{\mathcal{C}^{op}} (B, A) = Hom_{\mathcal{C}} (A, B), \\
+    & \forall g \in Hom_{\mathcal{C}^{op}} (C, B) = Hom_{\mathcal{C}} (B, C), \\
+    & \exists h \in Hom_{\mathcal{C}^{op}} (C, A) = Hom_{\mathcal{C}} (A, C), \\
+    & f \star g \coloneqq g \circ f = h
+\end{aligned}$$
+
+In this case, we see that
+$\forall Z \in Obj(\mathcal{C}^{op}) = Obj(\mathcal{C}), f_Z \in Hom_{\mathcal{C}^{op}} (F, Z) = Hom_{\mathcal{C}} (Z, F)$.
+This implies that the homset $Hom_{\mathcal{C}^{op}} (F, Z)$ contains a
+single morphism, $f_Z$. This means that $F$ is initial in
+$mathcal{C}^{op}$.
+
+#### 5.2) {#section-39 .unnumbered}
+
+Prove that $\emptyset$ is the *unique* initial object in **Set**.
+
+First we will prove that it is initial, then that it is unique.
+
+Initiality: we take an arbitrary set $Z$ in **Set**. We wish to study
+$Hom_{\text{\textbf{Set}}}(\emptyset, Z) = Z^\emptyset$. We recall that
+functions (in category theory) are defined as \"applications\" /
+\"mappings\" are in traditional set theory (i.e., as a relation between
+sets where every antecedent in the domain has a singleton image in the
+codomain; the key point being that \"no input has no result when passed
+through the function\"). Let $I$ be an initial element in **Set**. We
+write $|I| = n$ and $|Z| = m$. We know that $|Z^I| = |Z|^{|I|} = m^n$.
+For $I$ to be initial, this is true if and only if $m^n = 1$ for all
+$m$, and so if and only if $n = 0$. We recall that the empty set is the
+only set with $|\emptyset| = 0$, therefore $I = \emptyset$.
+
+Now this is already enough to prove unicity, but let us spell it out for
+pedagogy's sake.
+
+Unicity: We recall that two objects of **Set** are isomorphic if, and
+only if, there exists a bijection between them. This is equivalent to
+saying that two sets have the same cardinal. We once again recall that
+the empty set is the only set with $|\emptyset| = 0$; there are no
+bijections relating to the empty set, other than its identity, the
+unique morphism in $Hom_{\text{\textbf{Set}}}(\emptyset, \emptyset)$ .
+Using proposition 5.4 (that terminal objects are unique
+up-to-isomorphism), we finally deduce that $\emptyset$ is the unique
+initial object in **Set**.
+
+NB: the unique function in $Z^\emptyset$ is always the empty function.
+
+#### 5.3) {#section-40 .unnumbered}
+
+Prove that final objects are unique up to isomorphism.
+
+Let us suppose we have a category $\mathcal{C}$ with two final objects,
+$F_1$ and $F_2$.
+
+For every object $A$ of $\mathcal{C}$ there is at least one element in
+$Hom_{\mathcal{C}} (A, A)$, namely the identity $1_A$. If $F$ is final,
+then there is a unique morphism $F \to F$, which therefore must be the
+identity $1_F$.
+
+Now assume $F_1$ and $F_2$ are both final in $\mathcal{C}$. Since $F_1$
+is final, there is a unique morphism $f : F_2 \to F_1$ in $\mathcal{C}$.
+Since $F_2$ is final, there is a unique morphism $g : F_1 \to F_2$ in
+$\mathcal{C}$. Consider $gf : F_1 \to F_1$ ; as observed, necessarily
+$gf = 1_{F_2}$ since $F_1$ is final. By the same token $fg = 1{F_1}$,
+proving $f$ is an isomorphism. Thus $F_1 \simeq F_2$.
+
+#### 5.4) {#section-41 .unnumbered}
+
+What are initial and final objects in the category of \"pointed sets\"
+(Example 3.8)? Are they unique?
+
+We recall that a pointed set is just a regular set with a special,
+identified point, and that the category of pointed sets **Set\*** is
+built upon the same objects as **Set**, but where each object $A$ in
+**Set** is multiplied into $|A|$ copies of itself in **Set\*** (one for
+each choice of special point; this implies that the empty set is not a
+part of **Set\***, since it has no point). Morphisms in **Set\*** are
+set functions, but with the restriction of mapping the special point in
+the domain to the special point in the codomain.
+
+Given this information, we will prove that the initial and final objects
+in **Set\*** are the singleton sets.
+
+Let $(O, o)$ be a singleton set in **Set\***. Let $o$ be the single
+element of $O$; it is necessarily also the special point, as there is no
+other choice. For any codomain $(Z, z_0)$ in **Set\***, the condition
+that \"special points map to special points\" restricts our choice of
+function to the unique function ${(o, z_0)}$, thus, $O$ is initial. If
+$O$ had more than one element, there would exist some $Z$
+(non-singletons) for which the other element would allow another degree
+of freedom (and thus $O$ would not be initial).
+
+Similarly, now studying $Z$ as a domain and $O$ as a codomain, we see
+that that only function from $Z$ to $O$ is (like in **Set**) the
+function which maps everything (including $Z$'s special point) to $o$.
+Thus, $O$ is final. If $O$ had more than one element, there would
+similarly be many choices for any $Z$ of cardinal $\geq 2$, so long as
+the special point maps to the special point.
+
+Every singleton pointed set is both initial and final in **Set\*** and
+is thus a zero object. These are also the only such pointed sets.
+
+#### 5.5) {#section-42 .unnumbered}
+
+What are the final objects in the category considered in §5.3?
+
+The category considered in paragraph 5.3 is the coslice category over
+some set $A$. However, what is presented in this paragraph is some extra
+structure that arises when considering the statement \"The quotient
+$A/\sim$ is universal with respect to the property of mapping $A$ to a
+set in such a way that equivalent elements have the same image\". We
+thus give some equivalence relation $\sim$ on $A$ and study the quotient
+set $A/\sim$ in the general coslice category; to do this, we consider
+the subcategory $\mathcal{Q}$ of $\mathcal{C}_A$ where only $\varphi$
+such that \"equivalence is preserved\" (i.e., such that
+$\forall a', a'' \in A, a' \sim a'' \Rightarrow \varphi(a') = \varphi(a'')$).
+
+With:
+
+-   $s$ the canonical surjection of $A$ onto its quotient $A/\sim$,
+
+-   $\varphi_1$ (resp. $\varphi_2$) being some arbitrary function from
+    $A$ to some arbitrary $Z_1$ (resp. $Z_2$),
+
+-   $\sigma$ any function (if it exists) such that
+    $\sigma \varphi_1 = \varphi_2$
+
+-   $f_1$ (resp. $f_2$) is the (unique!) function such that
+    $s f_1 = \varphi_1$ (resp. $s f_2 = \varphi_2$)
+
+The following diagram commutes, and summarizes the situation.
+
+Objects in this category are denoted as $(\varphi, Z)$ and are obtained
+from what used to be *morphisms* (regular functions) in **Set**.
+Morphisms are mappings
+$\sigma_{\mathcal{Q}} : (\varphi_1, Z_1) \to (\varphi_2, Z_2)$ such that
+one exists if and only if
+$\exists \sigma \in (Z_1 \to Z_2), \sigma \varphi_1 = \varphi_2$, and
+$\forall a', a'' \in A, a' \sim a'' \Rightarrow \varphi(a') = \varphi(a'')$.
+
+Since the textbook also asks whether such a category has initial
+objects, we will first also answer this and consider all terminal
+objects.
+
+The initial object of a general coslice category is $id_A$. This is
+easily verified by doing $\varphi_1 = id_A$, necessarily
+$\sigma \varphi_1 = \sigma id_A = \sigma = \varphi_2$, and so $\sigma$
+always exists and is unique. We also see that this object satisfies the
+\"equivalence preservation\" condition, hence it exists in
+$\mathcal{Q}$, and is also the initial object in $\mathcal{Q}$.
+
+A general coslice category has a final object $(t, F)$ (or many final
+objects $(t_i, F_i)$) iff $\mathcal{C}$ has a final object $F$ (or many
+final objects $F_i$). In that case, any final object $(t, F)$ in
+$\mathcal{C}_A$ corresponds to the unique morphism from $A$ to $F$ (for
+any final $F$) in $\mathcal{C}$. Let us verify this.
+
+Let $F$ be final in $\mathcal{C}$, and $t$ be the unique morphism
+$t \in Hom_{\mathcal{C}} (A, F)$. Let $(\varphi, Z)$ be an arbitrary
+object of $\mathcal{C}_A$. Let be $\sigma$ such that
+$\sigma \varphi = t$. We consider the following diagram:
+
+Since $F$ is final in $\mathcal{C}$, $\sigma$ is unique and always
+exists. Also, since $\sigma$ is unique and always exist, the choice of
+$\varphi$ is irrelevant: this same $\sigma$ works for all choices of
+$\varphi$ for a given arbitrary $Z$. This proves that
+$\sigma_{\mathcal{C}_A}$ exists and is unique for all $(\varphi, Z)$.
+Finally, since $\sigma$ works for all choices of $\varphi$, it works for
+those that satisfy the \"equivalence preservation\" condition, and so
+does $t$: this means that $(t, F)$ is indeed a final object in
+$\mathcal{Q}$.
+
+#### 5.6) {#section-43 .unnumbered}
+
+Consider the category corresponding to endowing (as in Example 3.3) the
+set $\mathbb{Z}^+$ of positive integers with the divisibility relation.
+Thus there is exactly one morphism $d \to m$ in this category if and
+only if $d$ divides $m$ without remainder; there is no morphism between
+$d$ and $m$ otherwise. Show that this category has products and
+coproducts. What are their 'conventional' names? \[§VII.5.1\]
+
+Like example 3.3, this is a case of \"category made from an order
+relation over a set\", since divisibility is an order relation
+(reflexive, antisymmetric, transitive).
+
+Let us remind the definition of categorical products and coproducts. We
+consider some general category $\mathcal{C}$.
+
+An object $A \prod B$ is the product of two objects $A$ and $B$ iff
+there is a unique morphism $\pi_A$ (resp. $\pi_B$) from $A \prod B$ to
+$A$ (resp. $B$), and for every $Z$ in $\mathcal{C}$, and for every pair
+of morphisms $f_A : Z \to A$ and $f_B : Z \to B$, there exists a single
+morphism $\sigma = f_A \prod f_B$ such that $\pi_A \sigma = f_A$ and
+$\pi_B \sigma = f_B$. This is summarized in the following commutative
+diagram.
+
+An object $A \coprod B$ is the coproduct of two objects $A$ and $B$ iff
+there is a unique morphism $i_A$ (resp. $i_B$) from $A$ (resp. $B$) into
+$A \coprod B$, and for every $Z$ in $\mathcal{C}$, and for every pair of
+morphisms $f_A : A \to Z$ and $f_B : B \to Z$, there exists a single
+$\sigma = f_A \coprod f_B)$ such that $\sigma i_A = f_A$ and
+$\sigma i_B = f_B$. This is summarized in the following commutative
+diagram.
+
+We now return to our \"divisibility order category\". We write its
+objects as simple integers, and the (if it exists, unique) morphism
+representing \"divisibility of $m$ by $n$\" as $(n | m)$. The
+conventional name of the product for this category is \"greatest common
+divisor\" (or \"meet\"), and of the coproduct, \"least common multiple\"
+(or \"join\").
+
+The following commutative diagrams represent this fact. Take two
+arbitrary naturals $m$ and $n$. Any number $k$ which divides both $m$
+and $n$ also divides their GCD. Likewise, if $k$ is a multiple of both
+$n$ and $m$, then it is a multiple of their LCM.
+
+#### 5.7) {#section-44 .unnumbered}
+
+Redo Exercise 2.9 (\"Show that if $A \simeq A'$ and $B \simeq B'$ , and
+further $A \cap B = \emptyset$ and $A' \cap B' = \emptyset$, then
+$A \cup B \simeq A' \cup B'$. Conclude that the operation $A \coprod B$
+(as described in §1.4) is well-defined up to isomorphism\") this time
+using Proposition 5.4. (the unicity up-to-isomorphism of terminal
+objects).
+
+We define $\text{\textbf{Set}}^{A,B}$ as the \"bicoslice category of $A$
+and $B$ over **Set**\". Objects in this category are pairs of morphisms
+$(f,g)$ from $A$ and $B$, respectively, into sets $Z$. They can be
+diagrammed as follows.
+
+Morphisms are defined between objects as
+
+such that the following diagram commutes
+
+Let us call $I$ the following object of $\text{\textbf{Set}}^{A,B}$,
+where $A \coprod B$ is any choice of valid disjoint union of $A$ and
+$B$:
+
+By definition of a coproduct, we know that in such a configuration, a
+morphism $\sigma^{A,B}$ from this object into any other object of
+$\text{\textbf{Set}}^{A,B}$ exists and is unique, and so is the $\sigma$
+on which it is based. This means that $I$ is initial in
+$\text{\textbf{Set}}^{A,B}$. Consequently, using prop 5.4., the fact
+that if an initial object exists, it is unique up-to-isomorphism, we
+conclude that $A \coprod B$ is unique up-to-isomorphism.
+
+#### 5.8) {#section-45 .unnumbered}
 
 Extra exercises by/for the group
 ================================
@@ -1957,6 +2259,62 @@ Conclusion: $f$ is a surjection.
 Chapter 1, Section 3 {#chapter-1-section-3 .unnumbered}
 --------------------
 
+### Example summary {#example-summary .unnumbered}
+
+-   (3.2): Set, category of sets as objects and set functions as
+    morphisms.
+
+-   (3.3): preorder (or order, or equivalence relation) over a (single)
+    set, transformed into a category; elements of the set as objects,
+    and elements of the preorder (which is a relation, hence a subset of
+    the cartesian product) as morphisms.
+
+-   (3.4): the powerset with the inclusion operator, transformed into a
+    category; elements of the powerset (i.e., subsets of the set) as
+    objects, and inclusion relations as morphisms (this is just an
+    example of a preorder / order / equivalence category seen in 3.3).
+
+-   (3.5): slice categories $\mathcal{C}_A$, categories which isolate a
+    specific object $A$ of a given category $\mathcal{C}$, and studies
+    the morphisms into that object; an object of $\mathcal{C}_A$ is any
+    morphism from any arbitrary objet $Z$ into $A$ (not the homset
+    $Hom(Z, A)$ itself !) and a morphism in $\mathcal{C}_A$ (from
+    $z_1 \in Z_1 \to A$ to $z_2 \in Z_2 \to A$) is a \"raising\"
+    $\sigma_A$ into $\mathcal{C}_A$ of a morphism
+    $\sigma \in Z_1 \to Z_2$ in $\mathcal{C}$ that preserves composition
+    on morphisms in $\mathcal{C}$ (i.e.,
+    $z_1 = z_2 \sigma \Rightarrow \sigma_A z_1 = z_2$).
+
+-   (3.6): combining examples 3.3 and 3.5, first start with an order
+    category on the set $\mathbb{Z}$ (there is a morphism $m \to n$ iff
+    $m \leq n$), then select a specific object (here, $A = 3$) then
+    study all morphisms of the category into $A$ (so the relation
+    $n \leq 3$ for any $Z = n$); the morphisms
+    $\sigma_3 = (m, 3) \to (n, 3)$ are then simply given by the
+    transitivity of $\leq$, i.e., $m \leq n \leq 3$ ($(m, 3) \to (n, 3)$
+    corresponds to $m \leq 3 \Rightarrow n \leq 3$, meaning our
+    $z_1 = z_2 \sigma$ transforming into $\sigma_A z_1 = z_2$, here,
+    corresponds to $(m \leq 3) = (n \leq 3) \cap (m \leq n)$ is
+    transformed into
+    $(m \leq 3 \Rightarrow n \leq 3) \cap (m \leq 3) \Leftrightarrow (n \leq 3)$).
+
+-   (3.7): coslice categories (morphisms out of a chosen object).
+
+-   (3.8): the category **Set$^\star$** of pointed sets, a coslice
+    category over **Set** and any singleton set $\{ \star \}$. Objects
+    in **Set$^\star$** are regular sets, but with a unique distinguished
+    element; morphisms are any set functions that map the domain's
+    distinguised element to the codomain's distinguished element.
+
+-   (3.9): \"bislice\" and \"bicoslice\" categories, basically a similar
+    construct as slice and coslice, but taking two objects of the
+    starting category, and studying pairs of morphisms (from a common
+    domain, resp codomain) into (resp from) this pair.
+
+-   (3.10): \"fibered bislice\" and \"fibered bicoslice\" categories,
+    once again a similair construct, but this time taking two
+    *morphisms* into a common set C (resp. from a common set C).
+
 ### On terminal and initial objects in **Set** {#on-terminal-and-initial-objects-in-set .unnumbered}
 
 If $\empty$ is initial and $\{ \star \}$ is terminal, it is because a
@@ -2027,3 +2385,157 @@ we have that $\hat{f}$ is also a surjection. However, one can construct
 $Z \subseteq A$ such that $f$ stops being a injection.
 
 Proof: TODO
+
+### On the morphisms of slice and coslice categories {#on-the-morphisms-of-slice-and-coslice-categories .unnumbered}
+
+Given a base category $\mathcal{C}$, and some set $A$ we wish to study
+the homsets of the slice (resp. coslice) category $\mathcal{C}_A$ (resp.
+$\mathcal{C}^A$. **These homsets might be empty, or have more than one
+element.**
+
+We remind that slice categories consider *morphisms to A* as their
+*objects* (written as $(Z, \varphi)$ for any $\varphi : Z \to A$), while
+coslice categories consider *morphisms from A* as their *objects*
+(written as $(\varphi, Z)$ for any $\varphi : A \to Z$. *Morphisms*, of
+the form $\sigma_A : (Z_1, \varphi_1) \to (Z_2, \varphi_2)$ (resp.
+$\sigma^A : (\varphi_1, Z_1) \to (\varphi_2, Z_2)$) in a slice category
+$\mathcal{C}_A$ (resp. coslice category $\mathcal{C}^A$) map such
+objects to one another if and only if there exists a morphism in
+$\mathcal{C}$ (the base category!) such that
+$\varphi_1 = \varphi_2 \sigma$ (resp. $\sigma \varphi_1 = \varphi_2$).
+
+#### Example of no $\sigma$ for a slice category {#example-of-no-sigma-for-a-slice-category .unnumbered}
+
+For example, note that there exist pairs of morphisms
+$f_1 \in (Z_1 \to A)$ and $f_2 \in (Z_2 \to A)$ between which there is
+no morphism that exists in the slice category. One such example we can
+make is in $(Vect_\mathbb{R})_{\mathbb{R}^2}$. If we take the maps:
+
+$$f_1 = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)$$
+$$f_2 = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)$$
+
+There exists no map $\sigma$ such that the following diagram commutes
+(since the output of $f_1$ will always be null in its second coordinate,
+and the output of $f_2$ will always be null in the first):
+
+#### Example of no $\sigma$ for a coslice category {#example-of-no-sigma-for-a-coslice-category .unnumbered}
+
+TODO add potato diagram
+
+Take $A = Z_2 = \{ a, b, c \}$, $\varphi_2 = id_A$, and
+$Z_1 = \{ 1, 2 \}$. Since
+$|Z_1| = |dom(\sigma)| < |cod(\sigma)| = |Z_2|$, there is no possible
+case in which $\text{Im} (\sigma) = \text{Im} (id_A)$ (even if
+$\varphi_1$ is epi).
+
+#### Example of multiple $\sigma$ {#example-of-multiple-sigma .unnumbered}
+
+TODO add potato diagram
+
+Another example, this time in a coslice category, with
+$A = \{ a, b, c \}$, we take $\text{\textbf{Set}}_A$. We take
+$Z_1 = \{ 1, 2, 3 \}$, $Z_2 = \{T, F\}$. For
+$\varphi_1 : A \to Z_1 = \{(a, 1), (b, 1), (c, 3)\}$ and
+$\varphi_2 : A \to Z_2 = \{(a, T), (b, T), (c, F)\}$ there exists two
+elements in $Hom_{\mathcal{Set}^A} (Z_1, Z_2)$. These originate from two
+functions in **Set**: $\sigma_\alpha = \{ (1, T), (2, T), (3, F) \}$ and
+$\sigma_\beta = \{ (1, T), (2, F), (3, F) \}$. The free element in
+$2 \in Z_1$ which is not in $\text{Im} (\varphi_1)$ offers a degree of
+freedom.
+
+#### Explanations on the conditions for $\sigma$ {#explanations-on-the-conditions-for-sigma .unnumbered}
+
+In the first example, what causes the issue is the fact that the images
+of $f_1$ and $f_2$ in $A$ are distinct.
+
+In the second example, what causes the issue is the fact that we've
+reduced our common domain $A$ to an insufficient intermediary object
+$Z_1$.
+
+The \"element which isn't mapped to offers a degree of freedom and thus
+breaks unicity\" in the last example should remind you of the notes on
+surjections. Indeed, when comparing $\sigma_\alpha$ and $\sigma_\beta$,
+we're in a context which is reminiscent of the definition of an
+epimorphism.
+
+$$\varphi_2 = \sigma_\alpha \varphi_1 = \sigma_\alpha \varphi_1$$
+
+We can be assured of being able to cancel $\varphi 1$ iff $\varphi_1$ is
+an epimorphism, and thus $\sigma$, if it exists, is unique. The proof
+for slice categories is similar, but given the reverse orders, uses
+monomorphisms.
+
+More generally:
+
+-   a\) in a slice category, there will be no $\sigma$ if
+    $\text{Im} (\varphi_1) \neq \text{Im} (\varphi_2)$ (proof ? and in
+    more general categories than concrete categories ? TODO: iff ?)
+
+-   b\) in a coslice category, there will be no $\sigma$ if
+    $\text{Pr} (\text{Im} (\varphi_1) \neq \text{Pr} (\text{Im} (\varphi_2))$
+    (proof ? and in more general categories than concrete categories ?
+    TODO: iff ?)
+
+-   c\) in a slice category, there is at most a single $\sigma$ iff
+    $\varphi_2$ is mono
+
+-   d\) in a coslice category, there is at most a single $\sigma$ iff
+    $\varphi_1$ is epi
+
+(see perhaps https://ncatlab.org/nlab/show/over+category and
+https://ncatlab.org/nlab/show/under+category )
+
+Chapter 1, Section 4 {#chapter-1-section-4 .unnumbered}
+--------------------
+
+### Notes on counterintuitive rules {#notes-on-counterintuitive-rules .unnumbered}
+
+-   in some categories (such as $\mathbb{Z}$ with $\leq$; or **Ring**),
+    \"mono and epi\" does not imply \"iso\"
+
+-   in every *abelian* category, we have that \"iso $\Leftrightarrow$
+    epi and mono\" (and though **Set** is not abelian, the property
+    still holds)
+
+-   while in **Set**, a function is an epimorphism (surjective) iff it
+    has a pre-inverse, in **Grp**, some epimorphisms do not have right
+    inverses.
+
+Chapter 1, Section 5 {#chapter-1-section-5 .unnumbered}
+--------------------
+
+### Initial and terminal objects {#initial-and-terminal-objects .unnumbered}
+
+-   there are categories without either initial or terminal objects,
+    such as the preorder category of $\mathbb{Z}$ with $\leq$.
+
+-   there are categories with multiple initial or terminal objects (for
+    example, in **Set**, every singleton set is a terminal object);
+    however, these are respectively unique up to isomorphism
+
+-   any object which is both initial and terminal is called a zero
+    object.
+
+### Universal properties {#universal-properties .unnumbered}
+
+#### \"Normal\" universal properties {#normal-universal-properties .unnumbered}
+
+Verbatim: \"The most natural context in which to introduce universal
+properties requires a good familiarity with the language of functors,
+which we will only introduce at a later stage. \[\...\] We say that a
+construction satisﬁes a universal property (or: 'is the solution to a
+universal problem') when it may be viewed as a terminal object of a
+category.\"
+
+Then: \"The declaration/explanation of a universal property generally
+follows the pattern 'object X is universal with respect to the following
+property: for any Y such that\..., there exists a unique morphism Y → X
+such that\...'; this explanation hides the deﬁnition of an accessory
+category, and the statement that X is terminal.\"
+
+This is a complicated way to say: there is some construct to decompose a
+morphism which is \"universal\" (always exists) and reduces the rest of
+the information of the morphism into something \"unique\" (hence
+terminal object of some subcategory).
+
+#### Dual universal properties {#dual-universal-properties .unnumbered}
