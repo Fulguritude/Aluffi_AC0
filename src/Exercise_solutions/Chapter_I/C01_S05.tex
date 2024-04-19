@@ -185,7 +185,7 @@ A \arrow[rd, "f_1"]  &     &                                &    & A \arrow[rd, 
 B \arrow[ru, "g_1"'] &     &                                &    & B \arrow[ru, "g_2"'] &    
 \end{tikzcd}
 
-such that the following diagram commutes
+such that the following diagram commutes in \textbf{Set}
 
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEQBfU9TXfIRRkAjFVqMWbAFoB9Ed14gM2PASIjSY6vWatEIOQCZFfVYKJkj43VIMAhbuJhQA5vCKgAZgCcIAWyQyEBwIJCMdSX0QL1kTagY6ACMYBgAFfjUhEAYYLxxTGL9AxGDQpE0JPTZYhQTk1IzzdQMfLFcACwKeb2KK6nLECKq7EAAdMexXfzoQepT0zIsDXPzC3wCkAGYBsKHI6oNXOLmchsXm7LbO7qUNkp2QvcrEhaaBFpy8goPR44UuBQuEA
 \begin{tikzcd}
@@ -208,4 +208,209 @@ By definition of a coproduct, we know that in such a configuration, a morphism $
 
 
 \subsection*{5.8)}
+
+Show that in every category \mathcal{C} the products $A \times B$ and $B \times A$ are isomorphic, if they exist. (Hint: observe that they both satisfy the universal property for the product of $A$ and $B$, then use Proposition 5.4.)
+
+Let us first remind the definition of the product of two sets. It is the set made of all pairs of $A$ and $B$ (ordered sequences of two elements, where the first element in the sequence comes from $A$ and the second comes from $B$) It is the structure such that the following diagram commutes, and $(f,g)$ is unique.
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKMsWp0mrdhwAEAHTl4AtvBkAhHnxAZseAkTIAmcQxZtEIDb366hRcqTE1TUiwC0e4mFADm8IqAAZgBOEEpIZCA4EEgOEmbsaAD6XDSM9ABGMIwACgJ6wiDBWD4AFjiaQaHhiJHRSIbOkubaSRppmdl5tvoWjDCBFdYgIWFIAMw09YhxLi2BlSPVE1MxiI3xriA+IB1Zufl2FsVlQ1qjNZNRa5Fz7AAUgaQ+AJSe3EA
+\begin{tikzcd}
+                                                        & A                                             \\
+Z \arrow[ru, "f"] \arrow[rd, "g"'] \arrow[r, "{(f,g)}"] & A \times B \arrow[u, "p_A"'] \arrow[d, "p_B"] \\
+                                                        & B                                            
+\end{tikzcd}
+
+Now to extend the diagram to consider both $A \times B$ and $B \times A$.
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqWLU6TVuwBCAAgA6CvAFt4crr37Y8BImXE0GLNohAAtHnxAYdQogCYxE49LMdFyrGrhyZV7UE9FDIHFylTEH9uCRgoAHN4IlAAMwAnCBUkMhAcCCRRSRN2JTQsAH0uGkZ6ACMYRgAFAV1hEEYYFJwAkHTM7Jo8pAAWIwiShTLy-2q6hua7YPbO7q1ejKzEJ1z8xELXSJSQWfqmlvszDq6evs3tocRRorcQeOP2ubPFtrSseIALVbWW5Ie67ADMY2KZgAFClSHJ4gBKd41U4LIJtK5A1IbUGDXY5A7sGHxUgpFEnebnJa-AE49b9RCQnYFKEvNCVVGfDGtdh0wE3PHMgkjdmRTkzD7omlYlY8SjcIA
+\begin{tikzcd}
+                                                   & A                                                                            &                                                 \\
+B \times A \arrow[ru, "\pi_A"] \arrow[rd, "\pi_B"] & Z \arrow[u, "f"] \arrow[d, "g"'] \arrow[r, "{(f, g)}"] \arrow[l, "{(g,f)}"'] & A \times B \arrow[lu, "p_A"'] \arrow[ld, "p_B"] \\
+                                                   & B                                                                            &                                                
+\end{tikzcd}
+
+We seek to prove that given such a commutative diagram (with a unique $(f,g)$ and $(g,f)$), which we will call $D$, then we have $A \times B \simeq B \times A$.
+
+We define $\text{\textbf{Set}}_{A,B}$ as the "bislice category of $A$ and $B$ over \textbf{Set}". Objects in this category are pairs of morphisms $(f,g)$ from sets $Z$, into $A$ and $B$, respectively. They can be diagrammed as follows.
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKMgCZqdJq3YAhHnxAZseAkXKliEhizaIQALR4SYUAObwioAGYAnCAFskomjghJ1kneyvzrdx4jOIK5IZJ7SeqYgNIz0AEYwjAAKAirCIDZYpgAWOEbcQA
+\begin{tikzcd}
+                                   & A \\
+Z \arrow[ru, "f"] \arrow[rd, "g"'] &   \\
+                                   & B
+\end{tikzcd}
+
+Morphisms are defined between objects as
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKAKwVqdJq3Zde-bHgJFypYhIYs2iEAC0A+sR58QGBUKIAmVeqlaQR+YKUoAzNZobp2hyYGLhyAAs7pKa7PoWPqZOAWQWNmHaAEJRfuaipPEetuwp3BIwUADm8ESgAGYAThAAtkhWIDgQSCqhXiDlBiA0jPQARjCMAAppziCVWEUAFjg+VbVIYo3NiGRtdp2RPf2DI2ZjE9Ozch3VdYhuy0jB6+wAOnfYRTX0AHrAHKRJ3N0gvQPDUbCP4wcrHYzzc4NJpIABs2USICKXW2AL2MXYjFB4IqZ0WNBhiAA7Aj2sitn8doD9sCsWCeJRuEA
+\begin{tikzcd}
+                                         & A &                                &    &                                          & A \\
+Z_1 \arrow[ru, "f_1"'] \arrow[rd, "g_1"] &   & {} \arrow[r, "{\sigma_{A,B}}"] & {} & Z_2 \arrow[ru, "f_2"'] \arrow[rd, "g_2"] &   \\
+                                         & B &                                &    &                                          & B
+\end{tikzcd}
+
+such that the following diagram commutes in \textbf{Set}:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqWLU6TVuwBaAfWI8+IDNjwEiZcTQYs2iEPIBMS-mqGbSRibukGAQjwkwoAc3hFQAMwBOEALZIRjQ4EEiiknrsXnImNIz0AEYwjAAKAurCID5YrgAWOKYgvgFIZCCh4TpS+sUKIPFJKenmGgaMMF6FvN5+gYjllYjBkXYgADrj2K7+9A0gCclpGRbtnd3KJf0jQwDM1VEGrrHzi80rbQvrRVtlIWGI+6O1x4qNSy2Clzn53ZTcQA
+\begin{tikzcd}
+                                                             & A                                      \\
+Z_1 \arrow[ru, "f_1"] \arrow[r, "\sigma"] \arrow[rd, "g_1"'] & Z_2 \arrow[u, "f_2"'] \arrow[d, "g_2"] \\
+                                                             & B                                     
+\end{tikzcd}
+
+We now define the following objects:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqWLU6TVuw4ACADry8AW3iyAQjz4gM2PASJkATBIYs2iEJu4SYUAObwioAGYAnCMqRkQOCElFJc3Y0AH0uGkZ6ACMYRgAFAX1hEDcsewALHC1XDy9EHz8kIxozaUswzUiYuMS9IXZGGBdsm24gA
+\begin{tikzcd}
+                                                & A \\
+A \times B \arrow[ru, "p_A"'] \arrow[rd, "p_B"] &   \\
+                                                & B
+\end{tikzcd}
+
+and
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqWLU6TVuwBCAAgA6CvAFt4crr37Y8BImQBMEhizaIQMnhJhQA5vCKgAZgCcIKpGRA4ISUZNN2JTQsAH0uGkZ6ACMYRgAFAV1hEBcsWwALHB4+EFd3TxofJAMaE2lzYLDLSJi4xJ0hdkYYJ2zuSm4gA
+\begin{tikzcd}
+                                                    & A \\
+B \times A \arrow[ru, "\pi_A"'] \arrow[rd, "\pi_B"] &   \\
+                                                    & B
+\end{tikzcd}
+
+Using the diagram $D$ defined above, and the definition of a product (ie, that the maps from any $Z$ to it in the appropriate configuration are unique). We deduce that both $A \times B$ and $B \times A$ are final objects in $\text{\textbf{Set}}_{A,B}$. Finally, using Proposition 5.4, i.e., that final objects in a category are unique up-to-isomorphism, we conclude that $A \times B \simeq B \times A$.
+
+
+
+\subsection*{5.9)}
+
+Let $\mathcal{C}$ be a category with products. Find a reasonable candidate for the universal property that the product $A \times B \times C$ of three objects of $\mathcal{C}$ ought to satisfy, and prove that both $(A \times B) \times C$ and $A \times (B \times C)$ satisfy this universal property. Deduce that $(A \times B) \times C$ and $A \times (B \times C)$ are necessarily isomorphic.
+
+Given 3 objects $A, B, C$ of $\mathcal{C}$. We propose the following universal property that $A \times B \times C$ should respect: for all objects $Z$ of $\mathcal{C}$, and triplet of maps $f$, $g$, and $h$ from $Z$ to $A$, $B$ and $C$ respectively, there exists a unique triplet-map $(f,g,h)$ is unique such that the following diagram commutes.
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAJgBpiBdUkANwEMAbAVxiRAEEACAHW7wFt4nAEI8+WQXE4BhEAF9S6TLnyEUZAAxVajFm3bzFIDNjwEiARlIXt9Zq0QhhhpadVEN5W7ochZC1xVzFE8tajs9RwAteW0YKABzeCJQADMAJwh+JE8QHAgkKx17NjQAfQNqBjoAIxgGAAVlMzUQdKwEgAscFxAMrJzqfKQyEGq6xub3RywwbFgQcJ9SsucAvszsxFzhxABmJZLHcv8jfq2AFiGCxCKI31Te86QrvJuDsdr6prdgto7uotipEQJ0npsXtdBsDfAAKVKkBKkToASiB42+Uz+s3mrGodTAUCQAFo9hp1s9EK9dqN7mwEuivpNfq0cVgFnIKHIgA
+\begin{tikzcd}
+	Z \arrow[rr, "f"] \arrow[dd, "h"'] \arrow[rrdd, "{(f,g,h)}" description, bend right] \arrow[rd, "g" description] &   & A                                                                                      \\
+																													 & B &                                                                                        \\
+	C                                                                                                                &   & A \times B \times C \arrow[uu, "p_A"'] \arrow[lu, "p_B" description] \arrow[ll, "p_C"]
+\end{tikzcd}
+
+We will now show that both $(A \times B) \times C$ and $A \times (B \times C)$ satisfy this universal property.
+
+\subsubsection*{5.9.a)}
+
+We start with
+
+\begin{tikzcd}
+	& A                                             \\
+Z \arrow[ru, "f"] \arrow[rd, "g"'] \arrow[r, "{(f,g)}"] & A \times B \arrow[u, "p_A"'] \arrow[d, "p_B"] \\
+	& B                                            
+\end{tikzcd}
+
+and
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAJgBoAGAXVJADcBDAGwFcYkQBBAAgB0e8AtvC4AhEAF9S6TLnyEU5UgEZqdJq3YAtCVJAZseAkTIqaDFm0QgAFNz6DhIgJS9+WIXC4BhHdINzjUmJVcw0rH3FVGCgAc3giUAAzACcIASQlGhwIJABmM3VLEAALEBpGegAjGEYABRlDeRBkrBjinF8QFLSMrJzERTULdmtE0hinMpAK6rqGgKtGGESOySTU9MRMkGykMiGwm1Hxp1JiyfKqmvr-IyssMGxYTu7N-d2BguGrNAB9YDsbg8onEUxm13md2arXaLw2ez6eS+hz+PkusxusihSxWEko4iAA
+\begin{tikzcd}
+	&  & A \times B                                                          \\
+Z \arrow[rrd, "h"'] \arrow[rru, "{(f,g)}"] \arrow[rr, "{((f,g),h)}" description] &  & (A \times B) \times C \arrow[u, "p_{A \times B}"'] \arrow[d, "p_C"] \\
+	&  & C                                                                  
+\end{tikzcd}
+
+From both of these universal products, we deduce the following commutative diagram.
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAtEAX1PU1z5CKAMwVqdJq3YBBAAQAdBXgC28OQCEefEBmx4CRMiIkMWbRCADC2-vqFEATKRM0z0ywAp5S1eo0AlIrKWGpwcja8doKGKM7EplIWIDK2ugIGwsjOjonm7FrcEjBQAObwRKAAZgBOECpIZCA4EEjOkvmWABYgNIz0AEYwjAAKGQ6WNVilXThptfWNNC1I5G5J7J5VpKUBvSD9Q6PjsQcwVXNRIAsNiE0riGIdHiCeWzsBpF17fYPDY-ZTlgwNhYPM6rcng81s9kmgAPrAHwhMKabj7Q7-E7CEBTGaXHQ3JBQ1qIdruOHwyKEiFLZqkgAs6061wxf2OgJxwNBbCuRMQMIeTNh7ARqV+RwBMS5IKwYL5tIFy1JAFZmS8EVoJVjOexuXLeTTFndlUg1SLLKU2ZLsXrZfLKNwgA
+\begin{tikzcd}
+	&  & A                                                                      &                                                                        \\
+Z \arrow[dd, "h"'] \arrow[rrr, "{(f,g)}"] \arrow[rrdd, "{((f,g),h)}" description] \arrow[rru, "f" description] \arrow[rrd, "g" description] &  &                                                                        & A \times B \arrow[lu, "p_A" description] \arrow[ld, "p_B" description] \\
+	&  & B                                                                      &                                                                        \\
+C                                                                                                                                           &  & (A \times B) \times C \arrow[ruu, "p_{A \times B}"'] \arrow[ll, "p_C"] &                                                                       
+\end{tikzcd}
+
+\subsubsection**{5.9.b}
+
+We start with
+
+\begin{tikzcd}
+	& B                                             \\
+Z \arrow[ru, "g"] \arrow[rd, "h"'] \arrow[r, "{(g,h)}"] & B \times C \arrow[u, "p_B"'] \arrow[d, "p_C"] \\
+	& C                                            
+\end{tikzcd}
+
+and
+
+\begin{tikzcd}
+	&  & A                                                                   \\
+	Z \arrow[rrd, "(g,h)"'] \arrow[rru, "{f}"] \arrow[rr, "{(f,(g,h))}" description] &  & A \times (B \times C) \arrow[u, "p_A"'] \arrow[d, "p_{B \times C}"] \\
+	&  & B \times C                                                          
+\end{tikzcd}
+
+From both of these universal products we deduce the following commutative diagram:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAJgBoAGAXVJADcBDAGwFcYkQAhEAX1PU1z5CKcqQCM1Ok1bsAWjz4gM2PASIBmcZIYs2iTgAIAOkbwBbeAYDCC-iqFEyxbdL0gbvO4LUjS6l7rsAIK2SgKqwiR+ATL6QcamWBZwBgAUHAnmllYAlDySMFAA5vBEoABmAE4QZkhiNDgQSAAsNDqxIOUgNIz0AEYwjAAK4Q76lVhFABY4oVU1dQ1NiGRSgfqpRaRTeT39gyP2PiCMMOWznp3VtYj1II1IAKxtruyp5aSb2zm7J-vDo2OWDA2Fgc2ui3uy1Eaw6RW6fwGAKOwhAwNBbEu8xudweiE0sLcUwRvSRh28qPRWDBWIhKyWSBh7TcaAA+lw9mTAZSQdTMYpsUhVniCcz2GybJyDtz2FSaQK6c8oUKXuslKzgBkTFkUlZuCT-uSIuwJtMLgqFoglXjWoTxayQlLkRT2KdzvluEA
+%\begin{tikzcd}
+%	&  & B                                                                      &                                                                        \\
+%Z \arrow[dd, "f"'] \arrow[rrr, "{(g,h)}"] \arrow[rrdd, "{(f,(g,h))}" description] \arrow[rru, "g" description] \arrow[rrd, "h" description] &  &                                                                        & B \times C \arrow[lu, "p_B" description] \arrow[ld, "p_C" description] \\
+%	&  & C                                                                      &                                                                        \\
+%A                                                                                                                                           &  & A \times (B \times C) \arrow[ruu, "\pi_{B \times C}"'] \arrow[ll, "\pi_A"] &                                                                       
+%\end{tikzcd}
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoAmAXVJADcBDAGwFcYkQAhEAX1PU1z5CKAIyli1Ok1bsAWjz4gM2PASJiAzJIYs2iTgAIAOkbwBbeAYDCC-iqFFyFbdL0gbvO4LUoN4l7rsAIK2SgKqwsh+VDQ6MvpBxqZYFnAGABQcSeaWVgCUPJIwUADm8ESgAGYAThBmSGIgOBBIACyxruyVIDSM9ABGMIwACuEO+tVYJQAWOKE1dQ00zUhOUoH66SWk0wW9A0Oj9j4gjDCVc54gC-WIjSuIAKwdGyDplaRbO3l7pwcjYxOWDA2Fg81qt3uLUQZHW8RAJR6f0GAOOwhAwNBbCuNyWTWhfjhbmmSL6KKO3nRmKwYJxENWy2hsLibjQAH0uPtyYCqSCadjFLjEGsHoSWex2TYuYceexqbTBfSnoyGUSJWzgFkTDk0lZuKT-hSIuxJjNLorFsr8W0XvD2SFpajKewzhdCtwgA
+\begin{tikzcd}
+	& Z \arrow[rr, "f"'] \arrow[ddd, "{(g,h)}"] \arrow[rrdd, "{(f,(g,h))}" description] \arrow[ldd, "g" description] \arrow[rdd, "h" description] &   & A                                                                          \\
+	&                                                                                                                                             &   &                                                                            \\
+  B &                                                                                                                                             & C & A \times (B \times C) \arrow[lld, "\pi_{B \times C}"'] \arrow[uu, "\pi_A"] \\
+	& B \times C \arrow[lu, "\pi_B" description] \arrow[ru, "\pi_C" description]                                                                  &   &                                                                       
+\end{tikzcd}
+
+
+\subsubsection**{5.9.b}
+
+We now consider the $\mathcal{C}_{A, B, C}$ as the "trislice category of $A$, $B$ and $C$ over $\mathcal{C}$". Objects in this category are of the form:
+
+\begin{tikzcd}
+    & A \\
+Z \arrow[ru, "f"] \arrow[r, "g"'] \arrow[rd, "h"'] & B \\
+    & C
+\end{tikzcd}
+
+Morphisms are defined between objects as:
+
+\begin{tikzcd}
+    & A &                                  &    &                                                            & A \\
+Z_1 \arrow[ru, "f_1"] \arrow[r, "g_1"'] \arrow[rd, "h_1"'] & B & {} \arrow[r, "{\sigma_{A,B,C}}"] & {} & Z_2 \arrow[ru, "f_2"] \arrow[r, "g_2"'] \arrow[rd, "h_2"'] & B \\
+    & C &                                  &    &                                                            & C
+\end{tikzcd}
+
+such that there exists a $\sigma$ making the following diagram commute in $\mathcal{C}$:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqWLU6TVuwBaAfWI8+IDNjwEiAJjESGLNohDzNS-mqFEy4mnumGAQqZUD1wkqU26pBkAGEeEjBQAObwRKAAZgBOEAC2SGQgOBBIopL67BEKIDSM9ABGMIwACi4Whlhg2LBO0XEJNMlI2ul2IAA67djBsfQ5IHmFJWUahowwETj9hWBQSABsAOw0cAAWWJNIALQALLyRMfGIiU2IAMw23uzB2bkFRaXmoyCV1Wz7IHVHLadptj5ZEx3IaPQTPV5YGofL7NRopc6XDKGG5Agb3YZPYQvKqQ97KGGIH7wnbAh4jLEQmqItqrOQmaGHBpJYmkjFgik4qmtHy0xTcSjcIA
+\begin{tikzcd}
+    & A &                                                                                              \\
+Z_1 \arrow[ru, "f_1" description] \arrow[rr, "\sigma", bend left=67, shift left=4] \arrow[r, "g_1" description] \arrow[rd, "h_1" description] & B & Z_2 \arrow[lu, "f_2" description] \arrow[l, "g_2" description] \arrow[ld, "h_2" description] \\
+    & C &                                                                                             
+\end{tikzcd}
+
+We now define the following object:
+
+\begin{tikzcd}
+                                                                          & A \\
+A \times B \times C \arrow[ru, "p_A"'] \arrow[r, "p_B"] \arrow[rd, "p_C"] & B \\
+                                                                          & C
+\end{tikzcd}
+
+and using the two universal properties we have shown above, we know that necessarily $(A \times B) \times C$ and $A \times (B \times C)$ are terminal objects in $\mathcal{C}_{A,B,C}$ (because they are final objects in the bislice category, given that $((f,g),h)$ and $(f,(g,h))$ are both unique, and we can compose $p_A \circ p_{A \times B}$, etc, to get immediate projections). We use Proposition 5.4 to deduce that $(A \times B) \times C$ and $A \times (B \times C)$, as terminal objects in $\mathcal{C}_{A,B,C}$, are necessarily isomorphic. Therefore, given this "associativity up-to-isomorphism" of a triple product, it is legitimate to call $A \times B \times C$ (with no parentheses) "the" (unique, up-to-isomorphism) final object in $\mathcal{C}_{A,B,C}$.
+
+
+
+\subsection*{5.10}
+
+Push the envelope a little further still, and deﬁne products and coproducts for families (i.e., indexed sets) of objects of a category. Do these exist in \textbf{Set}? It is common to denote the product $A \times \cdot \cdot \cdot \times A$ ($n$ times) by $A^n$.
+
+Let $\mathcal{F}$ be an (ordered) family of objects in some category $\mathcal{C}$. A product of the elements of $\mathcal{F}$ is defined as an object $P$ of $\mathcal{C}$ together with a family of morphisms $\{p_A : P \to A\}_{A \in \mathcal{F}}$ such that for any object $Z$ and family of morphisms $\{f_A : Z \to A\}_{A \in \mathcal{F}}$, there exists a unique morphism $f : Z \to P$ such that the following diagram commutes for all $A \in \mathcal{F}$:
+
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAC0QBfU9TXfIRQBGclVqMWbAArdeIDNjwEio4ePrNWiEAEFu4mFADm8IqABmAJwgBbJGRA4ISAEzVNUnRYD6+6gx0AEYwDNL8ykIgVljGABY4cpY29oiOzkiiElpsFiABwaHhSoJsDDAWiTzJdpnUGYju2V4KfvkggSFhEaU65ZUGXEA
+\begin{tikzcd}
+Z \arrow[rd, "f_A"'] \arrow[r, "f"] & P \arrow[d, "p_A"] \\
+                                    & A                 
+\end{tikzcd}
+
+Whether these exist in \textbf{Set} for all finite families of sets, however, for infinite families of sets, their existence is conditional on the (famous) axiom of choice.
 
