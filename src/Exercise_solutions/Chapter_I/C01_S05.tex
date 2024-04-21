@@ -461,7 +461,7 @@ $$
 		f = f_B \circ p_B
 	\end{array}
 	\right.
-& \Rightarrow \\
+\cr \Rightarrow \\
 	\left\{
 	\begin{array}{l}
 		a_1 \sim_A a_2 \text{ and } b_1 \sim_B b_2 \\
@@ -469,7 +469,7 @@ $$
 		f_B(p_B(a_1, b_1)) = f_B(p_B(a_2, b_2)) 
 	\end{array}
 	\right.
-& \Rightarrow \\
+\cr \Rightarrow \\
 	\left\{
 	\begin{array}{l}
 		f_A(a_1) = f_A(a_2) \\
@@ -571,13 +571,6 @@ Z \arrow[rru, "f"] \arrow[rrd, "g"'] \arrow[r, "h" description] & P \arrow[ru, "
 We will now show that this object $P$ induces a terminal object in $\mathcal{C}_{\alpha,\beta}$; this boils down to showing that $(P, p_A, p_B)$ is final in $\mathcal{C}_{\alpha,\beta}$. Let $(Z, f, g)$ be an arbitrary object of $\mathcal{C}_{\alpha,\beta}$. A morphism $\sigma$ from $(Z, f, g)$ to $(P, p_A, p_B)$ is a "raising" of a morphism $h : Z \to P$ such that $p_A \circ h = f$ and $p_B \circ h = g$. This raising $\sigma$ is unique if and only if $h$ is unique. Since $P$ is presupposed to verify the universal property, such an $h$, if it exists, is indeed unique. Therefore, $(P, p_A, p_B)$ is final (\textit{a fortiori} terminal) in $\mathcal{C}_{\alpha,\beta}$.
 
 
-
-
-
-
-
-
-
 \subsubsection*{5.12.b)}
 
 We now define the fibered coproduct (or "pushout"). We suggest the reader goes to check section 3.11.4 of this exercises solutions document for a refresher on the "fibered bicoslice category" $C^{\alpha,\beta}$. We will use the same notation, i.e., fixing two morphisms $\alpha : C \to A$ and $\beta : C \to B$ (with common domain) in a category $\mathcal{C}$.
@@ -600,7 +593,7 @@ C \arrow[ru, "\alpha"'] \arrow[rd, "\beta"] &                                   
                                             & B \arrow[rru, "g"'] \arrow[ru, "i_B"] &                              &  
 \end{tikzcd}
 
-We will now show that this object $P$ induces an initial object in $C^{\alpha,\beta}$; this boils down to showing that $(i_A, i_B, P)$ is initial in $C^{\alpha,\beta}$. Let $(f, g, Z)$ be an arbitrary object of $C^{\alpha,\beta}$. A morphism $\sigma$ from $(i_A, i_B, P)$ to $(f, g, Z)$ is a "raising" of a morphism $h : P \to Z$ such that $h \circ i_A = f$ and $h \circ i_B = g$. This lowering $\sigma$ is unique if and only if $h$ is unique. Since $P$ is presupposed to verify the universal property, such an $h$, if it exists, is indeed unique. Therefore, $(i_A, i_B, P)$ is initial in $C^{\alpha,\beta}$.
+We will now show that this object $P$ induces an initial object in $C^{\alpha,\beta}$; this boils down to showing that $(i_A, i_B, P)$ is initial in $C^{\alpha,\beta}$. Let $(f, g, Z)$ be an arbitrary object of $C^{\alpha,\beta}$. A morphism $\sigma$ from $(i_A, i_B, P)$ to $(f, g, Z)$ is a "raising" of a morphism $h : P \to Z$ such that $h \circ i_A = f$ and $h \circ i_B = g$. This lowering $\sigma$ is unique if and only if $h$ is unique. Since $P$ is presupposed to verify the universal property, such an $h$, if it exists, is indeed unique. Therefore, $(i_A, i_B, P)$ is initial (\textit{a fortiori} terminal) in $C^{\alpha,\beta}$.
 
 
 \subsubsection*{5.12.c)}
@@ -609,9 +602,10 @@ We will now show that this object $P$ induces an initial object in $C^{\alpha,\b
 
 In \textbf{Set}, the fibered product (pullback) of $(A, \alpha)$ and $(B, \beta)$ over $C$, is a special subset of the cartesian product $A \times B$ that registers some extra information, pertaining to the functions $\alpha$ and $\beta$. We write this object as $P = A \times_{\alpha, C, \beta} B = A \times_C B = \{ (a,b) \in A \times B \| \alpha(a) = \beta(b) \}$.
 
-Concretely, this can also be expressed as $P = \bigcup_{c \in \alpha(A) \cap \beta(B)} \alpha^{-1}[\{z\}] \times \beta^{-1}[\{z\}]$. This is the set of all pairs $(a,b)$ such that $\alpha(a) = \beta(b)$. Let us show this is the case with a simple example.
+Concretely, this can also be expressed as $$P = \bigcup_{c \in \alpha(A) \cap \beta(B)} \alpha^{-1}[\{c\}] \times \beta^{-1}[\{c\}]$$. This is the set of all pairs $(a,b)$ such that $\alpha(a) = \beta(b)$. Let us show this is the case with a simple example.
 
-Let $A = \{1,2,3\}$, $B = \{w, x, y, z\}$, and $C = \{l, m, n, k\}$. We define $\alpha : A \to C$ as $\{(1, m), (2, m), (3, n) \}$, and $\beta : B \to C$ as $\{ (w, l), (x, m), (y, n), (z, n) \}$. We have $\alpha(A) = \{m,n\}$ and $\beta(B) = \{l, m, n\}$, therefore $\alpha(A) \cap \beta(B) = \{m,n\}$. The fibered coproduct is then:
+Let $A = \{1,2,3\}$, $B = \{w, x, y, z\}$, and $C = \{l, m, n, p\}$. We define $\alpha : A \to C$ as $\{(1, m), (2, m), (3, n) \}$, and $\beta : B \to C$ as $\{ (w, l), (x, m), (y, n), (z, n) \}$. We have $\alpha(A) = \{m,n\}$ and $\beta(B) = \{l, m, n\}$, therefore $\alpha(A) \cap \beta(B) = \{m,n\}$. The fibered coproduct is then:
+
 $$
 \begin{array}{lll}
 P &=& (\alpha^{-1}[\{m\}] \times \beta^{-1}[\{m\}]) \; \cup \; (\alpha^{-1}[\{n\}] \times \beta^{-1}[\{n\}]) \\
@@ -623,7 +617,38 @@ $$
 A simple way to verify this is to verify that for each pair $(a,b)$ in $P$, $\alpha(a) = \beta(b)$, and that no such other pairs are missing.
 
 
-\subsunsection*{5.12.d)}
+\subsubsection*{5.12.d)}
 
-In \textbf{Set}, the fibered coproduct (pushout) of $(\alpha, A)$ and $(\beta, B)$ over $C$ is a special subset of the disjoint union $A \sqcup B$ that registers some extra information, pertaining to the functions $\alpha$ and $\beta$. We write this object as $P = A \sqcup_{\alpha, C, \beta} B = A \sqcup_C B = \{ (a,b) \in A \sqcup B \| \alpha(a) = \beta(b) \}$.
+https://math.stackexchange.com/questions/3021738/pushout-in-the-category-of-sets-proof
 
+https://math.stackexchange.com/questions/2240882/understanding-an-example-of-a-pushout-in-mathbfset
+
+In \textbf{Set}, the fibered coproduct (pushout) of $(\alpha, A)$ and $(\beta, B)$ over $C$ is a special quotient of the disjoint union $A \sqcup B$ that registers some extra information, pertaining to the functions $\alpha$ and $\beta$. We write this object as $$P = A \sqcup_{\alpha, C, \beta} B = A \sqcup_C B = (A \sqcup B) / \sim$$, where $\sim$ is an equivalence relation $\sim = cl_{eq}(R)$, the equivalence closure of the relation $$R = \{((0, a), (1, b)) \in (A \sqcup B) \times (A \sqcup B) \| \exists c \in C, a = \alpha(c) \text{ and } b = \beta(c) \}$$ (i.e., two elements are equivalent if they are the output of some common $c$, or if there is any chain of such equivalences between them).
+
+(We remind that the equivalence closure, if elements of the set are seen as vertices and the relation pairs as edges of a graph, can be thought of, visually, as "completing the cliques" of each connected component in the graph, including self-loops; hence the idea that if there is any path between two elements, then they are equivalent and should be directly linked. We also remind that this corresponds uniquely to a partition of the set; the elements of which, called cosets, are what allow us to do an algebraic quotient.)
+
+The fibered coproduct is the set $P$ obtained by taking the disjoint union $A \sqcup B$ and identifying $a \in A$ with $b \in B$ if there exists $c \in C$ such that $\alpha(c) = a$ and $\beta(c) = b$ (and all identifications that follow to keep the equality relation an equivalence relation). There is no more concrete of a definition than this; it really boils down to identifying elements with a common preimage element through $\alpha^{-1}(A)$ and $\beta^{-1}(B)$ in $C$, via an equivalence relation.
+
+Let us show this is the case with a simple example. We will keep the elements of $A$ and $B$ distinct in order to remove the visual clutter that comes with the $(0, ...)$ and $(1, ...)$ of the general disjoint union.
+
+Let $A = \{ 1, 2, 3 \}$, $B = \{ w, x, y, z \}$, and $C = \{ l, m, n \}$. We define $\alpha : C \to A$ as $\{ (l, 1), (m, 1), (n, 2) \}$, and $\beta : C \to B$ as $\{ (l, x), (m, y), (n, z) \}$. We have:
+
+\begin{itemize}
+	\item $\alpha^{-1}(\{1\}) = \{l,m\}$ and $\beta^{-1}(\{x\}) = \{l\}$, so $1 \sim x$;
+	\item $\alpha^{-1}(\{1\}) = \{l,m\}$ and $\beta^{-1}(\{y\}) = \{m\}$, so $1 \sim y$, and by closure, $1 \sim x \sim y$;
+	\item $\alpha^{-1}(\{2\}) = \{n\}$ and $\beta^{-1}(\{z\}) = \{n\}$, so $2 \sim z$;
+	\item $\alpha^{-1}(\{3\}) = \emptyset$ and $\beta^{-1}(\{w\}) = \emptyset$, so you might think that $3 \sim w$, however, since there is no $c \in C$ such that $\alpha(c) = 3$ and $\beta(c) = w$, we have $3 \nsim w$;
+\end{itemize}
+
+This information corresponds to the following partition of $A \sqcup B$: $\{ \{1,x,y\}, \{2,z\}, \{3\}, \{w\} \}$. The fibered coproduct is then:
+
+$$
+\begin{array}{lll}
+P &=& (A \sqcup B) / \sim \\
+  &=& \{1,2,3,w,x,y,z\} / \sim \\
+  &=& \{\{1,x,y\}, \{2,z\}, \{3\}, \{w\}\} \\
+  &=& \{[1], [2], [3], [w]\}
+\end{array}
+$$
+
+A way to verify this is to verify that each equivalence class is disjoint, and that all pairs of elements within an equivalence class are related by $\sim$ (by applying $\alpha$ or $\beta$ where appropriate and drawing the graph of the relation).
