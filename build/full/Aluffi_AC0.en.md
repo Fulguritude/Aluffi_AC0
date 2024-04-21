@@ -3,6 +3,8 @@ author:
 - 'Multiversity *Algebra Chapter 0* Reading Group'
 ---
 
+`row sep=normal, column sep=normal`
+
 Summaries
 =========
 
@@ -87,23 +89,24 @@ Chapter 1 {#chapter-1 .unnumbered}
 
 -   Set (not a multiset)
 
--   ∅: the empty set, containing no elements;
+-   $\emptyset$: the empty set, containing no elements;
 
--   N: the set of natural numbers (that is, nonnegative integers);
+-   $\mathbb{N}$: the set of natural numbers (that is, nonnegative
+    integers);
 
--   Z: the set of integers;
+-   $\mathbb{Z}$: the set of integers;
 
--   Q: the set of rational numbers;
+-   $\mathbb{Q}$: the set of rational numbers;
 
--   R: the set of real numbers;
+-   $\mathbb{R}$: the set of real numbers;
 
--   C: the set of complex numbers.
+-   $\mathbb{C}$: the set of complex numbers.
 
 -   Singleton:
 
--   ∃: existential quantifier, \"there exists\"
+-   $\exists$: existential quantifier, \"there exists\"
 
--   ∀: universal quantifier, \"for all\"
+-   $\forall$: universal quantifier, \"for all\"
 
 -   inclusion:
 
@@ -113,15 +116,15 @@ Chapter 1 {#chapter-1 .unnumbered}
 
 -   powerset:
 
--   ∪: the union:
+-   $\cup$: the union:
 
--   ∩: the intersection:
+-   $\cap$: the intersection:
 
 -   $\\$: the difference:
 
 -   $\coprod$: the disjoint union:
 
--   ×: the (Cartesian) product:
+-   $\times$: the (Cartesian) product:
 
 -   complement of a subset
 
@@ -141,7 +144,7 @@ Chapter 1 {#chapter-1 .unnumbered}
 
 -   partition
 
--   quotient by an equivalence relation
+-   $/\sim$: quotient by an equivalence relation
 
 ### Section 2 {#section-2 .unnumbered}
 
@@ -230,11 +233,21 @@ Chapter 1 {#chapter-1 .unnumbered}
 
 -   initial object
 
+-   final object
+
 -   terminal object
 
 -   (categorical) product
 
 -   (categorical) coproduct
+
+-   (categorical) pullback / fibered product
+
+-   (categorical) pushout / fibered coproduct
+
+-   (set) pullback / fibered product
+
+-   (set) pushout / fibered coproduct
 
 Exercise solutions
 ==================
@@ -803,9 +816,9 @@ $$\begin{aligned}
 \end{aligned}$$ $$\begin{aligned}
     h \star (g \star f) &=&  h \star (f  \circ g) \\
                         &=& (f \circ  g) \circ h  \\
-                        &=&  f \circ  (g \circ h) \\
-                        &=&  (g \circ h) \star f  \\
-                        &=&  (h \star g) \star f  \\
+                        &=&  f \circ (g  \circ h) \\
+                        &=& (g \circ  h) \star f  \\
+                        &=& (h \star  g) \star f  \\
 \end{aligned}$$
 
 Therefore, $\star$ is associative.
@@ -1880,7 +1893,7 @@ diagrammed as follows.
 
 Morphisms are defined between objects as
 
-such that the following diagram commutes
+such that the following diagram commutes in **Set**
 
 Let us call $I$ the following object of $\text{\textbf{Set}}^{A,B}$,
 where $A \coprod B$ is any choice of valid disjoint union of $A$ and
@@ -1895,6 +1908,432 @@ that if an initial object exists, it is unique up-to-isomorphism, we
 conclude that $A \coprod B$ is unique up-to-isomorphism.
 
 #### 5.8) {#section-45 .unnumbered}
+
+Show that in every category $\mathcal{C}$ the products $A \times B$ and
+$B \times A$ are isomorphic, if they exist. (Hint: observe that they
+both satisfy the universal property for the product of $A$ and $B$, then
+use Proposition 5.4.)
+
+Let us first remind the definition of the product of two sets. It is the
+set made of all pairs of $A$ and $B$ (ordered sequences of two elements,
+where the first element in the sequence comes from $A$ and the second
+comes from $B$) It is the structure such that the following diagram
+commutes, and $(f,g)$ is unique.
+
+Now to extend the diagram to consider both $A \times B$ and
+$B \times A$.
+
+We seek to prove that given such a commutative diagram (with a unique
+$(f,g)$ and $(g,f)$), which we will call $D$, then we have
+$A \times B \simeq B \times A$.
+
+We define $\text{\textbf{Set}}_{A,B}$ as the \"bislice category of $A$
+and $B$ over **Set**\". Objects in this category are pairs of morphisms
+$(f,g)$ from sets $Z$, into $A$ and $B$, respectively. They can be
+diagrammed as follows.
+
+Morphisms are defined between objects as
+
+such that the following diagram commutes in **Set**:
+
+We now define the following objects:
+
+and
+
+Using the diagram $D$ defined above, and the definition of a product
+(ie, that the maps from any $Z$ to it in the appropriate configuration
+are unique). We deduce that both $A \times B$ and $B \times A$ are final
+objects in $\text{\textbf{Set}}_{A,B}$. Finally, using Proposition 5.4,
+i.e., that final objects in a category are unique up-to-isomorphism, we
+conclude that $A \times B \simeq B \times A$.
+
+#### 5.9) {#section-46 .unnumbered}
+
+Let $\mathcal{C}$ be a category with products. Find a reasonable
+candidate for the universal property that the product
+$A \times B \times C$ of three objects of $\mathcal{C}$ ought to
+satisfy, and prove that both $(A \times B) \times C$ and
+$A \times (B \times C)$ satisfy this universal property. Deduce that
+$(A \times B) \times C$ and $A \times (B \times C)$ are necessarily
+isomorphic.
+
+Given 3 objects $A, B, C$ of $\mathcal{C}$. We propose the following
+universal property that $A \times B \times C$ should respect: for all
+objects $Z$ of $\mathcal{C}$, and triplet of maps $f$, $g$, and $h$ from
+$Z$ to $A$, $B$ and $C$ respectively, there exists a unique triplet-map
+$(f,g,h)$ is unique such that the following diagram commutes.
+
+We will now show that both $(A \times B) \times C$ and
+$A \times (B \times C)$ satisfy this universal property.
+
+##### 5.9.a) {#a-3 .unnumbered}
+
+We start with
+
+and
+
+From both of these universal products, we deduce the following
+commutative diagram.
+
+##### 5.9.b) {#b-3 .unnumbered}
+
+We start with
+
+and
+
+From both of these universal products we deduce the following
+commutative diagram:
+
+##### 5.9.c) {#c-1 .unnumbered}
+
+We now consider the $\mathcal{C}_{A, B, C}$ as the \"trislice category
+of $A$, $B$ and $C$ over $\mathcal{C}$\". Objects in this category are
+of the form:
+
+Morphisms are defined between objects as:
+
+such that there exists a $\sigma$ making the following diagram commute
+in $\mathcal{C}$:
+
+We now define the following object:
+
+and using the two universal properties we have shown above, we know that
+necessarily $(A \times B) \times C$ and $A \times (B \times C)$ are
+terminal objects in $\mathcal{C}_{A,B,C}$ (because they are final
+objects in the bislice category, given that $((f,g),h)$ and $(f,(g,h))$
+are both unique, and we can compose $p_A \circ p_{A \times B}$, etc, to
+get immediate projections). We use Proposition 5.4 to deduce that
+$(A \times B) \times C$ and $A \times (B \times C)$, as terminal objects
+in $\mathcal{C}_{A,B,C}$, are necessarily isomorphic. Therefore, given
+this \"associativity up-to-isomorphism\" of a triple product, it is
+legitimate to call $A \times B \times C$ (with no parentheses) \"the\"
+(unique, up-to-isomorphism) final object in $\mathcal{C}_{A,B,C}$.
+
+#### 5.10) {#section-47 .unnumbered}
+
+Push the envelope a little further still, and deﬁne products and
+coproducts for families (i.e., indexed sets) of objects of a category.
+Do these exist in **Set**? It is common to denote the product
+$A \times \cdot \cdot \cdot \times A$ ($n$ times) by $A^n$.
+
+Let $\mathcal{F}$ be an (ordered) family of objects in some category
+$\mathcal{C}$. A product of the elements of $\mathcal{F}$ is defined as
+an object $P$ of $\mathcal{C}$ together with a family of morphisms
+$\{p_A : P \to A\}_{A \in \mathcal{F}}$ such that for any object $Z$ and
+family of morphisms $\{f_A : Z \to A\}_{A \in \mathcal{F}}$, there
+exists a unique morphism $f : Z \to P$ such that the following diagram
+commutes for all $A \in \mathcal{F}$:
+
+These exist in **Set** for all finite families of sets, however, for
+infinite families of sets, their existence is conditional on the
+(famous) axiom of choice (it is actually precisely the point of the
+axiom of choice).
+
+#### 5.11) {#section-48 .unnumbered}
+
+Let $A$, resp. $B$ be sets, endowed with equivalence relations $\sim_A$
+, resp. $\sim_B$. Define a relation $\sim$ on $A \times B$ by setting
+$(a_1, b_1) \sim (a_2, b_2) \Leftrightarrow a_1 \sim_A a_2 \text{ and } b_1 \sim_B b_2.$
+(This is immediately seen to be an equivalence relation.)
+
+-   Use the universal property for quotients (§5.3) to establish that
+    there are functions $(A \times B)/\sim \rightarrow A/\sim_A$, and
+    $(A \times B)/\sim \rightarrow B/\sim_B$;
+
+-   prove that $(A \times B)/\sim$, with these two functions, satisfies
+    the universal property for the product of $A/\sim_A$ and $B/\sim_B$;
+
+-   conclude (without further work) that
+    $(A \times B)/ \simeq (A / \sim_A) \times (B / \sim_B)$.
+
+##### 5.11.a {#a-4 .unnumbered}
+
+First, we remind the universal property for quotients. Given an
+equivalence relation $\sim$ over a set $A$, there is a single map
+$\pi : A \to A/\sim$ such that for any map $f : A \to Z$ such that
+$f(a_1) = f(a_2)$ whenever $a_1 \sim a_2$ (i.e., the morphism $f$ is
+\"well-defined\" for the equivalence relation $\sim$), there exists a
+unique map $\overline{f} : A/\sim \to Z$ such that
+$f = \overline{f} \circ \pi$. This is summarized in the following
+commutative diagram:
+
+We first apply the universal property of products to obtain the
+following commutative diagram:
+
+We now consider a well-defined map $f : A \times B \to Z$ (i.e.,
+$f(a_1, b_1) = f(a_2, b_2)$ whenever $(a_1, b_1) \sim (a_2, b_2)$). We
+now apply the universal property of quotients to the relation $\sim$
+defined over $A \times B$. We define the map
+$\pi : A \times B \to (A \times B)/\sim$ as $\pi(a,b) = [(a,b)]_\sim$.
+We define the map $\overline{f} : (A \times B)/\sim \to Z$ as
+$\overline{f}([(a,b)]_\sim) = f(a,b)$. We remind that such an $f$ is
+unique, and that $\overline{f} \circ \pi = f$.
+
+We do a similar construction for $A/\sim_A$ with $f_A$ and $B/\sim_B$
+with $f_B$. We can do so since these maps are also well-defined. Indeed,
+we have:
+
+$$\begin{array}{l}
+    \left\{
+    \begin{array}{l}
+        (a_1, b_1) \sim (a_2, b_2) \\
+        (a_1, b_1) \sim (a_2, b_2) \Rightarrow f(a_1, b_1) = f(a_2, b_2) \\
+        f = f_A \circ p_A \\
+        f = f_B \circ p_B
+    \end{array}
+    \right.
+\cr \Rightarrow \\
+    \left\{
+    \begin{array}{l}
+        a_1 \sim_A a_2 \text{ and } b_1 \sim_B b_2 \\
+        f_A(p_A(a_1, b_1)) = f_A(p_A(a_2, b_2)) \\
+        f_B(p_B(a_1, b_1)) = f_B(p_B(a_2, b_2)) 
+    \end{array}
+    \right.
+\cr \Rightarrow \\
+    \left\{
+    \begin{array}{l}
+        f_A(a_1) = f_A(a_2) \\
+        f_B(b_1) = f_B(b_2) 
+    \end{array}
+    \right.
+\end{array}$$
+
+The combination of all previous steps gives us the following commutative
+diagram.
+
+Let us recap a little what's in diagram a little, to show that it is a
+justified construction:
+
+-   $A \times B$ is a product, and so we may obtain $p_A$, $p_B$, $f_A$,
+    and $f_B$;
+
+-   $f$ is well-defined for the equivalence relation $\sim$, and so we
+    may obtain $\overline{f}$ and $\pi$;
+
+-   $f_A$ is well-defined for the equivalence relation $\sim_A$, and so
+    we may obtain $\overline{f_A}$ and $\pi_A$;
+
+-   $f_B$ is well-defined for the equivalence relation $\sim_B$, and so
+    we may obtain $\overline{f_B}$ and $\pi_B$;
+
+Therefore, using the maps
+$\Pi_A = \pi_A \circ p_A \in (A \times B) \to A/\sim_A$ and
+$\Pi_B = \pi_B \circ p_B \in (A \times B) \to B/\sim_B$, we can
+\"quotient through\" (i.e., use the universal property of quotient)
+$(A \times B)/\sim$. This gives us the following commutative diagram
+(compatible with the one above, but it's too messy to represent both at
+the same time):
+
+These are precisely our functions
+$\Pi_A \in (A \times B)/\sim \to A/\sim_A$ and
+$\Pi_B \in (A \times B)/\sim \to B/\sim_B$, and they are unique, as per
+the universal property of quotients.
+
+##### 5.11.b) {#b-4 .unnumbered}
+
+What we wish to prove now is that $(A \times B)/\sim$ is the product of
+$A/\sim_A$ and $B/\sim_B$. Said otherwise, we wish to show that, for all
+$Z$, $g_A$ and $g_B$ in the appropriate configuration, the following
+diagram commutes:
+
+Using the fact that $(A \times B)$ is already a product, and studying
+maps $h_A$ and $h_B$ from $Z$ into $A$ and $B$ respectively, we can make
+the following commutative diagram:
+
+The internal parts of the diagram (except $h_A$ and $h_B$ which are
+arbitrary, all other arrows are unique morphisms) force $g_A$ and $g_B$
+to commute with the rest of the diagram: any pairs of maps $g_A$ and
+$g_B$ that make the diagram commute must necessarily be constrained by
+the existing morphisms (as the composition of unique morphisms). Any
+choice of maps $g_A$ and $g_B$ must respect $g_A = \pi_A \circ h_A$ and
+$g_B = \pi_B \circ h_B$, for corresponding arbitrary (but inferred)
+$h_A$ and $h_B$; said otherwise, maps $g_A$ and $g_B$ in this
+configuration can only exist if they make the diagram commute.
+Therefore, we have shown that $(A \times B)/\sim$ satisfies the
+universal property of the product of $A/\sim_A$ and $B/\sim_B$, and we
+have $(g_A. g_B) = \pi \circ (h_A, h_B)$ (though it's not shown on the
+above diagram, in order to improve legibility).
+
+Conclusion: $(A \times B)/ \simeq (A / \sim_A) \times (B / \sim_B)$
+
+#### 5.12) {#section-49 .unnumbered}
+
+Define notions of fibered products and coproducts, as terminal objects
+of the categories $\mathcal{C}_{\alpha,\beta}$, $C^{\alpha,\beta}$
+considered in Example 3.10 (cf. also Exercise 3.11), by stating
+carefully the corresponding universal properties. As it happens, **Set**
+has both fibered products and coproducts. Define these objects
+'concretely', in terms of naive set theory. \[II.3.9, III.6.10,
+III.6.11\]
+
+##### 5.12.a) {#a-5 .unnumbered}
+
+We first define the fibered product (or \"pullback\"). We suggest the
+reader goes to check section 3.11.3 of this exercises solutions document
+for a refresher on the concept \"fibered bislice category\"
+$\mathcal{C}_{\alpha,\beta}$. We will use the same notation, i.e.,
+fixing two morphisms $\alpha : A \to C$ and $\beta : B \to C$ (with
+common codomain) in a category $\mathcal{C}$.
+
+This means, for any generic object $(Z, f, g)$ of
+$\mathcal{C}_{\alpha,\beta}$, we have the following diagram:
+
+We first propose a candidate for what it means to be a \"fibered
+product\", which we will be able to show is a final object in
+$\mathcal{C}_{\alpha,\beta}$. A fibered product $P$ of $A$ and $B$ over
+$C$ in a category $\mathcal{C}$ is an object $P$ together with morphisms
+$p_A : P \to A$ and $p_B : P \to B$ such that for any object $Z$ in
+$\mathcal{C}$ and morphisms $f : Z \to A$ and $g : Z \to B$ such that
+$\alpha \circ f = \beta \circ g$, there exists a unique morphism
+$h : Z \to P$ such that the following diagram commutes:
+
+We will now show that this object $P$ induces a terminal object in
+$\mathcal{C}_{\alpha,\beta}$; this boils down to showing that
+$(P, p_A, p_B)$ is final in $\mathcal{C}_{\alpha,\beta}$. Let
+$(Z, f, g)$ be an arbitrary object of $\mathcal{C}_{\alpha,\beta}$. A
+morphism $\sigma$ from $(Z, f, g)$ to $(P, p_A, p_B)$ is a \"raising\"
+of a morphism $h : Z \to P$ such that $p_A \circ h = f$ and
+$p_B \circ h = g$. This raising $\sigma$ is unique if and only if $h$ is
+unique. Since $P$ is presupposed to verify the universal property, such
+an $h$, if it exists, is indeed unique. Therefore, $(P, p_A, p_B)$ is
+final (*a fortiori* terminal) in $\mathcal{C}_{\alpha,\beta}$.
+
+##### 5.12.b) {#b-5 .unnumbered}
+
+We now define the fibered coproduct (or \"pushout\"). We suggest the
+reader goes to check section 3.11.4 of this exercises solutions document
+for a refresher on the \"fibered bicoslice category\"
+$C^{\alpha,\beta}$. We will use the same notation, i.e., fixing two
+morphisms $\alpha : C \to A$ and $\beta : C \to B$ (with common domain)
+in a category $\mathcal{C}$.
+
+This means, for any generic object $(f, g, Z)$ of $C^{\alpha,\beta}$, we
+have the following diagram:
+
+We first propose a candidate for what it means to be a \"fibered
+coproduct\", which we will be able to show is an initial object in
+$C^{\alpha,\beta}$. A fibered coproduct $P$ of $A$ and $B$ over $C$ in a
+category $\mathcal{C}$ is an object $P$ together with morphisms
+$p_A : A \to P$ and $p_B : B \to P$ such that for any object $Z$ in
+$\mathcal{C}$ and morphisms $f : A \to Z$ and $g : B \to Z$ such that
+$f \circ \alpha = g \circ \beta$, there exists a unique morphism
+$h : P \to Z$ such that the following diagram commutes:
+
+We will now show that this object $P$ induces an initial object in
+$C^{\alpha,\beta}$; this boils down to showing that $(i_A, i_B, P)$ is
+initial in $C^{\alpha,\beta}$. Let $(f, g, Z)$ be an arbitrary object of
+$C^{\alpha,\beta}$. A morphism $\sigma$ from $(i_A, i_B, P)$ to
+$(f, g, Z)$ is a \"raising\" of a morphism $h : P \to Z$ such that
+$h \circ i_A = f$ and $h \circ i_B = g$. This lowering $\sigma$ is
+unique if and only if $h$ is unique. Since $P$ is presupposed to verify
+the universal property, such an $h$, if it exists, is indeed unique.
+Therefore, $(i_A, i_B, P)$ is initial (*a fortiori* terminal) in
+$C^{\alpha,\beta}$.
+
+##### 5.12.c) {#c-2 .unnumbered}
+
+(I wouldn't have come up with this without Wikipedia as a hint\...)
+
+In **Set**, the fibered product (pullback) of $(A, \alpha)$ and
+$(B, \beta)$ over $C$, is a special subset of the cartesian product
+$A \times B$ that registers some extra information, pertaining to the
+functions $\alpha$ and $\beta$. We write this object as
+$P = A \times_{\alpha, C, \beta} B = A \times_C B = \{ (a,b) \in A \times B \| \alpha(a) = \beta(b) \}$.
+
+Concretely, this can also be expressed as
+$$P = \bigcup_{c \in \alpha(A) \cap \beta(B)} \alpha^{-1}[\{c\}] \times \beta^{-1}[\{c\}]$$.
+This is the set of all pairs $(a,b)$ such that $\alpha(a) = \beta(b)$.
+Let us show this is the case with a simple example.
+
+Let $A = \{1,2,3\}$, $B = \{w, x, y, z\}$, and $C = \{l, m, n, p\}$. We
+define $\alpha : A \to C$ as $\{(1, m), (2, m), (3, n) \}$, and
+$\beta : B \to C$ as $\{ (w, l), (x, m), (y, n), (z, n) \}$. We have
+$\alpha(A) = \{m,n\}$ and $\beta(B) = \{l, m, n\}$, therefore
+$\alpha(A) \cap \beta(B) = \{m,n\}$. The fibered coproduct is then:
+
+$$\begin{array}{lll}
+P &=& (\alpha^{-1}[\{m\}] \times \beta^{-1}[\{m\}]) \; \cup \; (\alpha^{-1}[\{n\}] \times \beta^{-1}[\{n\}]) \\
+  &=& \{ (1,x), (2,x) \} \; \cup \; \{ (3,y), (3,z) \} \\
+  &=& \{ (1,x), (2,x), (3,y), (3,z) \}
+\end{array}$$
+
+A simple way to verify this is to verify that for each pair $(a,b)$ in
+$P$, $\alpha(a) = \beta(b)$, and that no such other pairs are missing.
+
+##### 5.12.d) {#d .unnumbered}
+
+https://math.stackexchange.com/questions/3021738/pushout-in-the-category-of-sets-proof
+
+https://math.stackexchange.com/questions/2240882/understanding-an-example-of-a-pushout-in-mathbfset
+
+In **Set**, the fibered coproduct (pushout) of $(\alpha, A)$ and
+$(\beta, B)$ over $C$ is a special quotient of the disjoint union
+$A \sqcup B$ that registers some extra information, pertaining to the
+functions $\alpha$ and $\beta$. We write this object as
+$$P = A \sqcup_{\alpha, C, \beta} B = A \sqcup_C B = (A \sqcup B) / \sim$$,
+where $\sim$ is an equivalence relation $\sim = cl_{eq}(R)$, the
+equivalence closure of the relation
+$$R = \{((0, a), (1, b)) \in (A \sqcup B) \times (A \sqcup B) \| \exists c \in C, a = \alpha(c) \text{ and } b = \beta(c) \}$$
+(i.e., two elements are equivalent if they are the output of some common
+$c$, or if there is any chain of such equivalences between them).
+
+(We remind that the equivalence closure, if elements of the set are seen
+as vertices and the relation pairs as edges of a graph, can be thought
+of, visually, as \"completing the cliques\" of each connected component
+in the graph, including self-loops; hence the idea that if there is any
+path between two elements, then they are equivalent and should be
+directly linked. We also remind that this corresponds uniquely to a
+partition of the set; the elements of which, called cosets, are what
+allow us to do an algebraic quotient.)
+
+The fibered coproduct is the set $P$ obtained by taking the disjoint
+union $A \sqcup B$ and identifying $a \in A$ with $b \in B$ if there
+exists $c \in C$ such that $\alpha(c) = a$ and $\beta(c) = b$ (and all
+identifications that follow to keep the equality relation an equivalence
+relation). There is no more concrete of a definition than this; it
+really boils down to identifying elements with a common preimage element
+through $\alpha^{-1}(A)$ and $\beta^{-1}(B)$ in $C$, via an equivalence
+relation.
+
+Let us show this is the case with a simple example. We will keep the
+elements of $A$ and $B$ distinct in order to remove the visual clutter
+that comes with the $(0, ...)$ and $(1, ...)$ of the general disjoint
+union.
+
+Let $A = \{ 1, 2, 3 \}$, $B = \{ w, x, y, z \}$, and
+$C = \{ l, m, n \}$. We define $\alpha : C \to A$ as
+$\{ (l, 1), (m, 1), (n, 2) \}$, and $\beta : C \to B$ as
+$\{ (l, x), (m, y), (n, z) \}$. We have:
+
+-   $\alpha^{-1}(\{1\}) = \{l,m\}$ and $\beta^{-1}(\{x\}) = \{l\}$, so
+    $1 \sim x$;
+
+-   $\alpha^{-1}(\{1\}) = \{l,m\}$ and $\beta^{-1}(\{y\}) = \{m\}$, so
+    $1 \sim y$, and by closure, $1 \sim x \sim y$;
+
+-   $\alpha^{-1}(\{2\}) = \{n\}$ and $\beta^{-1}(\{z\}) = \{n\}$, so
+    $2 \sim z$;
+
+-   $\alpha^{-1}(\{3\}) = \emptyset$ and
+    $\beta^{-1}(\{w\}) = \emptyset$, so you might think that $3 \sim w$,
+    however, since there is no $c \in C$ such that $\alpha(c) = 3$ and
+    $\beta(c) = w$, we have $3 \nsim w$;
+
+This information corresponds to the following partition of $A \sqcup B$:
+$\{ \{1,x,y\}, \{2,z\}, \{3\}, \{w\} \}$. The fibered coproduct is then:
+
+$$\begin{array}{lll}
+P &=& (A \sqcup B) / \sim \\
+  &=& \{1,2,3,w,x,y,z\} / \sim \\
+  &=& \{\{1,x,y\}, \{2,z\}, \{3\}, \{w\}\} \\
+  &=& \{[1], [2], [3], [w]\}
+\end{array}$$
+
+A way to verify this is to verify that each equivalence class is
+disjoint, and that all pairs of elements within an equivalence class are
+related by $\sim$ (by applying $\alpha$ or $\beta$ where appropriate and
+drawing the graph of the relation).
 
 Extra exercises by/for the group
 ================================
@@ -1940,6 +2379,13 @@ examples), and as a \"description\" of what they are:
 -   $\{ x \in \mathbb{R} \; | \; -2 \leq x \leq 2 \}$
 
 -   $\{ (m, n, p) \in \mathbb{N}^3 \; | \; m + n + p = 10 \}$
+
+### Chapter I) 3) Slices and coslices) {#chapter-i-3-slices-and-coslices .unnumbered}
+
+Provide a concrete example of a slice category and of a coslice category
+based on the category of real vector spaces $Vect_{\mathbb{R}}$, or its
+subcategory of finite real vector spaces. How does this relate to the
+transpose of a matrix, or of a product of matrices ?
 
 Notes
 =====

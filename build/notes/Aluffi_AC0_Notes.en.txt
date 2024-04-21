@@ -1,5 +1,7 @@
 Multiversity Algebra Chapter 0 Reading Group
 
+row sep=normal, column sep=normal
+
 Summaries
 
 Chapter I)
@@ -11,6 +13,15 @@ set operations
 
 Section 3) Presents categories, and multiple examples of categories.
 Some are simple, some are advanced.
+
+Section 4) Presents monomorphisms and epimorphisms in more detail,
+taking care to distinguish general morphisms from set functions and
+their accolytes (inj, surj, etc)
+
+Section 5) Presents more advanced concepts from category theory, mostly
+some important universal properties
+
+Chapter II)
 
 Group Weekly Reports
 
@@ -45,6 +56,23 @@ it) and corrected exercises 2.4 and 2.5.
 Week 6 : We went in depth over the notion of section. We corrected
 exercises 2.6 and 2.7. For the latter exercise, we understood Tristan’s
 solution by ourselves ! (written by Amric)
+
+Week 7 : We reviewed the notions of algebraic quotient and
+well-definition. We broached the notion of universal property. We used
+this to correct exercises 2.8 and 2.9.
+
+Week 8 : We corrected exercises 2.10 and 2.11. We then did some
+preliminary explanations to present categories and help with the reading
+of section 3.
+
+Week 9 : We spoke more in depth about category theory, concrete
+categories, local smallness, algebraic structures (and their vocabulary)
+and applied category theory.
+
+Week 10 : We reviewed examples 3.2, 3.3, 3.4 and gave a bunch of
+disambiguation ideas for 3.5. Next week we’ll go over 3.5 and 3.6 in a
+bit more detail, and start correcting the exercises for this section.
+We’ll leave 3.7 and above for when we get to their respective exercises
 
 Notes
 
@@ -357,6 +385,56 @@ Conclusion: f is a surjection.
 
 Chapter 1, Section 3
 
+Example summary
+
+-   (3.2): Set, category of sets as objects and set functions as
+    morphisms.
+
+-   (3.3): preorder (or order, or equivalence relation) over a (single)
+    set, transformed into a category; elements of the set as objects,
+    and elements of the preorder (which is a relation, hence a subset of
+    the cartesian product) as morphisms.
+
+-   (3.4): the powerset with the inclusion operator, transformed into a
+    category; elements of the powerset (i.e., subsets of the set) as
+    objects, and inclusion relations as morphisms (this is just an
+    example of a preorder / order / equivalence category seen in 3.3).
+
+-   (3.5): slice categories 𝒞_(A), categories which isolate a specific
+    object A of a given category 𝒞, and studies the morphisms into that
+    object; an object of 𝒞_(A) is any morphism from any arbitrary objet
+    Z into A (not the homset Hom(Z, A) itself !) and a morphism in 𝒞_(A)
+    (from z₁ ∈ Z₁ → A to z₂ ∈ Z₂ → A) is a "raising" σ_(A) into 𝒞_(A) of
+    a morphism σ ∈ Z₁ → Z₂ in 𝒞 that preserves composition on morphisms
+    in 𝒞 (i.e., z₁ = z₂σ ⇒ σ_(A)z₁ = z₂).
+
+-   (3.6): combining examples 3.3 and 3.5, first start with an order
+    category on the set ℤ (there is a morphism m → n iff m ≤ n), then
+    select a specific object (here, A = 3) then study all morphisms of
+    the category into A (so the relation n ≤ 3 for any Z = n); the
+    morphisms σ₃ = (m, 3) → (n, 3) are then simply given by the
+    transitivity of ≤, i.e., m ≤ n ≤ 3 ((m, 3) → (n, 3) corresponds to
+    m ≤ 3 ⇒ n ≤ 3, meaning our z₁ = z₂σ transforming into σ_(A)z₁ = z₂,
+    here, corresponds to (m ≤ 3) = (n ≤ 3) ∩ (m ≤ n) is transformed into
+    (m ≤ 3 ⇒ n ≤ 3) ∩ (m ≤ 3) ⇔ (n ≤ 3)).
+
+-   (3.7): coslice categories (morphisms out of a chosen object).
+
+-   (3.8): the category Set^(⋆) of pointed sets, a coslice category over
+    Set and any singleton set { ⋆ }. Objects in Set^(⋆) are regular
+    sets, but with a unique distinguished element; morphisms are any set
+    functions that map the domain’s distinguised element to the
+    codomain’s distinguished element.
+
+-   (3.9): "bislice" and "bicoslice" categories, basically a similar
+    construct as slice and coslice, but taking two objects of the
+    starting category, and studying pairs of morphisms (from a common
+    domain, resp codomain) into (resp from) this pair.
+
+-   (3.10): "fibered bislice" and "fibered bicoslice" categories, once
+    again a similair construct, but this time taking two morphisms into
+    a common set C (resp. from a common set C).
+
 On terminal and initial objects in Set
 
 If $\empty$ is initial and { ⋆ } is terminal, it is because a function
@@ -427,6 +505,143 @@ being a injection.
 
 Proof: TODO
 
+On the morphisms of slice and coslice categories
+
+Given a base category 𝒞, and some set A we wish to study the homsets of
+the slice (resp. coslice) category 𝒞_(A) (resp. 𝒞^(A). These homsets
+might be empty, or have more than one element.
+
+We remind that slice categories consider morphisms to A as their objects
+(written as (Z, φ) for any φ : Z → A), while coslice categories consider
+morphisms from A as their objects (written as (φ, Z) for any φ : A → Z.
+Morphisms, of the form σ_(A) : (Z₁, φ₁) → (Z₂, φ₂) (resp.
+σ^(A) : (φ₁, Z₁) → (φ₂, Z₂)) in a slice category 𝒞_(A) (resp. coslice
+category 𝒞^(A)) map such objects to one another if and only if there
+exists a morphism in 𝒞 (the base category!) such that φ₁ = φ₂σ (resp.
+σφ₁ = φ₂).
+
+Example of no σ for a slice category
+
+For example, note that there exist pairs of morphisms f₁ ∈ (Z₁ → A) and
+f₂ ∈ (Z₂ → A) between which there is no morphism that exists in the
+slice category. One such example we can make is in (Vect_(ℝ))_(ℝ²). If
+we take the maps:
+
+$$f_1 = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)$$
+$$f_2 = \begin{bmatrix} 0 & 0 \\ 0 & 1 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)$$
+
+There exists no map σ such that the following diagram commutes (since
+the output of f₁ will always be null in its second coordinate, and the
+output of f₂ will always be null in the first):
+
+Example of no σ for a coslice category
+
+TODO add potato diagram
+
+Take A = Z₂ = {a, b, c}, φ₂ = id_(A), and Z₁ = {1, 2}. Since
+|Z₁| = |dom(σ)| < |cod(σ)| = |Z₂|, there is no possible case in which
+Im(σ) = Im(id_(A)) (even if φ₁ is epi).
+
+Example of multiple σ
+
+TODO add potato diagram
+
+Another example, this time in a coslice category, with A = {a, b, c}, we
+take $\text{\textbf{Set}}_A$. We take Z₁ = {1, 2, 3}, Z₂ = {T, F}. For
+φ₁ : A → Z₁ = {(a, 1), (b, 1), (c, 3)} and
+φ₂ : A → Z₂ = {(a, T), (b, T), (c, F)} there exists two elements in
+Hom_(𝒮ℯ𝓉^(A))(Z₁, Z₂). These originate from two functions in Set:
+σ_(α) = {(1, T), (2, T), (3, F)} and σ_(β) = {(1, T), (2, F), (3, F)}.
+The free element in 2 ∈ Z₁ which is not in Im(φ₁) offers a degree of
+freedom.
+
+Explanations on the conditions for σ
+
+In the first example, what causes the issue is the fact that the images
+of f₁ and f₂ in A are distinct.
+
+In the second example, what causes the issue is the fact that we’ve
+reduced our common domain A to an insufficient intermediary object Z₁.
+
+The "element which isn’t mapped to offers a degree of freedom and thus
+breaks unicity" in the last example should remind you of the notes on
+surjections. Indeed, when comparing σ_(α) and σ_(β), we’re in a context
+which is reminiscent of the definition of an epimorphism.
+
+φ₂ = σ_(α)φ₁ = σ_(α)φ₁
+
+We can be assured of being able to cancel φ1 iff φ₁ is an epimorphism,
+and thus σ, if it exists, is unique. The proof for slice categories is
+similar, but given the reverse orders, uses monomorphisms.
+
+More generally:
+
+-   a) in a slice category, there will be no σ if Im(φ₁) ≠ Im(φ₂) (proof
+    ? and in more general categories than concrete categories ? TODO:
+    iff ?)
+
+-   b) in a coslice category, there will be no σ if
+    Pr(Im(φ₁) ≠ Pr(Im(φ₂)) (proof ? and in more general categories than
+    concrete categories ? TODO: iff ?)
+
+-   c) in a slice category, there is at most a single σ iff φ₂ is mono
+
+-   d) in a coslice category, there is at most a single σ iff φ₁ is epi
+
+(see perhaps https://ncatlab.org/nlab/show/over+category and
+https://ncatlab.org/nlab/show/under+category )
+
+Chapter 1, Section 4
+
+Notes on counterintuitive rules
+
+-   in some categories (such as ℤ with ≤; or Ring), "mono and epi" does
+    not imply "iso"
+
+-   in every abelian category, we have that "iso ⇔ epi and mono" (and
+    though Set is not abelian, the property still holds)
+
+-   while in Set, a function is an epimorphism (surjective) iff it has a
+    pre-inverse, in Grp, some epimorphisms do not have right inverses.
+
+Chapter 1, Section 5
+
+Initial and terminal objects
+
+-   there are categories without either initial or terminal objects,
+    such as the preorder category of ℤ with ≤.
+
+-   there are categories with multiple initial or terminal objects (for
+    example, in Set, every singleton set is a terminal object); however,
+    these are respectively unique up to isomorphism
+
+-   any object which is both initial and terminal is called a zero
+    object.
+
+Universal properties
+
+"Normal" universal properties
+
+Verbatim: "The most natural context in which to introduce universal
+properties requires a good familiarity with the language of functors,
+which we will only introduce at a later stage. [...] We say that a
+construction satisﬁes a universal property (or: ’is the solution to a
+universal problem’) when it may be viewed as a terminal object of a
+category."
+
+Then: "The declaration/explanation of a universal property generally
+follows the pattern ’object X is universal with respect to the following
+property: for any Y such that..., there exists a unique morphism Y → X
+such that...’; this explanation hides the deﬁnition of an accessory
+category, and the statement that X is terminal."
+
+This is a complicated way to say: there is some construct to decompose a
+morphism which is "universal" (always exists) and reduces the rest of
+the information of the morphism into something "unique" (hence terminal
+object of some subcategory).
+
+Dual universal properties
+
 Lexicon
 
 Chapter 1
@@ -437,15 +652,15 @@ Section 1
 
 -   ∅: the empty set, containing no elements;
 
--   N: the set of natural numbers (that is, nonnegative integers);
+-   ℕ: the set of natural numbers (that is, nonnegative integers);
 
--   Z: the set of integers;
+-   ℤ: the set of integers;
 
--   Q: the set of rational numbers;
+-   ℚ: the set of rational numbers;
 
--   R: the set of real numbers;
+-   ℝ: the set of real numbers;
 
--   C: the set of complex numbers.
+-   ℂ: the set of complex numbers.
 
 -   Singleton:
 
@@ -489,7 +704,7 @@ Section 1
 
 -   partition
 
--   quotient by an equivalence relation
+-   /∼: quotient by an equivalence relation
 
 Section 2
 
@@ -563,4 +778,33 @@ Section 3
 
 -   pointed set
 
--   C^(A, B) category ??
+-   C^(A, B) category ?? (bislice, bicoslice, fibered bislice, fibered
+    bicoslice)
+
+-   dual category
+
+Section 4
+
+-   automorphism
+
+Section 5
+
+-   universal property
+
+-   initial object
+
+-   final object
+
+-   terminal object
+
+-   (categorical) product
+
+-   (categorical) coproduct
+
+-   (categorical) pullback / fibered product
+
+-   (categorical) pushout / fibered coproduct
+
+-   (set) pullback / fibered product
+
+-   (set) pushout / fibered coproduct

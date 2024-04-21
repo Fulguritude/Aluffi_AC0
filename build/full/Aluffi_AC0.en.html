@@ -17,6 +17,7 @@
   <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
 </head>
 <body>
+<p><code>row sep=normal, column sep=normal</code></p>
 <h1 id="summaries">Summaries</h1>
 <p>Chapter I)</p>
 <p>Section 1) Explains fundamentals of set theory and basic set operations</p>
@@ -41,24 +42,24 @@
 <h3 class="unnumbered" id="section-1">Section 1</h3>
 <ul>
 <li><p>Set (not a multiset)</p></li>
-<li><p>∅: the empty set, containing no elements;</p></li>
-<li><p>N: the set of natural numbers (that is, nonnegative integers);</p></li>
-<li><p>Z: the set of integers;</p></li>
-<li><p>Q: the set of rational numbers;</p></li>
-<li><p>R: the set of real numbers;</p></li>
-<li><p>C: the set of complex numbers.</p></li>
+<li><p><span class="math inline">\(\emptyset\)</span>: the empty set, containing no elements;</p></li>
+<li><p><span class="math inline">\(\mathbb{N}\)</span>: the set of natural numbers (that is, nonnegative integers);</p></li>
+<li><p><span class="math inline">\(\mathbb{Z}\)</span>: the set of integers;</p></li>
+<li><p><span class="math inline">\(\mathbb{Q}\)</span>: the set of rational numbers;</p></li>
+<li><p><span class="math inline">\(\mathbb{R}\)</span>: the set of real numbers;</p></li>
+<li><p><span class="math inline">\(\mathbb{C}\)</span>: the set of complex numbers.</p></li>
 <li><p>Singleton:</p></li>
-<li><p>∃: existential quantifier, "there exists"</p></li>
-<li><p>∀: universal quantifier, "for all"</p></li>
+<li><p><span class="math inline">\(\exists\)</span>: existential quantifier, "there exists"</p></li>
+<li><p><span class="math inline">\(\forall\)</span>: universal quantifier, "for all"</p></li>
 <li><p>inclusion:</p></li>
 <li><p>subset:</p></li>
 <li><p>cardinal:</p></li>
 <li><p>powerset:</p></li>
-<li><p>∪: the union:</p></li>
-<li><p>∩: the intersection:</p></li>
+<li><p><span class="math inline">\(\cup\)</span>: the union:</p></li>
+<li><p><span class="math inline">\(\cap\)</span>: the intersection:</p></li>
 <li><p><span class="math inline">\(\\\)</span>: the difference:</p></li>
 <li><p><span class="math inline">\(\coprod\)</span>: the disjoint union:</p></li>
-<li><p>×: the (Cartesian) product:</p></li>
+<li><p><span class="math inline">\(\times\)</span>: the (Cartesian) product:</p></li>
 <li><p>complement of a subset</p></li>
 <li><p>relation</p></li>
 <li><p>order relation</p></li>
@@ -68,7 +69,7 @@
 <li><p>antisymmetry</p></li>
 <li><p>transitivity</p></li>
 <li><p>partition</p></li>
-<li><p>quotient by an equivalence relation</p></li>
+<li><p><span class="math inline">\(/\sim\)</span>: quotient by an equivalence relation</p></li>
 </ul>
 <h3 class="unnumbered" id="section-2">Section 2</h3>
 <ul>
@@ -120,9 +121,14 @@
 <ul>
 <li><p>universal property</p></li>
 <li><p>initial object</p></li>
+<li><p>final object</p></li>
 <li><p>terminal object</p></li>
 <li><p>(categorical) product</p></li>
 <li><p>(categorical) coproduct</p></li>
+<li><p>(categorical) pullback / fibered product</p></li>
+<li><p>(categorical) pushout / fibered coproduct</p></li>
+<li><p>(set) pullback / fibered product</p></li>
+<li><p>(set) pushout / fibered coproduct</p></li>
 </ul>
 <h1 id="exercise-solutions">Exercise solutions</h1>
 <h2 class="unnumbered" id="chapter-i">Chapter I)</h2>
@@ -341,9 +347,9 @@ h \circ h^{-1} &amp;= (g \circ f) \circ (f^{-1} \circ g^{-1}) \\
 \end{aligned}\]</span> <span class="math display">\[\begin{aligned}
     h \star (g \star f) &amp;=&amp;  h \star (f  \circ g) \\
                         &amp;=&amp; (f \circ  g) \circ h  \\
-                        &amp;=&amp;  f \circ  (g \circ h) \\
-                        &amp;=&amp;  (g \circ h) \star f  \\
-                        &amp;=&amp;  (h \star g) \star f  \\
+                        &amp;=&amp;  f \circ (g  \circ h) \\
+                        &amp;=&amp; (g \circ  h) \star f  \\
+                        &amp;=&amp; (h \star  g) \star f  \\
 \end{aligned}\]</span></p>
 <p>Therefore, <span class="math inline">\(\star\)</span> is associative.</p>
 <p>We conclude that <span class="math inline">\(\mathcal{C}^{op}\)</span> is a category.</p>
@@ -643,10 +649,139 @@ f_4 &amp;=&amp; ( \upsilon \circ (\tau  \circ \sigma)) \circ f_1 \\
 <p>Redo Exercise 2.9 ("Show that if <span class="math inline">\(A \simeq A&#39;\)</span> and <span class="math inline">\(B \simeq B&#39;\)</span> , and further <span class="math inline">\(A \cap B = \emptyset\)</span> and <span class="math inline">\(A&#39; \cap B&#39; = \emptyset\)</span>, then <span class="math inline">\(A \cup B \simeq A&#39; \cup B&#39;\)</span>. Conclude that the operation <span class="math inline">\(A \coprod B\)</span> (as described in §1.4) is well-defined up to isomorphism") this time using Proposition 5.4. (the unicity up-to-isomorphism of terminal objects).</p>
 <p>We define <span class="math inline">\(\text{\textbf{Set}}^{A,B}\)</span> as the "bicoslice category of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> over <strong>Set</strong>". Objects in this category are pairs of morphisms <span class="math inline">\((f,g)\)</span> from <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, respectively, into sets <span class="math inline">\(Z\)</span>. They can be diagrammed as follows.</p>
 <p>Morphisms are defined between objects as</p>
-<p>such that the following diagram commutes</p>
+<p>such that the following diagram commutes in <strong>Set</strong></p>
 <p>Let us call <span class="math inline">\(I\)</span> the following object of <span class="math inline">\(\text{\textbf{Set}}^{A,B}\)</span>, where <span class="math inline">\(A \coprod B\)</span> is any choice of valid disjoint union of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>:</p>
 <p>By definition of a coproduct, we know that in such a configuration, a morphism <span class="math inline">\(\sigma^{A,B}\)</span> from this object into any other object of <span class="math inline">\(\text{\textbf{Set}}^{A,B}\)</span> exists and is unique, and so is the <span class="math inline">\(\sigma\)</span> on which it is based. This means that <span class="math inline">\(I\)</span> is initial in <span class="math inline">\(\text{\textbf{Set}}^{A,B}\)</span>. Consequently, using prop 5.4., the fact that if an initial object exists, it is unique up-to-isomorphism, we conclude that <span class="math inline">\(A \coprod B\)</span> is unique up-to-isomorphism.</p>
 <h4 class="unnumbered" id="section-45">5.8)</h4>
+<p>Show that in every category <span class="math inline">\(\mathcal{C}\)</span> the products <span class="math inline">\(A \times B\)</span> and <span class="math inline">\(B \times A\)</span> are isomorphic, if they exist. (Hint: observe that they both satisfy the universal property for the product of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, then use Proposition 5.4.)</p>
+<p>Let us first remind the definition of the product of two sets. It is the set made of all pairs of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> (ordered sequences of two elements, where the first element in the sequence comes from <span class="math inline">\(A\)</span> and the second comes from <span class="math inline">\(B\)</span>) It is the structure such that the following diagram commutes, and <span class="math inline">\((f,g)\)</span> is unique.</p>
+<p>Now to extend the diagram to consider both <span class="math inline">\(A \times B\)</span> and <span class="math inline">\(B \times A\)</span>.</p>
+<p>We seek to prove that given such a commutative diagram (with a unique <span class="math inline">\((f,g)\)</span> and <span class="math inline">\((g,f)\)</span>), which we will call <span class="math inline">\(D\)</span>, then we have <span class="math inline">\(A \times B \simeq B \times A\)</span>.</p>
+<p>We define <span class="math inline">\(\text{\textbf{Set}}_{A,B}\)</span> as the "bislice category of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> over <strong>Set</strong>". Objects in this category are pairs of morphisms <span class="math inline">\((f,g)\)</span> from sets <span class="math inline">\(Z\)</span>, into <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, respectively. They can be diagrammed as follows.</p>
+<p>Morphisms are defined between objects as</p>
+<p>such that the following diagram commutes in <strong>Set</strong>:</p>
+<p>We now define the following objects:</p>
+<p>and</p>
+<p>Using the diagram <span class="math inline">\(D\)</span> defined above, and the definition of a product (ie, that the maps from any <span class="math inline">\(Z\)</span> to it in the appropriate configuration are unique). We deduce that both <span class="math inline">\(A \times B\)</span> and <span class="math inline">\(B \times A\)</span> are final objects in <span class="math inline">\(\text{\textbf{Set}}_{A,B}\)</span>. Finally, using Proposition 5.4, i.e., that final objects in a category are unique up-to-isomorphism, we conclude that <span class="math inline">\(A \times B \simeq B \times A\)</span>.</p>
+<h4 class="unnumbered" id="section-46">5.9)</h4>
+<p>Let <span class="math inline">\(\mathcal{C}\)</span> be a category with products. Find a reasonable candidate for the universal property that the product <span class="math inline">\(A \times B \times C\)</span> of three objects of <span class="math inline">\(\mathcal{C}\)</span> ought to satisfy, and prove that both <span class="math inline">\((A \times B) \times C\)</span> and <span class="math inline">\(A \times (B \times C)\)</span> satisfy this universal property. Deduce that <span class="math inline">\((A \times B) \times C\)</span> and <span class="math inline">\(A \times (B \times C)\)</span> are necessarily isomorphic.</p>
+<p>Given 3 objects <span class="math inline">\(A, B, C\)</span> of <span class="math inline">\(\mathcal{C}\)</span>. We propose the following universal property that <span class="math inline">\(A \times B \times C\)</span> should respect: for all objects <span class="math inline">\(Z\)</span> of <span class="math inline">\(\mathcal{C}\)</span>, and triplet of maps <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span>, and <span class="math inline">\(h\)</span> from <span class="math inline">\(Z\)</span> to <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> respectively, there exists a unique triplet-map <span class="math inline">\((f,g,h)\)</span> is unique such that the following diagram commutes.</p>
+<p>We will now show that both <span class="math inline">\((A \times B) \times C\)</span> and <span class="math inline">\(A \times (B \times C)\)</span> satisfy this universal property.</p>
+<h5 class="unnumbered" id="a-3">5.9.a)</h5>
+<p>We start with</p>
+<p>and</p>
+<p>From both of these universal products, we deduce the following commutative diagram.</p>
+<h5 class="unnumbered" id="b-3">5.9.b)</h5>
+<p>We start with</p>
+<p>and</p>
+<p>From both of these universal products we deduce the following commutative diagram:</p>
+<h5 class="unnumbered" id="c-1">5.9.c)</h5>
+<p>We now consider the <span class="math inline">\(\mathcal{C}_{A, B, C}\)</span> as the "trislice category of <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> over <span class="math inline">\(\mathcal{C}\)</span>". Objects in this category are of the form:</p>
+<p>Morphisms are defined between objects as:</p>
+<p>such that there exists a <span class="math inline">\(\sigma\)</span> making the following diagram commute in <span class="math inline">\(\mathcal{C}\)</span>:</p>
+<p>We now define the following object:</p>
+<p>and using the two universal properties we have shown above, we know that necessarily <span class="math inline">\((A \times B) \times C\)</span> and <span class="math inline">\(A \times (B \times C)\)</span> are terminal objects in <span class="math inline">\(\mathcal{C}_{A,B,C}\)</span> (because they are final objects in the bislice category, given that <span class="math inline">\(((f,g),h)\)</span> and <span class="math inline">\((f,(g,h))\)</span> are both unique, and we can compose <span class="math inline">\(p_A \circ p_{A \times B}\)</span>, etc, to get immediate projections). We use Proposition 5.4 to deduce that <span class="math inline">\((A \times B) \times C\)</span> and <span class="math inline">\(A \times (B \times C)\)</span>, as terminal objects in <span class="math inline">\(\mathcal{C}_{A,B,C}\)</span>, are necessarily isomorphic. Therefore, given this "associativity up-to-isomorphism" of a triple product, it is legitimate to call <span class="math inline">\(A \times B \times C\)</span> (with no parentheses) "the" (unique, up-to-isomorphism) final object in <span class="math inline">\(\mathcal{C}_{A,B,C}\)</span>.</p>
+<h4 class="unnumbered" id="section-47">5.10)</h4>
+<p>Push the envelope a little further still, and deﬁne products and coproducts for families (i.e., indexed sets) of objects of a category. Do these exist in <strong>Set</strong>? It is common to denote the product <span class="math inline">\(A \times \cdot \cdot \cdot \times A\)</span> (<span class="math inline">\(n\)</span> times) by <span class="math inline">\(A^n\)</span>.</p>
+<p>Let <span class="math inline">\(\mathcal{F}\)</span> be an (ordered) family of objects in some category <span class="math inline">\(\mathcal{C}\)</span>. A product of the elements of <span class="math inline">\(\mathcal{F}\)</span> is defined as an object <span class="math inline">\(P\)</span> of <span class="math inline">\(\mathcal{C}\)</span> together with a family of morphisms <span class="math inline">\(\{p_A : P \to A\}_{A \in \mathcal{F}}\)</span> such that for any object <span class="math inline">\(Z\)</span> and family of morphisms <span class="math inline">\(\{f_A : Z \to A\}_{A \in \mathcal{F}}\)</span>, there exists a unique morphism <span class="math inline">\(f : Z \to P\)</span> such that the following diagram commutes for all <span class="math inline">\(A \in \mathcal{F}\)</span>:</p>
+<p>These exist in <strong>Set</strong> for all finite families of sets, however, for infinite families of sets, their existence is conditional on the (famous) axiom of choice (it is actually precisely the point of the axiom of choice).</p>
+<h4 class="unnumbered" id="section-48">5.11)</h4>
+<p>Let <span class="math inline">\(A\)</span>, resp. <span class="math inline">\(B\)</span> be sets, endowed with equivalence relations <span class="math inline">\(\sim_A\)</span> , resp. <span class="math inline">\(\sim_B\)</span>. Define a relation <span class="math inline">\(\sim\)</span> on <span class="math inline">\(A \times B\)</span> by setting <span class="math inline">\((a_1, b_1) \sim (a_2, b_2) \Leftrightarrow a_1 \sim_A a_2 \text{ and } b_1 \sim_B b_2.\)</span> (This is immediately seen to be an equivalence relation.)</p>
+<ul>
+<li><p>Use the universal property for quotients (§5.3) to establish that there are functions <span class="math inline">\((A \times B)/\sim \rightarrow A/\sim_A\)</span>, and <span class="math inline">\((A \times B)/\sim \rightarrow B/\sim_B\)</span>;</p></li>
+<li><p>prove that <span class="math inline">\((A \times B)/\sim\)</span>, with these two functions, satisfies the universal property for the product of <span class="math inline">\(A/\sim_A\)</span> and <span class="math inline">\(B/\sim_B\)</span>;</p></li>
+<li><p>conclude (without further work) that <span class="math inline">\((A \times B)/ \simeq (A / \sim_A) \times (B / \sim_B)\)</span>.</p></li>
+</ul>
+<h5 class="unnumbered" id="a-4">5.11.a</h5>
+<p>First, we remind the universal property for quotients. Given an equivalence relation <span class="math inline">\(\sim\)</span> over a set <span class="math inline">\(A\)</span>, there is a single map <span class="math inline">\(\pi : A \to A/\sim\)</span> such that for any map <span class="math inline">\(f : A \to Z\)</span> such that <span class="math inline">\(f(a_1) = f(a_2)\)</span> whenever <span class="math inline">\(a_1 \sim a_2\)</span> (i.e., the morphism <span class="math inline">\(f\)</span> is "well-defined" for the equivalence relation <span class="math inline">\(\sim\)</span>), there exists a unique map <span class="math inline">\(\overline{f} : A/\sim \to Z\)</span> such that <span class="math inline">\(f = \overline{f} \circ \pi\)</span>. This is summarized in the following commutative diagram:</p>
+<p>We first apply the universal property of products to obtain the following commutative diagram:</p>
+<p>We now consider a well-defined map <span class="math inline">\(f : A \times B \to Z\)</span> (i.e., <span class="math inline">\(f(a_1, b_1) = f(a_2, b_2)\)</span> whenever <span class="math inline">\((a_1, b_1) \sim (a_2, b_2)\)</span>). We now apply the universal property of quotients to the relation <span class="math inline">\(\sim\)</span> defined over <span class="math inline">\(A \times B\)</span>. We define the map <span class="math inline">\(\pi : A \times B \to (A \times B)/\sim\)</span> as <span class="math inline">\(\pi(a,b) = [(a,b)]_\sim\)</span>. We define the map <span class="math inline">\(\overline{f} : (A \times B)/\sim \to Z\)</span> as <span class="math inline">\(\overline{f}([(a,b)]_\sim) = f(a,b)\)</span>. We remind that such an <span class="math inline">\(f\)</span> is unique, and that <span class="math inline">\(\overline{f} \circ \pi = f\)</span>.</p>
+<p>We do a similar construction for <span class="math inline">\(A/\sim_A\)</span> with <span class="math inline">\(f_A\)</span> and <span class="math inline">\(B/\sim_B\)</span> with <span class="math inline">\(f_B\)</span>. We can do so since these maps are also well-defined. Indeed, we have:</p>
+<p><span class="math display">\[\begin{array}{l}
+    \left\{
+    \begin{array}{l}
+        (a_1, b_1) \sim (a_2, b_2) \\
+        (a_1, b_1) \sim (a_2, b_2) \Rightarrow f(a_1, b_1) = f(a_2, b_2) \\
+        f = f_A \circ p_A \\
+        f = f_B \circ p_B
+    \end{array}
+    \right.
+\cr \Rightarrow \\
+    \left\{
+    \begin{array}{l}
+        a_1 \sim_A a_2 \text{ and } b_1 \sim_B b_2 \\
+        f_A(p_A(a_1, b_1)) = f_A(p_A(a_2, b_2)) \\
+        f_B(p_B(a_1, b_1)) = f_B(p_B(a_2, b_2)) 
+    \end{array}
+    \right.
+\cr \Rightarrow \\
+    \left\{
+    \begin{array}{l}
+        f_A(a_1) = f_A(a_2) \\
+        f_B(b_1) = f_B(b_2) 
+    \end{array}
+    \right.
+\end{array}\]</span></p>
+<p>The combination of all previous steps gives us the following commutative diagram.</p>
+<p>Let us recap a little what’s in diagram a little, to show that it is a justified construction:</p>
+<ul>
+<li><p><span class="math inline">\(A \times B\)</span> is a product, and so we may obtain <span class="math inline">\(p_A\)</span>, <span class="math inline">\(p_B\)</span>, <span class="math inline">\(f_A\)</span>, and <span class="math inline">\(f_B\)</span>;</p></li>
+<li><p><span class="math inline">\(f\)</span> is well-defined for the equivalence relation <span class="math inline">\(\sim\)</span>, and so we may obtain <span class="math inline">\(\overline{f}\)</span> and <span class="math inline">\(\pi\)</span>;</p></li>
+<li><p><span class="math inline">\(f_A\)</span> is well-defined for the equivalence relation <span class="math inline">\(\sim_A\)</span>, and so we may obtain <span class="math inline">\(\overline{f_A}\)</span> and <span class="math inline">\(\pi_A\)</span>;</p></li>
+<li><p><span class="math inline">\(f_B\)</span> is well-defined for the equivalence relation <span class="math inline">\(\sim_B\)</span>, and so we may obtain <span class="math inline">\(\overline{f_B}\)</span> and <span class="math inline">\(\pi_B\)</span>;</p></li>
+</ul>
+<p>Therefore, using the maps <span class="math inline">\(\Pi_A = \pi_A \circ p_A \in (A \times B) \to A/\sim_A\)</span> and <span class="math inline">\(\Pi_B = \pi_B \circ p_B \in (A \times B) \to B/\sim_B\)</span>, we can "quotient through" (i.e., use the universal property of quotient) <span class="math inline">\((A \times B)/\sim\)</span>. This gives us the following commutative diagram (compatible with the one above, but it’s too messy to represent both at the same time):</p>
+<p>These are precisely our functions <span class="math inline">\(\Pi_A \in (A \times B)/\sim \to A/\sim_A\)</span> and <span class="math inline">\(\Pi_B \in (A \times B)/\sim \to B/\sim_B\)</span>, and they are unique, as per the universal property of quotients.</p>
+<h5 class="unnumbered" id="b-4">5.11.b)</h5>
+<p>What we wish to prove now is that <span class="math inline">\((A \times B)/\sim\)</span> is the product of <span class="math inline">\(A/\sim_A\)</span> and <span class="math inline">\(B/\sim_B\)</span>. Said otherwise, we wish to show that, for all <span class="math inline">\(Z\)</span>, <span class="math inline">\(g_A\)</span> and <span class="math inline">\(g_B\)</span> in the appropriate configuration, the following diagram commutes:</p>
+<p>Using the fact that <span class="math inline">\((A \times B)\)</span> is already a product, and studying maps <span class="math inline">\(h_A\)</span> and <span class="math inline">\(h_B\)</span> from <span class="math inline">\(Z\)</span> into <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> respectively, we can make the following commutative diagram:</p>
+<p>The internal parts of the diagram (except <span class="math inline">\(h_A\)</span> and <span class="math inline">\(h_B\)</span> which are arbitrary, all other arrows are unique morphisms) force <span class="math inline">\(g_A\)</span> and <span class="math inline">\(g_B\)</span> to commute with the rest of the diagram: any pairs of maps <span class="math inline">\(g_A\)</span> and <span class="math inline">\(g_B\)</span> that make the diagram commute must necessarily be constrained by the existing morphisms (as the composition of unique morphisms). Any choice of maps <span class="math inline">\(g_A\)</span> and <span class="math inline">\(g_B\)</span> must respect <span class="math inline">\(g_A = \pi_A \circ h_A\)</span> and <span class="math inline">\(g_B = \pi_B \circ h_B\)</span>, for corresponding arbitrary (but inferred) <span class="math inline">\(h_A\)</span> and <span class="math inline">\(h_B\)</span>; said otherwise, maps <span class="math inline">\(g_A\)</span> and <span class="math inline">\(g_B\)</span> in this configuration can only exist if they make the diagram commute. Therefore, we have shown that <span class="math inline">\((A \times B)/\sim\)</span> satisfies the universal property of the product of <span class="math inline">\(A/\sim_A\)</span> and <span class="math inline">\(B/\sim_B\)</span>, and we have <span class="math inline">\((g_A. g_B) = \pi \circ (h_A, h_B)\)</span> (though it’s not shown on the above diagram, in order to improve legibility).</p>
+<p>Conclusion: <span class="math inline">\((A \times B)/ \simeq (A / \sim_A) \times (B / \sim_B)\)</span></p>
+<h4 class="unnumbered" id="section-49">5.12)</h4>
+<p>Define notions of fibered products and coproducts, as terminal objects of the categories <span class="math inline">\(\mathcal{C}_{\alpha,\beta}\)</span>, <span class="math inline">\(C^{\alpha,\beta}\)</span> considered in Example 3.10 (cf. also Exercise 3.11), by stating carefully the corresponding universal properties. As it happens, <strong>Set</strong> has both fibered products and coproducts. Define these objects ’concretely’, in terms of naive set theory. [II.3.9, III.6.10, III.6.11]</p>
+<h5 class="unnumbered" id="a-5">5.12.a)</h5>
+<p>We first define the fibered product (or "pullback"). We suggest the reader goes to check section 3.11.3 of this exercises solutions document for a refresher on the concept "fibered bislice category" <span class="math inline">\(\mathcal{C}_{\alpha,\beta}\)</span>. We will use the same notation, i.e., fixing two morphisms <span class="math inline">\(\alpha : A \to C\)</span> and <span class="math inline">\(\beta : B \to C\)</span> (with common codomain) in a category <span class="math inline">\(\mathcal{C}\)</span>.</p>
+<p>This means, for any generic object <span class="math inline">\((Z, f, g)\)</span> of <span class="math inline">\(\mathcal{C}_{\alpha,\beta}\)</span>, we have the following diagram:</p>
+<p>We first propose a candidate for what it means to be a "fibered product", which we will be able to show is a final object in <span class="math inline">\(\mathcal{C}_{\alpha,\beta}\)</span>. A fibered product <span class="math inline">\(P\)</span> of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> over <span class="math inline">\(C\)</span> in a category <span class="math inline">\(\mathcal{C}\)</span> is an object <span class="math inline">\(P\)</span> together with morphisms <span class="math inline">\(p_A : P \to A\)</span> and <span class="math inline">\(p_B : P \to B\)</span> such that for any object <span class="math inline">\(Z\)</span> in <span class="math inline">\(\mathcal{C}\)</span> and morphisms <span class="math inline">\(f : Z \to A\)</span> and <span class="math inline">\(g : Z \to B\)</span> such that <span class="math inline">\(\alpha \circ f = \beta \circ g\)</span>, there exists a unique morphism <span class="math inline">\(h : Z \to P\)</span> such that the following diagram commutes:</p>
+<p>We will now show that this object <span class="math inline">\(P\)</span> induces a terminal object in <span class="math inline">\(\mathcal{C}_{\alpha,\beta}\)</span>; this boils down to showing that <span class="math inline">\((P, p_A, p_B)\)</span> is final in <span class="math inline">\(\mathcal{C}_{\alpha,\beta}\)</span>. Let <span class="math inline">\((Z, f, g)\)</span> be an arbitrary object of <span class="math inline">\(\mathcal{C}_{\alpha,\beta}\)</span>. A morphism <span class="math inline">\(\sigma\)</span> from <span class="math inline">\((Z, f, g)\)</span> to <span class="math inline">\((P, p_A, p_B)\)</span> is a "raising" of a morphism <span class="math inline">\(h : Z \to P\)</span> such that <span class="math inline">\(p_A \circ h = f\)</span> and <span class="math inline">\(p_B \circ h = g\)</span>. This raising <span class="math inline">\(\sigma\)</span> is unique if and only if <span class="math inline">\(h\)</span> is unique. Since <span class="math inline">\(P\)</span> is presupposed to verify the universal property, such an <span class="math inline">\(h\)</span>, if it exists, is indeed unique. Therefore, <span class="math inline">\((P, p_A, p_B)\)</span> is final (<em>a fortiori</em> terminal) in <span class="math inline">\(\mathcal{C}_{\alpha,\beta}\)</span>.</p>
+<h5 class="unnumbered" id="b-5">5.12.b)</h5>
+<p>We now define the fibered coproduct (or "pushout"). We suggest the reader goes to check section 3.11.4 of this exercises solutions document for a refresher on the "fibered bicoslice category" <span class="math inline">\(C^{\alpha,\beta}\)</span>. We will use the same notation, i.e., fixing two morphisms <span class="math inline">\(\alpha : C \to A\)</span> and <span class="math inline">\(\beta : C \to B\)</span> (with common domain) in a category <span class="math inline">\(\mathcal{C}\)</span>.</p>
+<p>This means, for any generic object <span class="math inline">\((f, g, Z)\)</span> of <span class="math inline">\(C^{\alpha,\beta}\)</span>, we have the following diagram:</p>
+<p>We first propose a candidate for what it means to be a "fibered coproduct", which we will be able to show is an initial object in <span class="math inline">\(C^{\alpha,\beta}\)</span>. A fibered coproduct <span class="math inline">\(P\)</span> of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> over <span class="math inline">\(C\)</span> in a category <span class="math inline">\(\mathcal{C}\)</span> is an object <span class="math inline">\(P\)</span> together with morphisms <span class="math inline">\(p_A : A \to P\)</span> and <span class="math inline">\(p_B : B \to P\)</span> such that for any object <span class="math inline">\(Z\)</span> in <span class="math inline">\(\mathcal{C}\)</span> and morphisms <span class="math inline">\(f : A \to Z\)</span> and <span class="math inline">\(g : B \to Z\)</span> such that <span class="math inline">\(f \circ \alpha = g \circ \beta\)</span>, there exists a unique morphism <span class="math inline">\(h : P \to Z\)</span> such that the following diagram commutes:</p>
+<p>We will now show that this object <span class="math inline">\(P\)</span> induces an initial object in <span class="math inline">\(C^{\alpha,\beta}\)</span>; this boils down to showing that <span class="math inline">\((i_A, i_B, P)\)</span> is initial in <span class="math inline">\(C^{\alpha,\beta}\)</span>. Let <span class="math inline">\((f, g, Z)\)</span> be an arbitrary object of <span class="math inline">\(C^{\alpha,\beta}\)</span>. A morphism <span class="math inline">\(\sigma\)</span> from <span class="math inline">\((i_A, i_B, P)\)</span> to <span class="math inline">\((f, g, Z)\)</span> is a "raising" of a morphism <span class="math inline">\(h : P \to Z\)</span> such that <span class="math inline">\(h \circ i_A = f\)</span> and <span class="math inline">\(h \circ i_B = g\)</span>. This lowering <span class="math inline">\(\sigma\)</span> is unique if and only if <span class="math inline">\(h\)</span> is unique. Since <span class="math inline">\(P\)</span> is presupposed to verify the universal property, such an <span class="math inline">\(h\)</span>, if it exists, is indeed unique. Therefore, <span class="math inline">\((i_A, i_B, P)\)</span> is initial (<em>a fortiori</em> terminal) in <span class="math inline">\(C^{\alpha,\beta}\)</span>.</p>
+<h5 class="unnumbered" id="c-2">5.12.c)</h5>
+<p>(I wouldn’t have come up with this without Wikipedia as a hint...)</p>
+<p>In <strong>Set</strong>, the fibered product (pullback) of <span class="math inline">\((A, \alpha)\)</span> and <span class="math inline">\((B, \beta)\)</span> over <span class="math inline">\(C\)</span>, is a special subset of the cartesian product <span class="math inline">\(A \times B\)</span> that registers some extra information, pertaining to the functions <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. We write this object as <span class="math inline">\(P = A \times_{\alpha, C, \beta} B = A \times_C B = \{ (a,b) \in A \times B \| \alpha(a) = \beta(b) \}\)</span>.</p>
+<p>Concretely, this can also be expressed as <span class="math display">\[P = \bigcup_{c \in \alpha(A) \cap \beta(B)} \alpha^{-1}[\{c\}] \times \beta^{-1}[\{c\}]\]</span>. This is the set of all pairs <span class="math inline">\((a,b)\)</span> such that <span class="math inline">\(\alpha(a) = \beta(b)\)</span>. Let us show this is the case with a simple example.</p>
+<p>Let <span class="math inline">\(A = \{1,2,3\}\)</span>, <span class="math inline">\(B = \{w, x, y, z\}\)</span>, and <span class="math inline">\(C = \{l, m, n, p\}\)</span>. We define <span class="math inline">\(\alpha : A \to C\)</span> as <span class="math inline">\(\{(1, m), (2, m), (3, n) \}\)</span>, and <span class="math inline">\(\beta : B \to C\)</span> as <span class="math inline">\(\{ (w, l), (x, m), (y, n), (z, n) \}\)</span>. We have <span class="math inline">\(\alpha(A) = \{m,n\}\)</span> and <span class="math inline">\(\beta(B) = \{l, m, n\}\)</span>, therefore <span class="math inline">\(\alpha(A) \cap \beta(B) = \{m,n\}\)</span>. The fibered coproduct is then:</p>
+<p><span class="math display">\[\begin{array}{lll}
+P &amp;=&amp; (\alpha^{-1}[\{m\}] \times \beta^{-1}[\{m\}]) \; \cup \; (\alpha^{-1}[\{n\}] \times \beta^{-1}[\{n\}]) \\
+  &amp;=&amp; \{ (1,x), (2,x) \} \; \cup \; \{ (3,y), (3,z) \} \\
+  &amp;=&amp; \{ (1,x), (2,x), (3,y), (3,z) \}
+\end{array}\]</span></p>
+<p>A simple way to verify this is to verify that for each pair <span class="math inline">\((a,b)\)</span> in <span class="math inline">\(P\)</span>, <span class="math inline">\(\alpha(a) = \beta(b)\)</span>, and that no such other pairs are missing.</p>
+<h5 class="unnumbered" id="d">5.12.d)</h5>
+<p>https://math.stackexchange.com/questions/3021738/pushout-in-the-category-of-sets-proof</p>
+<p>https://math.stackexchange.com/questions/2240882/understanding-an-example-of-a-pushout-in-mathbfset</p>
+<p>In <strong>Set</strong>, the fibered coproduct (pushout) of <span class="math inline">\((\alpha, A)\)</span> and <span class="math inline">\((\beta, B)\)</span> over <span class="math inline">\(C\)</span> is a special quotient of the disjoint union <span class="math inline">\(A \sqcup B\)</span> that registers some extra information, pertaining to the functions <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. We write this object as <span class="math display">\[P = A \sqcup_{\alpha, C, \beta} B = A \sqcup_C B = (A \sqcup B) / \sim\]</span>, where <span class="math inline">\(\sim\)</span> is an equivalence relation <span class="math inline">\(\sim = cl_{eq}(R)\)</span>, the equivalence closure of the relation <span class="math display">\[R = \{((0, a), (1, b)) \in (A \sqcup B) \times (A \sqcup B) \| \exists c \in C, a = \alpha(c) \text{ and } b = \beta(c) \}\]</span> (i.e., two elements are equivalent if they are the output of some common <span class="math inline">\(c\)</span>, or if there is any chain of such equivalences between them).</p>
+<p>(We remind that the equivalence closure, if elements of the set are seen as vertices and the relation pairs as edges of a graph, can be thought of, visually, as "completing the cliques" of each connected component in the graph, including self-loops; hence the idea that if there is any path between two elements, then they are equivalent and should be directly linked. We also remind that this corresponds uniquely to a partition of the set; the elements of which, called cosets, are what allow us to do an algebraic quotient.)</p>
+<p>The fibered coproduct is the set <span class="math inline">\(P\)</span> obtained by taking the disjoint union <span class="math inline">\(A \sqcup B\)</span> and identifying <span class="math inline">\(a \in A\)</span> with <span class="math inline">\(b \in B\)</span> if there exists <span class="math inline">\(c \in C\)</span> such that <span class="math inline">\(\alpha(c) = a\)</span> and <span class="math inline">\(\beta(c) = b\)</span> (and all identifications that follow to keep the equality relation an equivalence relation). There is no more concrete of a definition than this; it really boils down to identifying elements with a common preimage element through <span class="math inline">\(\alpha^{-1}(A)\)</span> and <span class="math inline">\(\beta^{-1}(B)\)</span> in <span class="math inline">\(C\)</span>, via an equivalence relation.</p>
+<p>Let us show this is the case with a simple example. We will keep the elements of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> distinct in order to remove the visual clutter that comes with the <span class="math inline">\((0, ...)\)</span> and <span class="math inline">\((1, ...)\)</span> of the general disjoint union.</p>
+<p>Let <span class="math inline">\(A = \{ 1, 2, 3 \}\)</span>, <span class="math inline">\(B = \{ w, x, y, z \}\)</span>, and <span class="math inline">\(C = \{ l, m, n \}\)</span>. We define <span class="math inline">\(\alpha : C \to A\)</span> as <span class="math inline">\(\{ (l, 1), (m, 1), (n, 2) \}\)</span>, and <span class="math inline">\(\beta : C \to B\)</span> as <span class="math inline">\(\{ (l, x), (m, y), (n, z) \}\)</span>. We have:</p>
+<ul>
+<li><p><span class="math inline">\(\alpha^{-1}(\{1\}) = \{l,m\}\)</span> and <span class="math inline">\(\beta^{-1}(\{x\}) = \{l\}\)</span>, so <span class="math inline">\(1 \sim x\)</span>;</p></li>
+<li><p><span class="math inline">\(\alpha^{-1}(\{1\}) = \{l,m\}\)</span> and <span class="math inline">\(\beta^{-1}(\{y\}) = \{m\}\)</span>, so <span class="math inline">\(1 \sim y\)</span>, and by closure, <span class="math inline">\(1 \sim x \sim y\)</span>;</p></li>
+<li><p><span class="math inline">\(\alpha^{-1}(\{2\}) = \{n\}\)</span> and <span class="math inline">\(\beta^{-1}(\{z\}) = \{n\}\)</span>, so <span class="math inline">\(2 \sim z\)</span>;</p></li>
+<li><p><span class="math inline">\(\alpha^{-1}(\{3\}) = \emptyset\)</span> and <span class="math inline">\(\beta^{-1}(\{w\}) = \emptyset\)</span>, so you might think that <span class="math inline">\(3 \sim w\)</span>, however, since there is no <span class="math inline">\(c \in C\)</span> such that <span class="math inline">\(\alpha(c) = 3\)</span> and <span class="math inline">\(\beta(c) = w\)</span>, we have <span class="math inline">\(3 \nsim w\)</span>;</p></li>
+</ul>
+<p>This information corresponds to the following partition of <span class="math inline">\(A \sqcup B\)</span>: <span class="math inline">\(\{ \{1,x,y\}, \{2,z\}, \{3\}, \{w\} \}\)</span>. The fibered coproduct is then:</p>
+<p><span class="math display">\[\begin{array}{lll}
+P &amp;=&amp; (A \sqcup B) / \sim \\
+  &amp;=&amp; \{1,2,3,w,x,y,z\} / \sim \\
+  &amp;=&amp; \{\{1,x,y\}, \{2,z\}, \{3\}, \{w\}\} \\
+  &amp;=&amp; \{[1], [2], [3], [w]\}
+\end{array}\]</span></p>
+<p>A way to verify this is to verify that each equivalence class is disjoint, and that all pairs of elements within an equivalence class are related by <span class="math inline">\(\sim\)</span> (by applying <span class="math inline">\(\alpha\)</span> or <span class="math inline">\(\beta\)</span> where appropriate and drawing the graph of the relation).</p>
 <h1 id="extra-exercises-byfor-the-group">Extra exercises by/for the group</h1>
 <h3 class="unnumbered" id="chapter-i-1-set-notation">Chapter I) 1) Set notation)</h3>
 <p>Write the following in set notation (as a list of numbers, and algebraically):</p>
@@ -670,6 +805,8 @@ f_4 &amp;=&amp; ( \upsilon \circ (\tau  \circ \sigma)) \circ f_1 \\
 <li><p><span class="math inline">\(\{ x \in \mathbb{R} \; | \; -2 \leq x \leq 2 \}\)</span></p></li>
 <li><p><span class="math inline">\(\{ (m, n, p) \in \mathbb{N}^3 \; | \; m + n + p = 10 \}\)</span></p></li>
 </ul>
+<h3 class="unnumbered" id="chapter-i-3-slices-and-coslices">Chapter I) 3) Slices and coslices)</h3>
+<p>Provide a concrete example of a slice category and of a coslice category based on the category of real vector spaces <span class="math inline">\(Vect_{\mathbb{R}}\)</span>, or its subcategory of finite real vector spaces. How does this relate to the transpose of a matrix, or of a product of matrices ?</p>
 <h1 id="notes">Notes</h1>
 <h2 class="unnumbered" id="chapter-1-section-1">Chapter 1, Section 1</h2>
 <p>Go check out the extra exercises on set notation.</p>

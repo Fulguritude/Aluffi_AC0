@@ -4,11 +4,15 @@
 
 {\pard \qc \f0 \sa180 \li0 \fi0  Multiversity {\i Algebra Chapter 0} Reading Group\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\f1 row sep=normal, column sep=normal}\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Summaries\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Chapter I)\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Section 1) Explains fundamentals of set theory and basic set operations\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Section 2) Explains set relations, set functions and some more advanced set operations\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Section 3) Presents categories, and multiple examples of categories. Some are simple, some are advanced.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Section 4) Presents monomorphisms and epimorphisms in more detail, taking care to distinguish general morphisms from set functions and their accolytes (inj, surj, etc)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Section 5) Presents more advanced concepts from category theory, mostly some important universal properties\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Chapter II)\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Group Weekly Reports\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Week 1 : Today we mostly talked about the first chapter first section\u8217's reading; going over the vocabulary term by term (see the lexicon on the github repo), and going more in depth over certain concepts (particularly relating to set relations). We also saw a bit of a "teaser" of how these notions are used. We did not go over the exercises since not everyone had done them.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Week 2 : Today we continued on discussing the first chapter, it was mostly freeform. We mostly talked about foundations of set theory (mostly stemming from the discussion of exercise 1 on russell\u8217's paradox), why we use function notation the way we do, and about some of the operators over sets themselves (including through some examples from linear algebra and things like the subobject classifier which is seen at the end of section 3).\par}
@@ -16,6 +20,10 @@
 {\pard \ql \f0 \sa180 \li0 \fi0 Week 4 : We went over monomorphisms and epimorphisms in more depth. We corrected exercises 2.1 to 2.3 (included)\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Week 5 : We went in depth over the distinction between isomorphisms and bijections (foreshadowing a bunch of category theory while we were at it) and corrected exercises 2.4 and 2.5.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Week 6 : We went in depth over the notion of section. We corrected exercises 2.6 and 2.7. For the latter exercise, we understood Tristan\u8217's solution by ourselves ! (written by Amric)\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Week 7 : We reviewed the notions of algebraic quotient and well-definition. We broached the notion of universal property. We used this to correct exercises 2.8 and 2.9.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Week 8 : We corrected exercises 2.10 and 2.11. We then did some preliminary explanations to present categories and help with the reading of section 3.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Week 9 : We spoke more in depth about category theory, concrete categories, local smallness, algebraic structures (and their vocabulary) and applied category theory.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Week 10 : We reviewed examples 3.2, 3.3, 3.4 and gave a bunch of disambiguation ideas for 3.5. Next week we\u8217'll go over 3.5 and 3.6 in a bit more detail, and start correcting the exercises for this section. We\u8217'll leave 3.7 and above for when we get to their respective exercises\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Notes\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Chapter 1, Section 1\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Go check out the extra exercises on set notation.\par}
@@ -156,6 +164,16 @@ a \\circ f = b \\circ f & \\Rightarrow & (a \\circ  f) \\circ g  &=& (b \\circ  
 {\pard \ql \f0 \sa180 \li0 \fi0 This means that {\i f} is not an epimorphism: contradiction.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Conclusion: {\i f} is a surjection.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Chapter 1, Section 3\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Example summary\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (3.2): Set, category of sets as objects and set functions as morphisms.\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (3.3): preorder (or order, or equivalence relation) over a (single) set, transformed into a category; elements of the set as objects, and elements of the preorder (which is a relation, hence a subset of the cartesian product) as morphisms.\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (3.4): the powerset with the inclusion operator, transformed into a category; elements of the powerset (i.e., subsets of the set) as objects, and inclusion relations as morphisms (this is just an example of a preorder / order / equivalence category seen in 3.3).\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (3.5): slice categories \u55349?\u56478?{\sub {\i A}}, categories which isolate a specific object {\i A} of a given category \u55349?\u56478?, and studies the morphisms into that object; an object of \u55349?\u56478?{\sub {\i A}} is any morphism from any arbitrary objet {\i Z} into {\i A} (not the homset {\i H}{\i o}{\i m}({\i Z},\u8198?{\i A}) itself !) and a morphism in \u55349?\u56478?{\sub {\i A}} (from {\i z}{\sub 1}\u8196?\u8712?\u8196?{\i Z}{\sub 1}\u8196?\u8594?\u8196?{\i A} to {\i z}{\sub 2}\u8196?\u8712?\u8196?{\i Z}{\sub 2}\u8196?\u8594?\u8196?{\i A}) is a "raising" {\i \u963?}{\sub {\i A}} into \u55349?\u56478?{\sub {\i A}} of a morphism {\i \u963?}\u8196?\u8712?\u8196?{\i Z}{\sub 1}\u8196?\u8594?\u8196?{\i Z}{\sub 2} in \u55349?\u56478? that preserves composition on morphisms in \u55349?\u56478? (i.e., {\i z}{\sub 1}\u8196?=\u8196?{\i z}{\sub 2}{\i \u963?}\u8196?\u8658?\u8196?{\i \u963?}{\sub {\i A}}{\i z}{\sub 1}\u8196?=\u8196?{\i z}{\sub 2}).\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (3.6): combining examples 3.3 and 3.5, first start with an order category on the set \u8484? (there is a morphism {\i m}\u8196?\u8594?\u8196?{\i n} iff {\i m}\u8196?\u8804?\u8196?{\i n}), then select a specific object (here, {\i A}\u8196?=\u8196?3) then study all morphisms of the category into {\i A} (so the relation {\i n}\u8196?\u8804?\u8196?3 for any {\i Z}\u8196?=\u8196?{\i n}); the morphisms {\i \u963?}{\sub 3}\u8196?=\u8196?({\i m},\u8198?3)\u8196?\u8594?\u8196?({\i n},\u8198?3) are then simply given by the transitivity of \u8804?, i.e., {\i m}\u8196?\u8804?\u8196?{\i n}\u8196?\u8804?\u8196?3 (({\i m},\u8198?3)\u8196?\u8594?\u8196?({\i n},\u8198?3) corresponds to {\i m}\u8196?\u8804?\u8196?3\u8196?\u8658?\u8196?{\i n}\u8196?\u8804?\u8196?3, meaning our {\i z}{\sub 1}\u8196?=\u8196?{\i z}{\sub 2}{\i \u963?} transforming into {\i \u963?}{\sub {\i A}}{\i z}{\sub 1}\u8196?=\u8196?{\i z}{\sub 2}, here, corresponds to ({\i m}\u8196?\u8804?\u8196?3)\u8196?=\u8196?({\i n}\u8196?\u8804?\u8196?3)\u8197?\u8745?\u8197?({\i m}\u8196?\u8804?\u8196?{\i n}) is transformed into ({\i m}\u8196?\u8804?\u8196?3\u8196?\u8658?\u8196?{\i n}\u8196?\u8804?\u8196?3)\u8197?\u8745?\u8197?({\i m}\u8196?\u8804?\u8196?3)\u8196?\u8660?\u8196?({\i n}\u8196?\u8804?\u8196?3)).\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (3.7): coslice categories (morphisms out of a chosen object).\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (3.8): the category {\b Set{\super \u8902?}} of pointed sets, a coslice category over {\b Set} and any singleton set \{\u8197?\u8902?\u8197?\}. Objects in {\b Set{\super \u8902?}} are regular sets, but with a unique distinguished element; morphisms are any set functions that map the domain\u8217's distinguised element to the codomain\u8217's distinguished element.\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (3.9): "bislice" and "bicoslice" categories, basically a similar construct as slice and coslice, but taking two objects of the starting category, and studying pairs of morphisms (from a common domain, resp codomain) into (resp from) this pair.\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (3.10): "fibered bislice" and "fibered bicoslice" categories, once again a similair construct, but this time taking two {\i morphisms} into a common set C (resp. from a common set C).\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 On terminal and initial objects in {\b Set}\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 If $\\empty$ is initial and \{\u8197?\u8902?\u8197?\} is terminal, it is because a function in {\i S}{\i e}{\i t} (in categorical terms) must always have an output for every input. Ie, in category theory, all functions are maps ("applications").\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Said algebraically:\par}
@@ -229,16 +247,57 @@ a \\circ f = b \\circ f & \\Rightarrow & (a \\circ  f) \\circ g  &=& (b \\circ  
 {\pard \ql \f0 \sa180 \li0 \fi0 C) if {\i f}\u8196?\u8712?\u8196?({\i A}\u8196?\u8594?\u8196?{\i B}),\u8198?{\i f} injective, then \u8704?{\i Z}\u8196?\u8838?\u8196?{\i A},\u8198?{\i f\u770?}\u8196?\u8712?\u8196?({\i Z}\u8196?\u8594?\u8196?{\i B}),\u8198?{\i f}\u8196?=\u8196?{\i \u953?}{\sub ({\i Z}\u8196?\u8594?\u8196?{\i A})}\u8197?\u8728?\u8197?{\i f\u770?}, we have that {\i f\u770?} is also an injection. However, one can construct {\i Z}\u8196?\u8838?\u8196?{\i A} such that {\i f} stops being a surjection.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 D) if {\i f}\u8196?\u8712?\u8196?({\i A}\u8196?\u8594?\u8196?{\i B}),\u8198?{\i f} surjective, then \u8704?{\i Z}\u8196?\u8839?\u8196?{\i A},\u8198?{\i f\u770?}\u8196?\u8712?\u8196?({\i Z}\u8196?\u8594?\u8196?({\i B}\u8197?\u8746?\u8197?{\i f}({\i Z}))),\u8198?{\i f}\u8196?=\u8196?{\i \u953?}{\sub ({\i Z}\u8196?\u8594?\u8196?{\i A})}\u8197?\u8728?\u8197?{\i f\u770?}, we have that {\i f\u770?} is also a surjection. However, one can construct {\i Z}\u8196?\u8838?\u8196?{\i A} such that {\i f} stops being a injection.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Proof: TODO\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 On the morphisms of slice and coslice categories\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Given a base category \u55349?\u56478?, and some set {\i A} we wish to study the homsets of the slice (resp. coslice) category \u55349?\u56478?{\sub {\i A}} (resp. \u55349?\u56478?{\super {\i A}}. {\b These homsets might be empty, or have more than one element.}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 We remind that slice categories consider {\i morphisms to A} as their {\i objects} (written as ({\i Z},\u8198?{\i \u966?}) for any {\i \u966?}\u8196?:\u8196?{\i Z}\u8196?\u8594?\u8196?{\i A}), while coslice categories consider {\i morphisms from A} as their {\i objects} (written as ({\i \u966?},\u8198?{\i Z}) for any {\i \u966?}\u8196?:\u8196?{\i A}\u8196?\u8594?\u8196?{\i Z}. {\i Morphisms}, of the form {\i \u963?}{\sub {\i A}}\u8196?:\u8196?({\i Z}{\sub 1},\u8198?{\i \u966?}{\sub 1})\u8196?\u8594?\u8196?({\i Z}{\sub 2},\u8198?{\i \u966?}{\sub 2}) (resp. {\i \u963?}{\super {\i A}}\u8196?:\u8196?({\i \u966?}{\sub 1},\u8198?{\i Z}{\sub 1})\u8196?\u8594?\u8196?({\i \u966?}{\sub 2},\u8198?{\i Z}{\sub 2})) in a slice category \u55349?\u56478?{\sub {\i A}} (resp. coslice category \u55349?\u56478?{\super {\i A}}) map such objects to one another if and only if there exists a morphism in \u55349?\u56478? (the base category!) such that {\i \u966?}{\sub 1}\u8196?=\u8196?{\i \u966?}{\sub 2}{\i \u963?} (resp. {\i \u963?}{\i \u966?}{\sub 1}\u8196?=\u8196?{\i \u966?}{\sub 2}).\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs24 Example of no {\i \u963?} for a slice category\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 For example, note that there exist pairs of morphisms {\i f}{\sub 1}\u8196?\u8712?\u8196?({\i Z}{\sub 1}\u8196?\u8594?\u8196?{\i A}) and {\i f}{\sub 2}\u8196?\u8712?\u8196?({\i Z}{\sub 2}\u8196?\u8594?\u8196?{\i A}) between which there is no morphism that exists in the slice category. One such example we can make is in ({\i V}{\i e}{\i c}{\i t}{\sub \u8477?}){\sub \u8477?{\super 2}}. If we take the maps:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 $$f_1 = \\begin\{bmatrix\} 1 & 0 \\\\ 0 & 0 \\end\{bmatrix\} \\in \\mathcal\{L\}(\\mathbb\{R\}^2)$$ $$f_2 = \\begin\{bmatrix\} 0 & 0 \\\\ 0 & 1 \\end\{bmatrix\} \\in \\mathcal\{L\}(\\mathbb\{R\}^2)$$\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 There exists no map {\i \u963?} such that the following diagram commutes (since the output of {\i f}{\sub 1} will always be null in its second coordinate, and the output of {\i f}{\sub 2} will always be null in the first):\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs24 Example of no {\i \u963?} for a coslice category\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 TODO add potato diagram\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Take {\i A}\u8196?=\u8196?{\i Z}{\sub 2}\u8196?=\u8196?\{{\i a},\u8198?{\i b},\u8198?{\i c}\}, {\i \u966?}{\sub 2}\u8196?=\u8196?{\i i}{\i d}{\sub {\i A}}, and {\i Z}{\sub 1}\u8196?=\u8196?\{1,\u8198?2\}. Since |{\i Z}{\sub 1}|\u8196?=\u8196?|{\i d}{\i o}{\i m}({\i \u963?})|\u8196?<\u8196?|{\i c}{\i o}{\i d}({\i \u963?})|\u8196?=\u8196?|{\i Z}{\sub 2}|, there is no possible case in which Im({\i \u963?})\u8196?=\u8196?Im({\i i}{\i d}{\sub {\i A}}) (even if {\i \u966?}{\sub 1} is epi).\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs24 Example of multiple {\i \u963?}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 TODO add potato diagram\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Another example, this time in a coslice category, with {\i A}\u8196?=\u8196?\{{\i a},\u8198?{\i b},\u8198?{\i c}\}, we take $\\text\{\\textbf\{Set\}\}_A$. We take {\i Z}{\sub 1}\u8196?=\u8196?\{1,\u8198?2,\u8198?3\}, {\i Z}{\sub 2}\u8196?=\u8196?\{{\i T},\u8198?{\i F}\}. For {\i \u966?}{\sub 1}\u8196?:\u8196?{\i A}\u8196?\u8594?\u8196?{\i Z}{\sub 1}\u8196?=\u8196?\{({\i a},\u8198?1),\u8198?({\i b},\u8198?1),\u8198?({\i c},\u8198?3)\} and {\i \u966?}{\sub 2}\u8196?:\u8196?{\i A}\u8196?\u8594?\u8196?{\i Z}{\sub 2}\u8196?=\u8196?\{({\i a},\u8198?{\i T}),\u8198?({\i b},\u8198?{\i T}),\u8198?({\i c},\u8198?{\i F})\} there exists two elements in {\i H}{\i o}{\i m}{\sub \u55349?\u56494?\u8495?\u55349?\u56521?{\super {\i A}}}({\i Z}{\sub 1},\u8198?{\i Z}{\sub 2}). These originate from two functions in {\b Set}: {\i \u963?}{\sub {\i \u945?}}\u8196?=\u8196?\{(1,\u8198?{\i T}),\u8198?(2,\u8198?{\i T}),\u8198?(3,\u8198?{\i F})\} and {\i \u963?}{\sub {\i \u946?}}\u8196?=\u8196?\{(1,\u8198?{\i T}),\u8198?(2,\u8198?{\i F}),\u8198?(3,\u8198?{\i F})\}. The free element in 2\u8196?\u8712?\u8196?{\i Z}{\sub 1} which is not in Im({\i \u966?}{\sub 1}) offers a degree of freedom.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs24 Explanations on the conditions for {\i \u963?}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 In the first example, what causes the issue is the fact that the images of {\i f}{\sub 1} and {\i f}{\sub 2} in {\i A} are distinct.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 In the second example, what causes the issue is the fact that we\u8217've reduced our common domain {\i A} to an insufficient intermediary object {\i Z}{\sub 1}.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The "element which isn\u8217't mapped to offers a degree of freedom and thus breaks unicity" in the last example should remind you of the notes on surjections. Indeed, when comparing {\i \u963?}{\sub {\i \u945?}} and {\i \u963?}{\sub {\i \u946?}}, we\u8217're in a context which is reminiscent of the definition of an epimorphism.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 {\i \u966?}{\sub 2}\u8196?=\u8196?{\i \u963?}{\sub {\i \u945?}}{\i \u966?}{\sub 1}\u8196?=\u8196?{\i \u963?}{\sub {\i \u945?}}{\i \u966?}{\sub 1}\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 We can be assured of being able to cancel {\i \u966?}1 iff {\i \u966?}{\sub 1} is an epimorphism, and thus {\i \u963?}, if it exists, is unique. The proof for slice categories is similar, but given the reverse orders, uses monomorphisms.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 More generally:\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab a) in a slice category, there will be no {\i \u963?} if Im({\i \u966?}{\sub 1})\u8196?\u8800?\u8196?Im({\i \u966?}{\sub 2}) (proof ? and in more general categories than concrete categories ? TODO: iff ?)\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab b) in a coslice category, there will be no {\i \u963?} if Pr(Im({\i \u966?}{\sub 1})\u8196?\u8800?\u8196?Pr(Im({\i \u966?}{\sub 2})) (proof ? and in more general categories than concrete categories ? TODO: iff ?)\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab c) in a slice category, there is at most a single {\i \u963?} iff {\i \u966?}{\sub 2} is mono\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab d) in a coslice category, there is at most a single {\i \u963?} iff {\i \u966?}{\sub 1} is epi\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 (see perhaps https://ncatlab.org/nlab/show/over+category and https://ncatlab.org/nlab/show/under+category )\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Chapter 1, Section 4\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Notes on counterintuitive rules\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab in some categories (such as \u8484? with \u8804?; or {\b Ring}), "mono and epi" does not imply "iso"\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab in every {\i abelian} category, we have that "iso \u8660? epi and mono" (and though {\b Set} is not abelian, the property still holds)\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab while in {\b Set}, a function is an epimorphism (surjective) iff it has a pre-inverse, in {\b Grp}, some epimorphisms do not have right inverses.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Chapter 1, Section 5\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Initial and terminal objects\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab there are categories without either initial or terminal objects, such as the preorder category of \u8484? with \u8804?.\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab there are categories with multiple initial or terminal objects (for example, in {\b Set}, every singleton set is a terminal object); however, these are respectively unique up to isomorphism\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab any object which is both initial and terminal is called a zero object.\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Universal properties\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs24 "Normal" universal properties\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Verbatim: "The most natural context in which to introduce universal properties requires a good familiarity with the language of functors, which we will only introduce at a later stage. [...] We say that a construction satis\u64257?es a universal property (or: \u8217'is the solution to a universal problem\u8217') when it may be viewed as a terminal object of a category."\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Then: "The declaration/explanation of a universal property generally follows the pattern \u8217'object X is universal with respect to the following property: for any Y such that..., there exists a unique morphism Y \u8594? X such that...\u8217'; this explanation hides the de\u64257?nition of an accessory category, and the statement that X is terminal."\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 This is a complicated way to say: there is some construct to decompose a morphism which is "universal" (always exists) and reduces the rest of the information of the morphism into something "unique" (hence terminal object of some subcategory).\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs24 Dual universal properties\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Lexicon\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Chapter 1\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Section 1\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab Set (not a multiset)\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8709?: the empty set, containing no elements;\par}
-{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab N: the set of natural numbers (that is, nonnegative integers);\par}
-{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab Z: the set of integers;\par}
-{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab Q: the set of rational numbers;\par}
-{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab R: the set of real numbers;\par}
-{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab C: the set of complex numbers.\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8469?: the set of natural numbers (that is, nonnegative integers);\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8484?: the set of integers;\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8474?: the set of rational numbers;\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8477?: the set of real numbers;\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8450?: the set of complex numbers.\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab Singleton:\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8707?: existential quantifier, "there exists"\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8704?: universal quantifier, "for all"\par}
@@ -260,7 +319,7 @@ a \\circ f = b \\circ f & \\Rightarrow & (a \\circ  f) \\circ g  &=& (b \\circ  
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab antisymmetry\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab transitivity\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab partition\par}
-{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab quotient by an equivalence relation\sa180\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab /\u8764?: quotient by an equivalence relation\sa180\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Section 2\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab function\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab graph\par}
@@ -297,5 +356,19 @@ a \\circ f = b \\circ f & \\Rightarrow & (a \\circ  f) \\circ g  &=& (b \\circ  
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab coslice category\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab comma category (mentioned, undefined)\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab pointed set\par}
-{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab {\i C}{\super {\i A},\u8198?{\i B}} category ??\sa180\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab {\i C}{\super {\i A},\u8198?{\i B}} category ?? (bislice, bicoslice, fibered bislice, fibered bicoslice)\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab dual category\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Section 4\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab automorphism\sa180\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Section 5\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab universal property\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab initial object\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab final object\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab terminal object\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (categorical) product\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (categorical) coproduct\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (categorical) pullback / fibered product\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (categorical) pushout / fibered coproduct\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (set) pullback / fibered product\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab (set) pushout / fibered coproduct\sa180\par}
 }

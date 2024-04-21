@@ -1,5 +1,7 @@
 Multiversity Algebra Chapter 0 Reading Group
 
+row sep=normal, column sep=normal
+
 Summaries
 
 Chapter I)
@@ -82,15 +84,15 @@ Section 1
 
 -   ∅: the empty set, containing no elements;
 
--   N: the set of natural numbers (that is, nonnegative integers);
+-   ℕ: the set of natural numbers (that is, nonnegative integers);
 
--   Z: the set of integers;
+-   ℤ: the set of integers;
 
--   Q: the set of rational numbers;
+-   ℚ: the set of rational numbers;
 
--   R: the set of real numbers;
+-   ℝ: the set of real numbers;
 
--   C: the set of complex numbers.
+-   ℂ: the set of complex numbers.
 
 -   Singleton:
 
@@ -134,7 +136,7 @@ Section 1
 
 -   partition
 
--   quotient by an equivalence relation
+-   /∼: quotient by an equivalence relation
 
 Section 2
 
@@ -223,11 +225,21 @@ Section 5
 
 -   initial object
 
+-   final object
+
 -   terminal object
 
 -   (categorical) product
 
 -   (categorical) coproduct
+
+-   (categorical) pullback / fibered product
+
+-   (categorical) pushout / fibered coproduct
+
+-   (set) pullback / fibered product
+
+-   (set) pushout / fibered coproduct
 
 Exercise solutions
 
@@ -766,9 +778,9 @@ $$\begin{aligned}
 $$\begin{aligned}
     h \star (g \star f) &=&  h \star (f  \circ g) \\
                         &=& (f \circ  g) \circ h  \\
-                        &=&  f \circ  (g \circ h) \\
-                        &=&  (g \circ h) \star f  \\
-                        &=&  (h \star g) \star f  \\
+                        &=&  f \circ (g  \circ h) \\
+                        &=& (g \circ  h) \star f  \\
+                        &=& (h \star  g) \star f  \\
 \end{aligned}$$
 
 Therefore, ⋆ is associative.
@@ -1754,7 +1766,7 @@ follows.
 
 Morphisms are defined between objects as
 
-such that the following diagram commutes
+such that the following diagram commutes in Set
 
 Let us call I the following object of $\text{\textbf{Set}}^{A,B}$, where
 A∐B is any choice of valid disjoint union of A and B:
@@ -1768,6 +1780,402 @@ that if an initial object exists, it is unique up-to-isomorphism, we
 conclude that A∐B is unique up-to-isomorphism.
 
 5.8)
+
+Show that in every category 𝒞 the products A × B and B × A are
+isomorphic, if they exist. (Hint: observe that they both satisfy the
+universal property for the product of A and B, then use Proposition
+5.4.)
+
+Let us first remind the definition of the product of two sets. It is the
+set made of all pairs of A and B (ordered sequences of two elements,
+where the first element in the sequence comes from A and the second
+comes from B) It is the structure such that the following diagram
+commutes, and (f, g) is unique.
+
+Now to extend the diagram to consider both A × B and B × A.
+
+We seek to prove that given such a commutative diagram (with a unique
+(f, g) and (g, f)), which we will call D, then we have A × B ≃ B × A.
+
+We define $\text{\textbf{Set}}_{A,B}$ as the "bislice category of A and
+B over Set". Objects in this category are pairs of morphisms (f, g) from
+sets Z, into A and B, respectively. They can be diagrammed as follows.
+
+Morphisms are defined between objects as
+
+such that the following diagram commutes in Set:
+
+We now define the following objects:
+
+and
+
+Using the diagram D defined above, and the definition of a product (ie,
+that the maps from any Z to it in the appropriate configuration are
+unique). We deduce that both A × B and B × A are final objects in
+$\text{\textbf{Set}}_{A,B}$. Finally, using Proposition 5.4, i.e., that
+final objects in a category are unique up-to-isomorphism, we conclude
+that A × B ≃ B × A.
+
+5.9)
+
+Let 𝒞 be a category with products. Find a reasonable candidate for the
+universal property that the product A × B × C of three objects of 𝒞
+ought to satisfy, and prove that both (A × B) × C and A × (B × C)
+satisfy this universal property. Deduce that (A × B) × C and A × (B × C)
+are necessarily isomorphic.
+
+Given 3 objects A, B, C of 𝒞. We propose the following universal
+property that A × B × C should respect: for all objects Z of 𝒞, and
+triplet of maps f, g, and h from Z to A, B and C respectively, there
+exists a unique triplet-map (f, g, h) is unique such that the following
+diagram commutes.
+
+We will now show that both (A × B) × C and A × (B × C) satisfy this
+universal property.
+
+5.9.a)
+
+We start with
+
+and
+
+From both of these universal products, we deduce the following
+commutative diagram.
+
+5.9.b)
+
+We start with
+
+and
+
+From both of these universal products we deduce the following
+commutative diagram:
+
+5.9.c)
+
+We now consider the 𝒞_(A, B, C) as the "trislice category of A, B and C
+over 𝒞". Objects in this category are of the form:
+
+Morphisms are defined between objects as:
+
+such that there exists a σ making the following diagram commute in 𝒞:
+
+We now define the following object:
+
+and using the two universal properties we have shown above, we know that
+necessarily (A × B) × C and A × (B × C) are terminal objects in
+𝒞_(A, B, C) (because they are final objects in the bislice category,
+given that ((f, g), h) and (f, (g, h)) are both unique, and we can
+compose p_(A) ∘ p_(A × B), etc, to get immediate projections). We use
+Proposition 5.4 to deduce that (A × B) × C and A × (B × C), as terminal
+objects in 𝒞_(A, B, C), are necessarily isomorphic. Therefore, given
+this "associativity up-to-isomorphism" of a triple product, it is
+legitimate to call A × B × C (with no parentheses) "the" (unique,
+up-to-isomorphism) final object in 𝒞_(A, B, C).
+
+5.10)
+
+Push the envelope a little further still, and deﬁne products and
+coproducts for families (i.e., indexed sets) of objects of a category.
+Do these exist in Set? It is common to denote the product
+A ×  ⋅  ⋅  ⋅  × A (n times) by A^(n).
+
+Let ℱ be an (ordered) family of objects in some category 𝒞. A product of
+the elements of ℱ is defined as an object P of 𝒞 together with a family
+of morphisms {p_(A) : P → A}_(A ∈ ℱ) such that for any object Z and
+family of morphisms {f_(A) : Z → A}_(A ∈ ℱ), there exists a unique
+morphism f : Z → P such that the following diagram commutes for all
+A ∈ ℱ:
+
+These exist in Set for all finite families of sets, however, for
+infinite families of sets, their existence is conditional on the
+(famous) axiom of choice (it is actually precisely the point of the
+axiom of choice).
+
+5.11)
+
+Let A, resp. B be sets, endowed with equivalence relations ∼_(A) , resp.
+∼_(B). Define a relation ∼ on A × B by setting
+(a₁, b₁) ∼ (a₂, b₂) ⇔ a₁∼_(A)a₂ and b₁∼_(B)b₂. (This is immediately seen
+to be an equivalence relation.)
+
+-   Use the universal property for quotients (§5.3) to establish that
+    there are functions (A × B)/ ∼  → A/∼_(A), and
+    (A × B)/ ∼  → B/∼_(B);
+
+-   prove that (A × B)/∼, with these two functions, satisfies the
+    universal property for the product of A/∼_(A) and B/∼_(B);
+
+-   conclude (without further work) that
+    (A × B)/ ≃ (A/∼_(A)) × (B/∼_(B)).
+
+5.11.a
+
+First, we remind the universal property for quotients. Given an
+equivalence relation ∼ over a set A, there is a single map π : A → A/∼
+such that for any map f : A → Z such that f(a₁) = f(a₂) whenever a₁ ∼ a₂
+(i.e., the morphism f is "well-defined" for the equivalence relation ∼),
+there exists a unique map $\overline{f} : A/\sim \to Z$ such that
+$f = \overline{f} \circ \pi$. This is summarized in the following
+commutative diagram:
+
+We first apply the universal property of products to obtain the
+following commutative diagram:
+
+We now consider a well-defined map f : A × B → Z (i.e.,
+f(a₁, b₁) = f(a₂, b₂) whenever (a₁, b₁) ∼ (a₂, b₂)). We now apply the
+universal property of quotients to the relation ∼ defined over A × B. We
+define the map π : A × B → (A × B)/∼ as π(a, b) = [(a, b)]_(∼). We
+define the map $\overline{f} : (A \times B)/\sim \to Z$ as
+$\overline{f}([(a,b)]_\sim) = f(a,b)$. We remind that such an f is
+unique, and that $\overline{f} \circ \pi = f$.
+
+We do a similar construction for A/∼_(A) with f_(A) and B/∼_(B) with
+f_(B). We can do so since these maps are also well-defined. Indeed, we
+have:
+
+$$\begin{array}{l}
+    \left\{
+    \begin{array}{l}
+        (a_1, b_1) \sim (a_2, b_2) \\
+        (a_1, b_1) \sim (a_2, b_2) \Rightarrow f(a_1, b_1) = f(a_2, b_2) \\
+        f = f_A \circ p_A \\
+        f = f_B \circ p_B
+    \end{array}
+    \right.
+\cr \Rightarrow \\
+    \left\{
+    \begin{array}{l}
+        a_1 \sim_A a_2 \text{ and } b_1 \sim_B b_2 \\
+        f_A(p_A(a_1, b_1)) = f_A(p_A(a_2, b_2)) \\
+        f_B(p_B(a_1, b_1)) = f_B(p_B(a_2, b_2)) 
+    \end{array}
+    \right.
+\cr \Rightarrow \\
+    \left\{
+    \begin{array}{l}
+        f_A(a_1) = f_A(a_2) \\
+        f_B(b_1) = f_B(b_2) 
+    \end{array}
+    \right.
+\end{array}$$
+
+The combination of all previous steps gives us the following commutative
+diagram.
+
+Let us recap a little what’s in diagram a little, to show that it is a
+justified construction:
+
+-   A × B is a product, and so we may obtain p_(A), p_(B), f_(A), and
+    f_(B);
+
+-   f is well-defined for the equivalence relation ∼, and so we may
+    obtain $\overline{f}$ and π;
+
+-   f_(A) is well-defined for the equivalence relation ∼_(A), and so we
+    may obtain $\overline{f_A}$ and π_(A);
+
+-   f_(B) is well-defined for the equivalence relation ∼_(B), and so we
+    may obtain $\overline{f_B}$ and π_(B);
+
+Therefore, using the maps Π_(A) = π_(A) ∘ p_(A) ∈ (A × B) → A/∼_(A) and
+Π_(B) = π_(B) ∘ p_(B) ∈ (A × B) → B/∼_(B), we can "quotient through"
+(i.e., use the universal property of quotient) (A × B)/∼. This gives us
+the following commutative diagram (compatible with the one above, but
+it’s too messy to represent both at the same time):
+
+These are precisely our functions Π_(A) ∈ (A × B)/ ∼  → A/∼_(A) and
+Π_(B) ∈ (A × B)/ ∼  → B/∼_(B), and they are unique, as per the universal
+property of quotients.
+
+5.11.b)
+
+What we wish to prove now is that (A × B)/∼ is the product of A/∼_(A)
+and B/∼_(B). Said otherwise, we wish to show that, for all Z, g_(A) and
+g_(B) in the appropriate configuration, the following diagram commutes:
+
+Using the fact that (A × B) is already a product, and studying maps
+h_(A) and h_(B) from Z into A and B respectively, we can make the
+following commutative diagram:
+
+The internal parts of the diagram (except h_(A) and h_(B) which are
+arbitrary, all other arrows are unique morphisms) force g_(A) and g_(B)
+to commute with the rest of the diagram: any pairs of maps g_(A) and
+g_(B) that make the diagram commute must necessarily be constrained by
+the existing morphisms (as the composition of unique morphisms). Any
+choice of maps g_(A) and g_(B) must respect g_(A) = π_(A) ∘ h_(A) and
+g_(B) = π_(B) ∘ h_(B), for corresponding arbitrary (but inferred) h_(A)
+and h_(B); said otherwise, maps g_(A) and g_(B) in this configuration
+can only exist if they make the diagram commute. Therefore, we have
+shown that (A × B)/∼ satisfies the universal property of the product of
+A/∼_(A) and B/∼_(B), and we have (g_(A).g_(B)) = π ∘ (h_(A), h_(B))
+(though it’s not shown on the above diagram, in order to improve
+legibility).
+
+Conclusion: (A × B)/ ≃ (A/∼_(A)) × (B/∼_(B))
+
+5.12)
+
+Define notions of fibered products and coproducts, as terminal objects
+of the categories 𝒞_(α, β), C^(α, β) considered in Example 3.10 (cf.
+also Exercise 3.11), by stating carefully the corresponding universal
+properties. As it happens, Set has both fibered products and coproducts.
+Define these objects ’concretely’, in terms of naive set theory.
+[II.3.9, III.6.10, III.6.11]
+
+5.12.a)
+
+We first define the fibered product (or "pullback"). We suggest the
+reader goes to check section 3.11.3 of this exercises solutions document
+for a refresher on the concept "fibered bislice category" 𝒞_(α, β). We
+will use the same notation, i.e., fixing two morphisms α : A → C and
+β : B → C (with common codomain) in a category 𝒞.
+
+This means, for any generic object (Z, f, g) of 𝒞_(α, β), we have the
+following diagram:
+
+We first propose a candidate for what it means to be a "fibered
+product", which we will be able to show is a final object in 𝒞_(α, β). A
+fibered product P of A and B over C in a category 𝒞 is an object P
+together with morphisms p_(A) : P → A and p_(B) : P → B such that for
+any object Z in 𝒞 and morphisms f : Z → A and g : Z → B such that
+α ∘ f = β ∘ g, there exists a unique morphism h : Z → P such that the
+following diagram commutes:
+
+We will now show that this object P induces a terminal object in
+𝒞_(α, β); this boils down to showing that (P, p_(A), p_(B)) is final in
+𝒞_(α, β). Let (Z, f, g) be an arbitrary object of 𝒞_(α, β). A morphism σ
+from (Z, f, g) to (P, p_(A), p_(B)) is a "raising" of a morphism
+h : Z → P such that p_(A) ∘ h = f and p_(B) ∘ h = g. This raising σ is
+unique if and only if h is unique. Since P is presupposed to verify the
+universal property, such an h, if it exists, is indeed unique.
+Therefore, (P, p_(A), p_(B)) is final (a fortiori terminal) in 𝒞_(α, β).
+
+5.12.b)
+
+We now define the fibered coproduct (or "pushout"). We suggest the
+reader goes to check section 3.11.4 of this exercises solutions document
+for a refresher on the "fibered bicoslice category" C^(α, β). We will
+use the same notation, i.e., fixing two morphisms α : C → A and
+β : C → B (with common domain) in a category 𝒞.
+
+This means, for any generic object (f, g, Z) of C^(α, β), we have the
+following diagram:
+
+We first propose a candidate for what it means to be a "fibered
+coproduct", which we will be able to show is an initial object in
+C^(α, β). A fibered coproduct P of A and B over C in a category 𝒞 is an
+object P together with morphisms p_(A) : A → P and p_(B) : B → P such
+that for any object Z in 𝒞 and morphisms f : A → Z and g : B → Z such
+that f ∘ α = g ∘ β, there exists a unique morphism h : P → Z such that
+the following diagram commutes:
+
+We will now show that this object P induces an initial object in
+C^(α, β); this boils down to showing that (i_(A), i_(B), P) is initial
+in C^(α, β). Let (f, g, Z) be an arbitrary object of C^(α, β). A
+morphism σ from (i_(A), i_(B), P) to (f, g, Z) is a "raising" of a
+morphism h : P → Z such that h ∘ i_(A) = f and h ∘ i_(B) = g. This
+lowering σ is unique if and only if h is unique. Since P is presupposed
+to verify the universal property, such an h, if it exists, is indeed
+unique. Therefore, (i_(A), i_(B), P) is initial (a fortiori terminal) in
+C^(α, β).
+
+5.12.c)
+
+(I wouldn’t have come up with this without Wikipedia as a hint...)
+
+In Set, the fibered product (pullback) of (A, α) and (B, β) over C, is a
+special subset of the cartesian product A × B that registers some extra
+information, pertaining to the functions α and β. We write this object
+as P = A×_(α, C, β)B = A×_(C)B = {(a, b) ∈ A × B∥α(a) = β(b)}.
+
+Concretely, this can also be expressed as
+P = ⋃_(c ∈ α(A) ∩ β(B))α^( − 1)[{c}] × β^( − 1)[{c}]
+. This is the set of all pairs (a, b) such that α(a) = β(b). Let us show
+this is the case with a simple example.
+
+Let A = {1, 2, 3}, B = {w, x, y, z}, and C = {l, m, n, p}. We define
+α : A → C as {(1, m), (2, m), (3, n)}, and β : B → C as
+{(w, l), (x, m), (y, n), (z, n)}. We have α(A) = {m, n} and
+β(B) = {l, m, n}, therefore α(A) ∩ β(B) = {m, n}. The fibered coproduct
+is then:
+
+$$\begin{array}{lll}
+P &=& (\alpha^{-1}[\{m\}] \times \beta^{-1}[\{m\}]) \; \cup \; (\alpha^{-1}[\{n\}] \times \beta^{-1}[\{n\}]) \\
+  &=& \{ (1,x), (2,x) \} \; \cup \; \{ (3,y), (3,z) \} \\
+  &=& \{ (1,x), (2,x), (3,y), (3,z) \}
+\end{array}$$
+
+A simple way to verify this is to verify that for each pair (a, b) in P,
+α(a) = β(b), and that no such other pairs are missing.
+
+5.12.d)
+
+https://math.stackexchange.com/questions/3021738/pushout-in-the-category-of-sets-proof
+
+https://math.stackexchange.com/questions/2240882/understanding-an-example-of-a-pushout-in-mathbfset
+
+In Set, the fibered coproduct (pushout) of (α, A) and (β, B) over C is a
+special quotient of the disjoint union A ⊔ B that registers some extra
+information, pertaining to the functions α and β. We write this object
+as
+P = A⊔_(α, C, β)B = A⊔_(C)B = (A ⊔ B)/∼
+, where ∼ is an equivalence relation  ∼  = cl_(eq)(R), the equivalence
+closure of the relation
+R = {((0, a), (1, b)) ∈ (A ⊔ B) × (A ⊔ B)∥∃c ∈ C, a = α(c) and b = β(c)}
+(i.e., two elements are equivalent if they are the output of some common
+c, or if there is any chain of such equivalences between them).
+
+(We remind that the equivalence closure, if elements of the set are seen
+as vertices and the relation pairs as edges of a graph, can be thought
+of, visually, as "completing the cliques" of each connected component in
+the graph, including self-loops; hence the idea that if there is any
+path between two elements, then they are equivalent and should be
+directly linked. We also remind that this corresponds uniquely to a
+partition of the set; the elements of which, called cosets, are what
+allow us to do an algebraic quotient.)
+
+The fibered coproduct is the set P obtained by taking the disjoint union
+A ⊔ B and identifying a ∈ A with b ∈ B if there exists c ∈ C such that
+α(c) = a and β(c) = b (and all identifications that follow to keep the
+equality relation an equivalence relation). There is no more concrete of
+a definition than this; it really boils down to identifying elements
+with a common preimage element through α^( − 1)(A) and β^( − 1)(B) in C,
+via an equivalence relation.
+
+Let us show this is the case with a simple example. We will keep the
+elements of A and B distinct in order to remove the visual clutter that
+comes with the (0, ...) and (1, ...) of the general disjoint union.
+
+Let A = {1, 2, 3}, B = {w, x, y, z}, and C = {l, m, n}. We define
+α : C → A as {(l, 1), (m, 1), (n, 2)}, and β : C → B as
+{(l, x), (m, y), (n, z)}. We have:
+
+-   α^( − 1)({1}) = {l, m} and β^( − 1)({x}) = {l}, so 1 ∼ x;
+
+-   α^( − 1)({1}) = {l, m} and β^( − 1)({y}) = {m}, so 1 ∼ y, and by
+    closure, 1 ∼ x ∼ y;
+
+-   α^( − 1)({2}) = {n} and β^( − 1)({z}) = {n}, so 2 ∼ z;
+
+-   α^( − 1)({3}) = ∅ and β^( − 1)({w}) = ∅, so you might think that
+    3 ∼ w, however, since there is no c ∈ C such that α(c) = 3 and
+    β(c) = w, we have 3 ≁ w;
+
+This information corresponds to the following partition of A ⊔ B:
+{{1, x, y}, {2, z}, {3}, {w}}. The fibered coproduct is then:
+
+$$\begin{array}{lll}
+P &=& (A \sqcup B) / \sim \\
+  &=& \{1,2,3,w,x,y,z\} / \sim \\
+  &=& \{\{1,x,y\}, \{2,z\}, \{3\}, \{w\}\} \\
+  &=& \{[1], [2], [3], [w]\}
+\end{array}$$
+
+A way to verify this is to verify that each equivalence class is
+disjoint, and that all pairs of elements within an equivalence class are
+related by ∼ (by applying α or β where appropriate and drawing the graph
+of the relation).
 
 Extra exercises by/for the group
 
@@ -1812,6 +2220,13 @@ examples), and as a "description" of what they are:
 -   {x ∈ ℝ |  − 2 ≤ x ≤ 2}
 
 -   {(m, n, p) ∈ ℕ³ | m + n + p = 10}
+
+Chapter I) 3) Slices and coslices)
+
+Provide a concrete example of a slice category and of a coslice category
+based on the category of real vector spaces Vect_(ℝ), or its subcategory
+of finite real vector spaces. How does this relate to the transpose of a
+matrix, or of a product of matrices ?
 
 Notes
 

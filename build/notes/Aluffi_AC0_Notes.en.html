@@ -17,11 +17,15 @@
   <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
 </head>
 <body>
+<p><code>row sep=normal, column sep=normal</code></p>
 <h1 id="summaries">Summaries</h1>
 <p>Chapter I)</p>
 <p>Section 1) Explains fundamentals of set theory and basic set operations</p>
 <p>Section 2) Explains set relations, set functions and some more advanced set operations</p>
 <p>Section 3) Presents categories, and multiple examples of categories. Some are simple, some are advanced.</p>
+<p>Section 4) Presents monomorphisms and epimorphisms in more detail, taking care to distinguish general morphisms from set functions and their accolytes (inj, surj, etc)</p>
+<p>Section 5) Presents more advanced concepts from category theory, mostly some important universal properties</p>
+<p>Chapter II)</p>
 <h1 id="group-weekly-reports">Group Weekly Reports</h1>
 <p>Week 1 : Today we mostly talked about the first chapter first section’s reading; going over the vocabulary term by term (see the lexicon on the github repo), and going more in depth over certain concepts (particularly relating to set relations). We also saw a bit of a "teaser" of how these notions are used. We did not go over the exercises since not everyone had done them.</p>
 <p>Week 2 : Today we continued on discussing the first chapter, it was mostly freeform. We mostly talked about foundations of set theory (mostly stemming from the discussion of exercise 1 on russell’s paradox), why we use function notation the way we do, and about some of the operators over sets themselves (including through some examples from linear algebra and things like the subobject classifier which is seen at the end of section 3).</p>
@@ -29,6 +33,10 @@
 <p>Week 4 : We went over monomorphisms and epimorphisms in more depth. We corrected exercises 2.1 to 2.3 (included)</p>
 <p>Week 5 : We went in depth over the distinction between isomorphisms and bijections (foreshadowing a bunch of category theory while we were at it) and corrected exercises 2.4 and 2.5.</p>
 <p>Week 6 : We went in depth over the notion of section. We corrected exercises 2.6 and 2.7. For the latter exercise, we understood Tristan’s solution by ourselves ! (written by Amric)</p>
+<p>Week 7 : We reviewed the notions of algebraic quotient and well-definition. We broached the notion of universal property. We used this to correct exercises 2.8 and 2.9.</p>
+<p>Week 8 : We corrected exercises 2.10 and 2.11. We then did some preliminary explanations to present categories and help with the reading of section 3.</p>
+<p>Week 9 : We spoke more in depth about category theory, concrete categories, local smallness, algebraic structures (and their vocabulary) and applied category theory.</p>
+<p>Week 10 : We reviewed examples 3.2, 3.3, 3.4 and gave a bunch of disambiguation ideas for 3.5. Next week we’ll go over 3.5 and 3.6 in a bit more detail, and start correcting the exercises for this section. We’ll leave 3.7 and above for when we get to their respective exercises</p>
 <h1 id="notes">Notes</h1>
 <h2 class="unnumbered" id="chapter-1-section-1">Chapter 1, Section 1</h2>
 <p>Go check out the extra exercises on set notation.</p>
@@ -178,6 +186,18 @@ g_1 \circ f = g_2 \circ f \Rightarrow g_1 = g_2\]</span></p>
 <p>This means that <span class="math inline">\(f\)</span> is not an epimorphism: contradiction.</p>
 <p>Conclusion: <span class="math inline">\(f\)</span> is a surjection.</p>
 <h2 class="unnumbered" id="chapter-1-section-3">Chapter 1, Section 3</h2>
+<h3 class="unnumbered" id="example-summary">Example summary</h3>
+<ul>
+<li><p>(3.2): Set, category of sets as objects and set functions as morphisms.</p></li>
+<li><p>(3.3): preorder (or order, or equivalence relation) over a (single) set, transformed into a category; elements of the set as objects, and elements of the preorder (which is a relation, hence a subset of the cartesian product) as morphisms.</p></li>
+<li><p>(3.4): the powerset with the inclusion operator, transformed into a category; elements of the powerset (i.e., subsets of the set) as objects, and inclusion relations as morphisms (this is just an example of a preorder / order / equivalence category seen in 3.3).</p></li>
+<li><p>(3.5): slice categories <span class="math inline">\(\mathcal{C}_A\)</span>, categories which isolate a specific object <span class="math inline">\(A\)</span> of a given category <span class="math inline">\(\mathcal{C}\)</span>, and studies the morphisms into that object; an object of <span class="math inline">\(\mathcal{C}_A\)</span> is any morphism from any arbitrary objet <span class="math inline">\(Z\)</span> into <span class="math inline">\(A\)</span> (not the homset <span class="math inline">\(Hom(Z, A)\)</span> itself !) and a morphism in <span class="math inline">\(\mathcal{C}_A\)</span> (from <span class="math inline">\(z_1 \in Z_1 \to A\)</span> to <span class="math inline">\(z_2 \in Z_2 \to A\)</span>) is a "raising" <span class="math inline">\(\sigma_A\)</span> into <span class="math inline">\(\mathcal{C}_A\)</span> of a morphism <span class="math inline">\(\sigma \in Z_1 \to Z_2\)</span> in <span class="math inline">\(\mathcal{C}\)</span> that preserves composition on morphisms in <span class="math inline">\(\mathcal{C}\)</span> (i.e., <span class="math inline">\(z_1 = z_2 \sigma \Rightarrow \sigma_A z_1 = z_2\)</span>).</p></li>
+<li><p>(3.6): combining examples 3.3 and 3.5, first start with an order category on the set <span class="math inline">\(\mathbb{Z}\)</span> (there is a morphism <span class="math inline">\(m \to n\)</span> iff <span class="math inline">\(m \leq n\)</span>), then select a specific object (here, <span class="math inline">\(A = 3\)</span>) then study all morphisms of the category into <span class="math inline">\(A\)</span> (so the relation <span class="math inline">\(n \leq 3\)</span> for any <span class="math inline">\(Z = n\)</span>); the morphisms <span class="math inline">\(\sigma_3 = (m, 3) \to (n, 3)\)</span> are then simply given by the transitivity of <span class="math inline">\(\leq\)</span>, i.e., <span class="math inline">\(m \leq n \leq 3\)</span> (<span class="math inline">\((m, 3) \to (n, 3)\)</span> corresponds to <span class="math inline">\(m \leq 3 \Rightarrow n \leq 3\)</span>, meaning our <span class="math inline">\(z_1 = z_2 \sigma\)</span> transforming into <span class="math inline">\(\sigma_A z_1 = z_2\)</span>, here, corresponds to <span class="math inline">\((m \leq 3) = (n \leq 3) \cap (m \leq n)\)</span> is transformed into <span class="math inline">\((m \leq 3 \Rightarrow n \leq 3) \cap (m \leq 3) \Leftrightarrow (n \leq 3)\)</span>).</p></li>
+<li><p>(3.7): coslice categories (morphisms out of a chosen object).</p></li>
+<li><p>(3.8): the category <strong>Set<span class="math inline">\(^\star\)</span></strong> of pointed sets, a coslice category over <strong>Set</strong> and any singleton set <span class="math inline">\(\{ \star \}\)</span>. Objects in <strong>Set<span class="math inline">\(^\star\)</span></strong> are regular sets, but with a unique distinguished element; morphisms are any set functions that map the domain’s distinguised element to the codomain’s distinguished element.</p></li>
+<li><p>(3.9): "bislice" and "bicoslice" categories, basically a similar construct as slice and coslice, but taking two objects of the starting category, and studying pairs of morphisms (from a common domain, resp codomain) into (resp from) this pair.</p></li>
+<li><p>(3.10): "fibered bislice" and "fibered bicoslice" categories, once again a similair construct, but this time taking two <em>morphisms</em> into a common set C (resp. from a common set C).</p></li>
+</ul>
 <h3 class="unnumbered" id="on-terminal-and-initial-objects-in-set">On terminal and initial objects in <strong>Set</strong></h3>
 <p>If <span class="math inline">\(\empty\)</span> is initial and <span class="math inline">\(\{ \star \}\)</span> is terminal, it is because a function in <span class="math inline">\(Set\)</span> (in categorical terms) must always have an output for every input. Ie, in category theory, all functions are maps ("applications").</p>
 <p>Said algebraically:</p>
@@ -227,29 +247,76 @@ g_1 \circ f = g_2 \circ f \Rightarrow g_1 = g_2\]</span></p>
 <p>C) if <span class="math inline">\(f \in (A \to B), f \text{ injective}\)</span>, then <span class="math inline">\(\forall Z \subseteq A, \hat{f} \in (Z \to B), f = \iota_{(Z \to A)} \circ \hat{f}\)</span>, we have that <span class="math inline">\(\hat{f}\)</span> is also an injection. However, one can construct <span class="math inline">\(Z \subseteq A\)</span> such that <span class="math inline">\(f\)</span> stops being a surjection.</p>
 <p>D) if <span class="math inline">\(f \in (A \to B), f \text{ surjective}\)</span>, then <span class="math inline">\(\forall Z \supseteq A, \hat{f} \in (Z \to (B \cup f(Z))), f = \iota_{(Z \to A)} \circ \hat{f}\)</span>, we have that <span class="math inline">\(\hat{f}\)</span> is also a surjection. However, one can construct <span class="math inline">\(Z \subseteq A\)</span> such that <span class="math inline">\(f\)</span> stops being a injection.</p>
 <p>Proof: TODO</p>
+<h3 class="unnumbered" id="on-the-morphisms-of-slice-and-coslice-categories">On the morphisms of slice and coslice categories</h3>
+<p>Given a base category <span class="math inline">\(\mathcal{C}\)</span>, and some set <span class="math inline">\(A\)</span> we wish to study the homsets of the slice (resp. coslice) category <span class="math inline">\(\mathcal{C}_A\)</span> (resp. <span class="math inline">\(\mathcal{C}^A\)</span>. <strong>These homsets might be empty, or have more than one element.</strong></p>
+<p>We remind that slice categories consider <em>morphisms to A</em> as their <em>objects</em> (written as <span class="math inline">\((Z, \varphi)\)</span> for any <span class="math inline">\(\varphi : Z \to A\)</span>), while coslice categories consider <em>morphisms from A</em> as their <em>objects</em> (written as <span class="math inline">\((\varphi, Z)\)</span> for any <span class="math inline">\(\varphi : A \to Z\)</span>. <em>Morphisms</em>, of the form <span class="math inline">\(\sigma_A : (Z_1, \varphi_1) \to (Z_2, \varphi_2)\)</span> (resp. <span class="math inline">\(\sigma^A : (\varphi_1, Z_1) \to (\varphi_2, Z_2)\)</span>) in a slice category <span class="math inline">\(\mathcal{C}_A\)</span> (resp. coslice category <span class="math inline">\(\mathcal{C}^A\)</span>) map such objects to one another if and only if there exists a morphism in <span class="math inline">\(\mathcal{C}\)</span> (the base category!) such that <span class="math inline">\(\varphi_1 = \varphi_2 \sigma\)</span> (resp. <span class="math inline">\(\sigma \varphi_1 = \varphi_2\)</span>).</p>
+<h4 class="unnumbered" id="example-of-no-sigma-for-a-slice-category">Example of no <span class="math inline">\(\sigma\)</span> for a slice category</h4>
+<p>For example, note that there exist pairs of morphisms <span class="math inline">\(f_1 \in (Z_1 \to A)\)</span> and <span class="math inline">\(f_2 \in (Z_2 \to A)\)</span> between which there is no morphism that exists in the slice category. One such example we can make is in <span class="math inline">\((Vect_\mathbb{R})_{\mathbb{R}^2}\)</span>. If we take the maps:</p>
+<p><span class="math display">\[f_1 = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)\]</span> <span class="math display">\[f_2 = \begin{bmatrix} 0 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \in \mathcal{L}(\mathbb{R}^2)\]</span></p>
+<p>There exists no map <span class="math inline">\(\sigma\)</span> such that the following diagram commutes (since the output of <span class="math inline">\(f_1\)</span> will always be null in its second coordinate, and the output of <span class="math inline">\(f_2\)</span> will always be null in the first):</p>
+<h4 class="unnumbered" id="example-of-no-sigma-for-a-coslice-category">Example of no <span class="math inline">\(\sigma\)</span> for a coslice category</h4>
+<p>TODO add potato diagram</p>
+<p>Take <span class="math inline">\(A = Z_2 = \{ a, b, c \}\)</span>, <span class="math inline">\(\varphi_2 = id_A\)</span>, and <span class="math inline">\(Z_1 = \{ 1, 2 \}\)</span>. Since <span class="math inline">\(|Z_1| = |dom(\sigma)| &lt; |cod(\sigma)| = |Z_2|\)</span>, there is no possible case in which <span class="math inline">\(\text{Im} (\sigma) = \text{Im} (id_A)\)</span> (even if <span class="math inline">\(\varphi_1\)</span> is epi).</p>
+<h4 class="unnumbered" id="example-of-multiple-sigma">Example of multiple <span class="math inline">\(\sigma\)</span></h4>
+<p>TODO add potato diagram</p>
+<p>Another example, this time in a coslice category, with <span class="math inline">\(A = \{ a, b, c \}\)</span>, we take <span class="math inline">\(\text{\textbf{Set}}_A\)</span>. We take <span class="math inline">\(Z_1 = \{ 1, 2, 3 \}\)</span>, <span class="math inline">\(Z_2 = \{T, F\}\)</span>. For <span class="math inline">\(\varphi_1 : A \to Z_1 = \{(a, 1), (b, 1), (c, 3)\}\)</span> and <span class="math inline">\(\varphi_2 : A \to Z_2 = \{(a, T), (b, T), (c, F)\}\)</span> there exists two elements in <span class="math inline">\(Hom_{\mathcal{Set}^A} (Z_1, Z_2)\)</span>. These originate from two functions in <strong>Set</strong>: <span class="math inline">\(\sigma_\alpha = \{ (1, T), (2, T), (3, F) \}\)</span> and <span class="math inline">\(\sigma_\beta = \{ (1, T), (2, F), (3, F) \}\)</span>. The free element in <span class="math inline">\(2 \in Z_1\)</span> which is not in <span class="math inline">\(\text{Im} (\varphi_1)\)</span> offers a degree of freedom.</p>
+<h4 class="unnumbered" id="explanations-on-the-conditions-for-sigma">Explanations on the conditions for <span class="math inline">\(\sigma\)</span></h4>
+<p>In the first example, what causes the issue is the fact that the images of <span class="math inline">\(f_1\)</span> and <span class="math inline">\(f_2\)</span> in <span class="math inline">\(A\)</span> are distinct.</p>
+<p>In the second example, what causes the issue is the fact that we’ve reduced our common domain <span class="math inline">\(A\)</span> to an insufficient intermediary object <span class="math inline">\(Z_1\)</span>.</p>
+<p>The "element which isn’t mapped to offers a degree of freedom and thus breaks unicity" in the last example should remind you of the notes on surjections. Indeed, when comparing <span class="math inline">\(\sigma_\alpha\)</span> and <span class="math inline">\(\sigma_\beta\)</span>, we’re in a context which is reminiscent of the definition of an epimorphism.</p>
+<p><span class="math display">\[\varphi_2 = \sigma_\alpha \varphi_1 = \sigma_\alpha \varphi_1\]</span></p>
+<p>We can be assured of being able to cancel <span class="math inline">\(\varphi 1\)</span> iff <span class="math inline">\(\varphi_1\)</span> is an epimorphism, and thus <span class="math inline">\(\sigma\)</span>, if it exists, is unique. The proof for slice categories is similar, but given the reverse orders, uses monomorphisms.</p>
+<p>More generally:</p>
+<ul>
+<li><p>a) in a slice category, there will be no <span class="math inline">\(\sigma\)</span> if <span class="math inline">\(\text{Im} (\varphi_1) \neq \text{Im} (\varphi_2)\)</span> (proof ? and in more general categories than concrete categories ? TODO: iff ?)</p></li>
+<li><p>b) in a coslice category, there will be no <span class="math inline">\(\sigma\)</span> if <span class="math inline">\(\text{Pr} (\text{Im} (\varphi_1) \neq \text{Pr} (\text{Im} (\varphi_2))\)</span> (proof ? and in more general categories than concrete categories ? TODO: iff ?)</p></li>
+<li><p>c) in a slice category, there is at most a single <span class="math inline">\(\sigma\)</span> iff <span class="math inline">\(\varphi_2\)</span> is mono</p></li>
+<li><p>d) in a coslice category, there is at most a single <span class="math inline">\(\sigma\)</span> iff <span class="math inline">\(\varphi_1\)</span> is epi</p></li>
+</ul>
+<p>(see perhaps https://ncatlab.org/nlab/show/over+category and https://ncatlab.org/nlab/show/under+category )</p>
+<h2 class="unnumbered" id="chapter-1-section-4">Chapter 1, Section 4</h2>
+<h3 class="unnumbered" id="notes-on-counterintuitive-rules">Notes on counterintuitive rules</h3>
+<ul>
+<li><p>in some categories (such as <span class="math inline">\(\mathbb{Z}\)</span> with <span class="math inline">\(\leq\)</span>; or <strong>Ring</strong>), "mono and epi" does not imply "iso"</p></li>
+<li><p>in every <em>abelian</em> category, we have that "iso <span class="math inline">\(\Leftrightarrow\)</span> epi and mono" (and though <strong>Set</strong> is not abelian, the property still holds)</p></li>
+<li><p>while in <strong>Set</strong>, a function is an epimorphism (surjective) iff it has a pre-inverse, in <strong>Grp</strong>, some epimorphisms do not have right inverses.</p></li>
+</ul>
+<h2 class="unnumbered" id="chapter-1-section-5">Chapter 1, Section 5</h2>
+<h3 class="unnumbered" id="initial-and-terminal-objects">Initial and terminal objects</h3>
+<ul>
+<li><p>there are categories without either initial or terminal objects, such as the preorder category of <span class="math inline">\(\mathbb{Z}\)</span> with <span class="math inline">\(\leq\)</span>.</p></li>
+<li><p>there are categories with multiple initial or terminal objects (for example, in <strong>Set</strong>, every singleton set is a terminal object); however, these are respectively unique up to isomorphism</p></li>
+<li><p>any object which is both initial and terminal is called a zero object.</p></li>
+</ul>
+<h3 class="unnumbered" id="universal-properties">Universal properties</h3>
+<h4 class="unnumbered" id="normal-universal-properties">"Normal" universal properties</h4>
+<p>Verbatim: "The most natural context in which to introduce universal properties requires a good familiarity with the language of functors, which we will only introduce at a later stage. [...] We say that a construction satisﬁes a universal property (or: ’is the solution to a universal problem’) when it may be viewed as a terminal object of a category."</p>
+<p>Then: "The declaration/explanation of a universal property generally follows the pattern ’object X is universal with respect to the following property: for any Y such that..., there exists a unique morphism Y → X such that...’; this explanation hides the deﬁnition of an accessory category, and the statement that X is terminal."</p>
+<p>This is a complicated way to say: there is some construct to decompose a morphism which is "universal" (always exists) and reduces the rest of the information of the morphism into something "unique" (hence terminal object of some subcategory).</p>
+<h4 class="unnumbered" id="dual-universal-properties">Dual universal properties</h4>
 <h1 id="lexicon">Lexicon</h1>
 <h2 class="unnumbered" id="chapter-1">Chapter 1</h2>
 <h3 class="unnumbered" id="section-1">Section 1</h3>
 <ul>
 <li><p>Set (not a multiset)</p></li>
-<li><p>∅: the empty set, containing no elements;</p></li>
-<li><p>N: the set of natural numbers (that is, nonnegative integers);</p></li>
-<li><p>Z: the set of integers;</p></li>
-<li><p>Q: the set of rational numbers;</p></li>
-<li><p>R: the set of real numbers;</p></li>
-<li><p>C: the set of complex numbers.</p></li>
+<li><p><span class="math inline">\(\emptyset\)</span>: the empty set, containing no elements;</p></li>
+<li><p><span class="math inline">\(\mathbb{N}\)</span>: the set of natural numbers (that is, nonnegative integers);</p></li>
+<li><p><span class="math inline">\(\mathbb{Z}\)</span>: the set of integers;</p></li>
+<li><p><span class="math inline">\(\mathbb{Q}\)</span>: the set of rational numbers;</p></li>
+<li><p><span class="math inline">\(\mathbb{R}\)</span>: the set of real numbers;</p></li>
+<li><p><span class="math inline">\(\mathbb{C}\)</span>: the set of complex numbers.</p></li>
 <li><p>Singleton:</p></li>
-<li><p>∃: existential quantifier, "there exists"</p></li>
-<li><p>∀: universal quantifier, "for all"</p></li>
+<li><p><span class="math inline">\(\exists\)</span>: existential quantifier, "there exists"</p></li>
+<li><p><span class="math inline">\(\forall\)</span>: universal quantifier, "for all"</p></li>
 <li><p>inclusion:</p></li>
 <li><p>subset:</p></li>
 <li><p>cardinal:</p></li>
 <li><p>powerset:</p></li>
-<li><p>∪: the union:</p></li>
-<li><p>∩: the intersection:</p></li>
+<li><p><span class="math inline">\(\cup\)</span>: the union:</p></li>
+<li><p><span class="math inline">\(\cap\)</span>: the intersection:</p></li>
 <li><p><span class="math inline">\(\\\)</span>: the difference:</p></li>
 <li><p><span class="math inline">\(\coprod\)</span>: the disjoint union:</p></li>
-<li><p>×: the (Cartesian) product:</p></li>
+<li><p><span class="math inline">\(\times\)</span>: the (Cartesian) product:</p></li>
 <li><p>complement of a subset</p></li>
 <li><p>relation</p></li>
 <li><p>order relation</p></li>
@@ -259,7 +326,7 @@ g_1 \circ f = g_2 \circ f \Rightarrow g_1 = g_2\]</span></p>
 <li><p>antisymmetry</p></li>
 <li><p>transitivity</p></li>
 <li><p>partition</p></li>
-<li><p>quotient by an equivalence relation</p></li>
+<li><p><span class="math inline">\(/\sim\)</span>: quotient by an equivalence relation</p></li>
 </ul>
 <h3 class="unnumbered" id="section-2">Section 2</h3>
 <ul>
@@ -300,7 +367,25 @@ g_1 \circ f = g_2 \circ f \Rightarrow g_1 = g_2\]</span></p>
 <li><p>coslice category</p></li>
 <li><p>comma category (mentioned, undefined)</p></li>
 <li><p>pointed set</p></li>
-<li><p><span class="math inline">\(C^{A, B}\)</span> category ??</p></li>
+<li><p><span class="math inline">\(C^{A, B}\)</span> category ?? (bislice, bicoslice, fibered bislice, fibered bicoslice)</p></li>
+<li><p>dual category</p></li>
+</ul>
+<h3 class="unnumbered" id="section-4">Section 4</h3>
+<ul>
+<li><p>automorphism</p></li>
+</ul>
+<h3 class="unnumbered" id="section-5">Section 5</h3>
+<ul>
+<li><p>universal property</p></li>
+<li><p>initial object</p></li>
+<li><p>final object</p></li>
+<li><p>terminal object</p></li>
+<li><p>(categorical) product</p></li>
+<li><p>(categorical) coproduct</p></li>
+<li><p>(categorical) pullback / fibered product</p></li>
+<li><p>(categorical) pushout / fibered coproduct</p></li>
+<li><p>(set) pullback / fibered product</p></li>
+<li><p>(set) pushout / fibered coproduct</p></li>
 </ul>
 </body>
 </html>

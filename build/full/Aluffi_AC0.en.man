@@ -3,6 +3,8 @@
 .\"
 .TH "" "" "" "" ""
 .hy
+.PP
+\f[C]row sep=normal, column sep=normal\f[R]
 .SH Summaries
 .PP
 Chapter I)
@@ -87,15 +89,15 @@ Set (not a multiset)
 .IP \[bu] 2
 \[es]: the empty set, containing no elements;
 .IP \[bu] 2
-N: the set of natural numbers (that is, nonnegative integers);
+\[u2115]: the set of natural numbers (that is, nonnegative integers);
 .IP \[bu] 2
-Z: the set of integers;
+\[u2124]: the set of integers;
 .IP \[bu] 2
-Q: the set of rational numbers;
+\[u211A]: the set of rational numbers;
 .IP \[bu] 2
-R: the set of real numbers;
+\[u211D]: the set of real numbers;
 .IP \[bu] 2
-C: the set of complex numbers.
+\[u2102]: the set of complex numbers.
 .IP \[bu] 2
 Singleton:
 .IP \[bu] 2
@@ -139,7 +141,7 @@ transitivity
 .IP \[bu] 2
 partition
 .IP \[bu] 2
-quotient by an equivalence relation
+/\[ap]: quotient by an equivalence relation
 .SS Section 2
 .IP \[bu] 2
 function
@@ -224,11 +226,21 @@ universal property
 .IP \[bu] 2
 initial object
 .IP \[bu] 2
+final object
+.IP \[bu] 2
 terminal object
 .IP \[bu] 2
 (categorical) product
 .IP \[bu] 2
 (categorical) coproduct
+.IP \[bu] 2
+(categorical) pullback / fibered product
+.IP \[bu] 2
+(categorical) pushout / fibered coproduct
+.IP \[bu] 2
+(set) pullback / fibered product
+.IP \[bu] 2
+(set) pushout / fibered coproduct
 .SH Exercise solutions
 .SS Chapter I)
 .SS Section 1)
@@ -926,9 +938,9 @@ $$\[rs]begin{aligned}
 $$\[rs]begin{aligned}
     h \[rs]star (g \[rs]star f) &=&  h \[rs]star (f  \[rs]circ g) \[rs]\[rs]
                         &=& (f \[rs]circ  g) \[rs]circ h  \[rs]\[rs]
-                        &=&  f \[rs]circ  (g \[rs]circ h) \[rs]\[rs]
-                        &=&  (g \[rs]circ h) \[rs]star f  \[rs]\[rs]
-                        &=&  (h \[rs]star g) \[rs]star f  \[rs]\[rs]
+                        &=&  f \[rs]circ (g  \[rs]circ h) \[rs]\[rs]
+                        &=& (g \[rs]circ  h) \[rs]star f  \[rs]\[rs]
+                        &=& (h \[rs]star  g) \[rs]star f  \[rs]\[rs]
 \[rs]end{aligned}$$
 .RE
 .PP
@@ -2340,7 +2352,7 @@ They can be diagrammed as follows.
 .PP
 Morphisms are defined between objects as
 .PP
-such that the following diagram commutes
+such that the following diagram commutes in \f[B]Set\f[R]
 .PP
 Let us call \f[I]I\f[R] the following object of
 $\[rs]text{\[rs]textbf{Set}}\[ha]{A,B}$, where
@@ -2358,6 +2370,635 @@ Consequently, using prop 5.4., the fact that if an initial object
 exists, it is unique up-to-isomorphism, we conclude that
 \f[I]A\f[R]\[coproduct]\f[I]B\f[R] is unique up-to-isomorphism.
 .SS 5.8)
+.PP
+Show that in every category \[u1D49E] the products
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R] and
+\f[I]B\f[R]\[u2005]\[tmu]\[u2005]\f[I]A\f[R] are isomorphic, if they
+exist.
+(Hint: observe that they both satisfy the universal property for the
+product of \f[I]A\f[R] and \f[I]B\f[R], then use Proposition 5.4.)
+.PP
+Let us first remind the definition of the product of two sets.
+It is the set made of all pairs of \f[I]A\f[R] and \f[I]B\f[R] (ordered
+sequences of two elements, where the first element in the sequence comes
+from \f[I]A\f[R] and the second comes from \f[I]B\f[R]) It is the
+structure such that the following diagram commutes, and
+(\f[I]f\f[R],\[u2006]\f[I]g\f[R]) is unique.
+.PP
+Now to extend the diagram to consider both
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R] and
+\f[I]B\f[R]\[u2005]\[tmu]\[u2005]\f[I]A\f[R].
+.PP
+We seek to prove that given such a commutative diagram (with a unique
+(\f[I]f\f[R],\[u2006]\f[I]g\f[R]) and
+(\f[I]g\f[R],\[u2006]\f[I]f\f[R])), which we will call \f[I]D\f[R], then
+we have
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R]\[u2004]\[|=]\[u2004]\f[I]B\f[R]\[u2005]\[tmu]\[u2005]\f[I]A\f[R].
+.PP
+We define $\[rs]text{\[rs]textbf{Set}}_{A,B}$ as the \[dq]bislice
+category of \f[I]A\f[R] and \f[I]B\f[R] over \f[B]Set\f[R]\[dq].
+Objects in this category are pairs of morphisms
+(\f[I]f\f[R],\[u2006]\f[I]g\f[R]) from sets \f[I]Z\f[R], into
+\f[I]A\f[R] and \f[I]B\f[R], respectively.
+They can be diagrammed as follows.
+.PP
+Morphisms are defined between objects as
+.PP
+such that the following diagram commutes in \f[B]Set\f[R]:
+.PP
+We now define the following objects:
+.PP
+and
+.PP
+Using the diagram \f[I]D\f[R] defined above, and the definition of a
+product (ie, that the maps from any \f[I]Z\f[R] to it in the appropriate
+configuration are unique).
+We deduce that both \f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R] and
+\f[I]B\f[R]\[u2005]\[tmu]\[u2005]\f[I]A\f[R] are final objects in
+$\[rs]text{\[rs]textbf{Set}}_{A,B}$.
+Finally, using Proposition 5.4, i.e., that final objects in a category
+are unique up-to-isomorphism, we conclude that
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R]\[u2004]\[|=]\[u2004]\f[I]B\f[R]\[u2005]\[tmu]\[u2005]\f[I]A\f[R].
+.SS 5.9)
+.PP
+Let \[u1D49E] be a category with products.
+Find a reasonable candidate for the universal property that the product
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R]\[u2005]\[tmu]\[u2005]\f[I]C\f[R]
+of three objects of \[u1D49E] ought to satisfy, and prove that both
+(\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])\[u2005]\[tmu]\[u2005]\f[I]C\f[R]
+and
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005](\f[I]B\f[R]\[u2005]\[tmu]\[u2005]\f[I]C\f[R])
+satisfy this universal property.
+Deduce that
+(\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])\[u2005]\[tmu]\[u2005]\f[I]C\f[R]
+and
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005](\f[I]B\f[R]\[u2005]\[tmu]\[u2005]\f[I]C\f[R])
+are necessarily isomorphic.
+.PP
+Given 3 objects \f[I]A\f[R],\[u2006]\f[I]B\f[R],\[u2006]\f[I]C\f[R] of
+\[u1D49E].
+We propose the following universal property that
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R]\[u2005]\[tmu]\[u2005]\f[I]C\f[R]
+should respect: for all objects \f[I]Z\f[R] of \[u1D49E], and triplet of
+maps \f[I]f\f[R], \f[I]g\f[R], and \f[I]h\f[R] from \f[I]Z\f[R] to
+\f[I]A\f[R], \f[I]B\f[R] and \f[I]C\f[R] respectively, there exists a
+unique triplet-map (\f[I]f\f[R],\[u2006]\f[I]g\f[R],\[u2006]\f[I]h\f[R])
+is unique such that the following diagram commutes.
+.PP
+We will now show that both
+(\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])\[u2005]\[tmu]\[u2005]\f[I]C\f[R]
+and
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005](\f[I]B\f[R]\[u2005]\[tmu]\[u2005]\f[I]C\f[R])
+satisfy this universal property.
+.SS 5.9.a)
+.PP
+We start with
+.PP
+and
+.PP
+From both of these universal products, we deduce the following
+commutative diagram.
+.SS 5.9.b)
+.PP
+We start with
+.PP
+and
+.PP
+From both of these universal products we deduce the following
+commutative diagram:
+.SS 5.9.c)
+.PP
+We now consider the
+\[u1D49E]~\f[I]A\f[R],\[u2006]\f[I]B\f[R],\[u2006]\f[I]C\f[R]~ as the
+\[dq]trislice category of \f[I]A\f[R], \f[I]B\f[R] and \f[I]C\f[R] over
+\[u1D49E]\[dq].
+Objects in this category are of the form:
+.PP
+Morphisms are defined between objects as:
+.PP
+such that there exists a \f[I]\[*s]\f[R] making the following diagram
+commute in \[u1D49E]:
+.PP
+We now define the following object:
+.PP
+and using the two universal properties we have shown above, we know that
+necessarily
+(\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])\[u2005]\[tmu]\[u2005]\f[I]C\f[R]
+and
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005](\f[I]B\f[R]\[u2005]\[tmu]\[u2005]\f[I]C\f[R])
+are terminal objects in
+\[u1D49E]~\f[I]A\f[R],\[u2006]\f[I]B\f[R],\[u2006]\f[I]C\f[R]~ (because
+they are final objects in the bislice category, given that
+((\f[I]f\f[R],\[u2006]\f[I]g\f[R]),\[u2006]\f[I]h\f[R]) and
+(\f[I]f\f[R],\[u2006](\f[I]g\f[R],\[u2006]\f[I]h\f[R])) are both unique,
+and we can compose
+\f[I]p\f[R]~\f[I]A\f[R]~\[u2005]\[u2218]\[u2005]\f[I]p\f[R]~\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R]~,
+etc, to get immediate projections).
+We use Proposition 5.4 to deduce that
+(\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])\[u2005]\[tmu]\[u2005]\f[I]C\f[R]
+and
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005](\f[I]B\f[R]\[u2005]\[tmu]\[u2005]\f[I]C\f[R]),
+as terminal objects in
+\[u1D49E]~\f[I]A\f[R],\[u2006]\f[I]B\f[R],\[u2006]\f[I]C\f[R]~, are
+necessarily isomorphic.
+Therefore, given this \[dq]associativity up-to-isomorphism\[dq] of a
+triple product, it is legitimate to call
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R]\[u2005]\[tmu]\[u2005]\f[I]C\f[R]
+(with no parentheses) \[dq]the\[dq] (unique, up-to-isomorphism) final
+object in
+\[u1D49E]~\f[I]A\f[R],\[u2006]\f[I]B\f[R],\[u2006]\f[I]C\f[R]~.
+.SS 5.10)
+.PP
+Push the envelope a little further still, and de\[fi]ne products and
+coproducts for families (i.e., indexed sets) of objects of a category.
+Do these exist in \f[B]Set\f[R]?
+It is common to denote the product
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\[u2005]\[md]\[u2005]\[u2005]\[md]\[u2005]\[u2005]\[md]\[u2005]\[u2005]\[tmu]\[u2005]\f[I]A\f[R]
+(\f[I]n\f[R] times) by \f[I]A\f[R]^\f[I]n\f[R]^.
+.PP
+Let \[u2131] be an (ordered) family of objects in some category
+\[u1D49E].
+A product of the elements of \[u2131] is defined as an object
+\f[I]P\f[R] of \[u1D49E] together with a family of morphisms
+{\f[I]p\f[R]~\f[I]A\f[R]~\[u2004]:\[u2004]\f[I]P\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]}~\f[I]A\f[R]\[u2004]\[mo]\[u2004]\[u2131]~
+such that for any object \f[I]Z\f[R] and family of morphisms
+{\f[I]f\f[R]~\f[I]A\f[R]~\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]}~\f[I]A\f[R]\[u2004]\[mo]\[u2004]\[u2131]~,
+there exists a unique morphism
+\f[I]f\f[R]\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]P\f[R]
+such that the following diagram commutes for all
+\f[I]A\f[R]\[u2004]\[mo]\[u2004]\[u2131]:
+.PP
+These exist in \f[B]Set\f[R] for all finite families of sets, however,
+for infinite families of sets, their existence is conditional on the
+(famous) axiom of choice (it is actually precisely the point of the
+axiom of choice).
+.SS 5.11)
+.PP
+Let \f[I]A\f[R], resp.
+\f[I]B\f[R] be sets, endowed with equivalence relations
+\[ap]~\f[I]A\f[R]~ , resp.
+\[ap]~\f[I]B\f[R]~.
+Define a relation \[ap] on \f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R]
+by setting
+(\f[I]a\f[R]~1~,\[u2006]\f[I]b\f[R]~1~)\[u2004]\[ap]\[u2004](\f[I]a\f[R]~2~,\[u2006]\f[I]b\f[R]~2~)\[u2004]\[hA]\[u2004]\f[I]a\f[R]~1~\[ap]~\f[I]A\f[R]~\f[I]a\f[R]~2~ and \f[I]b\f[R]~1~\[ap]~\f[I]B\f[R]~\f[I]b\f[R]~2~.
+(This is immediately seen to be an equivalence relation.)
+.IP \[bu] 2
+Use the universal property for quotients (\[sc]5.3) to establish that
+there are functions
+(\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])/\[u2004]\[ap]\[u2004]\[u2004]\[->]\[u2004]\f[I]A\f[R]/\[ap]~\f[I]A\f[R]~,
+and
+(\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])/\[u2004]\[ap]\[u2004]\[u2004]\[->]\[u2004]\f[I]B\f[R]/\[ap]~\f[I]B\f[R]~;
+.IP \[bu] 2
+prove that (\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])/\[ap], with
+these two functions, satisfies the universal property for the product of
+\f[I]A\f[R]/\[ap]~\f[I]A\f[R]~ and \f[I]B\f[R]/\[ap]~\f[I]B\f[R]~;
+.IP \[bu] 2
+conclude (without further work) that
+(\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])/\[u2004]\[|=]\[u2004](\f[I]A\f[R]/\[ap]~\f[I]A\f[R]~)\[u2005]\[tmu]\[u2005](\f[I]B\f[R]/\[ap]~\f[I]B\f[R]~).
+.SS 5.11.a
+.PP
+First, we remind the universal property for quotients.
+Given an equivalence relation \[ap] over a set \f[I]A\f[R], there is a
+single map
+\f[I]\[*p]\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]/\[ap]
+such that for any map
+\f[I]f\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]
+such that
+\f[I]f\f[R](\f[I]a\f[R]~1~)\[u2004]=\[u2004]\f[I]f\f[R](\f[I]a\f[R]~2~)
+whenever \f[I]a\f[R]~1~\[u2004]\[ap]\[u2004]\f[I]a\f[R]~2~ (i.e., the
+morphism \f[I]f\f[R] is \[dq]well-defined\[dq] for the equivalence
+relation \[ap]), there exists a unique map
+$\[rs]overline{f} : A/\[rs]sim \[rs]to Z$ such that
+$f = \[rs]overline{f} \[rs]circ \[rs]pi$.
+This is summarized in the following commutative diagram:
+.PP
+We first apply the universal property of products to obtain the
+following commutative diagram:
+.PP
+We now consider a well-defined map
+\f[I]f\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]
+(i.e.,
+\f[I]f\f[R](\f[I]a\f[R]~1~,\[u2006]\f[I]b\f[R]~1~)\[u2004]=\[u2004]\f[I]f\f[R](\f[I]a\f[R]~2~,\[u2006]\f[I]b\f[R]~2~)
+whenever
+(\f[I]a\f[R]~1~,\[u2006]\f[I]b\f[R]~1~)\[u2004]\[ap]\[u2004](\f[I]a\f[R]~2~,\[u2006]\f[I]b\f[R]~2~)).
+We now apply the universal property of quotients to the relation \[ap]
+defined over \f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R].
+We define the map
+\f[I]\[*p]\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R]\[u2004]\[->]\[u2004](\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])/\[ap]
+as
+\f[I]\[*p]\f[R](\f[I]a\f[R],\[u2006]\f[I]b\f[R])\[u2004]=\[u2004][(\f[I]a\f[R],\[u2006]\f[I]b\f[R])]~\[ap]~.
+We define the map
+$\[rs]overline{f} : (A \[rs]times B)/\[rs]sim \[rs]to Z$ as
+$\[rs]overline{f}([(a,b)]_\[rs]sim) = f(a,b)$.
+We remind that such an \f[I]f\f[R] is unique, and that
+$\[rs]overline{f} \[rs]circ \[rs]pi = f$.
+.PP
+We do a similar construction for \f[I]A\f[R]/\[ap]~\f[I]A\f[R]~ with
+\f[I]f\f[R]~\f[I]A\f[R]~ and \f[I]B\f[R]/\[ap]~\f[I]B\f[R]~ with
+\f[I]f\f[R]~\f[I]B\f[R]~.
+We can do so since these maps are also well-defined.
+Indeed, we have:
+.PP
+.RS
+$$\[rs]begin{array}{l}
+    \[rs]left\[rs]{
+    \[rs]begin{array}{l}
+        (a_1, b_1) \[rs]sim (a_2, b_2) \[rs]\[rs]
+        (a_1, b_1) \[rs]sim (a_2, b_2) \[rs]Rightarrow f(a_1, b_1) = f(a_2, b_2) \[rs]\[rs]
+        f = f_A \[rs]circ p_A \[rs]\[rs]
+        f = f_B \[rs]circ p_B
+    \[rs]end{array}
+    \[rs]right.
+\[rs]cr \[rs]Rightarrow \[rs]\[rs]
+    \[rs]left\[rs]{
+    \[rs]begin{array}{l}
+        a_1 \[rs]sim_A a_2 \[rs]text{ and } b_1 \[rs]sim_B b_2 \[rs]\[rs]
+        f_A(p_A(a_1, b_1)) = f_A(p_A(a_2, b_2)) \[rs]\[rs]
+        f_B(p_B(a_1, b_1)) = f_B(p_B(a_2, b_2)) 
+    \[rs]end{array}
+    \[rs]right.
+\[rs]cr \[rs]Rightarrow \[rs]\[rs]
+    \[rs]left\[rs]{
+    \[rs]begin{array}{l}
+        f_A(a_1) = f_A(a_2) \[rs]\[rs]
+        f_B(b_1) = f_B(b_2) 
+    \[rs]end{array}
+    \[rs]right.
+\[rs]end{array}$$
+.RE
+.PP
+The combination of all previous steps gives us the following commutative
+diagram.
+.PP
+Let us recap a little what\[cq]s in diagram a little, to show that it is
+a justified construction:
+.IP \[bu] 2
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R] is a product, and so we may
+obtain \f[I]p\f[R]~\f[I]A\f[R]~, \f[I]p\f[R]~\f[I]B\f[R]~,
+\f[I]f\f[R]~\f[I]A\f[R]~, and \f[I]f\f[R]~\f[I]B\f[R]~;
+.IP \[bu] 2
+\f[I]f\f[R] is well-defined for the equivalence relation \[ap], and so
+we may obtain $\[rs]overline{f}$ and \f[I]\[*p]\f[R];
+.IP \[bu] 2
+\f[I]f\f[R]~\f[I]A\f[R]~ is well-defined for the equivalence relation
+\[ap]~\f[I]A\f[R]~, and so we may obtain $\[rs]overline{f_A}$ and
+\f[I]\[*p]\f[R]~\f[I]A\f[R]~;
+.IP \[bu] 2
+\f[I]f\f[R]~\f[I]B\f[R]~ is well-defined for the equivalence relation
+\[ap]~\f[I]B\f[R]~, and so we may obtain $\[rs]overline{f_B}$ and
+\f[I]\[*p]\f[R]~\f[I]B\f[R]~;
+.PP
+Therefore, using the maps
+\f[I]\[*P]\f[R]~\f[I]A\f[R]~\[u2004]=\[u2004]\f[I]\[*p]\f[R]~\f[I]A\f[R]~\[u2005]\[u2218]\[u2005]\f[I]p\f[R]~\f[I]A\f[R]~\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])\[u2004]\[->]\[u2004]\f[I]A\f[R]/\[ap]~\f[I]A\f[R]~
+and
+\f[I]\[*P]\f[R]~\f[I]B\f[R]~\[u2004]=\[u2004]\f[I]\[*p]\f[R]~\f[I]B\f[R]~\[u2005]\[u2218]\[u2005]\f[I]p\f[R]~\f[I]B\f[R]~\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])\[u2004]\[->]\[u2004]\f[I]B\f[R]/\[ap]~\f[I]B\f[R]~,
+we can \[dq]quotient through\[dq] (i.e., use the universal property of
+quotient) (\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])/\[ap].
+This gives us the following commutative diagram (compatible with the one
+above, but it\[cq]s too messy to represent both at the same time):
+.PP
+These are precisely our functions
+\f[I]\[*P]\f[R]~\f[I]A\f[R]~\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])/\[u2004]\[ap]\[u2004]\[u2004]\[->]\[u2004]\f[I]A\f[R]/\[ap]~\f[I]A\f[R]~
+and
+\f[I]\[*P]\f[R]~\f[I]B\f[R]~\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])/\[u2004]\[ap]\[u2004]\[u2004]\[->]\[u2004]\f[I]B\f[R]/\[ap]~\f[I]B\f[R]~,
+and they are unique, as per the universal property of quotients.
+.SS 5.11.b)
+.PP
+What we wish to prove now is that
+(\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])/\[ap] is the product of
+\f[I]A\f[R]/\[ap]~\f[I]A\f[R]~ and \f[I]B\f[R]/\[ap]~\f[I]B\f[R]~.
+Said otherwise, we wish to show that, for all \f[I]Z\f[R],
+\f[I]g\f[R]~\f[I]A\f[R]~ and \f[I]g\f[R]~\f[I]B\f[R]~ in the appropriate
+configuration, the following diagram commutes:
+.PP
+Using the fact that (\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R]) is
+already a product, and studying maps \f[I]h\f[R]~\f[I]A\f[R]~ and
+\f[I]h\f[R]~\f[I]B\f[R]~ from \f[I]Z\f[R] into \f[I]A\f[R] and
+\f[I]B\f[R] respectively, we can make the following commutative diagram:
+.PP
+The internal parts of the diagram (except \f[I]h\f[R]~\f[I]A\f[R]~ and
+\f[I]h\f[R]~\f[I]B\f[R]~ which are arbitrary, all other arrows are
+unique morphisms) force \f[I]g\f[R]~\f[I]A\f[R]~ and
+\f[I]g\f[R]~\f[I]B\f[R]~ to commute with the rest of the diagram: any
+pairs of maps \f[I]g\f[R]~\f[I]A\f[R]~ and \f[I]g\f[R]~\f[I]B\f[R]~ that
+make the diagram commute must necessarily be constrained by the existing
+morphisms (as the composition of unique morphisms).
+Any choice of maps \f[I]g\f[R]~\f[I]A\f[R]~ and \f[I]g\f[R]~\f[I]B\f[R]~
+must respect
+\f[I]g\f[R]~\f[I]A\f[R]~\[u2004]=\[u2004]\f[I]\[*p]\f[R]~\f[I]A\f[R]~\[u2005]\[u2218]\[u2005]\f[I]h\f[R]~\f[I]A\f[R]~
+and
+\f[I]g\f[R]~\f[I]B\f[R]~\[u2004]=\[u2004]\f[I]\[*p]\f[R]~\f[I]B\f[R]~\[u2005]\[u2218]\[u2005]\f[I]h\f[R]~\f[I]B\f[R]~,
+for corresponding arbitrary (but inferred) \f[I]h\f[R]~\f[I]A\f[R]~ and
+\f[I]h\f[R]~\f[I]B\f[R]~; said otherwise, maps \f[I]g\f[R]~\f[I]A\f[R]~
+and \f[I]g\f[R]~\f[I]B\f[R]~ in this configuration can only exist if
+they make the diagram commute.
+Therefore, we have shown that
+(\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])/\[ap] satisfies the
+universal property of the product of \f[I]A\f[R]/\[ap]~\f[I]A\f[R]~ and
+\f[I]B\f[R]/\[ap]~\f[I]B\f[R]~, and we have
+(\f[I]g\f[R]~\f[I]A\f[R]~.\f[I]g\f[R]~\f[I]B\f[R]~)\[u2004]=\[u2004]\f[I]\[*p]\f[R]\[u2005]\[u2218]\[u2005](\f[I]h\f[R]~\f[I]A\f[R]~,\[u2006]\f[I]h\f[R]~\f[I]B\f[R]~)
+(though it\[cq]s not shown on the above diagram, in order to improve
+legibility).
+.PP
+Conclusion:
+(\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R])/\[u2004]\[|=]\[u2004](\f[I]A\f[R]/\[ap]~\f[I]A\f[R]~)\[u2005]\[tmu]\[u2005](\f[I]B\f[R]/\[ap]~\f[I]B\f[R]~)
+.SS 5.12)
+.PP
+Define notions of fibered products and coproducts, as terminal objects
+of the categories \[u1D49E]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~,
+\f[I]C\f[R]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^ considered in
+Example 3.10 (cf.
+also Exercise 3.11), by stating carefully the corresponding universal
+properties.
+As it happens, \f[B]Set\f[R] has both fibered products and coproducts.
+Define these objects \[cq]concretely\[cq], in terms of naive set theory.
+[II.3.9, III.6.10, III.6.11]
+.SS 5.12.a)
+.PP
+We first define the fibered product (or \[dq]pullback\[dq]).
+We suggest the reader goes to check section 3.11.3 of this exercises
+solutions document for a refresher on the concept \[dq]fibered bislice
+category\[dq] \[u1D49E]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~.
+We will use the same notation, i.e., fixing two morphisms
+\f[I]\[*a]\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]C\f[R]
+and
+\f[I]\[*b]\f[R]\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]C\f[R]
+(with common codomain) in a category \[u1D49E].
+.PP
+This means, for any generic object
+(\f[I]Z\f[R],\[u2006]\f[I]f\f[R],\[u2006]\f[I]g\f[R]) of
+\[u1D49E]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~, we have the
+following diagram:
+.PP
+We first propose a candidate for what it means to be a \[dq]fibered
+product\[dq], which we will be able to show is a final object in
+\[u1D49E]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~.
+A fibered product \f[I]P\f[R] of \f[I]A\f[R] and \f[I]B\f[R] over
+\f[I]C\f[R] in a category \[u1D49E] is an object \f[I]P\f[R] together
+with morphisms
+\f[I]p\f[R]~\f[I]A\f[R]~\[u2004]:\[u2004]\f[I]P\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]
+and
+\f[I]p\f[R]~\f[I]B\f[R]~\[u2004]:\[u2004]\f[I]P\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]
+such that for any object \f[I]Z\f[R] in \[u1D49E] and morphisms
+\f[I]f\f[R]\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]
+and
+\f[I]g\f[R]\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]
+such that
+\f[I]\[*a]\f[R]\[u2005]\[u2218]\[u2005]\f[I]f\f[R]\[u2004]=\[u2004]\f[I]\[*b]\f[R]\[u2005]\[u2218]\[u2005]\f[I]g\f[R],
+there exists a unique morphism
+\f[I]h\f[R]\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]P\f[R]
+such that the following diagram commutes:
+.PP
+We will now show that this object \f[I]P\f[R] induces a terminal object
+in \[u1D49E]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~; this boils down
+to showing that
+(\f[I]P\f[R],\[u2006]\f[I]p\f[R]~\f[I]A\f[R]~,\[u2006]\f[I]p\f[R]~\f[I]B\f[R]~)
+is final in \[u1D49E]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~.
+Let (\f[I]Z\f[R],\[u2006]\f[I]f\f[R],\[u2006]\f[I]g\f[R]) be an
+arbitrary object of \[u1D49E]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~.
+A morphism \f[I]\[*s]\f[R] from
+(\f[I]Z\f[R],\[u2006]\f[I]f\f[R],\[u2006]\f[I]g\f[R]) to
+(\f[I]P\f[R],\[u2006]\f[I]p\f[R]~\f[I]A\f[R]~,\[u2006]\f[I]p\f[R]~\f[I]B\f[R]~)
+is a \[dq]raising\[dq] of a morphism
+\f[I]h\f[R]\[u2004]:\[u2004]\f[I]Z\f[R]\[u2004]\[->]\[u2004]\f[I]P\f[R]
+such that
+\f[I]p\f[R]~\f[I]A\f[R]~\[u2005]\[u2218]\[u2005]\f[I]h\f[R]\[u2004]=\[u2004]\f[I]f\f[R]
+and
+\f[I]p\f[R]~\f[I]B\f[R]~\[u2005]\[u2218]\[u2005]\f[I]h\f[R]\[u2004]=\[u2004]\f[I]g\f[R].
+This raising \f[I]\[*s]\f[R] is unique if and only if \f[I]h\f[R] is
+unique.
+Since \f[I]P\f[R] is presupposed to verify the universal property, such
+an \f[I]h\f[R], if it exists, is indeed unique.
+Therefore,
+(\f[I]P\f[R],\[u2006]\f[I]p\f[R]~\f[I]A\f[R]~,\[u2006]\f[I]p\f[R]~\f[I]B\f[R]~)
+is final (\f[I]a fortiori\f[R] terminal) in
+\[u1D49E]~\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]~.
+.SS 5.12.b)
+.PP
+We now define the fibered coproduct (or \[dq]pushout\[dq]).
+We suggest the reader goes to check section 3.11.4 of this exercises
+solutions document for a refresher on the \[dq]fibered bicoslice
+category\[dq] \f[I]C\f[R]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^.
+We will use the same notation, i.e., fixing two morphisms
+\f[I]\[*a]\f[R]\[u2004]:\[u2004]\f[I]C\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]
+and
+\f[I]\[*b]\f[R]\[u2004]:\[u2004]\f[I]C\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]
+(with common domain) in a category \[u1D49E].
+.PP
+This means, for any generic object
+(\f[I]f\f[R],\[u2006]\f[I]g\f[R],\[u2006]\f[I]Z\f[R]) of
+\f[I]C\f[R]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^, we have the
+following diagram:
+.PP
+We first propose a candidate for what it means to be a \[dq]fibered
+coproduct\[dq], which we will be able to show is an initial object in
+\f[I]C\f[R]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^.
+A fibered coproduct \f[I]P\f[R] of \f[I]A\f[R] and \f[I]B\f[R] over
+\f[I]C\f[R] in a category \[u1D49E] is an object \f[I]P\f[R] together
+with morphisms
+\f[I]p\f[R]~\f[I]A\f[R]~\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]P\f[R]
+and
+\f[I]p\f[R]~\f[I]B\f[R]~\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]P\f[R]
+such that for any object \f[I]Z\f[R] in \[u1D49E] and morphisms
+\f[I]f\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]
+and
+\f[I]g\f[R]\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]
+such that
+\f[I]f\f[R]\[u2005]\[u2218]\[u2005]\f[I]\[*a]\f[R]\[u2004]=\[u2004]\f[I]g\f[R]\[u2005]\[u2218]\[u2005]\f[I]\[*b]\f[R],
+there exists a unique morphism
+\f[I]h\f[R]\[u2004]:\[u2004]\f[I]P\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]
+such that the following diagram commutes:
+.PP
+We will now show that this object \f[I]P\f[R] induces an initial object
+in \f[I]C\f[R]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^; this boils down
+to showing that
+(\f[I]i\f[R]~\f[I]A\f[R]~,\[u2006]\f[I]i\f[R]~\f[I]B\f[R]~,\[u2006]\f[I]P\f[R])
+is initial in \f[I]C\f[R]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^.
+Let (\f[I]f\f[R],\[u2006]\f[I]g\f[R],\[u2006]\f[I]Z\f[R]) be an
+arbitrary object of
+\f[I]C\f[R]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^.
+A morphism \f[I]\[*s]\f[R] from
+(\f[I]i\f[R]~\f[I]A\f[R]~,\[u2006]\f[I]i\f[R]~\f[I]B\f[R]~,\[u2006]\f[I]P\f[R])
+to (\f[I]f\f[R],\[u2006]\f[I]g\f[R],\[u2006]\f[I]Z\f[R]) is a
+\[dq]raising\[dq] of a morphism
+\f[I]h\f[R]\[u2004]:\[u2004]\f[I]P\f[R]\[u2004]\[->]\[u2004]\f[I]Z\f[R]
+such that
+\f[I]h\f[R]\[u2005]\[u2218]\[u2005]\f[I]i\f[R]~\f[I]A\f[R]~\[u2004]=\[u2004]\f[I]f\f[R]
+and
+\f[I]h\f[R]\[u2005]\[u2218]\[u2005]\f[I]i\f[R]~\f[I]B\f[R]~\[u2004]=\[u2004]\f[I]g\f[R].
+This lowering \f[I]\[*s]\f[R] is unique if and only if \f[I]h\f[R] is
+unique.
+Since \f[I]P\f[R] is presupposed to verify the universal property, such
+an \f[I]h\f[R], if it exists, is indeed unique.
+Therefore,
+(\f[I]i\f[R]~\f[I]A\f[R]~,\[u2006]\f[I]i\f[R]~\f[I]B\f[R]~,\[u2006]\f[I]P\f[R])
+is initial (\f[I]a fortiori\f[R] terminal) in
+\f[I]C\f[R]^\f[I]\[*a]\f[R],\[u2006]\f[I]\[*b]\f[R]^.
+.SS 5.12.c)
+.PP
+(I wouldn\[cq]t have come up with this without Wikipedia as a hint...)
+.PP
+In \f[B]Set\f[R], the fibered product (pullback) of
+(\f[I]A\f[R],\[u2006]\f[I]\[*a]\f[R]) and
+(\f[I]B\f[R],\[u2006]\f[I]\[*b]\f[R]) over \f[I]C\f[R], is a special
+subset of the cartesian product
+\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R] that registers some extra
+information, pertaining to the functions \f[I]\[*a]\f[R] and
+\f[I]\[*b]\f[R].
+We write this object as
+\f[I]P\f[R]\[u2004]=\[u2004]\f[I]A\f[R]\[tmu]~\f[I]\[*a]\f[R],\[u2006]\f[I]C\f[R],\[u2006]\f[I]\[*b]\f[R]~\f[I]B\f[R]\[u2004]=\[u2004]\f[I]A\f[R]\[tmu]~\f[I]C\f[R]~\f[I]B\f[R]\[u2004]=\[u2004]{(\f[I]a\f[R],\[u2006]\f[I]b\f[R])\[u2004]\[mo]\[u2004]\f[I]A\f[R]\[u2005]\[tmu]\[u2005]\f[I]B\f[R]\[u2225]\f[I]\[*a]\f[R](\f[I]a\f[R])\[u2004]=\[u2004]\f[I]\[*b]\f[R](\f[I]b\f[R])}.
+.PP
+Concretely, this can also be expressed as
+.RS
+\f[I]P\f[R]\[u2004]=\[u2004]\[u22C3]~\f[I]c\f[R]\[u2004]\[mo]\[u2004]\f[I]\[*a]\f[R](\f[I]A\f[R])\[u2005]\[ca]\[u2005]\f[I]\[*b]\f[R](\f[I]B\f[R])~\f[I]\[*a]\f[R]^\[u2005]\[mi]\[u2005]1^[{\f[I]c\f[R]}]\[u2005]\[tmu]\[u2005]\f[I]\[*b]\f[R]^\[u2005]\[mi]\[u2005]1^[{\f[I]c\f[R]}]
+.RE.
+This is the set of all pairs (\f[I]a\f[R],\[u2006]\f[I]b\f[R]) such that
+\f[I]\[*a]\f[R](\f[I]a\f[R])\[u2004]=\[u2004]\f[I]\[*b]\f[R](\f[I]b\f[R]).
+Let us show this is the case with a simple example.
+.PP
+Let \f[I]A\f[R]\[u2004]=\[u2004]{1,\[u2006]2,\[u2006]3},
+\f[I]B\f[R]\[u2004]=\[u2004]{\f[I]w\f[R],\[u2006]\f[I]x\f[R],\[u2006]\f[I]y\f[R],\[u2006]\f[I]z\f[R]},
+and
+\f[I]C\f[R]\[u2004]=\[u2004]{\f[I]l\f[R],\[u2006]\f[I]m\f[R],\[u2006]\f[I]n\f[R],\[u2006]\f[I]p\f[R]}.
+We define
+\f[I]\[*a]\f[R]\[u2004]:\[u2004]\f[I]A\f[R]\[u2004]\[->]\[u2004]\f[I]C\f[R]
+as
+{(1,\[u2006]\f[I]m\f[R]),\[u2006](2,\[u2006]\f[I]m\f[R]),\[u2006](3,\[u2006]\f[I]n\f[R])},
+and
+\f[I]\[*b]\f[R]\[u2004]:\[u2004]\f[I]B\f[R]\[u2004]\[->]\[u2004]\f[I]C\f[R]
+as
+{(\f[I]w\f[R],\[u2006]\f[I]l\f[R]),\[u2006](\f[I]x\f[R],\[u2006]\f[I]m\f[R]),\[u2006](\f[I]y\f[R],\[u2006]\f[I]n\f[R]),\[u2006](\f[I]z\f[R],\[u2006]\f[I]n\f[R])}.
+We have
+\f[I]\[*a]\f[R](\f[I]A\f[R])\[u2004]=\[u2004]{\f[I]m\f[R],\[u2006]\f[I]n\f[R]}
+and
+\f[I]\[*b]\f[R](\f[I]B\f[R])\[u2004]=\[u2004]{\f[I]l\f[R],\[u2006]\f[I]m\f[R],\[u2006]\f[I]n\f[R]},
+therefore
+\f[I]\[*a]\f[R](\f[I]A\f[R])\[u2005]\[ca]\[u2005]\f[I]\[*b]\f[R](\f[I]B\f[R])\[u2004]=\[u2004]{\f[I]m\f[R],\[u2006]\f[I]n\f[R]}.
+The fibered coproduct is then:
+.PP
+.RS
+$$\[rs]begin{array}{lll}
+P &=& (\[rs]alpha\[ha]{-1}[\[rs]{m\[rs]}] \[rs]times \[rs]beta\[ha]{-1}[\[rs]{m\[rs]}]) \[rs]; \[rs]cup \[rs]; (\[rs]alpha\[ha]{-1}[\[rs]{n\[rs]}] \[rs]times \[rs]beta\[ha]{-1}[\[rs]{n\[rs]}]) \[rs]\[rs]
+  &=& \[rs]{ (1,x), (2,x) \[rs]} \[rs]; \[rs]cup \[rs]; \[rs]{ (3,y), (3,z) \[rs]} \[rs]\[rs]
+  &=& \[rs]{ (1,x), (2,x), (3,y), (3,z) \[rs]}
+\[rs]end{array}$$
+.RE
+.PP
+A simple way to verify this is to verify that for each pair
+(\f[I]a\f[R],\[u2006]\f[I]b\f[R]) in \f[I]P\f[R],
+\f[I]\[*a]\f[R](\f[I]a\f[R])\[u2004]=\[u2004]\f[I]\[*b]\f[R](\f[I]b\f[R]),
+and that no such other pairs are missing.
+.SS 5.12.d)
+.PP
+https://math.stackexchange.com/questions/3021738/pushout-in-the-category-of-sets-proof
+.PP
+https://math.stackexchange.com/questions/2240882/understanding-an-example-of-a-pushout-in-mathbfset
+.PP
+In \f[B]Set\f[R], the fibered coproduct (pushout) of
+(\f[I]\[*a]\f[R],\[u2006]\f[I]A\f[R]) and
+(\f[I]\[*b]\f[R],\[u2006]\f[I]B\f[R]) over \f[I]C\f[R] is a special
+quotient of the disjoint union
+\f[I]A\f[R]\[u2005]\[u2294]\[u2005]\f[I]B\f[R] that registers some extra
+information, pertaining to the functions \f[I]\[*a]\f[R] and
+\f[I]\[*b]\f[R].
+We write this object as
+.RS
+\f[I]P\f[R]\[u2004]=\[u2004]\f[I]A\f[R]\[u2294]~\f[I]\[*a]\f[R],\[u2006]\f[I]C\f[R],\[u2006]\f[I]\[*b]\f[R]~\f[I]B\f[R]\[u2004]=\[u2004]\f[I]A\f[R]\[u2294]~\f[I]C\f[R]~\f[I]B\f[R]\[u2004]=\[u2004](\f[I]A\f[R]\[u2005]\[u2294]\[u2005]\f[I]B\f[R])/\[ap]
+.RE, where \[ap] is an equivalence relation
+\[u2004]\[ap]\[u2004]\[u2004]=\[u2004]\f[I]c\f[R]\f[I]l\f[R]~\f[I]e\f[R]\f[I]q\f[R]~(\f[I]R\f[R]),
+the equivalence closure of the relation
+.RS
+\f[I]R\f[R]\[u2004]=\[u2004]{((0,\[u2006]\f[I]a\f[R]),\[u2006](1,\[u2006]\f[I]b\f[R]))\[u2004]\[mo]\[u2004](\f[I]A\f[R]\[u2005]\[u2294]\[u2005]\f[I]B\f[R])\[u2005]\[tmu]\[u2005](\f[I]A\f[R]\[u2005]\[u2294]\[u2005]\f[I]B\f[R])\[u2225]\[te]\f[I]c\f[R]\[u2004]\[mo]\[u2004]\f[I]C\f[R],\[u2006]\f[I]a\f[R]\[u2004]=\[u2004]\f[I]\[*a]\f[R](\f[I]c\f[R]) and \f[I]b\f[R]\[u2004]=\[u2004]\f[I]\[*b]\f[R](\f[I]c\f[R])}
+.RE (i.e., two elements are equivalent if they are the output of some
+common \f[I]c\f[R], or if there is any chain of such equivalences
+between them).
+.PP
+(We remind that the equivalence closure, if elements of the set are seen
+as vertices and the relation pairs as edges of a graph, can be thought
+of, visually, as \[dq]completing the cliques\[dq] of each connected
+component in the graph, including self-loops; hence the idea that if
+there is any path between two elements, then they are equivalent and
+should be directly linked.
+We also remind that this corresponds uniquely to a partition of the set;
+the elements of which, called cosets, are what allow us to do an
+algebraic quotient.)
+.PP
+The fibered coproduct is the set \f[I]P\f[R] obtained by taking the
+disjoint union \f[I]A\f[R]\[u2005]\[u2294]\[u2005]\f[I]B\f[R] and
+identifying \f[I]a\f[R]\[u2004]\[mo]\[u2004]\f[I]A\f[R] with
+\f[I]b\f[R]\[u2004]\[mo]\[u2004]\f[I]B\f[R] if there exists
+\f[I]c\f[R]\[u2004]\[mo]\[u2004]\f[I]C\f[R] such that
+\f[I]\[*a]\f[R](\f[I]c\f[R])\[u2004]=\[u2004]\f[I]a\f[R] and
+\f[I]\[*b]\f[R](\f[I]c\f[R])\[u2004]=\[u2004]\f[I]b\f[R] (and all
+identifications that follow to keep the equality relation an equivalence
+relation).
+There is no more concrete of a definition than this; it really boils
+down to identifying elements with a common preimage element through
+\f[I]\[*a]\f[R]^\[u2005]\[mi]\[u2005]1^(\f[I]A\f[R]) and
+\f[I]\[*b]\f[R]^\[u2005]\[mi]\[u2005]1^(\f[I]B\f[R]) in \f[I]C\f[R], via
+an equivalence relation.
+.PP
+Let us show this is the case with a simple example.
+We will keep the elements of \f[I]A\f[R] and \f[I]B\f[R] distinct in
+order to remove the visual clutter that comes with the (0,\[u2006]...)
+and (1,\[u2006]...) of the general disjoint union.
+.PP
+Let \f[I]A\f[R]\[u2004]=\[u2004]{1,\[u2006]2,\[u2006]3},
+\f[I]B\f[R]\[u2004]=\[u2004]{\f[I]w\f[R],\[u2006]\f[I]x\f[R],\[u2006]\f[I]y\f[R],\[u2006]\f[I]z\f[R]},
+and
+\f[I]C\f[R]\[u2004]=\[u2004]{\f[I]l\f[R],\[u2006]\f[I]m\f[R],\[u2006]\f[I]n\f[R]}.
+We define
+\f[I]\[*a]\f[R]\[u2004]:\[u2004]\f[I]C\f[R]\[u2004]\[->]\[u2004]\f[I]A\f[R]
+as
+{(\f[I]l\f[R],\[u2006]1),\[u2006](\f[I]m\f[R],\[u2006]1),\[u2006](\f[I]n\f[R],\[u2006]2)},
+and
+\f[I]\[*b]\f[R]\[u2004]:\[u2004]\f[I]C\f[R]\[u2004]\[->]\[u2004]\f[I]B\f[R]
+as
+{(\f[I]l\f[R],\[u2006]\f[I]x\f[R]),\[u2006](\f[I]m\f[R],\[u2006]\f[I]y\f[R]),\[u2006](\f[I]n\f[R],\[u2006]\f[I]z\f[R])}.
+We have:
+.IP \[bu] 2
+\f[I]\[*a]\f[R]^\[u2005]\[mi]\[u2005]1^({1})\[u2004]=\[u2004]{\f[I]l\f[R],\[u2006]\f[I]m\f[R]}
+and
+\f[I]\[*b]\f[R]^\[u2005]\[mi]\[u2005]1^({\f[I]x\f[R]})\[u2004]=\[u2004]{\f[I]l\f[R]},
+so 1\[u2004]\[ap]\[u2004]\f[I]x\f[R];
+.IP \[bu] 2
+\f[I]\[*a]\f[R]^\[u2005]\[mi]\[u2005]1^({1})\[u2004]=\[u2004]{\f[I]l\f[R],\[u2006]\f[I]m\f[R]}
+and
+\f[I]\[*b]\f[R]^\[u2005]\[mi]\[u2005]1^({\f[I]y\f[R]})\[u2004]=\[u2004]{\f[I]m\f[R]},
+so 1\[u2004]\[ap]\[u2004]\f[I]y\f[R], and by closure,
+1\[u2004]\[ap]\[u2004]\f[I]x\f[R]\[u2004]\[ap]\[u2004]\f[I]y\f[R];
+.IP \[bu] 2
+\f[I]\[*a]\f[R]^\[u2005]\[mi]\[u2005]1^({2})\[u2004]=\[u2004]{\f[I]n\f[R]}
+and
+\f[I]\[*b]\f[R]^\[u2005]\[mi]\[u2005]1^({\f[I]z\f[R]})\[u2004]=\[u2004]{\f[I]n\f[R]},
+so 2\[u2004]\[ap]\[u2004]\f[I]z\f[R];
+.IP \[bu] 2
+\f[I]\[*a]\f[R]^\[u2005]\[mi]\[u2005]1^({3})\[u2004]=\[u2004]\[es] and
+\f[I]\[*b]\f[R]^\[u2005]\[mi]\[u2005]1^({\f[I]w\f[R]})\[u2004]=\[u2004]\[es],
+so you might think that 3\[u2004]\[ap]\[u2004]\f[I]w\f[R], however,
+since there is no \f[I]c\f[R]\[u2004]\[mo]\[u2004]\f[I]C\f[R] such that
+\f[I]\[*a]\f[R](\f[I]c\f[R])\[u2004]=\[u2004]3 and
+\f[I]\[*b]\f[R](\f[I]c\f[R])\[u2004]=\[u2004]\f[I]w\f[R], we have
+3\[u2004]\[u2241]\[u2004]\f[I]w\f[R];
+.PP
+This information corresponds to the following partition of
+\f[I]A\f[R]\[u2005]\[u2294]\[u2005]\f[I]B\f[R]:
+{{1,\[u2006]\f[I]x\f[R],\[u2006]\f[I]y\f[R]},\[u2006]{2,\[u2006]\f[I]z\f[R]},\[u2006]{3},\[u2006]{\f[I]w\f[R]}}.
+The fibered coproduct is then:
+.PP
+.RS
+$$\[rs]begin{array}{lll}
+P &=& (A \[rs]sqcup B) / \[rs]sim \[rs]\[rs]
+  &=& \[rs]{1,2,3,w,x,y,z\[rs]} / \[rs]sim \[rs]\[rs]
+  &=& \[rs]{\[rs]{1,x,y\[rs]}, \[rs]{2,z\[rs]}, \[rs]{3\[rs]}, \[rs]{w\[rs]}\[rs]} \[rs]\[rs]
+  &=& \[rs]{[1], [2], [3], [w]\[rs]}
+\[rs]end{array}$$
+.RE
+.PP
+A way to verify this is to verify that each equivalence class is
+disjoint, and that all pairs of elements within an equivalence class are
+related by \[ap] (by applying \f[I]\[*a]\f[R] or \f[I]\[*b]\f[R] where
+appropriate and drawing the graph of the relation).
 .SH Extra exercises by/for the group
 .SS Chapter I) 1) Set notation)
 .PP
@@ -2400,6 +3041,14 @@ examples), and as a \[dq]description\[dq] of what they are:
 {\f[I]x\f[R]\[u2004]\[mo]\[u2004]\[u211D]\[u2005]|\[u2005]\[u2005]\[mi]\[u2005]2\[u2004]\[<=]\[u2004]\f[I]x\f[R]\[u2004]\[<=]\[u2004]2}
 .IP \[bu] 2
 {(\f[I]m\f[R],\[u2006]\f[I]n\f[R],\[u2006]\f[I]p\f[R])\[u2004]\[mo]\[u2004]\[u2115]^3^\[u2005]|\[u2005]\f[I]m\f[R]\[u2005]+\[u2005]\f[I]n\f[R]\[u2005]+\[u2005]\f[I]p\f[R]\[u2004]=\[u2004]10}
+.SS Chapter I) 3) Slices and coslices)
+.PP
+Provide a concrete example of a slice category and of a coslice category
+based on the category of real vector spaces
+\f[I]V\f[R]\f[I]e\f[R]\f[I]c\f[R]\f[I]t\f[R]~\[u211D]~, or its
+subcategory of finite real vector spaces.
+How does this relate to the transpose of a matrix, or of a product of
+matrices ?
 .SH Notes
 .SS Chapter 1, Section 1
 .PP
