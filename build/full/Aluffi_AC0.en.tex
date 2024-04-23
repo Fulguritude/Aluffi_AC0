@@ -81,6 +81,9 @@ For next time, an "extra credit" exercise would be to translate the matrix slice
 Week 14 :
 Today was mostly revisions. We again talked about slice and coslice categories. We reviewed the examples and made things more rigorous, as well as corrected some mistakes that had been lurking. We also added Aluffi's "example 3.8 concrete coslice" on pointed sets as an example of a coslice category.
 
+Week 15 :
+We finished the coslice category concrete example, and corrected exercises 3.9 and 3.10.
+
 \newpage
 \part{Lexicon}
 \chapter*{Chapter 1}
@@ -1776,16 +1779,16 @@ These exist in \textbf{Set} for all finite families of sets, however, for infini
 
 \subsection*{5.11)}
 
-Let $A$, resp. $B$ be sets, endowed with equivalence relations $\sim_A$ , resp. $\sim_B$. Define a relation $\sim$ on $A \times B$ by setting $(a_1, b_1) \sim (a_2, b_2) \Leftrightarrow a_1 \sim_A a_2 \text{ and } b_1 \sim_B b_2.$ (This is immediately seen to be an equivalence relation.)
+Let $A$, resp. $B$, be sets, endowed with equivalence relations $\sim_A$, resp. $\sim_B$. Define a relation $\sim$ on $A \times B$ by setting $(a_1, b_1) \sim (a_2, b_2) \Leftrightarrow a_1 \sim_A a_2 \text{ and } b_1 \sim_B b_2.$ (This is immediately seen to be an equivalence relation.)
 \begin{itemize}
-	\item Use the universal property for quotients (§5.3) to establish that there are functions $(A \times B)/\sim \rightarrow A/\sim_A$, and $(A \times B)/\sim \rightarrow B/\sim_B$;
+	\item Use the universal property for quotients (§5.3) to establish that there are functions $(A \times B)/\sim \; \to \; A/\sim_A$, and $(A \times B)/\sim \; \to \; B/\sim_B$;
 	\item prove that $(A \times B)/\sim$, with these two functions, satisfies the universal property for the product of $A/\sim_A$ and $B/\sim_B$;
-	\item conclude (without further work) that $(A \times B)/ \simeq (A / \sim_A) \times (B / \sim_B)$.
+	\item conclude (without further work) that $(A \times B)/ \sim \; \simeq (A / \sim_A) \times (B / \sim_B)$.
 \end{itemize}
 
-\subsubsection*{5.11.a}
+\subsubsection*{5.11.a)}
 
-First, we remind the universal property for quotients. Given an equivalence relation $\sim$ over a set $A$, there is a single map $\pi : A \to A/\sim$ such that for any map $f : A \to Z$ such that $f(a_1) = f(a_2)$ whenever $a_1 \sim a_2$ (i.e., the morphism $f$ is "well-defined" for the equivalence relation $\sim$), there exists a unique map $\overline{f} : A/\sim \to Z$ such that $f = \overline{f} \circ \pi$. This is summarized in the following commutative diagram:
+First, we remind the universal property for quotients. Given an equivalence relation $\sim$ over a set $A$, there is a single map $\pi : A \to A/\sim$ such that, for any map $f : A \to Z$ verifying $f(a_1) = f(a_2)$ whenever $a_1 \sim a_2$ (i.e., the morphism $f$ is "well-defined" for the equivalence relation $\sim$), there exists a unique map $\overline{f} : A/\sim \to Z$ such that $f = \overline{f} \circ \pi$. This is summarized in the following commutative diagram:
 
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEB6AHW+wFsQAX1LpMufIRQBGclVqMWbAFrDRIDNjwEiZafPrNWiDsPkwoAc3hFQAMwBOEQYjIgcEJLIVG2vCDQwDgxYYDDAdkJq9k4uAEzUHkhuhkomvGhY0SCOzkgJ7p6I3qnGOSDUDHQARjAMAAri2lIgDliWABY4ZkJAA
 \begin{tikzcd}
@@ -1793,7 +1796,7 @@ First, we remind the universal property for quotients. Given an equivalence rela
     A \arrow[u, "\pi"] \arrow[ru, "f"'] &  
 \end{tikzcd}
 
-We first apply the universal property of products to obtain the following commutative diagram:
+We now apply the universal property of products to obtain the following commutative diagram:
 
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEQBfU9TXfIRQBGclVqMWbdgAIAOnLwBbeDIBC3XiAzY8BIgCYx1es1aIQGnn12Cio4eNNSLALW7iYUAObwioADMAJwglJDIQHAgkAGYTSXMQAIB9TmoGOgAjGAYABX49IRAsMGxYTUCQsMRRSOjECOdEtFSQdKyc-Nt9CxKy1mskqqRaqKQjCTM2Fo127LyCu17SrHLB4NCR6jHEOMmXJLaQDPmugR7jmACcCqHNxAmdvaa2FNnjjoXuor7VgYouEA
 \begin{tikzcd}
@@ -1801,7 +1804,7 @@ A \arrow[rd, "f_A" description] & A \times B \arrow[l, "p_A" description] \arrow
                                 & Z                                                                                   &                                
 \end{tikzcd}
 
-We now consider a well-defined map $f : A \times B \to Z$ (i.e., $f(a_1, b_1) = f(a_2, b_2)$ whenever $(a_1, b_1) \sim (a_2, b_2)$). We now apply the universal property of quotients to the relation $\sim$ defined over $A \times B$. We define the map $\pi : A \times B \to (A \times B)/\sim$ as $\pi(a,b) = [(a,b)]_\sim$. We define the map $\overline{f} : (A \times B)/\sim \to Z$ as $\overline{f}([(a,b)]_\sim) = f(a,b)$. We remind that such an $f$ is unique, and that $\overline{f} \circ \pi = f$.
+We then consider a well-defined map $f : (A \times B) \to Z$ (i.e., $f(a_1, b_1) = f(a_2, b_2)$ whenever $(a_1, b_1) \sim (a_2, b_2)$). We apply the universal property of quotients to the relation $\sim$ defined over $A \times B$. We define the map $\pi : A \times B \to (A \times B)/\sim$ as $\pi(a,b) = [(a,b)]_\sim$. We define the map $\overline{f} : (A \times B)/\sim \; \to \; Z$ as $\overline{f}([(a,b)]_\sim) = f(a,b)$. We remind that such an $f$ is unique, and that $\overline{f} \circ \pi = f$.
 
 We do a similar construction for $A/\sim_A$ with $f_A$ and $B/\sim_B$ with $f_B$. We can do so since these maps are also well-defined. Indeed, we have:
 
@@ -1866,7 +1869,7 @@ A \arrow[d, "\pi_A" description] & A \times B \arrow[l, "p_A" description] \arro
 A/\sim                           & (A \times B)/\sim \arrow[l, "\overline{\Pi_A}"] \arrow[r, "\overline{\Pi_B}"']                                                                                    & B/\sim                          
 \end{tikzcd}
 
-These are precisely our functions $\Pi_A \in (A \times B)/\sim \to A/\sim_A$ and $\Pi_B \in (A \times B)/\sim \to B/\sim_B$, and they are unique, as per the universal property of quotients.
+These are precisely our functions $\Pi_A \in (A \times B)/\sim \; \to \; A/\sim_A$ and $\Pi_B \in (A \times B)/\sim \; \to \; B/\sim_B$, and they are unique, as per the universal property of quotients.
 
 
 \subsubsection*{5.11.b)}
@@ -1881,16 +1884,16 @@ A/\sim & (A \times B)/\sim \arrow[l, "\overline{\Pi_A}"] \arrow[r, "\overline{\P
 
 Using the fact that $(A \times B)$ is already a product, and studying maps $h_A$ and $h_B$ from $Z$ into $A$ and $B$ respectively, we can make the following commutative diagram:
 
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAJgBoBGAXVJADcBDAGwFcYkQAhEAX1PU1z5CKchWp0mrdgEEABAB15eALbxZXXv2x4CRAAxiaDFm0QhpPPiAzahRMsXHGpZjgHpF2ZZa2DdI0kcjSVMQAAo5RRU1DgBKD3kvH2sBHWFkAyCJExkEpM0U239kUT0nEPYALR5xGCgAc3giUAAzACcIb0QDEBwIJABmYJyzRTQsAH0uGkZ6ACMYRgAFVLszLDBsWGT2zqRRXv7EMmyXawmLGfnFlaLhEA2ttgLdroO+pB7nULQpkCuFstVv4HpssNsXh03jQPogACzDM5jLD-ECzQG3Pz3R7g55WV77GFHACsiNCiiWk0uaOuQLu7BxEPxUMJh0GZPYFMm0xpGOB2LBTNaLOORKQpNO5Pk4wuqPRN35DMFeOFe3hYsQEu+nPkEFoMDajA2MGAXIu3DltMxaXYjBgLRwOxFCLZiCGkp1eoNRrAJrNHAtAIV9LMbSw9QAFo7IWqAGwak7aswR2VBulYpVPJ1xjVfCrJv5p61rUFZmNdeOug7y9M29bK1FJ8Ip6SkFNxbMVjUShZgKBIAC0cIAnDQ4BGsA72R6zPVU7zgxn62XmTnXe7e-34aOQOPJ47EAP3TXiyDGWwObO-txKNwgA
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAtEAX1PU1z5CKcqWLU6TVuwCCPPiAzY8BImXE0GLNohAyABAB1DeALbx9AIXn9lQogCYxErdN3XetwapGkHLqR09AHpjbFMAfTlPRQEVYRI-AO12AAoDYzMLSwBKUMNwm1i7H2Qnf01A9kt88IiPCRgoAHN4IlAAMwAnCFMkURAcCCQySRTdAAsokBpGegAjGEYABTj7XSwwbFgi7t7+miGkAGZK8ZAp61mFpdWS4RBN7bYYvb7EAaPEJzG3EFSpjJSJccjMQHNFis1j5HlssDtXj13p9hogACxnP7NabXSF3bwPJ7wtg0RZgKBIAC0aIAnDQ4BMsB0cOxjrskQdBqiAGyYoLYq7gm5Q+7sIk7UkwclIWn0xnMqnHRH7RCjL4Y35BYxoLA4oV46GEuEIhRvJA-L6jVxBNB6iG3Q1i40vU0c76HVGnTXsW2C+0iglO57slUW1EAVj57G1WDB-vx8SDxJD7zDMqjumMy11clxDtFG2dKfNHqQvO9mcM2fqceFCfWsODyveXq+5et0cMOpreYDicLTddKsjXPTFZAxggtBgXUYmxgwCzOe4tYNBfBMAVzaQI7bGYnhinM7nYAXS-qK979ZhXSwzQmLO4lG4QA
 \begin{tikzcd}
-                                 & Z \arrow[ld, "{h_A}" description] \arrow[rd, "h_B" description] \arrow[d, "{(h_A,h_B)}" description] \arrow[ldd, "{g_A}" description, bend right=49, shift right=3] \arrow[rdd, "{g_B}" description, bend left=49, shift left=3] &                                  \\
+                                 & Z \arrow[ld, "h_A" description] \arrow[rd, "h_B" description] \arrow[d, "{(h_A,h_B)}" description] \arrow[ldd, "g_A" description, bend right=49, shift right=3] \arrow[rdd, "g_B" description, bend left=49, shift left=3] &                                  \\
 A \arrow[d, "\pi_A" description] & A \times B \arrow[l, "p_A" description] \arrow[r, "p_B" description] \arrow[d, "\pi" description] \arrow[ld, "\Pi_A" description] \arrow[rd, "\Pi_B" description]                                                          & B \arrow[d, "\pi_B" description] \\
-A/\sim                           & (A \times B)/\sim \arrow[l, "\overline{\Pi_A}"] \arrow[r, "\overline{\Pi_B}"']                                                                                                                                             & B/\sim                          
+A/\sim_A                         & (A \times B)/\sim \arrow[l, "\overline{\Pi_A}"] \arrow[r, "\overline{\Pi_B}"']                                                                                                                                             & B/\sim_B                        
 \end{tikzcd}
 
 The internal parts of the diagram (except $h_A$ and $h_B$ which are arbitrary, all other arrows are unique morphisms) force $g_A$ and $g_B$ to commute with the rest of the diagram: any pairs of maps $g_A$ and $g_B$ that make the diagram commute must necessarily be constrained by the existing morphisms (as the composition of unique morphisms). Any choice of maps $g_A$ and $g_B$ must respect $g_A = \pi_A \circ h_A$ and $g_B = \pi_B \circ h_B$, for corresponding arbitrary (but inferred) $h_A$ and $h_B$; said otherwise, maps $g_A$ and $g_B$ in this configuration can only exist if they make the diagram commute. Therefore, we have shown that $(A \times B)/\sim$ satisfies the universal property of the product of $A/\sim_A$ and $B/\sim_B$, and we have $(g_A. g_B) = \pi \circ (h_A, h_B)$ (though it's not shown on the above diagram, in order to improve legibility).
 
-Conclusion: $(A \times B)/ \simeq (A / \sim_A) \times (B / \sim_B)$
+Conclusion: $(A \times B)/ \sim \; \simeq \; ((A / \sim_A) \times (B / \sim_B))$
 
 
 
@@ -1947,16 +1950,16 @@ C \arrow[ru, "\alpha"'] \arrow[rd, "\beta"] &                                   
                                             & B \arrow[rru, "g"'] \arrow[ru, "i_B"] &                              &  
 \end{tikzcd}
 
-We will now show that this object $P$ induces an initial object in $C^{\alpha,\beta}$; this boils down to showing that $(i_A, i_B, P)$ is initial in $C^{\alpha,\beta}$. Let $(f, g, Z)$ be an arbitrary object of $C^{\alpha,\beta}$. A morphism $\sigma$ from $(i_A, i_B, P)$ to $(f, g, Z)$ is a "raising" of a morphism $h : P \to Z$ such that $h \circ i_A = f$ and $h \circ i_B = g$. This lowering $\sigma$ is unique if and only if $h$ is unique. Since $P$ is presupposed to verify the universal property, such an $h$, if it exists, is indeed unique. Therefore, $(i_A, i_B, P)$ is initial (\textit{a fortiori} terminal) in $C^{\alpha,\beta}$.
+We will now show that this object $P$ induces an initial object in $C^{\alpha,\beta}$; this boils down to showing that $(i_A, i_B, P)$ is initial in $C^{\alpha,\beta}$. Let $(f, g, Z)$ be an arbitrary object of $C^{\alpha,\beta}$. A morphism $\sigma$ from $(i_A, i_B, P)$ to $(f, g, Z)$ is a "raising" of a morphism $h : P \to Z$ such that $h \circ i_A = f$ and $h \circ i_B = g$. This raising $\sigma$ is unique if and only if $h$ is unique. Since $P$ is presupposed to verify the universal property, such an $h$, if it exists, is indeed unique. Therefore, $(i_A, i_B, P)$ is initial (\textit{a fortiori} terminal) in $C^{\alpha,\beta}$.
 
 
 \subsubsection*{5.12.c)}
 
 (I wouldn't have come up with this without Wikipedia as a hint...)
 
-In \textbf{Set}, the fibered product (pullback) of $(A, \alpha)$ and $(B, \beta)$ over $C$, is a special subset of the cartesian product $A \times B$ that registers some extra information, pertaining to the functions $\alpha$ and $\beta$. We write this object as $P = A \times_{\alpha, C, \beta} B = A \times_C B = \{ (a,b) \in A \times B \| \alpha(a) = \beta(b) \}$.
+In \textbf{Set}, the fibered product (pullback) of $(A, \alpha)$ and $(B, \beta)$ over $C$, is a special subset of the cartesian product $A \times B$ that registers some extra information, pertaining to the functions $\alpha$ and $\beta$. We write this object as $$P = A \times_{\alpha, C, \beta} B = A \times_C B = \{ (a,b) \in A \times B \mid \alpha(a) = \beta(b) \}$$.
 
-Concretely, this can also be expressed as $$P = \bigcup_{c \in \alpha(A) \cap \beta(B)} \alpha^{-1}[\{c\}] \times \beta^{-1}[\{c\}]$$. This is the set of all pairs $(a,b)$ such that $\alpha(a) = \beta(b)$. Let us show this is the case with a simple example.
+Concretely, this can also be expressed as $$P = \bigcup_{c \in \alpha(A) \cap \beta(B)} \alpha^{-1}[\{c\}] \times \beta^{-1}[\{c\}]$$. This is the set of all pairs (of inputs) $(a,b)$ such that $\alpha(a) = \beta(b)$. Let us show this is the case with a simple example.
 
 Let $A = \{1,2,3\}$, $B = \{w, x, y, z\}$, and $C = \{l, m, n, p\}$. We define $\alpha : A \to C$ as $\{(1, m), (2, m), (3, n) \}$, and $\beta : B \to C$ as $\{ (w, l), (x, m), (y, n), (z, n) \}$. We have $\alpha(A) = \{m,n\}$ and $\beta(B) = \{l, m, n\}$, therefore $\alpha(A) \cap \beta(B) = \{m,n\}$. The fibered coproduct is then:
 
@@ -1977,7 +1980,7 @@ https://math.stackexchange.com/questions/3021738/pushout-in-the-category-of-sets
 
 https://math.stackexchange.com/questions/2240882/understanding-an-example-of-a-pushout-in-mathbfset
 
-In \textbf{Set}, the fibered coproduct (pushout) of $(\alpha, A)$ and $(\beta, B)$ over $C$ is a special quotient of the disjoint union $A \sqcup B$ that registers some extra information, pertaining to the functions $\alpha$ and $\beta$. We write this object as $$P = A \sqcup_{\alpha, C, \beta} B = A \sqcup_C B = (A \sqcup B) / \sim$$, where $\sim$ is an equivalence relation $\sim = cl_{eq}(R)$, the equivalence closure of the relation $$R = \{((0, a), (1, b)) \in (A \sqcup B) \times (A \sqcup B) \| \exists c \in C, a = \alpha(c) \text{ and } b = \beta(c) \}$$ (i.e., two elements are equivalent if they are the output of some common $c$, or if there is any chain of such equivalences between them).
+In \textbf{Set}, the fibered coproduct (pushout) of $(\alpha, A)$ and $(\beta, B)$ over $C$ is a special quotient of the disjoint union $A \sqcup B$ that registers some extra information, pertaining to the functions $\alpha$ and $\beta$. We write this object as $$P = A \sqcup_{\alpha, C, \beta} B = A \sqcup_C B = (A \sqcup B) / \sim$$, where $\sim$ is an equivalence relation defined as  $\sim \; := cl_{eq}(R)$, the equivalence closure of the relation $$R = \{((0, a), (1, b)) \in (A \sqcup B) \times (A \sqcup B) \mid \exists c \in C, a = \alpha(c) \text{ and } b = \beta(c) \}$$ (i.e., two elements are equivalent if they are both the output of some common $c$, or if there is any chain of such equivalences between them).
 
 (We remind that the equivalence closure, if elements of the set are seen as vertices and the relation pairs as edges of a graph, can be thought of, visually, as "completing the cliques" of each connected component in the graph, including self-loops; hence the idea that if there is any path between two elements, then they are equivalent and should be directly linked. We also remind that this corresponds uniquely to a partition of the set; the elements of which, called cosets, are what allow us to do an algebraic quotient.)
 
