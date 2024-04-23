@@ -1817,6 +1817,395 @@ $$
 
 A way to verify this is to verify that each equivalence class is disjoint, and that all pairs of elements within an equivalence class are related by $\sim$ (by applying $\alpha$ or $\beta$ where appropriate and drawing the graph of the relation).
 \newpage
+
+\chapter*{Chapter II)}
+
+\section*{Section 1)}
+
+\subsection*{1.1)}
+
+Write a careful proof that every group is the group of isomorphisms of a groupoid. In particular, every group is the group of automorphisms of some object in some category.
+
+Let us first remind the definition of a groupoid: a groupoid is a category in which every morphism is an isomorphism.
+
+(Side-note: by "group of isomorphisms", what Aluffi rather meant is "group of isomorphisms (of the single object) in a groupoid (that has a single object)". Otherwise, with multiple objects, things fail: for example, there are multiple identities, one per object, not universally applicable to each object. This is precisely why the notion of "groupoid" was invented, to extend the notion of group in such a way.)
+
+Let $(G, \cdot)$ be a group, i.e., some form of algebraic structure with a set of elements $G$ and a binary operation $\cdot$ which is associative, unitary, and invertible. We want to show that there exists a groupoid $\mathcal{C}$ such that $(G, \cdot)$ is the group of isomorphisms of $\mathcal{C}$.
+
+Let us define $\mathcal{C}$ as follows:
+\begin{itemize}
+	\item There is a single object $X$ in $\mathcal{C}$, and its elements are the elements of $G$ (we could call it $G$, of course, but we'll be distinct for pedagogy's sake).
+	\item For any element $g$ of $X$, there is a morphism $f_g \in Hom(X, X)$ such that $\forall x \in X, f_g(x) = (x \mapsto g \cdot x)$.
+	\item Composition of morphisms is defined as follows: $f_a \circ f_b = (x \mapsto a \cdot (b \cdot x)) = (x \mapsto (a \cdot b) \cdot x)$.
+	\item There is an identity morphism $id_X = (x \to e \cdot x)$.
+	\item It is immediate to see that these morphisms are associative since $(G, \cdot)$ is associative. Take $f_a$, $f_b$, and $f_c$, for $a,b,c \in X$: $(f_a f_b) f_c = (x \to ((a \cdot b) \cdot c) x) = (x \to (a \cdot (b \cdot c))x = f_a (f_b f_c)$.
+	\item Every such morphism has an inverse, namely, $f_{g^{-1}} = (x \mapsto g^{-1} \cdot x)$ which by definition of a group necessarily exists. It is easy to verify that $f_g \cdot f_{g^{-1}} = f_{g^{-1}} = f_g = (x \mapsto x = id_X)$.
+\end{itemize}
+
+This is a groupoid, because, it is a category (composition, associativity, identity) where every morphism is an isomorphism (every morphism has an inverse), and the group of isomorphisms of $\mathcal{C}$ is precisely isomorphic to $(G, \cdot)$.
+
+
+\subsection*{1.2)}
+
+Consider the 'sets of numbers' listed in §1.1, and decide which are made into groups by conventional operations such as $+$ and $\cdot$. Even if the answer is negative (for example: $(\mathbb{R}, \cdot)$ is not a group), see if variations on the definition of these sets lead to groups (for example, $(\mathbb{R}^*, \cdot)$ is a group, cf. §1.4). [§1.2]
+
+I suppose Aluffi is referring to §I.1.1, and not §(II.)1.1. In there he mentions:
+
+\begin{itemize}
+	\item $\mathbb{N}$: the set of natural numbers (that is, nonnegative integers);
+	\item $\mathbb{Z}$: the set of integers;
+	\item $\mathbb{Q}$: the set of rational numbers;
+	\item $\mathbb{R}$: the set of real numbers;
+	\item $\mathbb{C}$: the set of complex numbers.
+\end{itemize}
+
+Let us go through these sets one by one:
+
+\begin{itemize}
+	\item $\mathbb{N}$: $(\mathbb{N}, +)$ is not a group (needs negative numbers, $x + 5 = 0$ has no solution), and neither is $(\mathbb{N}, \cdot)$ (e.g., $5 \cdot x = 1$ has no solution in $\mathbb{N}$).
+	\item $\mathbb{Z}$: $(\mathbb{Z}, +)$ is a group, but $(\mathbb{Z}, \cdot)$ is not because it is not invertible (e.g., $2 \cdot x = 1$ has no solution in $\mathbb{Z}$).
+	\item $\mathbb{Q}$: $(\mathbb{Q}, +)$ is a group, but $(\mathbb{Q}, \cdot)$ is not because it is not fully invertible (e.g., $0 \cdot x = 1$ has no solution in $\mathbb{Q}$). However, remove $0$ from $(\mathbb{Q}, \cdot)$ and it becomes a group.
+	\item $\mathbb{R}$: $(\mathbb{R}, +)$ is a group, but $(\mathbb{R}, \cdot)$ is not because it is not fully invertible (e.g., $0 \cdot x = 1$ has no solution in $\mathbb{R}$). However, remove $0$ from $(\mathbb{R}, \cdot)$ and it becomes a group.
+	\item $\mathbb{C}$: $(\mathbb{C}, +)$ is a group, but $(\mathbb{C}, \cdot)$ is not because it is not fully invertible (e.g., $0 \cdot x = 1$ has no solution in $\mathbb{C}$). However, remove $0$ from $(\mathbb{C}, \cdot)$ and it becomes a group.
+\end{itemize}
+
+We can see that $(\mathbb{N}, +)$ is not a group, but $(\mathbb{Z}, +)$, $(\mathbb{Q}, +)$, $(\mathbb{R}, +)$, and $(\mathbb{C}, +)$ are all groups. Also, $(\mathbb{N}, \cdot)$, $(\mathbb{Z}, \cdot)$, $(\mathbb{Q}, \cdot)$, $(\mathbb{R}, \cdot)$, and $(\mathbb{C}, \cdot)$ are not groups. However, $(\mathbb{Q}^*, \cdot)$, $(\mathbb{R}^*, \cdot)$, and $(\mathbb{C}^*, \cdot)$ are groups.
+
+
+
+\subsection*{1.3)}
+
+Prove that $(gh)^{-1} = h^{-1} g^{-1}$ for all elements $g, h$ of a group $G$.
+
+$$(gh)(h^{-1}g^{-1}) = g(hh^{-1})g^{-1} = geg^{-1} = gg^{-1} = e$$
+$$(h^{-1}g^{-1})(gh) = h^{-1}(g^{-1}g)h = h^{-1}eh = h^{-1}h = e$$
+
+Therefore, $h^{-1} g^{-1}$ is a 2-sided inverse for $gh$, and since the inverse of an element in a group is unique, $(gh)^{-1} = (h^{-1}g^{-1})$
+
+
+
+\subsection*{1.4)}
+
+Suppose that $g^2 = e$ for all elements $g$ of a group $G$; prove that $G$ is commutative.
+
+If $g^2 = e$, then every element is its own inverse, i.e., multiply by $g^{-1}$ on the left, and we have $\forall g \in G, g = g^{-1}$. Let be $a, b \in G$. Then, we have $ba = (ba)^{-1} = a^{-1}b^{-1} = ab$, which is the definition of commutativity. Therefore, $G$ is commutative.
+
+
+
+\subsection*{1.5)}
+
+The 'multiplication table' of a group is an array compiling the results of all multiplications $g \cdot h$ (with the value on each row being the left operand, and the value on each column being the right operand; of course the table depends on the order in which the elements are listed in the top row and leftmost column). Prove that every row and every column of the multiplication table of a group contains all elements of the group exactly once (like Sudoku diagrams!).
+
+Another way to phrase this question is "prove that every element of the group can be reached in a single operation from any other". Written in function notation, this means:
+
+$$\forall a, b \in G, \exists g_r, g_c \in G, b = g_r \cdot a \text { and } b = a \cdot g_c$$
+
+For every element $a$, we can reach the identity with $a^{-1}$ (on either side). Every element $b$ can then be reached from the identity by multiplying it (on either side). We just have to pick the same side both times to find either $g_r = b \cdot a^{-1}$ and $g_c = a^{-1} \cdot b$. Since the group is closed under "multiplication", both these elements are guaranteed to exist.
+
+This implies that every row and every column of the multiplication table of a group contains all elements of the group exactly once, since any element can be reached in a single multiplication (i.e., there as many possible inputs (1 sided operand) as possible outputs (i.e., applying an operand is an injection) and all outputs are reached (it's also a surjection)). This also implies that the multiplication table is a "Latin square", which is a square array of $|G|$ symbols, each occurring exactly once in each row and exactly once in each column. 
+
+
+
+\subsection*{1.6)}
+
+Prove that there is only one possible multiplication table for $G$ if $G$ has exactly 1, 2, or 3 elements. Analyze the possible multiplication tables for groups with exactly 4 elements, and show that there are two distinct tables, up to reordering the elements of $G$. Use these tables to prove that all groups with $\leq 4$ elements are commutative.
+
+These multiplication tables are usually called "Cayley tables".
+
+
+\subsubsection*{1.6.a) 1-element group}
+
+For the unique table of the trivial group (only 1 element); $e$ is necessarily its own inverse. Some examples of this group are $(\{0\}, +)$ or $(\{1\}, \times)$. This group is trivially commutative.
+
+$$
+\begin{tabular}{|c||c|}
+\hline
+$\cdot$ & $e$ \\
+\hline \hline
+$e    $ & $e$ \\
+\hline
+\end{tabular}
+$$
+
+
+\subsubsection*{1.6.b) 2-element group}
+
+For the unique table of the group with 2 elements; both elements are necessarily their own inverse (or else there would be no $e$ which is necessarily a self-inverse). Some examples of this group are $(\{ 1, -1 \}, \times)$, or $(\mathbb{Z}_2, +)$ (two-hour clock with addition). This group is commutative, since, like in the exercise 1.4, every element is its own inverse.
+
+$$
+\begin{tabular}{|c||c|c|}
+\hline
+$\cdot$ & $e$ & $a$ \\ \hline \hline
+$e    $ & $e$ & $a$ \\ \hline
+$a    $ & $a$ & $e$ \\ \hline
+\end{tabular}
+$$
+
+
+\subsubsection*{1.6.c) 3-element group}
+
+For the unique table of the group with 3 elements; the 3 elements cannot all be their own inverses, because if 2 elements are their own inverse, the third one cannot have an inverse. Another way of seeing this is the below: no matter the value given for each $?$, this cannot be a Latin square (if we put two $e$'s then we have multiple inverses, so we can deduce that $a$ and $b$ are inverses, and then we $a = b$; if we put two $a$'s, we lose associativity (e.g.: $(aa)b = eb = b \ne a(ab) = aa = e$); etc).
+
+$$
+\begin{tabular}{|c||c|c|c|}
+\hline
+$\cdot$ & $e$ & $a$ & $b$ \\ \hline \hline
+$e    $ & $e$ & $a$ & $b$ \\ \hline
+$a    $ & $a$ & $e$ & $?$ \\ \hline
+$b    $ & $b$ & $?$ & $e$ \\ \hline
+\end{tabular}
+$$
+
+Instead, the 2 non-identity elements are necessarily inverses of each other. Some examples of this group are $(\{1, j, \overline{j} \}, \times)$ (where $j = e^{\tau / 3}$ is a complex number called the third root of unity), or $(\mathbb{Z}_3, +)$ (three-hour clock with addition). This group is commutative because the identity necessarily commutes with everything, and inverses necessarily commute together, so here, all elements commute.
+
+$$
+\begin{tabular}{|c||c|c|c|}
+\hline
+$\cdot $ & $e     $ & $a     $ & $a^{-1}$ \\ \hline \hline
+$e     $ & $e     $ & $a     $ & $a^{-1}$ \\ \hline
+$a     $ & $a     $ & $a^{-1}$ & $e     $ \\ \hline
+$a^{-1}$ & $a^{-1}$ & $e     $ & $a     $ \\ \hline
+\end{tabular}
+$$
+
+
+\subsubsection*{1.6.d) 4-element groups}
+
+For the case where $|G| = 4$, we have two possibilities.
+
+The first one is a table where every element is a self-inverse. This gives you a group that is isomorphic to $(\mathbb{Z}_2 \times \mathbb{Z}_2, +)$ (the Klein four-group, a torus made up of 2 two-hour clocks). Note that the permutations of the elements of the group give the same table, so there is only one table for this group up to reordering. It is commutative for the same reason as exercise 1.4.
+
+$$
+\begin{tabular}{|c||c|c|c|c|}
+\hline
+$\cdot$ & $e$ & $a$ & $b$ & $c$ \\ \hline \hline
+$e    $ & $e$ & $a$ & $b$ & $c$ \\ \hline
+$a    $ & $a$ & $e$ & $c$ & $b$ \\ \hline
+$b    $ & $b$ & $c$ & $e$ & $a$ \\ \hline
+$c    $ & $c$ & $b$ & $a$ & $e$ \\ \hline
+\end{tabular}
+$$
+
+The second possibility where one element other than the identity is its own inverse, and the other two are mutual inverses. This gives you a group that is isomorphic to $(\mathbb{Z}_4, +)$ (a four-hour clock with addition, where $1$ and $-1$ are mutual inverses, and $0$ and $2$ are their own inverse). Note that the permutations of the elements of the group give the same table, so there is only one table for this group up to reordering.
+
+Since the identity and respective inverses commute, all that's left is to check the commutativity of the self-inverse element $a$ with both of the mutual-inverses elements $b$ and $c$. In this case, it is because there is "only one option left" in the Latin square that we get commutativity: e.g., $a \cdot b$ cannot equal $e$ since they are not inverses, cannot equal $a$ since $b \ne e$, cannot equal $b$ since $a \ne e$, so we must have $a \cdot b = c$. The same reasoning can be applied to $b \cdot a$ to get $c$ (hence $a \cdot b = b \cdot a$). With a relabelling, we apply this reasoning to $a \cdot c$ to get $b$ and to $c \cdot a$ to get $b$ (hence $a \cdot c = c \cdot a$). With this, we have proven commutativity.
+
+$$
+\begin{tabular}{|c||c|c|c|c|}
+\hline
+$\cdot$ & $e$ & $a$ & $b$ & $c$ \\ \hline \hline
+$e    $ & $e$ & $a$ & $b$ & $c$ \\ \hline
+$a    $ & $a$ & $e$ & $c$ & $b$ \\ \hline
+$b    $ & $b$ & $c$ & $a$ & $e$ \\ \hline
+$c    $ & $c$ & $b$ & $e$ & $a$ \\ \hline
+\end{tabular}
+$$
+
+
+\subsubsection*{1.6.e) Conclusion and remark}
+
+With that, we've proven that all groups of order $\leq 4$ are commutative.
+
+(Note that the commutativity can also be "seen" in all these tables by the fact that they are their own transpose.)
+
+
+
+\subsection*{1.7)}
+
+Prove Corollary 1.11: Let $g$ be an element of finite order, and let $n \in \mathbb{Z}$. Then $g^n = e \Leftrightarrow \exists k \in \mathbb{Z}, n = k|g|$ ($n$ is a multiple of $|g|$).
+
+By Lemma 1.10, if $g^n = e$, then $|g|$ divides $n$. Therefore, $\exists k \in \mathbb{Z}, n = k|g|$.
+
+For the converse, we suppose $\exists k \in \mathbb{Z}, n = k|g|$. By definition of the order of a group element, $g^{|g|} = e$, so $g^n = g^{|g|k} = (g^{|g|})^k = e^k = e$. Hence, $g^n = e$.
+
+
+
+\subsection*{1.8)}
+
+
+Let $G$ be a finite group, with exactly one element $f$ of order $2$. Prove that $\Pi_{g \in G} g = f$.
+
+% It is supposed that we have $f^2 = e$, and it is the only such element of $G$. Since $f^2 = e \Leftrightarrow f = f^{-1}$, it also means that $f$ is the only self-inverse (involution) in $G$. This means that if $(\Pi_{g \in G} \; g) = (\Pi_{g \in G} \; g)^{-1}$ then $\Pi_{g \in G} g = f$. Since the order of operation is not given, but $G$ is not (necessarily) commutative, this gives us a hint that the property $(\Pi_{g \in G} \; g)^2 = e$ does not rely on the order of operations.
+
+% Cancellation implies that $|x| \leq |G|$ for all $x \in G$ (in fact, with Lagrange's theorem, $|x|$ divides $|G|$, but we won't use it as it was mentioned but not proven). Given that $|\prod_{g \in G} g| \leq |G|$ and $\forall g \in G, |g| \leq |G|$, this implies that 
+
+I had some trouble, so I checked online and found this, meaning that the group probably needs to be not just finite but also abelian:
+
+https://math.stackexchange.com/questions/2550052/let-g-be-a-finite-abelian-group-with-exactly-one-element-of-order-2-denoted
+
+(A couple of notes: since $f^2 = e \Leftrightarrow f = f^{-1}$, it also means that $f$ is the only self-inverse (involution) in $G$. Also, the order of operation is not given: this gives us a hint that the property $(\Pi_{g \in G} \; g)^2 = e$ does not rely on the order of operations.)
+
+Since $f$ is the only element which is a self-inverse of order $2$, $e$ is the only self-inverse of order $1$, we have that for all other elements a $g$ in $G$, $g$ is not its own inverse. This means that the product of all elements of $G$ is a product of pairs of inverses, which cancel out to the identity (given commutativity), except for the self-inverse $f$ which remains. Therefore, $\Pi_{g \in G} g = f$.
+
+
+
+\subsection*{1.9)}
+
+Let $G$ be a finite group, of order $n$, and let $m$ be the number of elements $g \in G$ of order exactly $2$. Prove that $n - m$ is odd. Deduce that if $n$ is even then $G$ necessarily contains elements of order $2$.
+
+(This would be trivial if we could use Lagrange's theorem.)
+
+Let us consider the set of elements of $G$ of order $2$, $M = \{ g \in G \mid |g| = 2 \}$, with $|M| = m$. We know that for all $g \in M$, $g = g^{-1}$. This means that $M$ is the set of self-inverse elements (not counting $e$). This means that $G - M$ contains only pairs of inverses (with $k$ such pairs), and the self-inverse $e$, so has its cardinal can be written $|G - M| = |G| - |M| = n - m = 2k + 1$, i.e., it is an odd number.
+
+If $|G| = n$ is even, then it can be written as $2l$ for some $l \in \mathbb{N}$ with $l > k$. Consequently $|M| = |G| - (n - m) = 2l - (2k + 1) = 2(l - k) - 1$, which is odd, and $> 0$ since $l > k$. Therefore, $G$ necessarily contains at least $1$ element of order $2$.
+
+
+
+\subsection*{1.10)}
+
+Suppose the order of $g$ is odd. What can you say about the order of $g^2$ ?
+
+We write $|g| = 2k + 1$ since it is odd.
+
+$g^{|g|} = e \Rightarrow (g^2){|g|} = (g^{|g|})^2 = e^2 = e$
+
+By Corollary 1.11, $(g^2)^{|g|} = (g^2)^{2k + 1} = e \Leftrightarrow \exists l \in \mathbb{N}, |g| = 2k + 1 = l|g^2|$. Since $|g|$ is odd, both $l$ and $|g^2|$ must be odd.
+
+
+
+\subsection*{1.11)}
+
+Prove that for all $g, h$ in a group $G$, $|gh| = |hg|$. (Hint: prove that $|aga^{-1}| = |g|$ for all $a, g \in G$.)
+
+Let $a, g \in G$.
+
+$$
+\begin{array}{ll}
+(aga^{-1})^{|g|} &= (aga^{-1})(aga^{-1})...(aga^{-1}) \\
+                 &= ag(a^{-1}a)g(a^{-1}a)g...ga^{-1} \\
+                 &= ag^{|g|}a^{-1} \\
+                 &= aea^{-1} \\
+                 &= (aa^{-1}) \\
+                 &= e
+\end{array}
+$$
+
+By Lemma 1.10, $|aga^{-1}|$ is a divisor of $|g|$.
+
+By definition, $(aga^{-1})^{|aga^{-1}|} = e$. However, similarly to above, $(aga^{-1})^{|aga^{-1}|} = ag^{|aga^{-1}|}a^{-1}$. So we have $ag^{|aga^{-1}|}a^{-1} = e$; then, multiplying on the left by $a^{-1}$ and right by $a$, we get $g^{|aga^{-1}|} = e$. By Lemma 1.10, $|g|$ is a divisor of $|aga^{-1}|$.
+
+Since the divisibility relation is an order relation (antisymmetric), the only time two numbers can be mutually divisors of each other is if we're in the reflexive case (i.e., they are equal). Therefore, $|g| = |aga^{-1}|$.
+
+Applying this identity to the elements $g \to gh$ with $a \to h$, we have $|gh| = |(h)(gh)(h^{-1})| = |hg|$
+
+
+
+\subsection*{1.12)}
+
+In the group of invertible $2 \times 2$ matrices, consider $g = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$, $h = \begin{pmatrix} 0 & 1 \\ -1 & -1 \end{pmatrix}$. Verify that $|g| = 4$, $|h| = 3$, and $|gh| = \infty$. [§1.6]
+
+We remind call that the neutral element for 2D square matrix multiplication is the identity matrix $I_2$.
+
+$$
+g^2 = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}
+    = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}
+$$
+
+$$
+g^4 = (g^2)^2
+    = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}
+    = \begin{pmatrix}  1 & 0 \\ 0 &  1 \end{pmatrix}
+    = I_2
+$$
+
+$$
+h^2 = \begin{pmatrix} 0 & 1 \\ -1 & -1 \end{pmatrix} \begin{pmatrix} 0 & 1 \\ -1 & -1 \end{pmatrix} 
+	= \begin{pmatrix} -1 & -1 \\ 1 & 0 \end{pmatrix}
+$$
+
+$$
+h^3 = h^2 h
+    = \begin{pmatrix} -1 & -1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} 0 & 1 \\ -1 & -1 \end{pmatrix}
+	= \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+	= I_2
+$$
+
+
+We will now prove by induction that $\forall n \geq 1, P(n): (gh)^n = \begin{pmatrix} 1 & n \\ 0 & 1 \end{pmatrix}$.
+
+\underline{Initiatialization:}
+
+$$
+gh = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} 0 & 1 \\ -1 & -1 \end{pmatrix}
+   = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
+$$
+
+True for $n = 1$.
+
+\underline{Inheritance:}
+
+We suppose $P(n)$ true for a specific $n$, we'll show that $P(n+1)$ holds.
+
+$$
+(gh)^{n+1} = (gh)^n(gh)
+       = \begin{pmatrix} 1 & n \\ 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
+	   = \begin{pmatrix} 1 & (n+1) \\ 0 & 1 \end{pmatrix}
+$$
+Therefore $P(n+1)$ is true. This prives inheritance.
+
+By induction, $P(n)$ is true for all $n \geq 1$.
+
+Therefore, there exists no $n \geq 1$ such that $(gh)^n = I_2$, hence $|gh| = \infty$.
+
+
+
+\subsection*{1.13)}
+
+Give an example showing that $|gh|$ is not necessarily equal to $\text{lcm}(|g|, |h|)$, even if $g$ and $h$ commute. [§1.6, 1.14]
+
+We take the 6-hour clock $Z_6$, and $g = h = [3]_6$, the equivalence class of 3 modulo 6.  We have $g^2 = h^2 = gh = hg = [3]_6 + [3]_6 = [6]_6 = [0]_6$, so $|g| = |h| = 2$ and $|gh| = 1$. However, $\text{lcm}(|g|, |h|) = 2 \ne |gh| = 1$
+
+
+
+\subsection*{1.14)}
+
+As a counterpoint to Exercise 1.13, prove that if $g$ and $h$ commute, and $\text{gcd}(|g|, |h|) = 1$ (they are coprime), then $|gh| = |g| |h|$. (Hint: let $N = |gh|$; then $g^N = (h^{-1})^N$. What can you say about this element?) [§1.6, 1.15, §IV.2.5]
+
+First, we remark that for any $x \in G$, $x^N = e \Leftrightarrow e = (x^{-1})^N$, so $|x| = |x^{-1}|$.
+
+We have that $\text{gcd}(|g|, |h|) = 1$, and we know that $|g| |h| = \text{gcd}(|g|, |h|) \text{lcm}(|g|, |h|)$ so we have $|g||h| = \text{lcm}(|g|, |h|)$.
+
+Let $N = |gh|$. Then, given that $(gh)^N = e$, that $g$ and $h$ commute, and multiplying by $(h^{-1})^N$ on the right of both side, we have $(gh)^N(h^{-1})^N = g^N h^N (h^{-1})^N = g^N (hh^{-1})^N = g^N = e(h^{-1})^N = (h^{-1})^N$. Therefore, $g^N = (h^{-1})^N = f$.
+
+We now study $f^{|g|}$ and $f^{|h|}$.
+
+We have $f^{|g|} = (g^N)^{|g|} = g^{N|g|} = e$.
+
+Similarly, $e = h^{|h|} = (h^{-1})^{|h|} = ((h^{-1})^{|h|})^N = ((h^{-1})^N)^{|h|} = f^{|h|}$ (by our initial remark).
+
+Therefore, $M = |g^N| = |(h^{-1})^N|$ divides both $|g|$ and $|h|$. Since $|g|$ and $|h|$ are coprime, $M = 1$. Therefore $f = g^N = e$, so $N = |gh|$ is a multiple of $|g|$ and $f = (h^{-1})^N = e$ so $N = |gh|$ is a multiple of $|h^{-1}| = |h|$. Since $|g|$ and $|h|$ are coprime, we can further say that $|gh|$ is a multiple of their LCM/product $|g||h|$ (using, for example, the fundamental theorem of arithmetic).
+
+Using Proposition 1.14 (i.e, if $gh = hg$, then $|gh|$ divides $\text{lcm}(|g|, |h|)$), we can also tell that $N = |gh|$ divides $\text{lcm}(|g|, |h|) = |g| |h|$.
+
+Putting both results together using the antisymmetry of the divisibility relation, we have $N = |gh| = |g||h|$.
+
+
+
+\subsection*{1.15)}
+
+Let $G$ be a commutative group, and let $g \in G$ be an element of maximal finite order: that is, such that if $h \in G$ has finite order then $|h| \leq |g|$. Prove that in fact if $h$ has finite order in $G$ then $|h|$ divides $|g|$. (Hint: argue by contradiction. If $|h|$ is finite but does not divide $|g|$, then there is a prime integer $p$ such that $|g| = p^m r$, $|h| = p^n s$, with $r$ and $s$ relatively prime to $p$, and $m < n$. Use Exercise 1.14 (the fact that the order of the product of two elements with coprime order is equal to the product of their orders) to compute the order of $g^{p^m} h^s$.) [§2.1, 4.11, IV.6.15]
+
+We suppose that $|h|$ is finite but does not divide $|g|$. Using the fundamental theorem of arithmetic, if $|h|$ doesn't divide $|g|$, then it has at least one prime factor that $|g|$ does not have. Then, there is a prime integer $p$ such that $|g| = p^m r$, $|h| = p^n s$, with $r$ and $s$ (potentially composite), both independently coprime with $p$, and $0 \leq m < n$.
+
+We know from exercise 1.14 that if 2 elements $a$ and $b$ commute (which is always the case in a commutative group like here), if the two elements have coprime order, then $|ab| = |a||b|$.
+
+The order $|x^k|$ of $x^k$, is $\frac{|x|}{\text{gcd}(|x|, k)}$, assuming $|x|$ is finite (Proposition 1.13).
+
+We study $g^{p^m} h^s$. 
+
+The order of $g^{p^m}$ is $\frac{|g|}{\text{gcd}(|g|, p^m)} = \frac{p^m r}{p^m} = r$ because $p^m$ divides $|g|$.
+
+Similarly, the order of $h^s$ is $|h|/\text{gcd}(|h|, s) = \frac{p^n s}{s} = p^n$ because $s$ divides $|h|$.
+
+Since $G$ is a commutative group, $g^{p^m}$ and $h^s$ commute. By Exercise 1.14, $|g^{p^m} h^s| = |g^{p^m}| |h^s| = p^n r = p^{n-m} (p^m r) = p^{n-m} |g| > |g|$.
+
+This is a contradiction with the fact that $|g|$ has \textit{maximal} finite order. Therefore, our assumption that $|h|$ does not divide $|g|$ must be false.
+
+Conclusion: if $G$ is an abelian group, $g \in G$ has maximal finite order, and $h \in G$ has finite order in $G$, then $|h|$ divides $|g|$.
+\section*{Section 2)}
+
+\subsection*{2.1)}
+\newpage
 \part{Extra exercises by/for the group}
 
 \section*{Chapter I) 1) Set notation)}
