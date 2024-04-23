@@ -46,16 +46,16 @@ Let us go through these sets one by one:
 \begin{itemize}
 	\item $\mathbb{N}$: $(\mathbb{N}, +)$ is not a group (needs negative numbers, $x + 5 = 0$ has no solution), and neither is $(\mathbb{N}, \cdot)$ (e.g., $5 \cdot x = 1$ has no solution in $\mathbb{N}$).
 	\item $\mathbb{Z}$: $(\mathbb{Z}, +)$ is a group, but $(\mathbb{Z}, \cdot)$ is not because it is not invertible (e.g., $2 \cdot x = 1$ has no solution in $\mathbb{Z}$).
-	\item $\mathbb{Q}$: $(\mathbb{Q}, +)$ is a group, but $(\mathbb{Q}, \cdot)$ is not because it is not fully invertible (e.g., $0 \cdot x = 1$ has no solution in $\mathbb{Q}$). However, remove $0$ from $\mathbb{Q}$ and it becomes a group.
-	\item $\mathbb{R}$: $(\mathbb{R}, +)$ is a group, but $(\mathbb{R}, \cdot)$ is not because it is not fully invertible (e.g., $0 \cdot x = 1$ has no solution in $\mathbb{R}$). However, remove $0$ from $\mathbb{R}$ and it becomes a group.
-	\item $\mathbb{C}$: $(\mathbb{C}, +)$ is a group, but $(\mathbb{C}, \cdot)$ is not because it is not fully invertible (e.g., $0 \cdot x = 1$ has no solution in $\mathbb{C}$). However, remove $0$ from $\mathbb{C}$ and it becomes a group.
+	\item $\mathbb{Q}$: $(\mathbb{Q}, +)$ is a group, but $(\mathbb{Q}, \cdot)$ is not because it is not fully invertible (e.g., $0 \cdot x = 1$ has no solution in $\mathbb{Q}$). However, remove $0$ from $(\mathbb{Q}, \cdot)$ and it becomes a group.
+	\item $\mathbb{R}$: $(\mathbb{R}, +)$ is a group, but $(\mathbb{R}, \cdot)$ is not because it is not fully invertible (e.g., $0 \cdot x = 1$ has no solution in $\mathbb{R}$). However, remove $0$ from $(\mathbb{R}, \cdot)$ and it becomes a group.
+	\item $\mathbb{C}$: $(\mathbb{C}, +)$ is a group, but $(\mathbb{C}, \cdot)$ is not because it is not fully invertible (e.g., $0 \cdot x = 1$ has no solution in $\mathbb{C}$). However, remove $0$ from $(\mathbb{C}, \cdot)$ and it becomes a group.
 \end{itemize}
 
 We can see that $(\mathbb{N}, +)$ is not a group, but $(\mathbb{Z}, +)$, $(\mathbb{Q}, +)$, $(\mathbb{R}, +)$, and $(\mathbb{C}, +)$ are all groups. Also, $(\mathbb{N}, \cdot)$, $(\mathbb{Z}, \cdot)$, $(\mathbb{Q}, \cdot)$, $(\mathbb{R}, \cdot)$, and $(\mathbb{C}, \cdot)$ are not groups. However, $(\mathbb{Q}^*, \cdot)$, $(\mathbb{R}^*, \cdot)$, and $(\mathbb{C}^*, \cdot)$ are groups.
 
 
 
-\section*{1.3)}
+\subsection*{1.3)}
 
 Prove that $(gh)^{-1} = h^{-1} g^{-1}$ for all elements $g, h$ of a group $G$.
 
@@ -66,7 +66,7 @@ Therefore, $h^{-1} g^{-1}$ is a 2-sided inverse for $gh$, and since the inverse 
 
 
 
-\section*{1.4)}
+\subsection*{1.4)}
 
 Suppose that $g^2 = e$ for all elements $g$ of a group $G$; prove that $G$ is commutative.
 
@@ -74,7 +74,7 @@ If $g^2 = e$, then every element is its own inverse, i.e., multiply by $g^{-1}$ 
 
 
 
-\section*{1.5)}
+\subsection*{1.5)}
 
 The 'multiplication table' of a group is an array compiling the results of all multiplications $g \cdot h$ (with the value on each row being the left operand, and the value on each column being the right operand; of course the table depends on the order in which the elements are listed in the top row and leftmost column). Prove that every row and every column of the multiplication table of a group contains all elements of the group exactly once (like Sudoku diagrams!).
 
@@ -84,48 +84,57 @@ $$\forall a, b \in G, \exists g_r, g_c \in G, b = g_r \cdot a \text { and } b = 
 
 For every element $a$, we can reach the identity with $a^{-1}$ (on either side). Every element $b$ can then be reached from the identity by multiplying it (on either side). We just have to pick the same side both times to find either $g_r = b \cdot a^{-1}$ and $g_c = a^{-1} \cdot b$. Since the group is closed under "multiplication", both these elements are guaranteed to exist.
 
-This implies that every row and every column of the multiplication table of a group contains all elements of the group exactly once, since any element can be reached in a single multiplication. This also implies that the multiplication table is a "Latin square", which is a square array of $|G|$ symbols, each occurring exactly once in each row and exactly once in each column. 
+This implies that every row and every column of the multiplication table of a group contains all elements of the group exactly once, since any element can be reached in a single multiplication (i.e., there as many possible inputs (1 sided operand) as possible outputs (i.e., applying an operand is an injection) and all outputs are reached (it's also a surjection)). This also implies that the multiplication table is a "Latin square", which is a square array of $|G|$ symbols, each occurring exactly once in each row and exactly once in each column. 
 
 
 
-\section*{1.6)}
+\subsection*{1.6)}
 
 Prove that there is only one possible multiplication table for $G$ if $G$ has exactly 1, 2, or 3 elements. Analyze the possible multiplication tables for groups with exactly 4 elements, and show that there are two distinct tables, up to reordering the elements of $G$. Use these tables to prove that all groups with $\leq 4$ elements are commutative.
 
 These multiplication tables are usually called "Cayley tables".
+
+
+\subsubsection*{1.6.a) 1-element group}
 
 For the unique table of the trivial group (only 1 element); $e$ is necessarily its own inverse. Some examples of this group are $(\{0\}, +)$ or $(\{1\}, \times)$. This group is trivially commutative.
 
 $$
 \begin{tabular}{|c||c|}
 \hline
-\cdot & e \\
+$\cdot$ & $e$ \\
 \hline \hline
-e     & e \\
+$e    $ & $e$ \\
 \hline
 \end{tabular}
 $$
 
-For the unique table of the group with 2 elements; both elements are necessarily their own inverse (or else they would be equal, and we would have only $1$ element in the group). An example of this group is $(\{1, -1 \}, \times)$, or $(\mathbb{Z}_2, +)$ (two-hour clock with addition). This group is commutative, since, like in the exercise 1.4, every element is its own inverse.
+
+\subsubsection*{1.6.b) 2-element group}
+
+For the unique table of the group with 2 elements; both elements are necessarily their own inverse (or else there would be no $e$ which is necessarily a self-inverse). Some examples of this group are $(\{ 1, -1 \}, \times)$, or $(\mathbb{Z}_2, +)$ (two-hour clock with addition). This group is commutative, since, like in the exercise 1.4, every element is its own inverse.
 
 $$
 \begin{tabular}{|c||c|c|}
 \hline
-\cdot & e & a \\ \hline \hline
-e     & e & a \\ \hline
-a     & a & e \\ \hline
+$\cdot$ & $e$ & $a$ \\ \hline \hline
+$e    $ & $e$ & $a$ \\ \hline
+$a    $ & $a$ & $e$ \\ \hline
 \end{tabular}
 $$
 
-For the unique table of the group with 3 elements; the 3 elements cannot all be their own inverses, because if 2 elements are their own inverse, the third one cannot have an inverse. Another way of seeing this is the below: no matter the value given for each $?$, this cannot be a Latin square (if we put $e$ then we have multiple inverses, so we can deduce that $a$ and $b$ are inverses, and then we have multiple $a$'s; if we put two $a$'s, we lose associativity (e.g.: $(aa)b = eb = b \ne a(ab) = aa = e$); etc).
+
+\subsubsection*{1.6.c) 3-element group}
+
+For the unique table of the group with 3 elements; the 3 elements cannot all be their own inverses, because if 2 elements are their own inverse, the third one cannot have an inverse. Another way of seeing this is the below: no matter the value given for each $?$, this cannot be a Latin square (if we put two $e$'s then we have multiple inverses, so we can deduce that $a$ and $b$ are inverses, and then we $a = b$; if we put two $a$'s, we lose associativity (e.g.: $(aa)b = eb = b \ne a(ab) = aa = e$); etc).
 
 $$
 \begin{tabular}{|c||c|c|c|}
 \hline
-\cdot & e & a & b \\ \hline \hline
-e     & e & a & b \\ \hline
-a     & a & e & ? \\ \hline
-b     & b & ? & e \\ \hline
+$\cdot$ & $e$ & $a$ & $b$ \\ \hline \hline
+$e    $ & $e$ & $a$ & $b$ \\ \hline
+$a    $ & $a$ & $e$ & $?$ \\ \hline
+$b    $ & $b$ & $?$ & $e$ \\ \hline
 \end{tabular}
 $$
 
@@ -134,12 +143,15 @@ Instead, the 2 non-identity elements are necessarily inverses of each other. Som
 $$
 \begin{tabular}{|c||c|c|c|}
 \hline
-\cdot  & e      & a      & a^{-1} \\ \hline \hline
-e      & e      & a      & a^{-1} \\ \hline
-a      & a      & a^{-1} & e      \\ \hline
-a^{-1} & a^{-1} & e      & a      \\ \hline
+$\cdot $ & $e     $ & $a     $ & $a^{-1}$ \\ \hline \hline
+$e     $ & $e     $ & $a     $ & $a^{-1}$ \\ \hline
+$a     $ & $a     $ & $a^{-1}$ & $e     $ \\ \hline
+$a^{-1}$ & $a^{-1}$ & $e     $ & $a     $ \\ \hline
 \end{tabular}
 $$
+
+
+\subsubsection*{1.6.d) 4-element groups}
 
 For the case where $|G| = 4$, we have two possibilities.
 
@@ -148,26 +160,31 @@ The first one is a table where every element is a self-inverse. This gives you a
 $$
 \begin{tabular}{|c||c|c|c|c|}
 \hline
-\cdot & e & a & b & c \\ \hline \hline
-e     & e & a & b & c \\ \hline
-a     & a & e & c & b \\ \hline
-b     & b & c & e & a \\ \hline
-c     & c & b & a & e \\ \hline
+$\cdot$ & $e$ & $a$ & $b$ & $c$ \\ \hline \hline
+$e    $ & $e$ & $a$ & $b$ & $c$ \\ \hline
+$a    $ & $a$ & $e$ & $c$ & $b$ \\ \hline
+$b    $ & $b$ & $c$ & $e$ & $a$ \\ \hline
+$c    $ & $c$ & $b$ & $a$ & $e$ \\ \hline
 \end{tabular}
 $$
 
-The second possibility where one element other than the identity is its own inverse, and the other two are mutual inverses. This gives you a group that is isomorphic to $(\mathbb{Z}_4, +)$ (a four-hour clock with addition, where $1$ and $-1$ are mutual inverses, and $0$ and $2$ are their own inverse). Note that the permutations of the elements of the group give the same table, so there is only one table for this group up to reordering. Since the identity and respective inverses commute, all that's left is to check the commutativity of the self-inverse element $a$ with both of the mutual-inverses elements $b$ and $c$. In this case, it is because there is "only one option left" in the Latin square that we get commutativity: e.g., $a \cdot b$ cannot equal $e$ since they are not inverses, cannot equal $a$ since $b \ne e$, cannot equal $b$ since $a \ne e$, so we must have $a \cdot b = c$. The same reasoning can be applied to $b \cdot a$ to get $c$ (hence $a \cdot b = b \cdot a$). With a relabelling, we apply this reasoning to $a \cdot c$ to get $b$ and to $c \cdot a$ to get $b$ (hence $a \cdot c = c \cdot a$). With this, we have proven commutativity.
+The second possibility where one element other than the identity is its own inverse, and the other two are mutual inverses. This gives you a group that is isomorphic to $(\mathbb{Z}_4, +)$ (a four-hour clock with addition, where $1$ and $-1$ are mutual inverses, and $0$ and $2$ are their own inverse). Note that the permutations of the elements of the group give the same table, so there is only one table for this group up to reordering.
+
+Since the identity and respective inverses commute, all that's left is to check the commutativity of the self-inverse element $a$ with both of the mutual-inverses elements $b$ and $c$. In this case, it is because there is "only one option left" in the Latin square that we get commutativity: e.g., $a \cdot b$ cannot equal $e$ since they are not inverses, cannot equal $a$ since $b \ne e$, cannot equal $b$ since $a \ne e$, so we must have $a \cdot b = c$. The same reasoning can be applied to $b \cdot a$ to get $c$ (hence $a \cdot b = b \cdot a$). With a relabelling, we apply this reasoning to $a \cdot c$ to get $b$ and to $c \cdot a$ to get $b$ (hence $a \cdot c = c \cdot a$). With this, we have proven commutativity.
 
 $$
 \begin{tabular}{|c||c|c|c|c|}
 \hline
-\cdot & e & a & b & c \\ \hline \hline
-e     & e & a & b & c \\ \hline
-a     & a & e & c & b \\ \hline
-b     & b & c & a & e \\ \hline
-c     & c & b & e & a \\ \hline
+$\cdot$ & $e$ & $a$ & $b$ & $c$ \\ \hline \hline
+$e    $ & $e$ & $a$ & $b$ & $c$ \\ \hline
+$a    $ & $a$ & $e$ & $c$ & $b$ \\ \hline
+$b    $ & $b$ & $c$ & $a$ & $e$ \\ \hline
+$c    $ & $c$ & $b$ & $e$ & $a$ \\ \hline
 \end{tabular}
 $$
+
+
+\subsubsection*{1.6.e) Conclusion and remark}
 
 With that, we've proven that all groups of order $\leq 4$ are commutative.
 
@@ -194,9 +211,11 @@ Let $G$ be a finite group, with exactly one element $f$ of order $2$. Prove that
 
 % Cancellation implies that $|x| \leq |G|$ for all $x \in G$ (in fact, with Lagrange's theorem, $|x|$ divides $|G|$, but we won't use it as it was mentioned but not proven). Given that $|\prod_{g \in G} g| \leq |G|$ and $\forall g \in G, |g| \leq |G|$, this implies that 
 
-I had some trouble, so I checked online and found this, meaning that the group probably needs to be not just finite but also abelian: https://math.stackexchange.com/questions/2550052/let-g-be-a-finite-abelian-group-with-exactly-one-element-of-order-2-denoted
+I had some trouble, so I checked online and found this, meaning that the group probably needs to be not just finite but also abelian:
 
-Since $f^2 = e \Leftrightarrow f = f^{-1}$, it also means that $f$ is the only self-inverse (involution) in $G$. Since the order of operation is not given, this gives us a hint that the property $(\Pi_{g \in G} \; g)^2 = e$ does not rely on the order of operations.
+https://math.stackexchange.com/questions/2550052/let-g-be-a-finite-abelian-group-with-exactly-one-element-of-order-2-denoted
+
+(A couple of notes: since $f^2 = e \Leftrightarrow f = f^{-1}$, it also means that $f$ is the only self-inverse (involution) in $G$. Also, the order of operation is not given: this gives us a hint that the property $(\Pi_{g \in G} \; g)^2 = e$ does not rely on the order of operations.)
 
 Since $f$ is the only element which is a self-inverse of order $2$, $e$ is the only self-inverse of order $1$, we have that for all other elements a $g$ in $G$, $g$ is not its own inverse. This means that the product of all elements of $G$ is a product of pairs of inverses, which cancel out to the identity (given commutativity), except for the self-inverse $f$ which remains. Therefore, $\Pi_{g \in G} g = f$.
 
@@ -230,11 +249,26 @@ By Corollary 1.11, $(g^2)^{|g|} = (g^2)^{2k + 1} = e \Leftrightarrow \exists l \
 
 Prove that for all $g, h$ in a group $G$, $|gh| = |hg|$. (Hint: prove that $|aga^{-1}| = |g|$ for all $a, g \in G$.)
 
-Let $a, g \in G$. $(aga^{-1})^{|g|} = (aga^{-1})(aga^{-1})...(aga^{-1}) = ag(a^{-1}a)g(a^{-1}a)g...ga^{-1} = ag^{|g|}a^{-1} = aea^{-1} = (aa^{-1}) = e$. By Lemma 1.10, $|aga^{-1}|$ is a divisor of $|g|$.
+Let $a, g \in G$.
+
+$$
+\begin{array}{ll}
+(aga^{-1})^{|g|} &= (aga^{-1})(aga^{-1})...(aga^{-1}) \\
+                 &= ag(a^{-1}a)g(a^{-1}a)g...ga^{-1} \\
+                 &= ag^{|g|}a^{-1} \\
+                 &= aea^{-1} \\
+                 &= (aa^{-1}) \\
+                 &= e
+\end{array}
+$$
+
+By Lemma 1.10, $|aga^{-1}|$ is a divisor of $|g|$.
 
 By definition, $(aga^{-1})^{|aga^{-1}|} = e$. However, similarly to above, $(aga^{-1})^{|aga^{-1}|} = ag^{|aga^{-1}|}a^{-1}$. So we have $ag^{|aga^{-1}|}a^{-1} = e$; then, multiplying on the left by $a^{-1}$ and right by $a$, we get $g^{|aga^{-1}|} = e$. By Lemma 1.10, $|g|$ is a divisor of $|aga^{-1}|$.
 
 Since the divisibility relation is an order relation (antisymmetric), the only time two numbers can be mutually divisors of each other is if we're in the reflexive case (i.e., they are equal). Therefore, $|g| = |aga^{-1}|$.
+
+Applying this identity to the elements $g \to gh$ with $a \to h$, we have $|gh| = |(h)(gh)(h^{-1})| = |hg|$
 
 
 
