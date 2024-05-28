@@ -77,6 +77,27 @@ the set of triplets of naturals that together sum to 10
 `{ (0,0,10), (1,2,7), (5,5,0), ... }`
 
 
+```py
+== (a:int, b:int) → bool
+a == b → True
+
+≠ (a:int) → b:int
+5 ≠ 3
+3 = 3
+3 = 5 ↯
+¬(3 = 5)
+
+
+x < x → False
+
+  1 2 3
+1 =
+2   =
+3     =
+
+```
+
+
 
 ---
 
@@ -90,11 +111,21 @@ the set of triplets of naturals that together sum to 10
 - [*domain*](https://en.wikipedia.org/wiki/Domain_of_a_function): the set of inputs accepted by the function. It is sometimes denoted by `dom(f)`.
 - [*codomain*](https://en.wikipedia.org/wiki/Codomain): a set into which all of the output of the function is constrained to fall. It is sometimes denoted by `cod(f)`.
 - [*image*/*preimage*](https://en.wikipedia.org/wiki/Image_(mathematics)): for a function 𝑓 : 𝑋 → 𝑌, the image of an input value 𝑥 is the single output value produced by 𝑓 when passed 𝑥. The preimage of an output value 𝑦 is the set of input values that produce 𝑦.
+- [*cartesian product*](https://en.wikipedia.org/wiki/Cartesian_product): An operation that takes two sets and produces every possible ordered pair of elements from those two sets.
+  `∀(A,B in Set) | A × B = { (a,b) | (a ∈ A) ∧ (b ∈ B) }`
 - [*disjoint*](https://en.wikipedia.org/wiki/Disjoint_sets): two sets are said to be disjoint if their intersection is empty.
 - [*relation*](https://en.wikipedia.org/wiki/Binary_relation): a binary logical operator which is a set of ordered pairs from two sets.
 - [*reflexive*](https://en.wikipedia.org/wiki/Reflexive_relation): property of a relation that it relates each element to itself.
+  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x ∈ X) | x ○ x`
+- [*irreflexive*](https://en.wikipedia.org/wiki/Reflexive_relation#Irreflexive_relation): property of a relation that it never relates an element to itself.
+  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x ∈ X) | ¬(x ○ x)`
 - [*symmetric*](https://en.wikipedia.org/wiki/Symmetric_relation): property of a relation that the left-right order is interchangeable.
+  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x,y ∈ X) | x ○ y ⇔ y ○ x`
+- [*antisymmetric*](https://en.wikipedia.org/wiki/Antisymmetric_relation): property of a relation that two distinct elements cannot be symmetrically related.
+  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x,y ∈ X) | (x ○ y) ∧ (y ○ x) ⇒ (x = y)`
+  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x,y ∈ X) | (x ≠ y) ⇒ ¬(x ○ y) ∨ ¬(y ○ x)`
 - [*transitive*](https://en.wikipedia.org/wiki/Transitive_relation): property of a relation that the relationship can be applied to between two elements indirectly, via an intermediary.
+  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x,y,z ∈ X) | ((x ○ y) ∧ (y ○ z)) ⇒ (x ○ z)`
 - [*equivalence relation*](https://en.wikipedia.org/wiki/Equivalence_relation): a binary relation that is reflexive, symmetric and transitive.
 - [*equivalence class*](https://en.wikipedia.org/wiki/Equivalence_class): Each equivalence relation provides a partition of the underlying set into disjoint equivalence classes. Two elements of the given set are equivalent to each other if and only if they belong to the same equivalence class.
 
@@ -235,6 +266,12 @@ As such, the quotient `ℝ/≈` is described by "2 real vectors are related if t
 
 ### 2.0) Lexicon
 
+- [*function*](https://en.wikipedia.org/wiki/Function_(mathematics)): A function on sets is a relation where any element of its domain has exactly one relation pair coming out of it.
+  `∀(A,B in Set) ∀(f ∈ (A → B)) ∀(a ∈ A) ∃!(b ∈ B) | f(a) = b`
+- [*composition*](https://en.wikipedia.org/wiki/Function_composition): A operation that takes two functions, and creates a new function which is the application of one function after the other.
+  `∀(A,B,C in Set) ∀(f ∈ A→B) ∀(g ∈ B→C) | (g ∘ f)(x) = g(f(x))`
+- [*identity*](https://en.wikipedia.org/wiki/Identity_(mathematics)): A morphism that relates any input element to the same (identical) output element.
+  `∀(A in Set) ∀(id ∈ (A → A)) ∀(a ∈ A) | id(a) = a`
 - [*left-inverse*|*post-inverse*](https://en.wikipedia.org/wiki/Inverse_function#Left_inverses): A morphism which, when applied after, composes with the one before it to give the identity on its codomain
   In Set: `∀(f ∈ A→B) (f is injective) ⇔ (f has left-inverse)`
   In general: `g ∈ Hom(B, A) is a post-inverse ⇔ ∃f ∈ Hom(A, B) such that g ∘ f = id_A`
@@ -244,15 +281,19 @@ As such, the quotient `ℝ/≈` is described by "2 real vectors are related if t
 - [*injective*](https://en.wikipedia.org/wiki/Injective_function): each and every input of the function is mapped to a different output
   `∀(f : A→B) (f is injective) ⇔ ∀(a₁,a₂ ∈ A) (a₁ = a₂ ⇒ f(a₁) = f(a₂))`
 - [*surjective*](https://en.wikipedia.org/wiki/Surjective_function): every element of the function's codomain is mapped to by some input
-  `∀(f : A→B) (f is surjective) ⇔ (∀b ∈ B) (∃a ∈ A) | (b = f (a))`
+  `∀(f : A→B) (f is surjective) ⇔ (∀b ∈ B) (∃a ∈ A) | (b = f(a))`
 - [*bijective*](https://en.wikipedia.org/wiki/Bijection): the function is both injective and surjective, each and every element from domain and codomain are mapped one-to-one
   `∀(f ∈ A→B) (f is bijective) ⇔ (f has two-sided inverse)`
 - [*monomorphism*](https://en.wikipedia.org/wiki/Monomorphism): is a morphism which when applied in parallel after a pair of distinct morphisms, cannot make the overall two operations equal
-  `∀(g in Hom(B,C)) (f is monomorphism) ⇔ ∀(A) ∀(α₁,α₂ ∈ Hom(A,B)) (g∘α₁ = g∘α₂ ⇒ α₁ = α₂) ⇔ ∀(C) ∀(α₁,α₂ ∈ Hom(A,B)) (α₁ ≠ α₂ ⇒ g∘α₁ ≠ g∘α₂)`
+  `∀(g in Hom(B,C)) (g is monomorphism)
+    ⇔ ∀(A) ∀(α₁,α₂ ∈ Hom(A,B)) (g∘α₁ = g∘α₂ ⇒ α₁ = α₂)
+    ⇔ ∀(C) ∀(α₁,α₂ ∈ Hom(A,B)) (α₁ ≠ α₂ ⇒ g∘α₁ ≠ g∘α₂)`
 - [*epimorphism*](https://en.wikipedia.org/wiki/Epimorphism): is a morphism which when applied in parallel before a pair of distinct morphisms cannot make the overall two operations equal
-  `∀(f in Hom(A,B)) (f is epimorphism) ⇔ ∀(C) ∀(β₁,β₂ ∈ Hom(B,C)) (β₁∘f = β₂∘f ⇒ β₁ = β₂) ⇔ ∀(C) ∀(β₁,β₂ ∈ Hom(B,C)) (β₁ ≠ β₂ ⇒ f∘β₁ ≠ f∘β₂)`
+  `∀(f in Hom(A,B)) (f is epimorphism)
+    ⇔ ∀(C) ∀(β₁,β₂ ∈ Hom(B,C)) (β₁∘f = β₂∘f ⇒ β₁ = β₂)
+    ⇔ ∀(C) ∀(β₁,β₂ ∈ Hom(B,C)) (β₁ ≠ β₂ ⇒ β₁∘f ≠ β₂∘f)`
 - [*isomorphism*](https://en.wikipedia.org/wiki/Isomorphism): a morphism which has a two-sided inverse morphism
-  `∀(f in Hom(A,B)) (f is isomorphism) ⇔ ???`
+  `∀(f in Hom(A,B)) (f is isomorphism) ⇔ (f has both a left-inverse and a right-inverse)`
 
 
 
@@ -1110,7 +1151,7 @@ A → Ω
 
 ## 4) Morphisms
 
-
+### 4.0) Lexicon
 
 - [*groupoid*](https://en.wikipedia.org/wiki/Groupoid): a category in which every morphism is an isomorphism.
 - [*endomorphism*](https://en.wikipedia.org/wiki/Endomorphism): a morphism from some object 𝐴 to itself.
@@ -1166,7 +1207,11 @@ A → Ω
 ### 4.2) In Example 3.3 we have seen how to construct a category from a set endowed with a relation, provided this latter is reflexive and transitive. For what types of relations is the corresponding category a groupoid (cf. Example 4.6)?
 
 ```py
-
+# A groupoid is a category in which every morphism is an isomorphism.
+# An isomorphism is a morphism which has both left-inverse and right-inverse.
+∴ ∀m morphism (a ~ b) ∃m⁻¹ (b ~ a)
+∴ binary relation symmetry for all morphisms ⇔ groupoid
+∴ ∀S in Set | there is an equivalence relation is a groupoid
 ```
 
 
@@ -1205,25 +1250,57 @@ ex: ℤ and ≤
 
 
 
-### 4.4) Prove that the composition of two monomorphisms is a monomorphism.
+### 4.4) Prove that the composition of two monomorphisms is a monomorphism. Deduce that one can define a subcategory `𝓒ₘₒₙₒ` of a category `𝓒` by taking the same objects as in `𝓒`, and defining `Hom_𝓒ₘₒₙₒ(A,B)` to be the subset of `Hom_𝓒(A, B)` consisting of monomorphisms, for all objects `A`, `B`. (Cf. Exercise 3.8; of course, in general `𝓒ₘₒₙₒ` is not full in `𝓒`.)
+
+#### 4.4.1) Do this for monomorphisms.
 
 ```py
+† ∃𝓒 in Cat
+† ∀(A,B,C ∈ in Obj(𝓒))
+∷ ∀(f ∈ Hom_𝓒(A,B) | f is monomorphism)
+∷ ∀(g ∈ Hom_𝓒(B,C) | g is monomorphism)
+⊦ (g ∘ f) is monomorphism
+  ∷ (g ∘ f) ∘ α₁ = (g ∘ f) ∘ α₂
+  = g ∘ (f ∘ α₁) = g ∘ (f ∘ α₂) # ∵ composition is associative
+  ⇒ f ∘ α₁ = f ∘ α₂  # ∵ g is monomorphism
+  ⇒ α₁ = α₂          # ∵ f is monomorphism
+∴ ((g ∘ f) ∘ α₁ = (g ∘ f) ∘ α₂) ⇒ (α₁ = α₂)
 
-```
-
-#### 4.4.1) Deduce that one can define a subcategory `𝓒_mono` of a category `𝓒` by taking the same objects as in `𝓒`, and defining `Hom_{𝓒_mono}(A,B)` to be the subset of `Hom_𝓒(A, B)` consisting of monomorphisms, for all objects `A`, `B`. (Cf. Exercise 3.8; of course, in general `𝓒_mono` is not full in `𝓒`.)
-
-```py
-
+⊦ hasidentity:
+  ∵ identity morphisms are isomorphisms, so they are also monomorphisms
+  ∴ 𝓒ₘₒₙₒ inherits all identity morphisms from 𝓒
+⊦ composition:
+  ∵ composing monomorphisms only yields monomorphisms
+  ∴ 𝓒ₘₒₙₒ is closed category when considering composition
+⊦ associative: ?
+⊦ id_composit: ?
 ```
 
 #### 4.4.2) Do the same for epimorphisms.
 
 ```py
+† ∃𝓒 in Cat
+† ∀(A,B,C ∈ in Obj(𝓒))
+∷ ∀(f ∈ Hom_𝓒(A,B) | f is epimorphism)
+∷ ∀(g ∈ Hom_𝓒(B,C) | g is epimorphism)
+⊦ (g ∘ f) is epimorphism
+  ∷ β₁ ∘ (g ∘ f) = β₂ ∘ (g ∘ f)
+  = (β₁ ∘ g) ∘ f = (β₂ ∘ g) ∘ f # ∵ composition is associative
+  ⇒ β₁ ∘ g = β₂ ∘ g  # ∵ g is epimorphism
+  ⇒ β₁ = β₂          # ∵ f is epimorphism
+∴ ((g ∘ f) ∘ β₁ = (g ∘ f) ∘ β₂) ⇒ (β₁ = β₂)
 
+⊦ hasidentity:
+  ∵ identity morphisms are isomorphisms, so they are also epimorphisms
+  ∴ 𝓒ₘₒₙₒ inherits all identity morphisms from 𝓒
+⊦ composition:
+  ∵ composing epimorphisms only yields epimorphisms
+  ∴ 𝓒ₘₒₙₒ is closed category when considering composition
+⊦ associative: ?
+⊦ id_composit: ?
 ```
 
-#### 4.4.3) Can you define a subcategory `𝓒_nonmono` of `𝓒` by restricting to morphisms that are not monomorphisms?
+#### 4.4.3) Can you define a subcategory `𝓒ₙₒₙₘₒₙₒ` of `𝓒` by restricting to morphisms that are not monomorphisms?
 
 ```py
 
