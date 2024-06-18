@@ -77,27 +77,6 @@ the set of triplets of naturals that together sum to 10
 `{ (0,0,10), (1,2,7), (5,5,0), ... }`
 
 
-```py
-== (a:int, b:int) → bool
-a == b → True
-
-≠ (a:int) → b:int
-5 ≠ 3
-3 = 3
-3 = 5 ↯
-¬(3 = 5)
-
-
-x < x → False
-
-  1 2 3
-1 =
-2   =
-3     =
-
-```
-
-
 
 ---
 
@@ -195,31 +174,31 @@ If we use this to define a partition `P` on some set `S`:
 Let's prove that `~` such that `a ~ b ⇔ (b − a) ∈ ℤ` is an equivalence relation:
 - reflexive: `∀(a ∈ ℝ), a ~ a` because:
 ```
-⊦	a ~ a
-⇔	(a − a) ∈ ℤ
-⇔	0 ∈ ℤ
-⇔	⊤
+⊦ a ~ a
+⇔ (a − a) ∈ ℤ
+⇔ 0 ∈ ℤ
+⇔ ⊤
 ```
 - symmetric: `∀(a ∈ ℝ) ∀(b ∈ ℝ) | a ~ b ⇒ b ~ a` because:
 ```
-⊦	a ~ b ⇔ b ~ a
-⇒	(b−a) ∈ ℤ ⇔ (a−b) ∈ ℤ
-⇒	|b−a| ∈ ℤ ⇔ |a−b| ∈ ℤ
-⊦	|b−a| = |a−b|
-⊦	a ~ b ⇔ (b − a) ∈ ℤ
-⊦	b ~ a ⇔ (a − b) ∈ ℤ
-∴	⊤
+⊦ a ~ b ⇔ b ~ a
+⇒ (b−a) ∈ ℤ ⇔ (a−b) ∈ ℤ
+⇒ |b−a| ∈ ℤ ⇔ |a−b| ∈ ℤ
+⊦ |b−a| = |a−b|
+⊦ a ~ b ⇔ (b − a) ∈ ℤ
+⊦ b ~ a ⇔ (a − b) ∈ ℤ
+∴ ⊤
 ```
 - transitive: `∀(a ∈ ℝ) ∀(b ∈ ℝ) ∀(c ∈ ℝ) | (a ~ b ∧ b ~ c) ⇒ a ~ c` because:
 ```
-⊦	a ~ b ⇔ (b − a) ∈ ℤ
-⊦	b ~ c ⇔ (c − b) ∈ ℤ
-⊦	a ~ c ⇔ (c − a) ∈ ℤ
-⇒	((b−a) ∈ ℤ) ∧ ((c−b) ∈ ℤ)
-⊦	+ ∈ ℤ×ℤ→ℤ
-⇒	(c−b)+(b−a) ∈ ℤ
-⇒	(c−b+b−a) ∈ ℤ
-⇒	(c−a) ∈ ℤ
+⊦ a ~ b ⇔ (b − a) ∈ ℤ
+⊦ b ~ c ⇔ (c − b) ∈ ℤ
+⊦ a ~ c ⇔ (c − a) ∈ ℤ
+⇒ ((b−a) ∈ ℤ) ∧ ((c−b) ∈ ℤ)
+⊦ + ∈ ℤ×ℤ→ℤ
+⇒ (c−b)+(b−a) ∈ ℤ
+⇒ (c−b+b−a) ∈ ℤ
+⇒ (c−a) ∈ ℤ
 ∴ ⊤
 ```
 As such, the quotient `ℝ/~` is described by "2 real numbers are related if their fractional part is identical"
@@ -227,33 +206,33 @@ As such, the quotient `ℝ/~` is described by "2 real numbers are related if the
 Let's prove that `≈` such that `(a₁,a₂) ≈ (b₁,b₂) ⇔ (b₁ − a₁) ∈ ℤ ∧ (b₂ − a₂) ∈ ℤ` is an equivalence relation:
 - reflexive: `∀(a ∈ ℝ²) | a ≈ a` because:
 ```
-⊦	a ≈ a
-⇒	(a₁ − a₁) ∈ ℤ ∧ (a₂ − a₂) ∈ ℤ
-⇒	0 ∈ ℤ ∧ 0 ∈ ℤ
+⊦ a ≈ a
+⇒ (a₁ − a₁) ∈ ℤ ∧ (a₂ − a₂) ∈ ℤ
+⇒ 0 ∈ ℤ ∧ 0 ∈ ℤ
 ∴ ⊤
 ```
 - symmetric: `∀(a ∈ ℝ²) ∀(b ∈ ℝ²) | a ≈ b ⇒ b ≈ a` because:
 ```
-⊦	(a₁,a₂)≈(b₁,b₂) ⇔ (b₁−a₁) ∈ ℤ ∧ (b₂−a₂) ∈ ℤ
-⊦	(b₁,b₂)≈(a₁,a₂) ⇔ (a₁−b₁) ∈ ℤ ∧ (a₂−b₂) ∈ ℤ
-⊦	(|b₁−a₁| = |a₁−b₁|) ∧ (|b₂−a₂| = |a₂−b₂|)
-⇒	(|b₁−a₁| ∈ ℤ ⇔ |a₁−b₁| ∈ ℤ) ∧ (|b₂−a₂| ∈ ℤ ⇔ |a₂−b₂| ∈ ℤ)
-⇒	((b₁−a₁) ∈ ℤ ⇔ (a₁−b₁) ∈ ℤ) ∧ ((b₂−a₂) ∈ ℤ ⇔ (a₂−b₂) ∈ ℤ)
-⇒	(a₁,a₂)≈(b₁,b₂) ⇔ (b₁,b₂)≈(a₁,a₂)
-⇒	a≈b ⇔ b≈a
+⊦ (a₁,a₂)≈(b₁,b₂) ⇔ (b₁−a₁) ∈ ℤ ∧ (b₂−a₂) ∈ ℤ
+⊦ (b₁,b₂)≈(a₁,a₂) ⇔ (a₁−b₁) ∈ ℤ ∧ (a₂−b₂) ∈ ℤ
+⊦ (|b₁−a₁| = |a₁−b₁|) ∧ (|b₂−a₂| = |a₂−b₂|)
+⇒ (|b₁−a₁| ∈ ℤ ⇔ |a₁−b₁| ∈ ℤ) ∧ (|b₂−a₂| ∈ ℤ ⇔ |a₂−b₂| ∈ ℤ)
+⇒ ((b₁−a₁) ∈ ℤ ⇔ (a₁−b₁) ∈ ℤ) ∧ ((b₂−a₂) ∈ ℤ ⇔ (a₂−b₂) ∈ ℤ)
+⇒ (a₁,a₂)≈(b₁,b₂) ⇔ (b₁,b₂)≈(a₁,a₂)
+⇒ a≈b ⇔ b≈a
 ∴ ⊤
 ```
 - transitive: `∀(a ∈ ℝ²) ∀(b ∈ ℝ²) ∀(c ∈ ℝ²) | (a ≈ b ∧ b ≈ c) ⇒ a ≈ c` because:
 ```
-⊦	(a₁,a₂)≈(b₁,b₂) ⇔ (b₁−a₁) ∈ ℤ ∧ (b₂−a₂) ∈ ℤ
-⊦	(b₁,b₂)≈(c₁,c₂) ⇔ (c₁−b₁) ∈ ℤ ∧ (c₂−b₂) ∈ ℤ
-⊦	(a₁,a₂)≈(c₁,c₂) ⇔ (c₁−a₁) ∈ ℤ ∧ (c₂−a₂) ∈ ℤ
-⇒	((b₁−a₁) ∈ ℤ ∧ (b₂−a₂) ∈ ℤ) ∧ ((c₁−b₁) ∈ ℤ ∧ (c₂−b₂) ∈ ℤ)
-⊦	+ ∈ ℤ×ℤ→ℤ
-⇒	((b₁−a₁) + (b₂−a₂)) + ((c₁−b₁) + (c₂−b₂)) ∈ ℤ
-⇒	(b₁ − a₁ + b₂ − a₂) + (c₁ − b₁ + c₂ − b₂) ∈ ℤ
-⇒	(b₁ − a₁ + b₂ − a₂ + c₁ − b₁ + c₂ − b₂) ∈ ℤ
-⇒	(c₁ − a₁ + c₂ − a₂) ∈ ℤ
+⊦ (a₁,a₂)≈(b₁,b₂) ⇔ (b₁−a₁) ∈ ℤ ∧ (b₂−a₂) ∈ ℤ
+⊦ (b₁,b₂)≈(c₁,c₂) ⇔ (c₁−b₁) ∈ ℤ ∧ (c₂−b₂) ∈ ℤ
+⊦ (a₁,a₂)≈(c₁,c₂) ⇔ (c₁−a₁) ∈ ℤ ∧ (c₂−a₂) ∈ ℤ
+⇒ ((b₁−a₁) ∈ ℤ ∧ (b₂−a₂) ∈ ℤ) ∧ ((c₁−b₁) ∈ ℤ ∧ (c₂−b₂) ∈ ℤ)
+⊦ + ∈ ℤ×ℤ→ℤ
+⇒ ((b₁−a₁) + (b₂−a₂)) + ((c₁−b₁) + (c₂−b₂)) ∈ ℤ
+⇒ (b₁ − a₁ + b₂ − a₂) + (c₁ − b₁ + c₂ − b₂) ∈ ℤ
+⇒ (b₁ − a₁ + b₂ − a₂ + c₁ − b₁ + c₂ − b₂) ∈ ℤ
+⇒ (c₁ − a₁ + c₂ − a₂) ∈ ℤ
 ∴ ⊤ ???
 ```
 As such, the quotient `ℝ/≈` is described by "2 real vectors are related if their resepctive components' fractional parts are identical"
@@ -684,15 +663,22 @@ And, for an example that makes this easier to understand
 
 ### 3.0) Lexicon
 
-- [*discrete category*](https://en.wikipedia.org/wiki/Discrete_category): all morphisms are identity
-- [*small category*/*large category*](https://en.wikipedia.org/wiki/Category_(mathematics)#Small_and_large_categories): ???
-- [*locally small category*](https://en.wikipedia.org/wiki/Category_(mathematics)#Small_and_large_categories): ???
+- [*category*](https://en.wikipedia.org/wiki/Category_(mathematics)): A collection of "objects" that are linked by "arrows". A category has two basic properties: the ability to compose the arrows associatively and the existence of an identity arrow for each object.
+- [*object*](https://en.wikipedia.org/wiki/Mathematical_object): an abstract entity arising in mathematics.
+- [*morphism*|*arrow*](https://en.wikipedia.org/wiki/Morphism): a morphism is a directed/oriented form of transformation or relation between two objects, usually represneted as an arrow between two objects.
+- [*hom-class*|*homset*](?): The collection of all morphisms from one object to another. If the hom-class behaves like a "set" (i.e. it is "small" enough) then we call it a *homset*. usually notated `Hom_𝓒(𝐴,𝐵)` for a given category 𝓒 with objects 𝐴 and 𝐵.
+- [*operation*](https://en.wikipedia.org/wiki/Operation_(mathematics)): Takes two objects and transforms those into one objects - a composition law.
+- [*discrete category*](https://en.wikipedia.org/wiki/Discrete_category): a category in which all morphisms are identities.
+- [*small category*](https://en.wikipedia.org/wiki/Category_(mathematics)#Small_and_large_categories): a category in which the amount of every object and every morphism (the cardinality) is computable.
+- [*locally small category*](https://en.wikipedia.org/wiki/Category_(mathematics)#Small_and_large_categories): a category where the collection of objects has an uncomputable cardinal but any homset has a computable cardinal.
+- [*large category*](https://en.wikipedia.org/wiki/Category_(mathematics)#Small_and_large_categories): a category in which the amount of every object and every morphism (the cardinality) is uncomputable.
 - [*diagram*](https://en.wikipedia.org/wiki/Diagram_(category_theory)): ???
-- [*commutative diagram*](https://en.wikipedia.org/wiki/Commutative_diagram): ???
-- [*pointed set*](https://en.wikipedia.org/wiki/Pointed_set): an object of a coslice category?
-- [*comma category*](https://en.wikipedia.org/wiki/Comma_category): ???
-- [*slice category*/*overcategory*](https://en.wikipedia.org/wiki/Overcategory): special case of comma cateogries, created from using a fixed element of an ambient cat as the morphism domain
-- [*coslice category*/*undercategory*](https://en.wikipedia.org/wiki/Undercategory): special case of comma cateogries, created from using a fixed element of an ambient cat as the morphism codomain
+- [*commutative diagram*](https://en.wikipedia.org/wiki/Commutative_diagram): a diagram such that all directed paths in the diagram with the same start and endpoints lead to the same result.
+- [*pointed set*|*based set*|*rooted set*](https://en.wikipedia.org/wiki/Pointed_set): a set in which a certain element is arbitrarily selected, and called the *base point*.
+- [*dual category*|*opposite category*](https://en.wikipedia.org/wiki/Opposite_category): a category formed by reversing all the morphisms (interchanging the source and target of each arrow). usually notated 𝓒ᵒᵖ.
+- [*comma category*](https://en.wikipedia.org/wiki/Comma_category): a category in which the objects are morphisms from some other category.
+- [*slice category*/*overcategory*](https://en.wikipedia.org/wiki/Overcategory): special case of comma cateogries, created from using a fixed element of an ambient category as the morphism domain
+- [*coslice category*/*undercategory*](https://en.wikipedia.org/wiki/Undercategory): special case of comma cateogries, created from using a fixed element of an ambient category as the morphism codomain
 - [*bislice category*](?): special case of comma cateogries, created from using two fixed elements of an ambient cat as the morphism domain
 - [*bicoslice category*](?): special case of comma cateogries, created from using two fixed elements of an ambient cat as the morphism codomain
 
@@ -1256,10 +1242,12 @@ ex: ℤ and ≤
 
 ```py
 † ∃𝓒 in Cat
-† ∀(A,B,C ∈ in Obj(𝓒))
+† ∀(A,B,C,Z ∈ in Obj(𝓒))
 ∷ ∀(f ∈ Hom_𝓒(A,B) | f is monomorphism)
 ∷ ∀(g ∈ Hom_𝓒(B,C) | g is monomorphism)
 ⊦ (g ∘ f) is monomorphism
+  ∷ ∀(α₁ ∈ Hom_𝓒(Z,A))
+  ∷ ∀(α₂ ∈ Hom_𝓒(Z,A))
   ∷ (g ∘ f) ∘ α₁ = (g ∘ f) ∘ α₂
   = g ∘ (f ∘ α₁) = g ∘ (f ∘ α₂) # ∵ composition is associative
   ⇒ f ∘ α₁ = f ∘ α₂  # ∵ g is monomorphism
@@ -1280,10 +1268,12 @@ ex: ℤ and ≤
 
 ```py
 † ∃𝓒 in Cat
-† ∀(A,B,C ∈ in Obj(𝓒))
+† ∀(A,B,C,Z ∈ in Obj(𝓒))
 ∷ ∀(f ∈ Hom_𝓒(A,B) | f is epimorphism)
 ∷ ∀(g ∈ Hom_𝓒(B,C) | g is epimorphism)
 ⊦ (g ∘ f) is epimorphism
+  ∷ ∀(β₁ ∈ Hom_𝓒(Z,A))
+  ∷ ∀(β₂ ∈ Hom_𝓒(Z,A))
   ∷ β₁ ∘ (g ∘ f) = β₂ ∘ (g ∘ f)
   = (β₁ ∘ g) ∘ f = (β₂ ∘ g) ∘ f # ∵ composition is associative
   ⇒ β₁ ∘ g = β₂ ∘ g  # ∵ g is epimorphism
@@ -1303,7 +1293,8 @@ ex: ℤ and ≤
 #### 4.4.3) Can you define a subcategory `𝓒ₙₒₙₘₒₙₒ` of `𝓒` by restricting to morphisms that are not monomorphisms?
 
 ```py
-
+∷ 𝓒ₙₒₙₘₒₙₒ is 𝓒 but without identity morphisms
+∴ 𝓒ₙₒₙₘₒₙₒ ∵ a category must have identity
 ```
 
 
@@ -1313,3 +1304,14 @@ ex: ℤ and ≤
 ```py
 
 ```
+
+
+
+## 5) Universal Properties
+
+### 5.0) Lexicon
+
+- [*_*](https://en.wikipedia.org/wiki/): 
+
+
+
