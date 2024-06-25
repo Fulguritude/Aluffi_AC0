@@ -246,17 +246,17 @@ As such, the quotient `ℝ/≈` is described by "2 real vectors are related if t
 ### 2.0) Lexicon
 
 - [*function*](https://en.wikipedia.org/wiki/Function_(mathematics)): A function on sets is a relation where any element of its domain has exactly one relation pair coming out of it.
-  `∀(A,B in Set) ∀(f ∈ (A → B)) ∀(a ∈ A) ∃!(b ∈ B) | f(a) = b`
+  `∀(A,B in Set) ∀(f ∈ (A → B)) ∀(a ∈ A) ⇒ ∃!(b ∈ B) | f(a) = b`
 - [*composition*](https://en.wikipedia.org/wiki/Function_composition): A operation that takes two functions, and creates a new function which is the application of one function after the other.
   `∀(A,B,C in Set) ∀(f ∈ A→B) ∀(g ∈ B→C) | (g ∘ f)(x) = g(f(x))`
 - [*identity*](https://en.wikipedia.org/wiki/Identity_(mathematics)): A morphism that relates any input element to the same (identical) output element.
   `∀(A in Set) ∀(id ∈ (A → A)) ∀(a ∈ A) | id(a) = a`
 - [*left-inverse*|*post-inverse*](https://en.wikipedia.org/wiki/Inverse_function#Left_inverses): A morphism which, when applied after, composes with the one before it to give the identity on its codomain
   In Set: `∀(f ∈ A→B) (f is injective) ⇔ (f has left-inverse)`
-  In general: `g ∈ Hom(B, A) is a post-inverse ⇔ ∃f ∈ Hom(A, B) such that g ∘ f = id_A`
+  In general: `g ∈ hom(B, A) is a post-inverse ⇔ ∃f ∈ hom(A, B) such that g ∘ f = id_A`
 - [*right-inverse*|*pre-inverse*](https://en.wikipedia.org/wiki/Inverse_function#Right_inverses): A morphism which, when applied before, composes with the one after it to give the identity on its domain
   In Set: `∀(f ∈ A→B) (f is surjective) ⇔ (f has right-inverse)`
-  In general: `f ∈ Hom(A, B) is a pre-inverse ⇔ ∃g ∈ Hom(B, A) such that g ∘ f = id_A`
+  In general: `f ∈ hom(A, B) is a pre-inverse ⇔ ∃g ∈ hom(B, A) such that g ∘ f = id_A`
 - [*injective*](https://en.wikipedia.org/wiki/Injective_function): each and every input of the function is mapped to a different output
   `∀(f : A→B) (f is injective) ⇔ ∀(a₁,a₂ ∈ A) (a₁ = a₂ ⇒ f(a₁) = f(a₂))`
 - [*surjective*](https://en.wikipedia.org/wiki/Surjective_function): every element of the function's codomain is mapped to by some input
@@ -264,15 +264,15 @@ As such, the quotient `ℝ/≈` is described by "2 real vectors are related if t
 - [*bijective*](https://en.wikipedia.org/wiki/Bijection): the function is both injective and surjective, each and every element from domain and codomain are mapped one-to-one
   `∀(f ∈ A→B) (f is bijective) ⇔ (f has two-sided inverse)`
 - [*monomorphism*](https://en.wikipedia.org/wiki/Monomorphism): is a morphism which when applied in parallel after a pair of distinct morphisms, cannot make the overall two operations equal
-  `∀(g in Hom(B,C)) (g is monomorphism)
-    ⇔ ∀(A) ∀(α₁,α₂ ∈ Hom(A,B)) (g∘α₁ = g∘α₂ ⇒ α₁ = α₂)
-    ⇔ ∀(C) ∀(α₁,α₂ ∈ Hom(A,B)) (α₁ ≠ α₂ ⇒ g∘α₁ ≠ g∘α₂)`
+  `∀(g in hom(B,C)) (g is monomorphism)
+    ⇔ ∀(A) ∀(α₁,α₂ ∈ hom(A,B)) (g∘α₁ = g∘α₂ ⇒ α₁ = α₂)
+    ⇔ ∀(C) ∀(α₁,α₂ ∈ hom(A,B)) (α₁ ≠ α₂ ⇒ g∘α₁ ≠ g∘α₂)`
 - [*epimorphism*](https://en.wikipedia.org/wiki/Epimorphism): is a morphism which when applied in parallel before a pair of distinct morphisms cannot make the overall two operations equal
-  `∀(f in Hom(A,B)) (f is epimorphism)
-    ⇔ ∀(C) ∀(β₁,β₂ ∈ Hom(B,C)) (β₁∘f = β₂∘f ⇒ β₁ = β₂)
-    ⇔ ∀(C) ∀(β₁,β₂ ∈ Hom(B,C)) (β₁ ≠ β₂ ⇒ β₁∘f ≠ β₂∘f)`
+  `∀(f in hom(A,B)) (f is epimorphism)
+    ⇔ ∀(C) ∀(β₁,β₂ ∈ hom(B,C)) (β₁∘f = β₂∘f ⇒ β₁ = β₂)
+    ⇔ ∀(C) ∀(β₁,β₂ ∈ hom(B,C)) (β₁ ≠ β₂ ⇒ β₁∘f ≠ β₂∘f)`
 - [*isomorphism*](https://en.wikipedia.org/wiki/Isomorphism): a morphism which has a two-sided inverse morphism
-  `∀(f in Hom(A,B)) (f is isomorphism) ⇔ (f has both a left-inverse and a right-inverse)`
+  `∀(f in hom(A,B)) (f is isomorphism) ⇔ (f has both a left-inverse and a right-inverse)`
 
 
 
@@ -666,7 +666,7 @@ And, for an example that makes this easier to understand
 - [*category*](https://en.wikipedia.org/wiki/Category_(mathematics)): A collection of "objects" that are linked by "arrows". A category has two basic properties: the ability to compose the arrows associatively and the existence of an identity arrow for each object.
 - [*object*](https://en.wikipedia.org/wiki/Mathematical_object): an abstract entity arising in mathematics.
 - [*morphism*|*arrow*](https://en.wikipedia.org/wiki/Morphism): a morphism is a directed/oriented form of transformation or relation between two objects, usually represneted as an arrow between two objects.
-- [*hom-class*|*homset*](?): The collection of all morphisms from one object to another. If the hom-class behaves like a "set" (i.e. it is "small" enough) then we call it a *homset*. usually notated `Hom_𝓒(𝐴,𝐵)` for a given category 𝓒 with objects 𝐴 and 𝐵.
+- [*hom-class*|*homset*](?): The collection of all morphisms from one object to another. If the hom-class behaves like a "set" (i.e. it is "small" enough) then we call it a *homset*. usually notated `hom_𝓒(𝐴,𝐵)` for a given category 𝓒 with objects 𝐴 and 𝐵.
 - [*operation*](https://en.wikipedia.org/wiki/Operation_(mathematics)): Takes two objects and transforms those into one objects - a composition law.
 - [*discrete category*](https://en.wikipedia.org/wiki/Discrete_category): a category in which all morphisms are identities.
 - [*small category*](https://en.wikipedia.org/wiki/Category_(mathematics)#Small_and_large_categories): a category in which the amount of every object and every morphism (the cardinality) is computable.
@@ -689,8 +689,8 @@ And, for an example that makes this easier to understand
 ex.3.2 - category of sets
 ```py
 ∷ let Set in Cat
-∷ Obj(Set) = all sets
-∷ Hom_Set(A,B) : B ^ A
+∷ obj(Set) = all sets
+∷ hom_Set(A,B) : B ^ A
 
 ⊦ hasidentity: ?
 ⊦ composition: ?
@@ -699,41 +699,41 @@ ex.3.2 - category of sets
 ```
 ex.3.3 - preorder category on a set
 ```py
-† S in Obj(Set)
+† S in obj(Set)
 † ~ is relation
   | ∀a | a ~ a                           # ~ is reflexive
   | ∀(a,b,c) | a ~ b ∧ b ~ c ⇒ a ~ c     # ~ is transitive
 
 ∷ let Ṡ in Cat
-∷ Obj(Ṡ) = ∀(a ∈ S)
-∷ Hom_Ṡ(a,b) : if (a ~ b) then {(a,b)} else ∅
+∷ obj(Ṡ) = ∀(a ∈ S)
+∷ hom_Ṡ(a,b) : if (a ~ b) then {(a,b)} else ∅
 
 ⊦ hasidentity:
   ∵ ∀(a ∈ S) | a ~ a
-  ∴ 1_a = (a,a) ∈ Hom_Ṡ(a,a)   
+  ∴ 1_a = (a,a) ∈ hom_Ṡ(a,a)   
 ⊦ composition:
   ∵ ∀(a,b,c) | a~b ∧ b~c ⇒ a ~ c
-  ∴ (g∘f := (a,c) ∈ Hom_Ṡ(A,C))
+  ∴ (g∘f := (a,c) ∈ hom_Ṡ(A,C))
 ⊦ associative:
   ∵ f=(a,b) ∧ g=(b,c) ∧ h=(c,d) ⇒ g∘f=(a,c) ∧ h∘g=(b,d)
   ∴ h∘(g∘f) = (a,d) = (h∘g)∘f
 ⊦ id_composit:
-  ∷ ∀(f ∈ Hom_Ṡ(a,b))
+  ∷ ∀(f ∈ hom_Ṡ(a,b))
   ∴ f ∘ 1_a = (a,b)∘(a,a) = (a,b) = f
   ∴ 1_b ∘ f = (b,b)∘(a,b) = (a,b) = f
 ```
 ex.3.4 - inclusion category on a powerset
 ```py
-† S in Obj(Set)
+† S in obj(Set)
 † ⊆ is relation
 
 ∷ let Ŝ in Cat
-∷ Obj(Ŝ) = 𝓟(S)
-∷ Hom_Ŝ(A,B) : if (A ⊆ B) then {0} else ∅
+∷ obj(Ŝ) = 𝓟(S)
+∷ hom_Ŝ(A,B) : if (A ⊆ B) then {0} else ∅
 
 ⊦ hasidentity:
   ∵ A ⊆ A
-  ∴ 1_A ∈ Hom_Ŝ(A,A)
+  ∴ 1_A ∈ hom_Ŝ(A,A)
 ⊦ composition:
   ∵ A ⊆ B ∧ B ⊆ C ⇒ A ⊆ C
   ∴ ∀(A→B) ∀(B→C) ∃(A→C)
@@ -745,14 +745,14 @@ ex.3.4 - inclusion category on a powerset
 ex.3.5 - slice category (abstract)
 ```py
 † 𝓒 in Cat
-† A in Obj(𝓒)
+† A in obj(𝓒)
 
 ∷ let 𝓒_A in Cat
-∷ Obj(𝓒_A) = f in ⋃_{∀Z in Obj(𝓒)} (Hom_𝓒(Z,A))
-∷ Hom_{𝓒_A}(f₁,f₂) : σ_n such that ∃σ_o ∈ (Hom_𝓒(Z₁,A) → Hom_𝓒(Z₂,A))
+∷ obj(𝓒_A) = f in ⋃_{∀Z in obj(𝓒)} (hom_𝓒(Z,A))
+∷ hom_{𝓒_A}(f₁,f₂) : σ_n such that ∃σ_o ∈ (hom_𝓒(Z₁,A) → hom_𝓒(Z₂,A))
 commuting as below.
-    ∀(Z₁ in Obj(𝓒))
-    ∀(Z₂ in Obj(𝓒))
+    ∀(Z₁ in obj(𝓒))
+    ∀(Z₂ in obj(𝓒))
 
 ⊦ hasidentity: ?
 ⊦ composition: ?
@@ -762,13 +762,13 @@ commuting as below.
 ex.3.6 - slice category (concrete)
 ```py
 † 𝓒 in Cat
-† A in Obj(𝓒) | A = 3
+† A in obj(𝓒) | A = 3
 † S = ℤ
 † ~ = ≤
 
 ∷ let 𝓒_{3} in Cat
-∷ Obj(𝓒_{3}) = (n,3) ∈ ℤ×ℤ  ∀(n ∈ ℤ | n ≤ 3)
-∷ Hom_𝓒_{3}(m,n) = ∀(m) ∀(n) | ((m,3) → (n,3))
+∷ obj(𝓒_{3}) = (n,3) ∈ ℤ×ℤ  ∀(n ∈ ℤ | n ≤ 3)
+∷ hom_𝓒_{3}(m,n) = ∀(m) ∀(n) | ((m,3) → (n,3))
 
 ⊦ hasidentity: ?
 ⊦ composition: ?
@@ -778,16 +778,16 @@ ex.3.6 - slice category (concrete)
 ex.3.6.BONUS - slice category (matrix)
 ```py
 † 𝓒 = the subcategory of Vect_ℝ consisting of finite-dimensional vector spaces
-† ℝ³ in Obj(𝓒)   # the chosen slicing object
-† A in Hom_𝓒(ℝᴺ,ℝ³) ∀(N ∈ ℕ)
-† B in Hom_𝓒(ℝᴹ,ℝ³) ∀(M ∈ ℕ)
-† C in Hom_𝓒(ℝ³ˣᴺ, ℝ³ˣᴹ) ∀(N ∈ ℕ) ∀(M ∈ ℕ)
+† ℝ³ in obj(𝓒)   # the chosen slicing object
+† A in hom_𝓒(ℝᴺ,ℝ³) ∀(N ∈ ℕ)
+† B in hom_𝓒(ℝᴹ,ℝ³) ∀(M ∈ ℕ)
+† C in hom_𝓒(ℝ³ˣᴺ, ℝ³ˣᴹ) ∀(N ∈ ℕ) ∀(M ∈ ℕ)
 
 ∷ let 𝓒_{ℝ³} in Cat
-∷ Obj(𝓒_{ℝ³}) = elements of the form A_{ℝ³} (or (ℝᴺ,A)) containing the same data as A, but existing in 𝓒_{ℝ³}
-∷ Hom_𝓒_{ℝ³}(A_{ℝ³},B_{ℝ³}) :
-   ∀(C in Hom_𝓒(ℝ³ˣᴺ, ℝ³ˣᴹ) | (A = B·C))
-   ∃(σ in Hom_𝓒_{ℝ³}(A_{ℝ³},B_{ℝ³}) | σ(A_{ℝ³}) = B_{ℝ³})
+∷ obj(𝓒_{ℝ³}) = elements of the form A_{ℝ³} (or (ℝᴺ,A)) containing the same data as A, but existing in 𝓒_{ℝ³}
+∷ hom_𝓒_{ℝ³}(A_{ℝ³},B_{ℝ³}) :
+   ∀(C in hom_𝓒(ℝ³ˣᴺ, ℝ³ˣᴹ) | (A = B·C))
+   ∃(σ in hom_𝓒_{ℝ³}(A_{ℝ³},B_{ℝ³}) | σ(A_{ℝ³}) = B_{ℝ³})
    with σ containing the same data as C
 
 ⊦ hasidentity: ?
@@ -798,13 +798,13 @@ ex.3.6.BONUS - slice category (matrix)
 ex.3.7 - coslice category (abstract)
 ```py
 † 𝓒 in Cat
-† A in Obj(𝓒)
+† A in obj(𝓒)
 
 ∷ let 𝓒^A in Cat
-∷ Obj(𝓒^A) = Hom_𝓒(A,Z) ∀(Z in Obj(𝓒))
-∷ Hom_𝓒^A(Z₁,Z₂) : σ ∈ (Hom_𝓒(A,Z₁) → Hom_𝓒(A,Z₂))
-    ∀(Z₁ in Obj(𝓒))
-    ∀(Z₂ in Obj(𝓒))
+∷ obj(𝓒^A) = hom_𝓒(A,Z) ∀(Z in obj(𝓒))
+∷ hom_𝓒^A(Z₁,Z₂) : σ ∈ (hom_𝓒(A,Z₁) → hom_𝓒(A,Z₂))
+    ∀(Z₁ in obj(𝓒))
+    ∀(Z₂ in obj(𝓒))
 
 ⊦ hasidentity: ?
 ⊦ composition: ?
@@ -814,18 +814,18 @@ ex.3.7 - coslice category (abstract)
 ex.3.8 - coslice category (concrete)
 ```py
 † Set
-† {*} in Obj(Set) | |{*}| = 1
-† S in Obj(Set)
-† T in Obj(Set)
-† f in Hom_Set({*},S)
-† g in Hom_Set({*},T)
+† {*} in obj(Set) | |{*}| = 1
+† S in obj(Set)
+† T in obj(Set)
+† f in hom_Set({*},S)
+† g in hom_Set({*},T)
 
 ∷ let Set^{*} in Cat
-∷ Obj(Set^{*}) = elements of the for f^*, having the same
+∷ obj(Set^{*}) = elements of the for f^*, having the same
   data as some morphism f ∈ ({*} → S) in Set
-∷ Hom_{Set^{*}}(f^*,g^*) :
-   ∀(h in Hom_Set(S, T) | (h·f = g)
-   ∃(σ in Hom_{Set^{*}}(f^*,g^*) | σ(f^*) = g^*)
+∷ hom_{Set^{*}}(f^*,g^*) :
+   ∀(h in hom_Set(S, T) | (h·f = g)
+   ∃(σ in hom_{Set^{*}}(f^*,g^*) | σ(f^*) = g^*)
    with σ containing the same data as h
 
 ⊦ hasidentity: ?
@@ -836,17 +836,17 @@ ex.3.8 - coslice category (concrete)
 ex.3.8.BONUS - coslice category (matrix)
 ```py
 † 𝓒 = the subcategory of Vect_ℝ consisting of finite-dimensional vector spaces
-† ℝ³ in Obj(𝓒)   # the chosen slicing object
-† A in Hom_𝓒(ℝ³,ℝᴺ) ∀(N ∈ ℕ)
-† B in Hom_𝓒(ℝ³,ℝᴹ) ∀(M ∈ ℕ)
-† C in Hom_𝓒(ℝᴹˣ³, ℝᴺˣ³) ∀(N ∈ ℕ) ∀(M ∈ ℕ)
+† ℝ³ in obj(𝓒)   # the chosen slicing object
+† A in hom_𝓒(ℝ³,ℝᴺ) ∀(N ∈ ℕ)
+† B in hom_𝓒(ℝ³,ℝᴹ) ∀(M ∈ ℕ)
+† C in hom_𝓒(ℝᴹˣ³, ℝᴺˣ³) ∀(N ∈ ℕ) ∀(M ∈ ℕ)
 
 ∷ let 𝓒^{ℝ³} in Cat
-∷ Obj(𝓒^{ℝ³}) = elements of the form A^{ℝ³} (or (ℝᴺ,A))
+∷ obj(𝓒^{ℝ³}) = elements of the form A^{ℝ³} (or (ℝᴺ,A))
    containing the same data as A, but existing in 𝓒^{ℝ³}
-∷ Hom_{𝓒^{ℝ³}}(A^{ℝ³},B^{ℝ³}) :
-   ∀(C in Hom_𝓒(ℝᴹˣ³, ℝᴺˣ³) | (A = C·B))
-   ∃(σ in Hom_{𝓒^{ℝ³}}(B^{ℝ³},A^{ℝ³}) | σ(B^{ℝ³}) = A^{ℝ³})
+∷ hom_{𝓒^{ℝ³}}(A^{ℝ³},B^{ℝ³}) :
+   ∀(C in hom_𝓒(ℝᴹˣ³, ℝᴺˣ³) | (A = C·B))
+   ∃(σ in hom_{𝓒^{ℝ³}}(B^{ℝ³},A^{ℝ³}) | σ(B^{ℝ³}) = A^{ℝ³})
    with σ containing the same data as C
 
 ⊦ hasidentity: ?
@@ -857,16 +857,16 @@ ex.3.8.BONUS - coslice category (matrix)
 ex.3.9 - bislice category
 ```py
 † 𝓒 in Cat
-  | A in Obj(𝓒)
-  | B in Obj(𝓒)
+  | A in obj(𝓒)
+  | B in obj(𝓒)
 
 ∷ let 𝓒_{A,B} in Cat
-∷ Obj(𝓒_{A,B}) = p in ⋃_{Z in Obj(𝓒)} ( Hom_𝓒(Z,A) × Hom_𝓒(Z,B) )
-∷ Hom_{𝓒_{A,B}}(p₁,p₂) = σ_n such that
-  ∃σ_o ∈ (Hom_𝓒(Z₁,A) × Hom_𝓒(Z₁,B)) → (Hom_𝓒(Z₂,A) × Hom_𝓒(Z₂,B))
+∷ obj(𝓒_{A,B}) = p in ⋃_{Z in obj(𝓒)} ( hom_𝓒(Z,A) × hom_𝓒(Z,B) )
+∷ hom_{𝓒_{A,B}}(p₁,p₂) = σ_n such that
+  ∃σ_o ∈ (hom_𝓒(Z₁,A) × hom_𝓒(Z₁,B)) → (hom_𝓒(Z₂,A) × hom_𝓒(Z₂,B))
     commuting as below.
-  ∀(Z₁ in Obj(𝓒))
-  ∀(Z₂ in Obj(𝓒))
+  ∀(Z₁ in obj(𝓒))
+  ∀(Z₂ in obj(𝓒))
 
 ⊦ hasidentity: ?
 ⊦ composition: ?
@@ -876,16 +876,16 @@ ex.3.9 - bislice category
 ex.3.9.BONUS - bicoslice category
 ```py
 † 𝓒 in Cat
-  | A in Obj(𝓒)
-  | B in Obj(𝓒)
+  | A in obj(𝓒)
+  | B in obj(𝓒)
 
 ∷ let 𝓒^{A,B} in Cat
-∷ Obj(𝓒^{A,B}) = p in ⋃_{Z in Obj(𝓒)} ( Hom_𝓒(A,Z) × Hom_𝓒(B,Z) )
-∷ Hom_{𝓒^{A,B}}(p₁,p₂) = σ_n such that
-  ∃σ_o ∈ (Hom_𝓒(A,Z₁) × Hom_𝓒(B,Z₁)) → (Hom_𝓒(A,Z₂) × Hom_𝓒(B,Z₂))
+∷ obj(𝓒^{A,B}) = p in ⋃_{Z in obj(𝓒)} ( hom_𝓒(A,Z) × hom_𝓒(B,Z) )
+∷ hom_{𝓒^{A,B}}(p₁,p₂) = σ_n such that
+  ∃σ_o ∈ (hom_𝓒(A,Z₁) × hom_𝓒(B,Z₁)) → (hom_𝓒(A,Z₂) × hom_𝓒(B,Z₂))
     commuting as below.
-  ∀(Z₁ in Obj(𝓒))
-  ∀(Z₂ in Obj(𝓒))
+  ∀(Z₁ in obj(𝓒))
+  ∀(Z₂ in obj(𝓒))
 
 ⊦ hasidentity: ?
 ⊦ composition: ?
@@ -895,20 +895,20 @@ ex.3.9.BONUS - bicoslice category
 ex.3.10 - fibered bislice category
 ```py
 † 𝓒 in Cat
-  | A in Obj(𝓒)
-  | B in Obj(𝓒)
-  | C in Obj(𝓒)
+  | A in obj(𝓒)
+  | B in obj(𝓒)
+  | C in obj(𝓒)
   | α ∈ (A → C)
   | β ∈ (B → C)
 
 ∷ let 𝓒_{α,β} in Cat
-∷ Obj(𝓒_{α,β}) = p in ⋃_{Z in Obj(𝓒)} ( Hom_𝓒(Z,A) × Hom_𝓒(Z,B) )
+∷ obj(𝓒_{α,β}) = p in ⋃_{Z in obj(𝓒)} ( hom_𝓒(Z,A) × hom_𝓒(Z,B) )
   | α ∘ f = β ∘ g
-∷ Hom_{𝓒_{α,β}}(p₁,p₂) = σ_n such that
-  ∃σ_o ∈ (Hom_𝓒(Z₁,A) × Hom_𝓒(Z₁,B)) → (Hom_𝓒(Z₂,A) × Hom_𝓒(Z₂,B))
+∷ hom_{𝓒_{α,β}}(p₁,p₂) = σ_n such that
+  ∃σ_o ∈ (hom_𝓒(Z₁,A) × hom_𝓒(Z₁,B)) → (hom_𝓒(Z₂,A) × hom_𝓒(Z₂,B))
     commuting as below.
-  ∀(Z₁ in Obj(𝓒))
-  ∀(Z₂ in Obj(𝓒))
+  ∀(Z₁ in obj(𝓒))
+  ∀(Z₂ in obj(𝓒))
 
 ⊦ hasidentity: ?
 ⊦ composition: ?
@@ -918,20 +918,20 @@ ex.3.10 - fibered bislice category
 ex.3.10 - fibered bicoslice category
 ```py
 † 𝓒 in Cat
-  | A in Obj(𝓒)
-  | B in Obj(𝓒)
-  | C in Obj(𝓒)
+  | A in obj(𝓒)
+  | B in obj(𝓒)
+  | C in obj(𝓒)
   | α ∈ (C → A)
   | β ∈ (C → B)
 
 ∷ let 𝓒^{α,β} in Cat
-∷ Obj(𝓒^{α,β}) = p in ⋃_{Z in Obj(𝓒)} ( Hom_𝓒(A,Z) × Hom_𝓒(B,Z) )
+∷ obj(𝓒^{α,β}) = p in ⋃_{Z in obj(𝓒)} ( hom_𝓒(A,Z) × hom_𝓒(B,Z) )
   | f ∘ α = g ∘ β
-∷ Hom_{𝓒^{α,β}}(p₁,p₂) = σ_n such that
-  ∃σ_o ∈ (Hom_𝓒(A,Z₁) × Hom_𝓒(B,Z₁)) → (Hom_𝓒(A,Z₂) × Hom_𝓒(B,Z₂))
+∷ hom_{𝓒^{α,β}}(p₁,p₂) = σ_n such that
+  ∃σ_o ∈ (hom_𝓒(A,Z₁) × hom_𝓒(B,Z₁)) → (hom_𝓒(A,Z₂) × hom_𝓒(B,Z₂))
     commuting as below.
-  ∀(Z₁ in Obj(𝓒))
-  ∀(Z₂ in Obj(𝓒))
+  ∀(Z₁ in obj(𝓒))
+  ∀(Z₂ in obj(𝓒))
 
 ⊦ hasidentity: ?
 ⊦ composition: ?
@@ -947,20 +947,20 @@ ex.3.10 - fibered bicoslice category
 † 𝓒 in Cat
 
 ∷ let 𝓒ᵒᵖ in Cat
-∷ Obj(𝓒ᵒᵖ) = Obj(𝓒)
-∷ Hom_𝓒ᵒᵖ(A,B) = ∀(A,B) in Obj(𝓒), Hom_𝓒(B,A)
+∷ obj(𝓒ᵒᵖ) = obj(𝓒)
+∷ hom_𝓒ᵒᵖ(A,B) = ∀(A,B) in obj(𝓒), hom_𝓒(B,A)
 
 ⊦ hasidentity:
-  ∵ ∃(1_A ∈ Hom_𝓒(A,A))
-  ∴ ∃(1_A ∈ Hom_𝓒ᵒᵖ(A,A))
+  ∵ ∃(1_A ∈ hom_𝓒(A,A))
+  ∴ ∃(1_A ∈ hom_𝓒ᵒᵖ(A,A))
 ⊦ composition:
   ∵ ∀(f ∈ C→B) ∀(g ∈ B→A) ∃(h ∈ C→A)
   ∴ ∀(g`∈ A→B) ∀(f`∈ B→C) ∃(h`∈ A→C)
 ⊦ associative:
-  ∵ ∀(f,g,h ∈ Hom_𝓒())   h∘(g∘f) = (h∘g)∘f
-  ∴ ∀(f,g,h ∈ Hom_𝓒ᵒᵖ()) h∘(g∘f) = (h∘g)∘f
+  ∵ ∀(f,g,h ∈ hom_𝓒())   h∘(g∘f) = (h∘g)∘f
+  ∴ ∀(f,g,h ∈ hom_𝓒ᵒᵖ()) h∘(g∘f) = (h∘g)∘f
 ⊦ id_composit:
-  ∷ ∀(f ∈ Hom_𝓒ᵒᵖ(a,b))
+  ∷ ∀(f ∈ hom_𝓒ᵒᵖ(a,b))
   ∴ f ∘ 1_a = (a,b)∘(a,a) = (a,b) = f
   ∴ 1_b ∘ f = (b,b)∘(a,b) = (a,b) = f
 ```
@@ -973,8 +973,8 @@ ex.3.10 - fibered bicoslice category
 † A in Set
   | ∃(n ∈ ℕ) |A| = n
 
-∵ End_Set(A) = Hom_Set(A,A)
-∴ |End_Set(A)| = |Hom_Set(A,A)| = |A|^|A| = n ^ n
+∵ End_Set(A) = hom_Set(A,A)
+∴ |End_Set(A)| = |hom_Set(A,A)| = |A|^|A| = n ^ n
 # all the possible mappings of input-to-output within finite set A
 ```
 
@@ -983,7 +983,7 @@ ex.3.10 - fibered bicoslice category
 ### 3.3)
 
 ```py
-∷ ∀(f ∈ Hom_Ṡ(a,b))
+∷ ∀(f ∈ hom_Ṡ(a,b))
 ∴ f ∘ 1_a = (a,b)∘(a,a) = (a,b) = f
 ∴ 1_b ∘ f = (b,b)∘(a,b) = (a,b) = f
 ```
@@ -993,20 +993,20 @@ ex.3.10 - fibered bicoslice category
 ### 3.4)
 
 ```py
-† ℤ in Obj(Set)
+† ℤ in obj(Set)
 † < is relation
 
 ∷ let 𝓩 in Cat
-∷ Obj(𝓩) = ∀(z ∈ ℤ)
-∷ Hom_𝓩(a,b) = (a,b) if (a < b) else ∅
+∷ obj(𝓩) = ∀(z ∈ ℤ)
+∷ hom_𝓩(a,b) = (a,b) if (a < b) else ∅
 
 ⊦ hasidentity:
   ∵ ∀(a ∈ ℤ) ↯ (a < a)
-  ∴ ∄(1_a | (a,a) ∈ Hom_𝓩(a,a))
+  ∴ ∄(1_a | (a,a) ∈ hom_𝓩(a,a))
   ※ # no identity function
 ⊦ composition:
   ∵ ∀(a,b,c) | a<b ∧ b<c ⇒ a < c
-  ∴ (g∘f := (a,c) ∈ Hom(A,C))
+  ∴ (g∘f := (a,c) ∈ hom(A,C))
 ⊦ associative:
   ∵ f=(a,b) ∧ g=(b,c) ∧ h=(c,d) ⇒ g∘f=(a,c) ∧ h∘g=(b,d)
   ∴ h∘(g∘f) = (a,d) = (h∘g)∘f
@@ -1031,12 +1031,12 @@ So `⊆` is really just a concrete example of the abstract relation `~`.
 
 ```py
 ∷ let 𝓥 in Cat
-∷ Obj(𝓥) = ℕ
-∷ Hom_𝓥(n,m) = ∀(n,m) ∈ ℕ² | Mat(ℝ, n × m)
+∷ obj(𝓥) = ℕ
+∷ hom_𝓥(n,m) = ∀(n,m) ∈ ℕ² | Mat(ℝ, n × m)
 
 ⊦ hasidentity:
   
-  ∴ ∃(1_A ∈ Hom_𝓥(n,m))
+  ∴ ∃(1_A ∈ hom_𝓥(n,m))
 ⊦ composition:
   ?
 ⊦ associative:
@@ -1051,11 +1051,11 @@ So `⊆` is really just a concrete example of the abstract relation `~`.
 
 ```py
 † 𝓒 in Cat # from previous example ex3.5
-∷ A in Obj(𝓒)
+∷ A in obj(𝓒)
 
 ∷ let 𝓒_A in Cat
-∷ Obj(𝓒_A) = ∀(Z) in Obj(𝓒) | Hom_𝓒(A,Z)
-∷ Hom_𝓒_A(Z₁,Z₂) = ∀(Z₁ in Obj(𝓒)) ∀(Z₂ in Obj(𝓒)) | (Hom_𝓒(A,Z₁),Hom_𝓒(A,Z₂))
+∷ obj(𝓒_A) = ∀(Z) in obj(𝓒) | hom_𝓒(A,Z)
+∷ hom_𝓒_A(Z₁,Z₂) = ∀(Z₁ in obj(𝓒)) ∀(Z₂ in obj(𝓒)) | (hom_𝓒(A,Z₁),hom_𝓒(A,Z₂))
 
 ⊦ hasidentity: ?
 ⊦ composition: ?
@@ -1063,7 +1063,7 @@ So `⊆` is really just a concrete example of the abstract relation `~`.
 ⊦ id_composit: ?
 ```
 ```
-∀(f in Hom_𝓒_A(Z₁,Z₂))
+∀(f in hom_𝓒_A(Z₁,Z₂))
 ∃(f₁,f₂):
 
         A         
@@ -1072,7 +1072,7 @@ So `⊆` is really just a concrete example of the abstract relation `~`.
    ↙         ↘   
  Z₁  ———σ——→  Z₂ 
 
-∀(g in Hom_𝓒_A(Z₃,Z₄))
+∀(g in hom_𝓒_A(Z₃,Z₄))
 f ∘ g:
 
           A           
@@ -1088,7 +1088,7 @@ f ∘ g:
 ### 3.8)
 
 ```py
-∷ ∃(InfSet | ∀(A in Obj(Set) | ∄(n ∈ ℕ, |A| = n)))
+∷ ∃(InfSet | ∀(A in obj(Set) | ∄(n ∈ ℕ, |A| = n)))
 ∴ InfSet is subcategory of Set
   ∵ (InfSet) inherits from (Set) all identity morphisms
   ∵ (InfSet) inherits from (Set) all composition rules
@@ -1111,13 +1111,13 @@ f ∘ g:
 ### 3.10)
 
 ```py
-† 𝓒 in Cat | Obj(𝓒) = Set
-† A in Obj(𝓒)
+† 𝓒 in Cat | obj(𝓒) = Set
+† A in obj(𝓒)
 
 A → Ω
 ⊦ subobject classifier :
-  ∷ ∃(𝔹 in Obj(Set) | 𝔹 = {0,1})
-  ∴ ∀(B in Obj(Set)) ∀(A in Obj(Set) | A ⊆ B)
+  ∷ ∃(𝔹 in obj(Set) | 𝔹 = {0,1})
+  ∴ ∀(B in obj(Set)) ∀(A in obj(Set) | A ⊆ B)
     ∃(f : B → 𝔹 | ∀(b ∈ B | f(b) = 1 ⇔ b ∈ A) else f(b) = 0)
   ∵ 𝓟(S) = { ∃(f ∈ S → 𝔹) | ∀(a ∈ S) | f(a) = 1 }
   ∴ Ω = {0,1} = 𝔹
@@ -1161,10 +1161,10 @@ A → Ω
 
 ```py
 † 𝓒 in Cat
-† ∀(A,B,C,D in Obj(𝓒))
-† ∀(f ∈ Hom_𝓒(A,B))
-† ∀(g ∈ Hom_𝓒(B,C))
-† ∀(h ∈ Hom_𝓒(C,D))
+† ∀(A,B,C,D in obj(𝓒))
+† ∀(f ∈ hom_𝓒(A,B))
+† ∀(g ∈ hom_𝓒(B,C))
+† ∀(h ∈ hom_𝓒(C,D))
 
 ⊦ parentheses dont matter for any nested composition
   ⊦ inductive base step
@@ -1202,17 +1202,17 @@ A → Ω
 
 
 
-### 4.3) Let `A`, `B` be objects of a category `𝓒`, and `f ∈ Hom_𝓒(A, B)` a morphism.
+### 4.3) Let `A`, `B` be objects of a category `𝓒`, and `f ∈ hom_𝓒(A, B)` a morphism.
 
 #### 4.3.1) Prove that if `f` has a right-inverse, then `f` is an epimorphism.
 
 ```py
 † 𝓒 is Cat
-† ∀(A,B in Obj(𝓒))
-† f ∈ Hom_𝓒(A,B)
+† ∀(A,B in obj(𝓒))
+† f ∈ hom_𝓒(A,B)
 
-∷ ∃g ∈ Hom(B,A) | g∘f = id_A
-∷ ∀(C) ∀(β₁,β₂ ∈ Hom(B,C))
+∷ ∃g ∈ hom(B,A) | g∘f = id_A
+∷ ∀(C) ∀(β₁,β₂ ∈ hom(B,C))
 ∷ β₁∘f = β₂∘f
   ⇒ (β₁∘f)∘g = (β₂∘f)∘g
   ⇒ β₁∘(f∘g) = β₂∘(f∘g)
@@ -1227,8 +1227,8 @@ A → Ω
 ex: ℤ and ≤
 
 ⊦ (ℤ,≤) is epimorphism
-  ∷ Hom(1,2), 1≤2 = single morphism
-  ∷ Hom(2,1), 2≤1 = ∅
+  ∷ hom(1,2), 1≤2 = single morphism
+  ∷ hom(2,1), 2≤1 = ∅
   ∴ (β₁∘(≤) = β₂∘(≤) ⇒ β₁ = β₂) # trivial..?
 ⊦ (ℤ,≤) has no right-inverse
   ∷ ∃f | 
@@ -1236,18 +1236,18 @@ ex: ℤ and ≤
 
 
 
-### 4.4) Prove that the composition of two monomorphisms is a monomorphism. Deduce that one can define a subcategory `𝓒ₘₒₙₒ` of a category `𝓒` by taking the same objects as in `𝓒`, and defining `Hom_𝓒ₘₒₙₒ(A,B)` to be the subset of `Hom_𝓒(A, B)` consisting of monomorphisms, for all objects `A`, `B`. (Cf. Exercise 3.8; of course, in general `𝓒ₘₒₙₒ` is not full in `𝓒`.)
+### 4.4) Prove that the composition of two monomorphisms is a monomorphism. Deduce that one can define a subcategory `𝓒ₘₒₙₒ` of a category `𝓒` by taking the same objects as in `𝓒`, and defining `hom_𝓒ₘₒₙₒ(A,B)` to be the subset of `hom_𝓒(A, B)` consisting of monomorphisms, for all objects `A`, `B`. (Cf. Exercise 3.8; of course, in general `𝓒ₘₒₙₒ` is not full in `𝓒`.)
 
 #### 4.4.1) Do this for monomorphisms.
 
 ```py
 † ∃𝓒 in Cat
-† ∀(A,B,C,Z ∈ in Obj(𝓒))
-∷ ∀(f ∈ Hom_𝓒(A,B) | f is monomorphism)
-∷ ∀(g ∈ Hom_𝓒(B,C) | g is monomorphism)
+† ∀(A,B,C,Z ∈ in obj(𝓒))
+∷ ∀(f ∈ hom_𝓒(A,B) | f is monomorphism)
+∷ ∀(g ∈ hom_𝓒(B,C) | g is monomorphism)
 ⊦ (g ∘ f) is monomorphism
-  ∷ ∀(α₁ ∈ Hom_𝓒(Z,A))
-  ∷ ∀(α₂ ∈ Hom_𝓒(Z,A))
+  ∷ ∀(α₁ ∈ hom_𝓒(Z,A))
+  ∷ ∀(α₂ ∈ hom_𝓒(Z,A))
   ∷ (g ∘ f) ∘ α₁ = (g ∘ f) ∘ α₂
   = g ∘ (f ∘ α₁) = g ∘ (f ∘ α₂) # ∵ composition is associative
   ⇒ f ∘ α₁ = f ∘ α₂  # ∵ g is monomorphism
@@ -1268,12 +1268,12 @@ ex: ℤ and ≤
 
 ```py
 † ∃𝓒 in Cat
-† ∀(A,B,C,Z ∈ in Obj(𝓒))
-∷ ∀(f ∈ Hom_𝓒(A,B) | f is epimorphism)
-∷ ∀(g ∈ Hom_𝓒(B,C) | g is epimorphism)
+† ∀(A,B,C,Z ∈ in obj(𝓒))
+∷ ∀(f ∈ hom_𝓒(A,B) | f is epimorphism)
+∷ ∀(g ∈ hom_𝓒(B,C) | g is epimorphism)
 ⊦ (g ∘ f) is epimorphism
-  ∷ ∀(β₁ ∈ Hom_𝓒(Z,A))
-  ∷ ∀(β₂ ∈ Hom_𝓒(Z,A))
+  ∷ ∀(β₁ ∈ hom_𝓒(Z,A))
+  ∷ ∀(β₂ ∈ hom_𝓒(Z,A))
   ∷ β₁ ∘ (g ∘ f) = β₂ ∘ (g ∘ f)
   = (β₁ ∘ g) ∘ f = (β₂ ∘ g) ∘ f # ∵ composition is associative
   ⇒ β₁ ∘ g = β₂ ∘ g  # ∵ g is epimorphism
@@ -1311,7 +1311,13 @@ ex: ℤ and ≤
 
 ### 5.0) Lexicon
 
-- [*_*](https://en.wikipedia.org/wiki/): 
+- [*initial object*](https://en.wikipedia.org/wiki/Initial_and_terminal_objects): An object such that between it and every other, there is exactly one morphism from it to any other object.
+  `∀(A ∈ Obj(𝓒)) |hom_𝓒(I, A)| = 1`
+- [*final object*](https://en.wikipedia.org/wiki/Initial_and_terminal_objects): An object such that between it and every other, there is exactly one morphism from any other object to it.
+  `∀(A ∈ Obj(𝓒)) |hom_𝓒(A, F)| = 1`
+- [*terminal object*](https://en.wikipedia.org/wiki/Initial_and_terminal_objects): An object that is either *initial* or *final*.
+- [*zero object*|*null object*](https://en.wikipedia.org/wiki/Initial_and_terminal_objects): An object that is both *initial* and *final*.
+- [*universal property*](https://en.wikipedia.org/wiki/): a property that characterizes up to an isomorphism the result of some constructions
 
 
 
