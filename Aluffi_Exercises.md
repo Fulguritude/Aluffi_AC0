@@ -10,9 +10,9 @@ different symbols used for contradiction:
 - ⛝ (crossed box - normal box being "end of proof")
 - ↯ (thunderbolt of god's logic smiting you)
 
-## 0) Set exercices
+## 0. Set exercices
 
-### 0.1) Notating sets
+### 0.1. Notating sets
 
 - the set of all odd integers  
 `{ 2·k+1 | k ∈ ℤ }`
@@ -50,7 +50,7 @@ different symbols used for contradiction:
 `{ n | n ∈ ℕ, ∃ (a,b,c) ∈ 2·ℕ³ | (a≠b ∧ b≠c ∧ a≠c) ∧ (a+b+c = n) }`
 `{ 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, ... }`
 
-### 0.2) Describing sets
+### 0.2. Describing sets
 
 - `{ 3·n+2 | n ∈ ℕ }`
 the set of natural numbers that are immediately before/inferior to a multiple of 3
@@ -80,9 +80,9 @@ the set of triplets of naturals that together sum to 10
 
 ---
 
-## 1) Set theory and categories
+## 1. Set theory and categories
 
-### 1.0) Lexicon
+### 1.0. Lexicon
 
 - [*set*](https://en.wikipedia.org/wiki/Set_(mathematics)): a set is a collection of different things; these things are called *elements* or *members* of the set and are typically mathematical objects of any kind: numbers, symbols, points in space, lines, other geometrical shapes, variables, or even other sets. A set may have a finite number of elements or be an infinite set - furthermore, there is a unique set with no elements, called the *empty set*. A set with a single element is a *singleton* set.
 - [*subset*/*superset*](https://en.wikipedia.org/wiki/Subset): a set 𝐴 is a *subset* of a set 𝐵 if all elements of 𝐴 are also elements of 𝐵; 𝐵 is then said to be a *superset* of 𝐴. It is possible for 𝐴 and 𝐵 to be equal; if they are unequal, then 𝐴 is a *proper subset* of 𝐵.
@@ -110,7 +110,7 @@ the set of triplets of naturals that together sum to 10
 
 
 
-### 1.1) Locate a discussion of Russell’s paradox, and understand it.
+### 1.1. Locate a discussion of Russell’s paradox, and understand it.
 
 Here is the paradoxical set: `S = { s | s ∉ s }`
 - given https://en.wikipedia.org/wiki/Axiom_of_extensionality
@@ -125,7 +125,7 @@ Then you can deduce `S ∈ S ⇔ S ∉ S`.
 
 
 
-### 1.2) Prove that if `~` is a relation on a set `S`, then the corresponding family `P~` defined in §1.5 is indeed a partition of `S`: that is, its elements are nonempty, disjoint and their union is `S`. [§1.5]
+### 1.2. Prove that if `~` is a relation on a set `S`, then the corresponding family `P~` defined in §1.5 is indeed a partition of `S`: that is, its elements are nonempty, disjoint and their union is `S`. [§1.5]
 
 We have a set `S` and a nondistinct relation `~`:
 `S/~ := P~`
@@ -136,14 +136,14 @@ In the resulting set, we have some equivalence classes.
 
 
 
-### 1.3) Given a partition `P` on a set `S`, show how to define a relation `~` on `S` such that `P` is the corresponding partition. [§1.5]
+### 1.3. Given a partition `P` on a set `S`, show how to define a relation `~` on `S` such that `P` is the corresponding partition. [§1.5]
 
 Question poorly phrased - i can define one by just using "let"...
 `∃~ ∀P ∀S, S/~ = P`
 
 
 
-### 1.4) How many different equivalence relations may be defined on the set `{1,2,3}`?
+### 1.4. How many different equivalence relations may be defined on the set `{1,2,3}`?
 
 There are only 5 possible partitions:
 ```
@@ -157,7 +157,7 @@ Does this mean there are 5 equivalence classes though ? idk
 
 
 
-### 1.5) Give an example of a relation that is reflexive and symmetric, but not transitive. What happens if you attempt to use this relation to define a partition on the set? (Hint: thinking about the second question will help you answer the first one.)
+### 1.5. Give an example of a relation that is reflexive and symmetric, but not transitive. What happens if you attempt to use this relation to define a partition on the set? (Hint: thinking about the second question will help you answer the first one.)
 
 Let's imagine a "similarity relation" we can notate with `≈`; we can imagine it to work like a looser version of equality (say for example, if an integer is only 1 away, then it counts as similar).
 - reflexive: `∀(a ∈ S) | a ≈ a` (an element is always "similar" to itself)
@@ -169,7 +169,7 @@ If we use this to define a partition `P` on some set `S`:
 
 
 
-### 1.6) Define a relation `~` on the set `ℝ` of real numbers, by setting `a ~ b ⇔ (b − a) ∈ ℤ`. Prove that this is an equivalence relation, and find a ‘compelling’ description for `ℝ/~`. Do the same for the relation `≈` on the plane `ℝ × ℝ` defined by declaring `(a₁,a₂) ≈ (b₁,b₂) ⇔ (b₁ − a₁) ∈ ℤ ∧ (b₂ − a₂) ∈ ℤ`. [§II.8.1, II.8.10]
+### 1.6. Define a relation `~` on the set `ℝ` of real numbers, by setting `a ~ b ⇔ (b − a) ∈ ℤ`. Prove that this is an equivalence relation, and find a ‘compelling’ description for `ℝ/~`. Do the same for the relation `≈` on the plane `ℝ × ℝ` defined by declaring `(a₁,a₂) ≈ (b₁,b₂) ⇔ (b₁ − a₁) ∈ ℤ ∧ (b₂ − a₂) ∈ ℤ`. [§II.8.1, II.8.10]
 
 Let's prove that `~` such that `a ~ b ⇔ (b − a) ∈ ℤ` is an equivalence relation:
 - reflexive: `∀(a ∈ ℝ), a ~ a` because:
@@ -241,9 +241,9 @@ As such, the quotient `ℝ/≈` is described by "2 real vectors are related if t
 
 ---
 
-## 2) Functions over sets
+## 2. Functions over sets
 
-### 2.0) Lexicon
+### 2.0. Lexicon
 
 - [*function*](https://en.wikipedia.org/wiki/Function_(mathematics)): A function on sets is a relation where any element of its domain has exactly one relation pair coming out of it.
   `∀(A,B in Set) ∀(f ∈ (A → B)) ∀(a ∈ A) ⇒ ∃!(b ∈ B) | f(a) = b`
@@ -277,7 +277,7 @@ As such, the quotient `ℝ/≈` is described by "2 real vectors are related if t
 
 
 
-### 2.1) How many different bijections are there between a set `S` with `n` elements and itself? [§II.2.1]
+### 2.1. How many different bijections are there between a set `S` with `n` elements and itself? [§II.2.1]
 
 There are `n!` possible unique bijections. This is akin to asking how many permutations a deck of cards can have.
 
@@ -294,21 +294,21 @@ Imagine there are 3 elements, we have:
 
 
 
-### 2.2) Prove statement (2) in Proposition 2.1. You may assume that given a family of disjoint subsets of a set, there is a way to choose one element in each member of the family. [§2.5, V.3.3]
+### 2.2. Prove statement (2) in Proposition 2.1. You may assume that given a family of disjoint subsets of a set, there is a way to choose one element in each member of the family. [§2.5, V.3.3]
 
 `∀A (A ≠ ∅)`
 `∀B`
 `∀f (f ∈ A → B)`
 `∀(a',a") ∈ A² (a' ≠ a")`
 
-#### 2.2.1) `f` has a left inverse iff it is injective
+#### 2.2.1. `f` has a left inverse iff it is injective
 
-##### 2.2.1.⇒) assume `f` has a left inverse:
+##### 2.2.1.⇒. assume `f` has a left inverse:
 ```
 ∃g (g ∈ B → A) (g∘f = id_A)
 g(f(a')) = id_A(a') = a' ≠ a" = id_A(a") = g(f(a"))
 ```
-##### 2.2.1.⇐) assume `f` is injective:
+##### 2.2.1.⇐. assume `f` is injective:
 ```
 ∷ a' ≠ a" ⇒ f(a') ≠ f(a")
 ∷ ∀a ∈ A
@@ -319,16 +319,16 @@ g(f(a')) = id_A(a') = a' ≠ a" = id_A(a") = g(f(a"))
 ⇒ g∘f(a) = a = id_A(a)
 ```
 
-#### 2.2.2) `f` has a right inverse iff it is surjective
+#### 2.2.2. `f` has a right inverse iff it is surjective
 
-##### 2.2.2.⇒) assume `f` has a right inverse:
+##### 2.2.2.⇒. assume `f` has a right inverse:
 ```
 ∷ ∃g (g ∈ B → A) (f∘g = id_B)
 ∴ ∀(b ∈ B) (∃a ∈ A)    g(b)  = a
 ∴ ∀(b ∈ B) (∃a ∈ A)  f(g(b)) = f(a)
 ∴ ∀(b ∈ B) (∃a ∈ A)      b   = f(a)
 ```
-##### 2.2.2.⇐) assume `f` is surjective:
+##### 2.2.2.⇐. assume `f` is surjective:
 ```
 ∷ ∀(b ∈ B) ∃(a ∈ A) | b = f(a)
 g ∈ B → A
@@ -338,9 +338,9 @@ g ∈ B → A
 
 
 
-### 2.3) Prove that the inverse of a bijection is a bijection, and that the composition of two bijections is a bijection.
+### 2.3. Prove that the inverse of a bijection is a bijection, and that the composition of two bijections is a bijection.
 
-#### 2.3.1) prove that the inverse of a bijection is a bijection
+#### 2.3.1. prove that the inverse of a bijection is a bijection
 
 `let f⁻¹ ∈ B → A | f⁻¹ ∘ f = id_A`
 
@@ -367,7 +367,7 @@ therefore `f⁻¹` is injective
 ```
 thus `a` has an antecedent by `g`, which is `b`, so `g` is surjective
 
-#### 2.3.2) show that the composition of two bijections is a bijection
+#### 2.3.2. show that the composition of two bijections is a bijection
 
 Let `f ∈ (A → B)` and `g ∈ (B → C)`, both bijective (hence with inverses in their respective function spaces).
 Let
@@ -395,7 +395,7 @@ Therefore `h` and `h⁻¹` are two-sided inverses of each other, and thus biject
 
 
 
-### 2.4) Prove that ‘isomorphism’ is an equivalence relation (on any set of sets). [§4.1]
+### 2.4. Prove that ‘isomorphism’ is an equivalence relation (on any set of sets). [§4.1]
 
 - reflexive: `∀A | A ≅ A` because:
 	there is the identity function which is a one-to-one mapping of itself
@@ -406,16 +406,16 @@ Therefore `h` and `h⁻¹` are two-sided inverses of each other, and thus biject
 
 
 
-### 2.5) Formulate a notion of epimorphism, in the style of the notion of monomorphism seen in §2.6, and prove a result analogous to Proposition 2.3, for epimorphisms and surjections. [§2.6, §4.2]
+### 2.5. Formulate a notion of epimorphism, in the style of the notion of monomorphism seen in §2.6, and prove a result analogous to Proposition 2.3, for epimorphisms and surjections. [§2.6, §4.2]
 
-#### 2.5.1) A function is injective iff it is a monomorphism.
+#### 2.5.1. A function is injective iff it is a monomorphism.
 
 monomorphism definition:
 ```
 ∀(A,B,Z) ∀(f ∈ A → B) ∀(α',α" ∈ Z → A) | f∘α' = f∘α" ⇒ α' = α"
 ```
 
-##### 2.5.1.⇒) assuming that `f` is injective, prove that it is a monomorphism.
+##### 2.5.1.⇒. assuming that `f` is injective, prove that it is a monomorphism.
 
 By Proposition 2.1, if a function `f ∈ A → B` is injective, then it has a left inverse `g ∈ B → A`. 
 Now assume that `α'`, `α"` are arbitrary functions from another set `Z` to `A`, and that `f ∘ α'= f ∘ α'` ; compose on the left by `g`, and use associativity of composition:
@@ -424,7 +424,7 @@ since `g` is a left inverse of `f`, this says
 `id_A ∘ α'= id_A ∘ α'`,
 and therefore `α'= α"`, as needed to conclude that f is a monomorphism.
 
-##### 2.5.1.⇐) assuming that `f` is a monomorphism, prove that it is injective.
+##### 2.5.1.⇐. assuming that `f` is a monomorphism, prove that it is injective.
 
 This says something about arbitrary sets Z and arbitrary functions `Z → A`; we are going to use a microscopic portion of this information, choosing `Z` to be any singleton `{p}`. Then assigning functions `α',α" ∈ Z → A` amounts to choosing to which elements `a'= α'(p)`, `a"= α"(p)` we should send the single element `p` of `Z`. For this particular choice of `Z`, the property defining monomorphisms,
 
@@ -435,14 +435,14 @@ Now two functions from `Z = {p}` to `A` are equal if and only if they send `p` t
 `f (a') = f (a") ⇒ a'= a'`
 This has to be true for all `α'`, `α"`, that is, for all choices of distinct `a'`, `a"` in `A`. In other words, `f` has to be injective, as was to be shown.
 
-#### 2.5.2) A function is surjective iff it is an epimorphism.
+#### 2.5.2. A function is surjective iff it is an epimorphism.
 
 epimorphism definition:
 ```
 ∀(A,B) ∀(f ∈ A → B) ∀(g₁,g₂ ∈ B → A) | g₁∘f = g₂∘f ⇒ g₁ = g₂
 ```
 
-##### 2.5.2.⇒) assuming that `f` is surjective, prove that it is an epimorphism.
+##### 2.5.2.⇒. assuming that `f` is surjective, prove that it is an epimorphism.
 
 ```py
 † ∃(g ∈ B → A) | f ∘ g = id_B # f is surjective, so it has pre-inverse
@@ -455,7 +455,7 @@ epimorphism definition:
 ∴ h₁ ∘ f = h₂ ∘ f ⇒ h₁ = h₂
 ```
 
-##### 2.5.2.⇐) assuming that `f` is a epimorphism, prove that it is surjective.
+##### 2.5.2.⇐. assuming that `f` is a epimorphism, prove that it is surjective.
 
 ```py
 † ∀(A,B) ∀(f ∈ A → B)
@@ -489,7 +489,7 @@ epimorphism definition:
 
 
 
-### 2.6) With notation as in Example 2.4, explain how any function `f ∈ A → B` determines a section of `π_A`.
+### 2.6. With notation as in Example 2.4, explain how any function `f ∈ A → B` determines a section of `π_A`.
 
 ```
 † ∀(f ∈ A → B)
@@ -510,7 +510,7 @@ f^| v       v
 
 
 
-### 2.7) Let `f ∈ A → B` be any function. Prove that the graph `Γ_f` of `f` is isomorphic to `A`.
+### 2.7. Let `f ∈ A → B` be any function. Prove that the graph `Γ_f` of `f` is isomorphic to `A`.
 
 ```py
 † ∀(f ∈ A → B)
@@ -540,16 +540,16 @@ f^| v       v
 
 
 
-### 2.8) Describe as explicitly as you can all terms in the canonical decomposition (cf. §2.8) of the function `ℝ → ℂ` defined by `r ⟼ e^(2·π·i·r)`. (This exercise matches one assigned previously, which one?)
+### 2.8. Describe as explicitly as you can all terms in the canonical decomposition (cf. §2.8) of the function `ℝ → ℂ` defined by `r ⟼ e^(2·π·i·r)`. (This exercise matches one assigned previously, which one?)
 
 ```py
 † ∀(f ∈ ℝ → ℂ) | f(r) = e^(2·π·i·r)
 
-# canonical projection
+  # canonical projection
 	ℝ → S¹ ⊆ [0,1[
-# canonical bijection
+  # canonical bijection
 	f(c) := e^(2πir)
-# canonical inclusion
+  # canonical inclusion
 	im_f = 𝕌 ⊆ ℂ
 
 ℝ ——>> [0,1[ ——(e^(2πir))—> 𝕌 ——> ℂ
@@ -558,7 +558,7 @@ This matches exercise 1.6 done previously.
 
 
 
-### 2.9) Show that if `A' ≅ A"` and `B' ≅ B"`, and further `A' ∩ B' = ∅` and `A" ∩ B" = ∅`, then `A' ∪ B' ≅ A" ∪ B"`. Conclude that the operation `A ⊔ B` (as described in §1.4) is well-defined *up to isomorphism* (cf. §2.9). [§2.9, 5.7]
+### 2.9. Show that if `A' ≅ A"` and `B' ≅ B"`, and further `A' ∩ B' = ∅` and `A" ∩ B" = ∅`, then `A' ∪ B' ≅ A" ∪ B"`. Conclude that the operation `A ⊔ B` (as described in §1.4) is well-defined *up to isomorphism* (cf. §2.9). [§2.9, 5.7]
 
 ??? "well-defined up to isomorphism" ?
 
@@ -606,7 +606,7 @@ This matches exercise 1.6 done previously.
 
 
 
-### 2.10) Show that if `A` and `B` are finite sets, then `|B^A| = |B|^|A|`. [§2.1, 2.11, §II.4.1]
+### 2.10. Show that if `A` and `B` are finite sets, then `|B^A| = |B|^|A|`. [§2.1, 2.11, §II.4.1]
 
 ``` py
 † ∃(n_A ∈ ℕ) | n_A = |A| # A is a finite set
@@ -623,7 +623,7 @@ This matches exercise 1.6 done previously.
 
 
 
-### 2.11) In view of Exercise 2.10, it is not unreasonable to use `2^A` to denote the set of functions from an arbitrary set `A` to a set with 2 elements (say `{0,1}`). Prove that there is a bijection between `2^A` and the *power set* of `A` (cf. §1.2). [§1.2, III.2.3]
+### 2.11. In view of Exercise 2.10, it is not unreasonable to use `2^A` to denote the set of functions from an arbitrary set `A` to a set with 2 elements (say `{0,1}`). Prove that there is a bijection between `2^A` and the *power set* of `A` (cf. §1.2). [§1.2, III.2.3]
 
 ```py
 † ∃(n_A ∈ ℕ) | n_A = |A| # A is a finite set
@@ -659,9 +659,9 @@ And, for an example that makes this easier to understand
 
 ---
 
-## 3) Categories
+## 3. Categories
 
-### 3.0) Lexicon
+### 3.0. Lexicon
 
 - [*category*](https://en.wikipedia.org/wiki/Category_(mathematics)): A collection of "objects" that are linked by "arrows". A category has two basic properties: the ability to compose the arrows associatively and the existence of an identity arrow for each object.
 - [*object*](https://en.wikipedia.org/wiki/Mathematical_object): an abstract entity arising in mathematics.
@@ -684,7 +684,7 @@ And, for an example that makes this easier to understand
 
 
 
-### 3.0) Examples
+### 3.0. Examples
 
 ex.3.2 - category of sets
 ```py
@@ -941,7 +941,7 @@ ex.3.10 - fibered bicoslice category
 
 
 
-### 3.1)
+### 3.1. Let C be a category. Consider a structure 𝓒ᵒᵖ with: `Obj(Cop ) := Obj(C)`; `∀(A,B in obj(𝓒(ᵒᵖ)), hom_𝓒ᵒᵖ(A,B) := hom_𝓒(B,A)`. Show how to make this into a category (that is, define composition of morphisms in 𝓒ᵒᵖ and verify the properties listed in §3.1). Intuitively, the ‘opposite’ category 𝓒ᵒᵖ is simply obtained by ‘reversing all the arrows’ in C. [5.1, §VIII.1.1, §IX.1.2, IX.1.10]
 
 ```py
 † 𝓒 in Cat
@@ -967,20 +967,19 @@ ex.3.10 - fibered bicoslice category
 
 
 
-### 3.2)
+### 3.2. If `A` is a finite set, how large is `End_{Set}(A)`?
 
 ```py
 † A in Set
   | ∃(n ∈ ℕ) |A| = n
 
 ∵ End_Set(A) = hom_Set(A,A)
-∴ |End_Set(A)| = |hom_Set(A,A)| = |A|^|A| = n ^ n
-# all the possible mappings of input-to-output within finite set A
+∴ |End_Set(A)| = |hom_Set(A,A)| = |A|^|A| = n ^ n # all the possible mappings of input-to-output within finite set A
 ```
 
 
 
-### 3.3)
+### 3.3. Formulate precisely what it means to say that `1_a` is an identity with respect to composition in Example 3.3, and prove this assertion. [§3.2]
 
 ```py
 ∷ ∀(f ∈ hom_Ṡ(a,b))
@@ -990,7 +989,7 @@ ex.3.10 - fibered bicoslice category
 
 
 
-### 3.4)
+### 3.4. Can we define a category in the style of Example 3.3, using the relation `<` on the set `ℤ`?
 
 ```py
 † ℤ in obj(Set)
@@ -1016,7 +1015,7 @@ ex.3.10 - fibered bicoslice category
 
 
 
-### 3.5)
+### 3.5. Explain in what sense Example 3.4 is an instance of the categories considered in Example 3.3. [§3.2]
 
 Well, `⊆` is a reflexive and transitive order relation:
 ```py
@@ -1027,7 +1026,7 @@ So `⊆` is really just a concrete example of the abstract relation `~`.
 
 
 
-### 3.6)
+### 3.6. (Assuming some familiarity with linear algebra.) Define a category `𝓥` by taking `obj(𝓥) = ℕ`, and `hom_𝓥(n,m) = the set of (m × n) matrices with real entries, for all n, m ∈ N`. (I will leave the reader the task to make sense of a matrix with 0 rows or columns.) Use product of matrices to define composition. Does this category ‘feel’ familiar? [§VI.2.1, §VIII.1.3]
 
 ```py
 ∷ let 𝓥 in Cat
@@ -1047,7 +1046,7 @@ So `⊆` is really just a concrete example of the abstract relation `~`.
 
 
 
-### 3.7)
+### 3.7. Define carefully objects and morphisms in Example 3.7, and draw the diagram corresponding to composition. [§3.2]
 
 ```py
 † 𝓒 in Cat # from previous example ex3.5
@@ -1085,7 +1084,7 @@ f ∘ g:
 
 
 
-### 3.8)
+### 3.8. A subcategory 𝓒' of a category 𝓒 consists of a collection of objects of 𝓒, with morphisms `∀(A,B in obj(𝓒)), hom_𝓒(A,B) ⊆ hom_𝓒(A,B)`, such that identities and compositions in 𝓒 make 𝓒' into a category. A subcategory 𝓒' is full if `∀(A,B in obj(𝓒)), hom_𝓒(A,B) = hom_𝓒(A,B)`. Construct a category of infinite sets and explain how it may be viewed as a full subcategory of `Set`. [4.4, §VI.1.1, §VIII.1.3]
 
 ```py
 ∷ ∃(InfSet | ∀(A in obj(Set) | ∄(n ∈ ℕ, |A| = n)))
@@ -1099,7 +1098,7 @@ f ∘ g:
 
 
 
-### 3.9)
+### 3.9. An alternative to the notion of multiset introduced in §2.2 is obtained by considering sets endowed with equivalence relations; equivalent elements are taken to be multiple instances of elements ‘of the same kind’. Define a notion of morphism between such enhanced sets, obtaining a category `MSet` containing (a ‘copy’ of) `Set` as a full subcategory. (There may be more than one reasonable way to do this! This is intentionally an open-ended exercise.) Which objects in `MSet` determine ordinary multisets as defined in §2.2, and how? Spell out what a morphism of multisets would be from this point of view. (There are several natural notions of morphisms of multisets. Try to define morphisms in `MSet` so that the notion you obtain for ordinary multisets captures your intuitive understanding of these objects.) [§2.2, §3.2, 4.5]
 
 ```py
 ∷ let MSet in Set
@@ -1108,7 +1107,7 @@ f ∘ g:
 
 
 
-### 3.10)
+### 3.10. Since the objects of a category 𝓒 are not (necessarily) sets, it is not clear how to make sense of a notion of ‘subobject’ in general. In some situations it does make sense to talk about subobjects, and the subobjects of any given object `A` in `𝓒` are in one-to-one correspondence with the morphisms `A → Ω` for a fixed, special object `Ω` of `𝓒`, called a subobject classifier. Show that `Set` has a subobject classifier.
 
 ```py
 † 𝓒 in Cat | obj(𝓒) = Set
@@ -1125,7 +1124,7 @@ A → Ω
 
 
 
-### 3.11)
+### 3.11. Draw the relevant diagrams and define composition and identities for the category `𝓒^{A,B}` mentioned in Example 3.9. Do the same for the category `𝓒_{α,β}` mentioned in Example 3.10. [§5.5, 5.12]
 
 ```py
 
@@ -1135,9 +1134,9 @@ A → Ω
 
 ---
 
-## 4) Morphisms
+## 4. Morphisms
 
-### 4.0) Lexicon
+### 4.0. Lexicon
 
 - [*groupoid*](https://en.wikipedia.org/wiki/Groupoid): a category in which every morphism is an isomorphism.
 - [*endomorphism*](https://en.wikipedia.org/wiki/Endomorphism): a morphism from some object 𝐴 to itself.
@@ -1145,9 +1144,9 @@ A → Ω
 
 
 
-### 4.1) Composition is defined for two morphisms. If more than two morphisms are given, e.g.: `A —f→ B —g→ C —h→ D —i→ E`, then one may compose them in several ways.
+### 4.1. Composition is defined for two morphisms. If more than two morphisms are given, e.g.: `A —f→ B —g→ C —h→ D —i→ E`, then one may compose them in several ways.
 
-#### 4.1.1) For example: `(ih)(gf)`, `(i(hg))f`, `i((hg)f)`, etc. so that at every step one is only composing two morphisms.
+#### 4.1.1. For example: `(ih)(gf)`, `(i(hg))f`, `i((hg)f)`, etc. so that at every step one is only composing two morphisms.
 
 ```py
 ⊦ parentheses dont matter in this case with 5 sets
@@ -1157,7 +1156,7 @@ A → Ω
 ∴ (i∘h)∘(g∘f)(x) = (i∘(h∘g))∘f(x) = i∘((h∘g)∘f)(x)
 ```
 
-#### 4.1.2) Prove that the result of any such nested composition is independent of the placement of the parentheses.
+#### 4.1.2. Prove that the result of any such nested composition is independent of the placement of the parentheses.
 
 ```py
 † 𝓒 in Cat
@@ -1190,11 +1189,11 @@ A → Ω
 
 
 
-### 4.2) In Example 3.3 we have seen how to construct a category from a set endowed with a relation, provided this latter is reflexive and transitive. For what types of relations is the corresponding category a groupoid (cf. Example 4.6)?
+### 4.2. In Example 3.3 we have seen how to construct a category from a set endowed with a relation, provided this latter is reflexive and transitive. For what types of relations is the corresponding category a groupoid (cf. Example 4.6)?
 
+A groupoid is a category in which every morphism is an isomorphism.
+An isomorphism is a morphism which has both left-inverse and right-inverse.
 ```py
-# A groupoid is a category in which every morphism is an isomorphism.
-# An isomorphism is a morphism which has both left-inverse and right-inverse.
 ∴ ∀m morphism (a ~ b) ∃m⁻¹ (b ~ a)
 ∴ binary relation symmetry for all morphisms ⇔ groupoid
 ∴ ∀S in Set | there is an equivalence relation is a groupoid
@@ -1202,9 +1201,9 @@ A → Ω
 
 
 
-### 4.3) Let `A`, `B` be objects of a category `𝓒`, and `f ∈ hom_𝓒(A, B)` a morphism.
+### 4.3. Let `A`, `B` be objects of a category `𝓒`, and `f ∈ hom_𝓒(A, B)` a morphism.
 
-#### 4.3.1) Prove that if `f` has a right-inverse, then `f` is an epimorphism.
+#### 4.3.1. Prove that if `f` has a right-inverse, then `f` is an epimorphism.
 
 ```py
 † 𝓒 is Cat
@@ -1221,7 +1220,7 @@ A → Ω
 ∴ (β₁∘f = β₂∘f ⇒ β₁ = β₂)
 ```
 
-#### 4.3.2) Show that the converse does not hold, by giving an explicit example of a category and an epimorphism without a right-inverse.
+#### 4.3.2. Show that the converse does not hold, by giving an explicit example of a category and an epimorphism without a right-inverse.
 
 ```py
 ex: ℤ and ≤
@@ -1236,9 +1235,9 @@ ex: ℤ and ≤
 
 
 
-### 4.4) Prove that the composition of two monomorphisms is a monomorphism. Deduce that one can define a subcategory `𝓒ₘₒₙₒ` of a category `𝓒` by taking the same objects as in `𝓒`, and defining `hom_𝓒ₘₒₙₒ(A,B)` to be the subset of `hom_𝓒(A, B)` consisting of monomorphisms, for all objects `A`, `B`. (Cf. Exercise 3.8; of course, in general `𝓒ₘₒₙₒ` is not full in `𝓒`.)
+### 4.4. Prove that the composition of two monomorphisms is a monomorphism. Deduce that one can define a subcategory `𝓒ₘₒₙₒ` of a category `𝓒` by taking the same objects as in `𝓒`, and defining `hom_𝓒ₘₒₙₒ(A,B)` to be the subset of `hom_𝓒(A, B)` consisting of monomorphisms, for all objects `A`, `B`. (Cf. Exercise 3.8; of course, in general `𝓒ₘₒₙₒ` is not full in `𝓒`.)
 
-#### 4.4.1) Do this for monomorphisms.
+#### 4.4.1. Do this for monomorphisms.
 
 ```py
 † ∃𝓒 in Cat
@@ -1264,7 +1263,7 @@ ex: ℤ and ≤
 ⊦ id_composit: ?
 ```
 
-#### 4.4.2) Do the same for epimorphisms.
+#### 4.4.2. Do the same for epimorphisms.
 
 ```py
 † ∃𝓒 in Cat
@@ -1290,7 +1289,7 @@ ex: ℤ and ≤
 ⊦ id_composit: ?
 ```
 
-#### 4.4.3) Can you define a subcategory `𝓒ₙₒₙₘₒₙₒ` of `𝓒` by restricting to morphisms that are not monomorphisms?
+#### 4.4.3. Can you define a subcategory `𝓒ₙₒₙₘₒₙₒ` of `𝓒` by restricting to morphisms that are not monomorphisms?
 
 ```py
 ∷ 𝓒ₙₒₙₘₒₙₒ is 𝓒 but without identity morphisms
@@ -1299,7 +1298,7 @@ ex: ℤ and ≤
 
 
 
-### 4.5) Give a concrete description of monomorphisms and epimorphisms in the category `MSet` you constructed in Exercise 3.9.
+### 4.5. Give a concrete description of monomorphisms and epimorphisms in the category `MSet` you constructed in Exercise 3.9.
 
 ```py
 
@@ -1307,17 +1306,151 @@ ex: ℤ and ≤
 
 
 
-## 5) Universal Properties
+## 5. Universal Properties
 
-### 5.0) Lexicon
+### 5.0. Lexicon
 
 - [*initial object*](https://en.wikipedia.org/wiki/Initial_and_terminal_objects): An object such that between it and every other, there is exactly one morphism from it to any other object.
-  `∀(A ∈ Obj(𝓒)) |hom_𝓒(I, A)| = 1`
+  `∀𝓒, ∀(I in obj(𝓒)), I is initial ⇔ ∀(A ∈ obj(𝓒)), |hom_𝓒(I, A)| = 1`
 - [*final object*](https://en.wikipedia.org/wiki/Initial_and_terminal_objects): An object such that between it and every other, there is exactly one morphism from any other object to it.
-  `∀(A ∈ Obj(𝓒)) |hom_𝓒(A, F)| = 1`
+  `∀𝓒, ∀(F in obj(𝓒)), F is final ⇔ ∀(A ∈ obj(𝓒)), |hom_𝓒(A, F)| = 1`
 - [*terminal object*](https://en.wikipedia.org/wiki/Initial_and_terminal_objects): An object that is either *initial* or *final*.
+  `∀𝓒, ∀(T in obj(𝓒)), T is terminal ⇔ (T is initial) ∨ (T is final)`
 - [*zero object*|*null object*](https://en.wikipedia.org/wiki/Initial_and_terminal_objects): An object that is both *initial* and *final*.
-- [*universal property*](https://en.wikipedia.org/wiki/): a property that characterizes up to an isomorphism the result of some constructions
+  `∀𝓒, ∀(Z in obj(𝓒)), Z is zero-object ⇔ (Z is initial) ∧ (Z is final)`
+- [*universal property*](https://en.wikipedia.org/wiki/Universal_property): a property that characterizes up to an isomorphism the result of some constructions
 
 
 
+### 5.1. Prove that a final object in a category 𝓒 is initial in the opposite category 𝓒ᵒᵖ (cf. Exercise 3.1).
+
+```py
+† ∀(𝓒 in Cat) ∃𝓒ᵒᵖ | ∀(A,B in obj(𝓒))  hom_𝓒(A,B) = hom_𝓒ᵒᵖ(B,A)
+† ∀(F in obj(𝓒)), F is final ⇔ ∀(A ∈ obj(𝓒)), |hom_𝓒(A,F)| = 1
+∷ hom_𝓒(A,F) = hom_𝓒ᵒᵖ(F,A)
+∴ |hom_𝓒ᵒᵖ(F,A)| = 1
+∴ ∀(F in obj(𝓒ᵒᵖ)) is initial
+```
+
+
+
+### 5.2. Prove that `∅` is the unique initial object in `Set`. [§5.1]
+
+```py
+† ∀(∅ in obj(Set)), ∅ is initial ⇔ ∀(A in obj(Set)), |hom_{Set}(∅,A)| = 1
+∷ ∃(Z in obj(Set)), Z is initial ⇔ ∀(A in obj(Set)), |hom_{Set}(Z,A)| = 1
+∵ ∀(A,B in Set) ∀(f ∈ (A → B)) ∀(a ∈ A) ⇒ ∃!(b ∈ B) | f(a) = b # functions in Set have a unique output
+∴ |hom_{Set}(∅,A)| = |hom_{Set}(Z,A)| = 1 
+∴  hom_{Set}(∅,A)  ≅  hom_{Set}(Z,A)  # at least, in Set
+∴ |A|^|∅| = |A|^|Z| = |A|^0
+∴ |∅| = |Z| = 0
+∴ ∅ ≅ Z
+∴ ∅ is the only object with 0 cardinal
+∴ ∅ is the unique initial object in Set
+```
+
+
+
+### 5.3. Prove that final objects are unique up to isomorphism. [§5.1]
+
+```py
+† ∀(𝓒 a category)
+∷ ∀(F₁ in obj(𝓒)), F₁ is final ⇔ ∀(A in obj(𝓒)), |hom_𝓒(A,F₁)| = 1
+∷ ∀(F₂ in obj(𝓒)), F₂ is final ⇔ ∀(A in obj(𝓒)), |hom_𝓒(A,F₂)| = 1
+† ∀(F in obj(𝓒)), ∃(1_F in hom_𝓒(F,F))
+∴ F₁ is final ⇒ ∃!(f ∈ F₂ → F₁)
+∴ F₂ is final ⇒ ∃!(g ∈ F₁ → F₂)
+∴ f∘g ∈ F₁ → F₁ = 1_F₁
+∴ g∘f ∈ F₂ → F₂ = 1_F₂
+∴ f∘g and g∘f are inverses of each other
+∴ f is isomorphism
+∴ g is isomorphism
+∴ F₁ ≅ F₂
+```
+
+
+
+### 5.4. What are terminal objects in the category of ‘pointed sets’ (Example 3.8)? Are they unique?
+
+```py
+† Set* in Cat
+† ∀(A = {*})
+† ∀(S in Set) ∀(s ∈ S)
+∴ ∀(P in obj(Set*)) = f ∈ {*} → S = (S,s)
+† ∅ ∉ Set*
+∷ (Z,z) in obj(Set*)
+∷ ({∗},∗) # the singleton pointed set
+⊦ ({∗},∗) is initial
+  ∵ ∀((S,s),(T,t) in obj(Set*)), ∀(σ ∈ S → T) | σ(s) = t
+  # Pointed set functions are like set functions, but preserve the point
+  ∴ hom_{Set*}(({∗},∗),(Z,z)) = { (∗,z) }
+  ∴ |hom_{Set*}(({∗},∗),(Z,z))| = 1
+  ∴ ({∗},∗) is initial
+⊦ ({∗},∗) is final
+  ∴ hom_{Set*}((Z,z),({∗},∗)) = { f } where ∀(x ∈ Z), f(x) = ∗
+  # only function in Set, and there are equal or less functions for corresponding pointed set homsets
+  ∴ |hom_{Set*}((Z,z),({∗},∗))| = 1
+  ∴ ({∗},∗) is final
+⊦ are they unique ?
+  ∵ initial objects are unique up to isomorphism
+  ∵ final objects are unique up to isomorphism
+  ∴ they are unique
+```
+
+
+
+### 5.5. What are the final objects in the category considered in §5.3? [§5.3]
+
+```py
+
+```
+
+
+
+### 5.6. Consider the category corresponding to endowing (as in Example 3.3) the set `ℤ⁺` of positive integers with the divisibility relation. Thus there is exactly one morphism `d → m` in this category if and only if `d` divides `m` without remainder; there is no morphism between `d` and `m` otherwise. [§VII.5.1]
+
+#### 5.6.1. Show that this category has products and coproducts.
+
+#### 5.6.2. What are their ‘conventional’ names?
+
+
+
+### 5.7. Redo Exercise 2.9, this time using Proposition 5.4.
+
+
+
+### 5.8. Show that in every category 𝓒 the products `A × B` and `B × A` are isomorphic, if they exist. (Hint: observe that they both satisfy the universal property for the product of A and B, then use Proposition 5.4.)
+
+
+
+### 5.9. Let 𝓒 be a category with products.
+
+#### 5.9.1. Find a reasonable candidate for the universal property that the product `A × B × C` of three objects of 𝓒 ought to satisfy.
+
+#### 5.9.2. Prove that both `(A × B) × C` and `A × (B × C)` satisfy this universal property. 
+
+#### 5.9.3. Deduce that `(A × B) × C` and `A × (B × C)` are necessarily isomorphic.
+
+
+
+### 5.10. Push the envelope a little further still, and define products and coproducts for families (i.e. indexed sets) of objects of a category.
+
+#### 5.10.1. Do these exist in Set? It is common to denote the product `A × ··· × A` (n times) by `Aⁿ`.
+
+
+
+### 5.11. Let `A`, resp. `B` be sets, endowed with equivalence relations `∼_A` , resp. `∼_B`.
+
+#### 5.11.1. Define a relation `∼` on `A × B` by setting `(a₁, b₁) ∼ (a₂, b₂) ⇔ a₁ ∼_A a₂ ∧ b₁ ∼_B b₂`. (This is immediately seen to be an equivalence relation.)
+
+#### 5.11.2. Use the universal property for quotients (§5.3) to establish that there are functions `(A × B)/∼ → A/∼_A`, `(A × B)/∼ → B/∼_B`.
+
+#### 5.11.3. prove that `(A × B)/∼`, with these two functions, satisfies the universal property for the product of `A/∼_A` and `B/∼_B`.
+
+#### 5.11.4. conclude (without further work) that `(A × B)/∼ ≅ (A/∼_A) × (B/∼_B)`.
+
+
+
+### 5.12. Define notions of fibered products and coproducts, as terminal objects of the categories 𝓒_{α,β} , 𝓒^{α,β} considered in Example 3.10 (cf. also Exercise 3.11), by stating carefully the corresponding universal properties.
+
+#### 5.12.1. As it happens, Set has both fibered products and coproducts. Define these objects ‘concretely’, in terms of naive set theory. [II.3.9, III.6.10, III.6.11]
