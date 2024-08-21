@@ -1402,7 +1402,29 @@ ex: ℤ and ≤
 ### 5.5. What are the final objects in the category considered in §5.3? [§5.3]
 
 ```py
+∷ s ∈ A → A/~  | s is surjective
+∷ ∀Z₁, φ₁ ∈ A → Z₁
+∷ ∀Z₂, φ₂ ∈ A → Z₂
+∷ σ ∈ Z₁ → Z₂ | σ∘φ₁ = φ₂
+∷ f₁ ∈ A/~ → Z₁ | s∘f₁ = φ₁
+∷ f₂ ∈ A/~ → Z₂ | s∘f₂ = φ₂
 
+∴ σ_𝓠 ∈ (φ₁,Z₁) → (φ₂,Z₂) | ∃σ ∈ (Z₁ → Z₂)
+  ∧ σ∘φ1 = φ2
+  ∧ ∀(a₁,a₂ ∈ A), a₁ ∼ a₂ ⇒ φ(a₁) = φ(a₂)
+
+⊦ initial objects
+  ∷ φ₁ = id_A
+  ∴ σ∘φ₁ = σ∘id_A = σ = φ₂
+  ∴ ∃!σ in obj(𝓠)
+  ∴ initial object in 𝓠 is id_A
+⊦ final objects
+  ∷ F in obj(𝓒)
+  ∷ t in hom_𝓒(A,F) | t is unique
+  ∷ σ∘φ = t
+  ∵ F is final in 𝓒, ∃σ | σ is unique
+  ∴ ∀((φ,Z) in obj(𝓒_A)), ∃!σ_𝓒_A
+  ∴ final object in 𝓠 is (t,F) if ∃(F in obj(𝓒)) | F is final
 ```
 
 
@@ -1417,9 +1439,17 @@ ex: ℤ and ≤
 
 ### 5.7. Redo Exercise 2.9, this time using Proposition 5.4.
 
+```py
+
+```
+
 
 
 ### 5.8. Show that in every category 𝓒 the products `A × B` and `B × A` are isomorphic, if they exist. (Hint: observe that they both satisfy the universal property for the product of A and B, then use Proposition 5.4.)
+
+```py
+
+```
 
 
 
