@@ -16,7 +16,7 @@ $$
 \end{aligned}
 $$
 
-In this case, we see that $\forall Z \in Obj(\mathcal{C}^{op}) = Obj(\mathcal{C}), f_Z \in Hom_{\mathcal{C}^{op}} (F, Z) = Hom_{\mathcal{C}} (Z, F)$. This implies that the homset $Hom_{\mathcal{C}^{op}} (F, Z)$ contains a single morphism, $f_Z$. This means that $F$ is initial in $mathcal{C}^{op}$.
+In this case, we see that $\forall Z \in Obj(\mathcal{C}^{op}) = Obj(\mathcal{C}), f_Z \in Hom_{\mathcal{C}^{op}} (F, Z) = Hom_{\mathcal{C}} (Z, F)$. This implies that the homset $Hom_{\mathcal{C}^{op}} (F, Z)$ contains a single morphism, $f_Z$. This means that $F$ is initial in $\mathcal{C}^{op}$.
 
 
 
@@ -45,8 +45,8 @@ Let us suppose we have a category $\mathcal{C}$ with two final objects, $F_1$ an
 
 For every object $A$ of $\mathcal{C}$ there is at least one element in $Hom_{\mathcal{C}} (A, A)$, namely the identity $1_A$. If $F$ is final, then there is a unique morphism $F \to F$, which therefore must be the identity $1_F$.
 
-Now assume $F_1$ and $F_2$ are both final in $\mathcal{C}$. Since $F_1$ is final, there is a unique morphism $f : F_2 \to F_1$ in $\mathcal{C}$. Since $F_2$ is final, there is a unique morphism $g : F_1 \to F_2$ in $\mathcal{C}$. Consider $gf : F_1 \to F_1$ ; as observed, necessarily $gf = 1_{F_2}$
-since $F_1$ is final. By the same token $fg = 1{F_1}$, proving $f$ is an isomorphism. Thus $F_1 \simeq F_2$.
+We assumed that $F_1$ and $F_2$ are both final in $\mathcal{C}$. Since $F_1$ is final, there is a unique morphism $f : F_2 \to F_1$ in $\mathcal{C}$. Since $F_2$ is final, there is a unique morphism $g : F_1 \to F_2$ in $\mathcal{C}$. Consider $fg : F_1 \to F_1$ ; as observed, necessarily the composite $fg = 1_{F_1}$
+since $F_1$ is final. By the same token $gf = 1_{F_2}$. Thus $f$ and $g$ are inverses of each other, proving $f$ is an isomorphism. Since there exists an isomorphism between $F_1$ and $F_2$, $F_1 \simeq F_2$.
 
 
 
@@ -70,7 +70,7 @@ Every singleton pointed set is both initial and final in \textbf{Set*} and is th
 
 What are the final objects in the category considered in §5.3?
 
-The category considered in paragraph 5.3 is the coslice category over some set $A$. However, what is presented in this paragraph is some extra structure that arises when considering the statement "The quotient $A/\sim$ is universal with respect to the property of mapping $A$ to a set in such a way that equivalent elements have the same image". We thus give some equivalence relation $\sim$ on $A$ and study the quotient set $A/\sim$ in the general coslice category; to do this, we consider the subcategory $\mathcal{Q}$ of $\mathcal{C}_A$ where only $\varphi$ such that "equivalence is preserved" (i.e., such that $\forall a', a'' \in A, a' \sim a'' \Rightarrow \varphi(a') = \varphi(a'')$).
+The category considered in paragraph 5.3 is the coslice category over some set $A$, written $\mathcal{C}_A$. However, what is presented in this paragraph is some extra structure that arises when considering the statement "The quotient $A/\sim$ is universal with respect to the property of mapping $A$ to a set in such a way that equivalent elements have the same image". We thus give some equivalence relation $\sim$ on $A$ and study the quotient set $A/\sim$ in the general coslice category; to do this, we consider the subcategory $\mathcal{Q}$ of $\mathcal{C}_A$ where only $\varphi$ such that "equivalence is preserved" (i.e., such that $\forall a', a'' \in A, a' \sim a'' \Rightarrow \varphi(a') = \varphi(a'')$).
 
 With:
 \begin{itemize}
@@ -88,11 +88,26 @@ A \arrow[d, "s"'] \arrow[rd, "\varphi_1" description, bend right] \arrow[r, "\va
 A/\sim \arrow[r, "f_1"'] \arrow[ru, "f_2" description, bend right]                       & Z_1 \arrow[u, "\sigma"']
 \end{tikzcd}
 
-Objects in this category are denoted as $(\varphi, Z)$ and are obtained from what used to be \textit{morphisms} (regular functions) in \textbf{Set}. Morphisms are mappings $\sigma_{\mathcal{Q}} : (\varphi_1, Z_1) \to (\varphi_2, Z_2)$ such that one exists if and only if $\exists \sigma \in (Z_1 \to Z_2), \sigma \varphi_1 = \varphi_2$, and $\forall a', a'' \in A, a' \sim a'' \Rightarrow \varphi(a') = \varphi(a'')$.
+Objects in this category $\mathcal{C}_A$ (and \textit{a fortiori} $\mathcal{Q}$) are denoted as $(\varphi, Z)$ and are obtained from what used to be \textit{morphisms} (regular functions) in \textbf{Set}. Morphisms are mappings $\sigma_{\mathcal{Q}} : (\varphi_1, Z_1) \to (\varphi_2, Z_2)$ such that one exists if and only if $\exists \sigma \in (Z_1 \to Z_2), \sigma \varphi_1 = \varphi_2$, and $\forall a', a'' \in A, a' \sim a'' \Rightarrow \varphi(a') = \varphi(a'')$.
 
 Since the textbook also asks whether such a category has initial objects, we will first also answer this and consider all terminal objects.
 
-The initial object of a general coslice category is $id_A$. This is easily verified by doing $\varphi_1 = id_A$, necessarily $\sigma \varphi_1 = \sigma id_A = \sigma = \varphi_2$, and so $\sigma$ always exists and is unique. We also see that this object satisfies the "equivalence preservation" condition, hence it exists in $\mathcal{Q}$, and is also the initial object in $\mathcal{Q}$.
+The initial object of a general coslice category is $(id_A, A)$. This is easily verified by doing $\varphi_1 = id_A$, necessarily $\sigma \varphi_1 = \sigma id_A = \sigma = \varphi_2$, in $\mathcal{C}$. This implies that, for the domain $(id_A, A)$ in $\mathcal{C}_A$ and any codomain $(\phi_2, Z_2)$, there always exists a unique morphism $\sigma_A \in Hom_{C_A}((id_A, A), (\phi_2, Z_2))$ in $\mathcal{C}_A$, corresponding to the (existing and unique) $\sigma = \phi_2$ in $\mathcal{C}$. We also see that this object satisfies the "equivalence preservation" condition, hence it exists in $\mathcal{Q}$, and is also the initial object in $\mathcal{Q}$.
+
+The below are this description first in $\mathcal{C}$, followed by the description in $\mathcal{C}_A$.
+
+\begin{tikzcd}
+A \arrow[rd, "\phi_1 = id_A"'] \arrow[r, "\phi_2"] & Z_2                                   \\
+                                                   & Z_1 = A \arrow[u, "\sigma = \phi_2"']
+\end{tikzcd}
+
+Now in $\mathcal{C}_A$.
+
+\begin{tikzcd}
+A \arrow[dd, "\phi_1 = id_A"'] &  & A \arrow[dd, "\phi_2"] \\
+{} \arrow[rr, "\sigma_A"]      &  & {}                     \\
+Z_1 = A                        &  & Z_2                   
+\end{tikzcd}
 
 A general coslice category has a final object $(t, F)$ (or many final objects $(t_i, F_i)$) iff $\mathcal{C}$ has a final object $F$ (or many final objects $F_i$). In that case, any final object $(t, F)$ in $\mathcal{C}_A$ corresponds to the unique morphism from $A$ to $F$ (for any final $F$) in $\mathcal{C}$. Let us verify this.
 
@@ -167,6 +182,19 @@ n \arrow[rd] \arrow[r] & {LCM(n, m)} \arrow[d] & m \arrow[ld] \arrow[l] \\
 
 Redo Exercise 2.9 ("Show that if $A \simeq A'$ and $B \simeq B'$ , and further $A \cap B = \emptyset$ and $A' \cap B' = \emptyset$, then $A \cup B \simeq A' \cup B'$. Conclude that the operation $A \coprod B$ (as described in §1.4) is well-defined up to isomorphism") this time using Proposition 5.4. (the unicity up-to-isomorphism of terminal objects).
 
+TODO, fix, since $\text{\textbf{Set}}^{A,B}$ and $\text{\textbf{Set}}^{A',B'}$ need to both be treated.
+
+This is what we are give by the prompt:
+
+\begin{tikzcd}
+A \arrow[r, "f_A", two heads, hook] \arrow[d, "i_A"']                                                         & A' \arrow[d, "i_{A'}"]                                                 &                                                &                                &   \\
+A \cup B \arrow[r, "f_{AB} ?", two heads, hook]                                                               & A' \cup B'                                                             &                                                &                                &   \\
+B \arrow[r, "f_B"', two heads, hook] \arrow[u, "i_B"]                                                         & B' \arrow[u, "i_{B'}"'] 
+\end{tikzcd}
+
+with $A \cup B = A \coprod B$ and $A' \cup B' = A' \coprod B'$ since $A \cap B = \emptyset$ and $A' \cap B' = \emptyset$.
+
+
 We define $\text{\textbf{Set}}^{A,B}$ as the "bicoslice category of $A$ and $B$ over \textbf{Set}". Objects in this category are pairs of morphisms $(f,g)$ from $A$ and $B$, respectively, into sets $Z$. They can be diagrammed as follows.
 
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEQBfU9TXfIRQBGUsKq1GLNgC1uvEBmx4CRMgCYJ9Zq0QgAQtwkwoAc3hFQAMwBOEALZIyIHBCSjJOtlfnW7jxHVqV3dqbWk9UyMuIA
@@ -203,7 +231,26 @@ A \arrow[rd, "i_A"]  &             \\
 B \arrow[ru, "i_B"'] &            
 \end{tikzcd}
 
-By definition of a coproduct, we know that in such a configuration, a morphism $\sigma^{A,B}$ from this object into any other object of $\text{\textbf{Set}}^{A,B}$ exists and is unique, and so is the $\sigma$ on which it is based. This means that $I$ is initial in $\text{\textbf{Set}}^{A,B}$. Consequently, using prop 5.4., the fact that if an initial object exists, it is unique up-to-isomorphism, we conclude that $A \coprod B$ is unique up-to-isomorphism.
+By definition of a coproduct, we know that in such a configuration, a morphism $\sigma^{A,B}$ from this object into any other object of $\text{\textbf{Set}}^{A,B}$ exists and is unique, and so is the $\sigma$ on which it is based. This means that $I$ is initial in $\text{\textbf{Set}}^{A,B}$.
+
+TODO fix and explain
+
+We observe that $i_A$, $i_B$, $i_{A'}$ and $i_{B'}$ are all injections, and thus are post-cancellable, by maps $\pi_A$, $\pi_B$, $\pi_{A'}$ and $\pi_{B'}$ (which are surjections).
+
+$f_{A'} = i_{A'} \circ f_A$ and $f_{B'} = i_{B'} \circ f_B$ together define a unique map $f_{AB}$ from $A \coprod B$ to $A' \coprod B'$.
+
+We set arbitrary $g_A : A' \to Z$ and $g_B : B' \to Z$; we have $g_A \circ f
+_A = g_A \circ i_{A'} \circ f_A$ and $g_B \circ f_B = g_B \circ i_{B'} \circ f_B$. These define a unique map from $A \coprod B$ to $Z$, which we'll write $g_{AB} \circ f_{AB}$.
+
+% Let $h : A' \coprod B' \to A \coprod B$ be defined as the map which makes $i_A \circ f^{-1}(A) \circ \pi_{A'}$
+
+\begin{tikzcd}
+A \arrow[rr, "f_A", two heads, hook] \arrow[dd, "i_A"', shift right] \arrow[rrdd, "f_{A'} = i_{A'} \circ f_A", bend right] \arrow[rrrrdd, "g_A \circ f_A", bend left, shift right]        &  & A' \arrow[dd, "i_{A'}"', shift right] \arrow[rrdd, "g_A", bend left=49]                                 &  &   \\
+                                                                                                                                                                                          &  &                                                                                                         &  &   \\
+A \cup B \arrow[rr, "f_{AB}", two heads, hook] \arrow[rrrr, "g_{AB} \circ f_{AB}" description, bend right, shift right] \arrow[uu, "\pi_A"', shift right] \arrow[dd, "\pi_B", shift left] &  & A' \cup B' \arrow[rr, "g_{AB}"] \arrow[uu, "\pi_{A'}"', shift right] \arrow[dd, "\pi_{B'}", shift left] &  & Z \\
+                                                                                                                                                                                          &  &                                                                                                         &  &   \\
+B \arrow[rr, "f_B"', two heads, hook] \arrow[uu, "i_B", shift left] \arrow[rruu, "f_{B'}=i_{B'} \circ f_B"', bend left] \arrow[rrrruu, "g_B \circ f_B"', bend right, shift left]          &  & B' \arrow[uu, "i_{B'}", shift left] \arrow[rruu, "g_B"', bend right=49]                                 &  &  
+\end{tikzcd}
 
 
 
@@ -231,7 +278,7 @@ B \times A \arrow[ru, "\pi_A"] \arrow[rd, "\pi_B"] & Z \arrow[u, "f"] \arrow[d, 
 
 We seek to prove that given such a commutative diagram (with a unique $(f,g)$ and $(g,f)$), which we will call $D$, then we have $A \times B \simeq B \times A$.
 
-We define $\text{\textbf{Set}}_{A,B}$ as the "bislice category of $A$ and $B$ over \textbf{Set}". Objects in this category are pairs of morphisms $(f,g)$ from sets $Z$, into $A$ and $B$, respectively. They can be diagrammed as follows.
+We define $\mathcal{C}_{A,B}$ as the "bislice category of $A$ and $B$ over $\mathcal{C}$". Objects in this category are pairs of morphisms $(f,g)$ from sets $Z$, into $A$ and $B$, respectively. They can be diagrammed as follows.
 
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKMgCZqdJq3YAhHnxAZseAkXKliEhizaIQALR4SYUAObwioAGYAnCAFskomjghJ1kneyvzrdx4jOIK5IZJ7SeqYgNIz0AEYwjAAKAirCIDZYpgAWOEbcQA
 \begin{tikzcd}
@@ -249,7 +296,7 @@ Z_1 \arrow[ru, "f_1"'] \arrow[rd, "g_1"] &   & {} \arrow[r, "{\sigma_{A,B}}"] & 
                                          & B &                                &    &                                          & B
 \end{tikzcd}
 
-such that the following diagram commutes in \textbf{Set}:
+such that the following diagram commutes in $\mathcal{C}$:
 
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqWLU6TVuwBaAfWI8+IDNjwEiZcTQYs2iEPIBMS-mqGbSRibukGAQjwkwoAc3hFQAMwBOEALZIRjQ4EEiiknrsXnImNIz0AEYwjAAKAurCID5YrgAWOKYgvgFIZCCh4TpS+sUKIPFJKenmGgaMMF6FvN5+gYjllYjBkXYgADrj2K7+9A0gCclpGRbtnd3KJf0jQwDM1VEGrrHzi80rbQvrRVtlIWGI+6O1x4qNSy2Clzn53ZTcQA
 \begin{tikzcd}
@@ -276,7 +323,7 @@ B \times A \arrow[ru, "\pi_A"'] \arrow[rd, "\pi_B"] &   \\
                                                     & B
 \end{tikzcd}
 
-Using the diagram $D$ defined above, and the definition of a product (ie, that the maps from any $Z$ to it in the appropriate configuration are unique). We deduce that both $A \times B$ and $B \times A$ are final objects in $\text{\textbf{Set}}_{A,B}$. Finally, using Proposition 5.4, i.e., that final objects in a category are unique up-to-isomorphism, we conclude that $A \times B \simeq B \times A$.
+Using the diagram $D$ defined above, and the definition of a product (ie, that the maps from any $Z$ to it in the appropriate configuration are unique). We deduce that both $A \times B$ and $B \times A$ are final objects in $\mathcal{C}_{A,B}$. Finally, using Proposition 5.4, i.e., that final objects in a category are unique up-to-isomorphism, we conclude that $A \times B \simeq B \times A$.
 
 
 
@@ -399,23 +446,54 @@ A \times B \times C \arrow[ru, "p_A"] \arrow[r, "p_B" description] \arrow[rd, "p
                                                                                       & C
 \end{tikzcd}
 
-and using the two universal properties we have shown above, we know that necessarily $(A \times B) \times C$ and $A \times (B \times C)$ are terminal objects in $\mathcal{C}_{A,B,C}$ (because they are final objects in the bislice category, given that $((f,g),h)$ and $(f,(g,h))$ are both unique, and we can compose $p_A \circ p_{A \times B}$, etc, to get immediate projections). We use Proposition 5.4 to deduce that $(A \times B) \times C$ and $A \times (B \times C)$, as terminal objects in $\mathcal{C}_{A,B,C}$, are necessarily isomorphic. Therefore, given this "associativity up-to-isomorphism" of a triple product, it is legitimate to call $A \times B \times C$ (with no parentheses) "the" (unique, up-to-isomorphism) final object in $\mathcal{C}_{A,B,C}$.
+and using the two universal properties we have shown above, we know that necessarily $(A \times B) \times C$ and $A \times (B \times C)$ are terminal objects in $\mathcal{C}_{A,B,C}$. This is because they are final objects in respective bislice categories, given that $((f,g),h)$ and $(f,(g,h))$ are both unique; and we can compose $p_A \circ p_{A \times B}$, etc, to get immediate projections, making them final in the trislice category as well. To be precise:
 
+$$(((A \times B) \times C), \; p_A \circ p_{A \times B}, \; p_B \circ p_{A \times B}, \; p_C)$$
+
+$$((A \times (B \times C)), \; \pi_A, \; \pi_B \circ \pi_{B \times C}, \; \pi_C \circ \pi_{B \times C})$$
+
+are both final objects in $\mathcal{C}_{A,B,C}$, as is shown by the following commutative diagram, which is composed from the diagrams above:
+
+\begin{tikzcd}
+  &  &   & A \times B \arrow[ldd, "p_B" description, two heads, dashed, bend left] \arrow[ld, "p_A" description, two heads, dashed]   &  \\
+  &  & A &   & (A \times B) \times C \arrow[lldd, "p_C" description, two heads, dashed, bend left] \arrow[lu, "p_{A \times B}" description, two heads, dashed, bend right]  \\
+Z \arrow[rrd, "f_C" description] \arrow[rrrru, "f_{(A \times B) \times C}" description, dotted] \arrow[rr, "f_B" description] \arrow[rru, "f_A" description] \arrow[rrruu, "f_{A \times B}" description, dotted, bend left] \arrow[rrrrd, "f_{A \times (B \times C)}" description, dotted] \arrow[rrrdd, "f_{B \times C}" description, dotted, bend right] &  & B &   &  \\
+  &  & C &   & A \times (B \times C) \arrow[ld, "\pi_{B \times C}" description, two heads, dashed, bend left] \arrow[lluu, "\pi_A" description, two heads, dashed, bend right] \\
+  &  &   & B \times C \arrow[luu, "\pi_B" description, two heads, dashed, bend right] \arrow[lu, "\pi_C" description, two heads, dashed] & 
+\end{tikzcd}
+
+We use Proposition 5.4 to deduce that $(A \times B) \times C$ and $A \times (B \times C)$, as terminal objects in $\mathcal{C}_{A,B,C}$, are necessarily isomorphic. Therefore, given this "associativity up-to-isomorphism" of a triple product, it is legitimate to call $A \times B \times C$ (with no parentheses) "the" (unique, up-to-isomorphism) final object in $\mathcal{C}_{A,B,C}$.
 
 
 \subsection*{5.10)}
 
 Push the envelope a little further still, and deﬁne products and coproducts for families (i.e., indexed sets) of objects of a category. Do these exist in \textbf{Set}? It is common to denote the product $A \times \cdot \cdot \cdot \times A$ ($n$ times) by $A^n$.
 
-Let $\mathcal{F}$ be an (ordered) family of objects in some category $\mathcal{C}$. A product of the elements of $\mathcal{F}$ is defined as an object $P$ of $\mathcal{C}$ together with a family of morphisms $\{p_A : P \to A\}_{A \in \mathcal{F}}$ such that for any object $Z$ and family of morphisms $\{f_A : Z \to A\}_{A \in \mathcal{F}}$, there exists a unique morphism $f : Z \to P$ such that the following diagram commutes for all $A \in \mathcal{F}$:
+Let $\mathcal{F}$ be an (ordered) family of objects in some category $\mathcal{C}$.
 
-% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAC0QBfU9TXfIRQBGclVqMWbAArdeIDNjwEio4ePrNWiEAEFu4mFADm8IqABmAJwgBbJGRA4ISAEzVNUnRYD6+6gx0AEYwDNL8ykIgVljGABY4cpY29oiOzkiiElpsFiABwaHhSoJsDDAWiTzJdpnUGYju2V4KfvkggSFhEaU65ZUGXEA
+\subsubsection*{5.10.a)}
+
+A product of the elements of $\mathcal{F}$ is defined as an object $P$ of $\mathcal{C}$ together with a family of morphisms $\{p_A : P \to A\}_{A \in \mathcal{F}}$ such that for any object $Z$ and family of morphisms $\{f_A : Z \to A\}_{A \in \mathcal{F}}$, there exists a unique morphism $f : Z \to P$ such that the following diagram commutes for all $A \in \mathcal{F}$:
+
 \begin{tikzcd}
 Z \arrow[rd, "f_A"'] \arrow[r, "f"] & P \arrow[d, "p_A"] \\
                                     & A                 
 \end{tikzcd}
 
 These exist in \textbf{Set} for all finite families of sets, however, for infinite families of sets, their existence is conditional on the (famous) axiom of choice (it is actually precisely the point of the axiom of choice).
+
+\subsubsection*{5.10.b)}
+
+A coproduct of the elements of $\mathcal{F}$ is defined as an object $C$ of $\mathcal{C}$ together with a family of morphisms $\{i_A : A \to C\}_{A \in \mathcal{F}}$ such that for any object $Z$ and family of morphisms $\{f_A : A \to Z\}_{A \in \mathcal{F}}$, there exists a unique morphism $f : C \to Z$ such that the following diagram commutes for all $A \in \mathcal{F}$:
+
+\begin{tikzcd}
+A \arrow[r, "i_A"] \arrow[rd, "f_A"'] & C \arrow[d, "f"] \\
+									  & Z                
+\end{tikzcd}
+
+These exist in \textbf{Set} for all families of sets, however, for infinite families of sets, their existence is conditional on the axiom of choice.
+
+
 
 
 
@@ -504,15 +582,19 @@ Let us recap a little what's in diagram a little, to show that it is a justified
     \item $f_B$ is well-defined for the equivalence relation $\sim_B$, and so we may obtain $\overline{f_B}$ and $\pi_B$;
 \end{itemize}
 
-Therefore, using the maps $\Pi_A = \pi_A \circ p_A \in (A \times B) \to A/\sim_A$ and $\Pi_B = \pi_B \circ p_B \in (A \times B) \to B/\sim_B$, we can "quotient through" (i.e., use the universal property of quotient) $(A \times B)/\sim$. This gives us the following commutative diagram (compatible with the one above, but it's too messy to represent both at the same time):
+Therefore, we have the maps $\Pi_A = \pi_A \circ p_A \in (A \times B) \to A/\sim_A$ and $\Pi_B = \pi_B \circ p_B \in (A \times B) \to B/\sim_B$. $\Pi_A$ and $\Pi_B$ are well-defined because they are compositions of well-defined maps. For $\pi_A$ and $\pi_B$, we know that the projector and unique function part (of the universal property of quotients) are necessarily well-defined, otherwise they wouldn't compose to a well-defined map. As for $p_A$ and $p_B$, they are well-defined because they are projections, and projections are always well-defined.
+
+Since $\Pi_A$ and $\Pi_B$ are well-defined, we can "quotient through" (i.e., use the universal property of quotient for) $(A \times B)/\sim$.
+
+This gives us the following commutative diagram (compatible with the one above, but it's too messy to represent both at the same time):
 
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAJgBoAGAXVJADcBDAGwFcYkQAhEAX1PU1z5CKAIwVqdJq3YBBAAQAdBXgC28OV179seAkXLiaDFm0QgZPPiAw6hRMiInHpZjgHol2FZe2C9o0kcjKVMQAAp5JVV1DgBKDwUvH2sBXWFkAyDJE1kEpO4JGCgAc3giUAAzACcIb0QDEBwIJABmYJyzJTQsAH0uGkZ6ACMYRgAFVLszLDBsWGTq2qQxRubEMmyXax6LAeHRidt-EBm5ti0QRbqVpqQG51C0PpA9kfHJ49OseYur5ZpbogACztLZdLAvECDN6HPzCE6zb7nKx-RA3NYAVlBoSUY16uyh+3eR3hXx+KJq1wBazamxxCjxz1eBw+pMR5MqlKQG0BWLp7HBO0h0JZJPYZORnKWwOpSD5DwFCggtBgVUYMxgwFx+O4wqJsLS7EYMAqOAWXJlq1a2MVytV6rAmu1fV1zOJcPYVSwxQAFmaCtwgA
 \begin{tikzcd}
 A \arrow[d, "\pi_A" description] & A \times B \arrow[l, "p_A" description] \arrow[r, "p_B" description] \arrow[d, "\pi" description] \arrow[ld, "\Pi_A" description] \arrow[rd, "\Pi_B" description] & B \arrow[d, "\pi_B" description] \\
-A/\sim                           & (A \times B)/\sim \arrow[l, "\overline{\Pi_A}"] \arrow[r, "\overline{\Pi_B}"']                                                                                    & B/\sim                          
+A/\sim_A                           & (A \times B)/\sim \arrow[l, "\overline{\Pi_A}"] \arrow[r, "\overline{\Pi_B}"']                                                                                    & B/\sim_B                          
 \end{tikzcd}
 
-These are precisely our functions $\Pi_A \in (A \times B)/\sim \; \to \; A/\sim_A$ and $\Pi_B \in (A \times B)/\sim \; \to \; B/\sim_B$, and they are unique, as per the universal property of quotients.
+These are precisely our functions $\overline{\Pi_A} \in (A \times B)/\sim \; \to \; A/\sim_A$ and $\overline{\Pi_B} \in (A \times B)/\sim \; \to \; B/\sim_B$, and they are unique, as per the universal property of quotients.
 
 
 \subsubsection*{5.11.b)}
@@ -522,7 +604,7 @@ What we wish to prove now is that $(A \times B)/\sim$ is the product of $A/\sim_
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAtEAX1PU1z5CKcqWLU6TVuwCCAegA6C7AFsefEBmx4CRMuJoMWbRCAAUMgARK8K+JYBCASkXKsa3v21CiAJjESRtKmDq6qPBIwUADm8ESgAGYAThBqiKIgOBBI-pLG7GbRAPoypJbFziA0jPQARjCMAAoCOsIgWGDYsOqJKWkZWUhkecEgxTJVIDX1TS0+ph1dbJ4gyalIA9mIAMyGUiZjRQ6T0w3N3roLnVjdK2tpuYOIw0EHShC0MEmMHTDASo0sCVuCc6mc5pcpjAEjgeqs+jkaE9diM3goPl8fmA-gCgQ4QdUwbMLm0klhogALWHcSjcIA
 \begin{tikzcd}
        & Z \arrow[d, "{(g_A, g_B)}" description] \arrow[ld, "g_A" description] \arrow[rd, "g_B" description] &        \\
-A/\sim & (A \times B)/\sim \arrow[l, "\overline{\Pi_A}"] \arrow[r, "\overline{\Pi_B}"']                      & B/\sim
+A/\sim_A & (A \times B)/\sim \arrow[l, "\overline{\Pi_A}"] \arrow[r, "\overline{\Pi_B}"']                      & B/\sim_B
 \end{tikzcd}
 
 Using the fact that $(A \times B)$ is already a product, and studying maps $h_A$ and $h_B$ from $Z$ into $A$ and $B$ respectively, we can make the following commutative diagram:
@@ -534,9 +616,13 @@ A \arrow[d, "\pi_A" description] & A \times B \arrow[l, "p_A" description] \arro
 A/\sim_A                         & (A \times B)/\sim \arrow[l, "\overline{\Pi_A}"] \arrow[r, "\overline{\Pi_B}"']                                                                                                                                             & B/\sim_B                        
 \end{tikzcd}
 
-The internal parts of the diagram (except $h_A$ and $h_B$ which are arbitrary, all other arrows are unique morphisms) force $g_A$ and $g_B$ to commute with the rest of the diagram: any pairs of maps $g_A$ and $g_B$ that make the diagram commute must necessarily be constrained by the existing morphisms (as the composition of unique morphisms). Any choice of maps $g_A$ and $g_B$ must respect $g_A = \pi_A \circ h_A$ and $g_B = \pi_B \circ h_B$, for corresponding arbitrary (but inferred) $h_A$ and $h_B$; said otherwise, maps $g_A$ and $g_B$ in this configuration can only exist if they make the diagram commute. Therefore, we have shown that $(A \times B)/\sim$ satisfies the universal property of the product of $A/\sim_A$ and $B/\sim_B$, and we have $(g_A. g_B) = \pi \circ (h_A, h_B)$ (though it's not shown on the above diagram, in order to improve legibility).
+The internal parts of the diagram (except $h_A$ and $h_B$ which are arbitrary, all other arrows are unique morphisms) force $g_A$ and $g_B$ to commute with the rest of the diagram: any pairs of maps $g_A$ and $g_B$ that make the diagram commute must necessarily be constrained by the existing morphisms (as the composition of unique morphisms). Any choice of maps $g_A$ and $g_B$ must respect $g_A = \pi_A \circ h_A$ and $g_B = \pi_B \circ h_B$, for corresponding arbitrary (but inferred) $h_A$ and $h_B$; said otherwise, maps $g_A$ and $g_B$ in this configuration can only exist if they make the diagram commute. Therefore, we have shown that $(A \times B)/\sim$ satisfies the universal property of the product of $A/\sim_A$ and $B/\sim_B$, and we have $(g_A, g_B) = \pi \circ (h_A, h_B)$ (though it's not shown on the above diagram, in order to improve legibility).
 
-Conclusion: $(A \times B)/ \sim \; \simeq \; ((A / \sim_A) \times (B / \sim_B))$
+\subsubsection*{5.11.c)}
+
+We know that elements that verify a common universal property are terminal objects (of the same kind) in some comma category. Here, both $(A \times B)/ \sim$ and $((A / \sim_A) \times (B / \sim_B))$ are final objects in the bislice category $\text{\textbf{Set}}_{A,B}$. Since they are both final objects in the same category, they are isomorphic.
+
+Conclusion: $((A \times B)/ \sim) \; \simeq \; ((A / \sim_A) \times (B / \sim_B))$
 
 
 

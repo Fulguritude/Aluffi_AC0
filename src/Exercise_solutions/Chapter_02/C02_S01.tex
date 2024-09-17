@@ -99,7 +99,6 @@ These multiplication tables are usually called "Cayley tables".
 
 For the unique table of the trivial group (only 1 element); $e$ is necessarily its own inverse. Some examples of this group are $(\{0\}, +)$ or $(\{1\}, \times)$. This group is trivially commutative.
 
-$$
 \begin{tabular}{|c||c|}
 \hline
 $\cdot$ & $e$ \\
@@ -107,28 +106,24 @@ $\cdot$ & $e$ \\
 $e    $ & $e$ \\
 \hline
 \end{tabular}
-$$
 
 
 \subsubsection*{1.6.b) 2-element group}
 
 For the unique table of the group with 2 elements; both elements are necessarily their own inverse (or else there would be no $e$ which is necessarily a self-inverse). Some examples of this group are $(\{ 1, -1 \}, \times)$, or $(\mathbb{Z}_2, +)$ (two-hour clock with addition). This group is commutative, since, like in the exercise 1.4, every element is its own inverse.
 
-$$
 \begin{tabular}{|c||c|c|}
 \hline
 $\cdot$ & $e$ & $a$ \\ \hline \hline
 $e    $ & $e$ & $a$ \\ \hline
 $a    $ & $a$ & $e$ \\ \hline
 \end{tabular}
-$$
 
 
 \subsubsection*{1.6.c) 3-element group}
 
 For the unique table of the group with 3 elements; the 3 elements cannot all be their own inverses, because if 2 elements are their own inverse, the third one cannot have an inverse. Another way of seeing this is the below: no matter the value given for each $?$, this cannot be a Latin square (if we put two $e$'s then we have multiple inverses, so we can deduce that $a$ and $b$ are inverses, and then we $a = b$; if we put two $a$'s, we lose associativity (e.g.: $(aa)b = eb = b \ne a(ab) = aa = e$); etc).
 
-$$
 \begin{tabular}{|c||c|c|c|}
 \hline
 $\cdot$ & $e$ & $a$ & $b$ \\ \hline \hline
@@ -136,11 +131,9 @@ $e    $ & $e$ & $a$ & $b$ \\ \hline
 $a    $ & $a$ & $e$ & $?$ \\ \hline
 $b    $ & $b$ & $?$ & $e$ \\ \hline
 \end{tabular}
-$$
 
 Instead, the 2 non-identity elements are necessarily inverses of each other. Some examples of this group are $(\{1, j, \overline{j} \}, \times)$ (where $j = e^{\tau / 3}$ is a complex number called the third root of unity), or $(\mathbb{Z}_3, +)$ (three-hour clock with addition). This group is commutative because the identity necessarily commutes with everything, and inverses necessarily commute together, so here, all elements commute.
 
-$$
 \begin{tabular}{|c||c|c|c|}
 \hline
 $\cdot $ & $e     $ & $a     $ & $a^{-1}$ \\ \hline \hline
@@ -148,7 +141,6 @@ $e     $ & $e     $ & $a     $ & $a^{-1}$ \\ \hline
 $a     $ & $a     $ & $a^{-1}$ & $e     $ \\ \hline
 $a^{-1}$ & $a^{-1}$ & $e     $ & $a     $ \\ \hline
 \end{tabular}
-$$
 
 
 \subsubsection*{1.6.d) 4-element groups}
@@ -157,7 +149,6 @@ For the case where $|G| = 4$, we have two possibilities.
 
 The first one is a table where every element is a self-inverse. This gives you a group that is isomorphic to $(\mathbb{Z}_2 \times \mathbb{Z}_2, +)$ (the Klein four-group, a torus made up of 2 two-hour clocks). Note that the permutations of the elements of the group give the same table, so there is only one table for this group up to reordering. It is commutative for the same reason as exercise 1.4.
 
-$$
 \begin{tabular}{|c||c|c|c|c|}
 \hline
 $\cdot$ & $e$ & $a$ & $b$ & $c$ \\ \hline \hline
@@ -166,13 +157,11 @@ $a    $ & $a$ & $e$ & $c$ & $b$ \\ \hline
 $b    $ & $b$ & $c$ & $e$ & $a$ \\ \hline
 $c    $ & $c$ & $b$ & $a$ & $e$ \\ \hline
 \end{tabular}
-$$
 
 The second possibility where one element other than the identity is its own inverse, and the other two are mutual inverses. This gives you a group that is isomorphic to $(\mathbb{Z}_4, +)$ (a four-hour clock with addition, where $1$ and $-1$ are mutual inverses, and $0$ and $2$ are their own inverse). Note that the permutations of the elements of the group give the same table, so there is only one table for this group up to reordering.
 
 Since the identity and respective inverses commute, all that's left is to check the commutativity of the self-inverse element $a$ with both of the mutual-inverses elements $b$ and $c$. In this case, it is because there is "only one option left" in the Latin square that we get commutativity: e.g., $a \cdot b$ cannot equal $e$ since they are not inverses, cannot equal $a$ since $b \ne e$, cannot equal $b$ since $a \ne e$, so we must have $a \cdot b = c$. The same reasoning can be applied to $b \cdot a$ to get $c$ (hence $a \cdot b = b \cdot a$). With a relabelling, we apply this reasoning to $a \cdot c$ to get $b$ and to $c \cdot a$ to get $b$ (hence $a \cdot c = c \cdot a$). With this, we have proven commutativity.
 
-$$
 \begin{tabular}{|c||c|c|c|c|}
 \hline
 $\cdot$ & $e$ & $a$ & $b$ & $c$ \\ \hline \hline
@@ -181,7 +170,6 @@ $a    $ & $a$ & $e$ & $c$ & $b$ \\ \hline
 $b    $ & $b$ & $c$ & $a$ & $e$ \\ \hline
 $c    $ & $c$ & $b$ & $e$ & $a$ \\ \hline
 \end{tabular}
-$$
 
 
 \subsubsection*{1.6.e) Conclusion and remark}
