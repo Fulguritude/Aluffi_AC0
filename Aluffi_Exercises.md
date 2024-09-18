@@ -1319,6 +1319,15 @@ ex: ℤ and ≤
 - [*zero object*|*null object*](https://en.wikipedia.org/wiki/Initial_and_terminal_objects): An object that is both *initial* and *final*.
   `∀𝓒, ∀(Z in obj(𝓒)), Z is zero-object ⇔ (Z is initial) ∧ (Z is final)`
 - [*universal property*](https://en.wikipedia.org/wiki/Universal_property): a property that characterizes up to an isomorphism the result of some constructions
+```
+∀ 𝓒,𝓓
+∀ F : 𝓒 → 𝓓
+∀ X in obj(𝓓)
+∀ A,A' in obj(𝓒))
+∀ h : A → A'
+∃(A,u : X → F(A)) in 𝓓
+∀(f : X → F(A') in 𝓓), ∃(h : A → A' in 𝓒) | h is unique
+```
 
 
 
@@ -1429,26 +1438,64 @@ ex: ℤ and ≤
 
 
 
-### 5.6. Consider the category corresponding to endowing (as in Example 3.3) the set `ℤ⁺` of positive integers with the divisibility relation. Thus there is exactly one morphism `d → m` in this category if and only if `d` divides `m` without remainder; there is no morphism between `d` and `m` otherwise. [§VII.5.1]
+### 5.6. Consider the category corresponding to endowing (as in Example 3.3) the set `ℤ⁺` of positive integers with the divisibility relation. Thus there is exactly one morphism `d → m` in this category if and only if `d` divides `m` without remainder; there is no morphism between `d` and `m` otherwise. [§VII.5.1] Show that this category has products and coproducts. What are their ‘conventional’ names?
 
-#### 5.6.1. Show that this category has products and coproducts.
-
-#### 5.6.2. What are their ‘conventional’ names?
+Their names are respectively "lcm" (lowest common multiple) and "gcd" (greatest common divisor).
 
 
 
-### 5.7. Redo Exercise 2.9, this time using Proposition 5.4.
+### 5.7. Redo Exercise 2.9, this time using Proposition 5.4. Show that if `A' ≅ A"` and `B' ≅ B"`, and further `A' ∩ B' = ∅` and `A" ∩ B" = ∅`, then `A' ∪ B' ≅ A" ∪ B"`. Conclude that the operation `A ⊔ B` (as described in §1.4) is well-defined *up to isomorphism* (cf. §2.9). [§2.9, 5.7]
 
 ```py
+∷ 𝓒 in Cat
+∷ A, A₁,A₂ in obj(𝓒)
+∷ B, B₁,B₂ in obj(𝓒)
+# primes and doubleprimes are isomorphic
+∷ A₁ ≅ A₂
+∷ B₁ ≅ B₂
+# A and B don't overlap
+∷ A₁ ∩ B₁ = ∅
+∷ A₂ ∩ B₂ = ∅
+# the unions of A and B are isomorphic
+∷ A₁ ∪ B₁ ≅ A₂ ∪ B₂
+# their initial and final objects are isomorphic
+∷ ∀(I₁,I₂) initial in obj(𝓒), (I₁ ≅ I₂)
+∷ ∀(F₁,F₂)   final in obj(𝓒), (F₁ ≅ F₂)
+
+⊦ A ⊔ B # a = b ⇒ f(a) = f(b) # well-defined up to isomorphism
+  ???
+  ∴ (A₁ ∪ B₁) is initial object of Setᴬ₁⁻ᴮ₁
+  ∴ (A₂ ∪ B₂) is initial object of Setᴬ₂⁻ᴮ₂
 
 ```
 
 
 
-### 5.8. Show that in every category 𝓒 the products `A × B` and `B × A` are isomorphic, if they exist. (Hint: observe that they both satisfy the universal property for the product of A and B, then use Proposition 5.4.)
+### 5.8. Show that in every category `𝓒` the products `A × B` and `B × A` are isomorphic, if they exist. (Hint: observe that they both satisfy the universal property for the product of `A` and `B`, then use Proposition 5.4.)
 
 ```py
+∷ 𝓒 in Cat
+∷ A,B in obj(𝓒)
+† unique(a in obj(𝓒)) = ∀(b in obj(𝓒)) | a = b
+# universal property of products
+† ∀(Z in obj(𝓒)) ∀(f,g in obj(𝓒^{A,B}) , unique(⟨f,g⟩ : Z → A × B)
+# any pair of initial and final objects are isomorphic
+† ∀(I₁,I₂) initial in obj(𝓒), (I₁ ≅ I₂)
+† ∀(F₁,F₂)   final in obj(𝓒), (F₁ ≅ F₂)
 
+⊦ (A × B) ≅ (B × A)
+  ∷ 𝓒^{A,B} # consider the bi-coslice category
+  | obj(𝓒^{A,B}) = (Z,f,g)
+  | hom_𝓒^{A,B}(Z₁,Z₂) = σ_{A,B} : (Z₁,f₁,g₁) → (Z₂,f₂,g₂)
+  ∷ Z₂ = (A×B)
+  | ∴ σ_{A,B} is unique
+  | ∴ Z₂ is final
+  ∷ Z₂ = (B×A)
+  | ∴ σ_{A,B} is unique
+  | ∴ Z₂ is final
+  ∴ (A×B is final) ∧ (B×A is final)
+  ∵ ∀(F₁,F₂) final in obj(𝓒), (F₁ ≅ F₂)
+  ∴ (A × B) ≅ (B × A)
 ```
 
 
@@ -1457,15 +1504,91 @@ ex: ℤ and ≤
 
 #### 5.9.1. Find a reasonable candidate for the universal property that the product `A × B × C` of three objects of 𝓒 ought to satisfy.
 
-#### 5.9.2. Prove that both `(A × B) × C` and `A × (B × C)` satisfy this universal property. 
+```latex
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqQCM1Ok1bsAWjz4gM2PASIAmcZIYs2iTgHWAQgYDCC-iqFEyEmjpn6jFpQNXCSpddul6Q57kkYKABzeCJQADMAJwgAWyQxGhwIJFEpXXZIgH0uGkZ6ACMYRgAFN2t9RhhInBAaYrAoJGJyXijYhMQkkBSW+18s7Od8opLyqzV9aKwQgAs6hpgmpABaVvaQGPjE5NTEABYBzP0c81HisoqpkBn5xZBG5sR1tsVtrp6+xE0MxxBAMPA9RABUuE0EN2qtWBjCwYD8UAgOBwwRcHyQv2+6QcfkAA8C5GFjK6TYQgmoPWHw9hQehwOao5L0LCMdiQKk0en0Z69ADuEE5UAQm3RPz2-T+eOGhLB11JUIpcIRtPpzUZzNZBDYHJgXPYOD5AqF706GLFh2O-3x5xBRPB7nYdwWMMV1OVDN6TJZ+jZWpAAr1Bp1gp4lG4QA
+\begin{tikzcd}
+  &  &                                                                                                                      & A \\
+Z \arrow[rrru, "f_A", bend left] \arrow[rrr, "f_B"', bend right] \arrow[rrrd, "f_C"', bend right] \arrow[rr, "σ", dotted] &  & A×B×C \arrow[ru, "π_A", two heads, dashed] \arrow[r, "π_B", two heads, dashed] \arrow[rd, "π_C"', two heads, dashed] & B \\
+  &  &                                                                                                                      & C
+\end{tikzcd}
+```
+
+#### 5.9.2. Prove that both `(A × B) × C` and `A × (B × C)` satisfy this universal property.
+
+for `(A × B) × C`:
+```latex
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqQCM1Ok1bsAWjz4gM2PASIAmcZIYs2iTgHWAQgv4qhRMuu3S9IE7zOC1KMsRu72HY6aUDVwsiiACweMvryjn7mLsiaoTQ64SAAFN5GAJQGAMK+ys6BZACsYXa53JIwUADm8ESgAGYAThAAtkhiNDgQSKJSnvoNAPpcNIz0AEYwjAAK-hb6jDANOCA0U2BQSMTkUc1tHV09iGT9ycMmY5PTczHCIE1Y1QAWq+swm0gAtDt7Le2ITogbpITRnOyAYeAhsB0tw1iBxlNZvMXAjlqs-gdEGCQYg+kk7IAB4BG8MRNxR9yWK18+wBOOOpwJ7GJlwR12Rd3YjxeGMUtKQRSOSGCiVs7GGMOMcKuSNuBXYVLeIA2WxOuz5-wFQsQAHZRQMQMNcjLyZz9NzXvCVd9fhqsYLgccAGz65JQ4BpYxZbLStmyikK9E0zWIF2O4WuonQ2Gk9lygKB6mYgFh3F68HMobGv2m+Xmp6WircIA
+\begin{tikzcd}
+  &   &                                                                                                   & A   \\
+Z \arrow[rrru, "f_A", bend left] \arrow[rrrd, "f_B"', bend right] \arrow[rr, "f_{A×B}", dotted]                                                               &   & A×B \arrow[ru, "π_A", two heads, dashed] \arrow[rd, "π_B"', two heads, dashed]                    &     \\
+  &   &                                                                                                   & B   \\
+  &   &                                                                                                   & A×B \\
+Z \arrow[rrru, "f_{A×B}", bend left] \arrow[rrrd, "f_C"', bend right] \arrow[rr, "f_{(A×B)×C}", dotted]                                                       &   & (A×B)×C \arrow[ru, "π_{A×B}", two heads, dashed] \arrow[rd, "π_C" description, two heads, dashed] &     \\
+  &   &                                                                                                   & C    
+\end{tikzcd}
+```
+therefore
+```latex
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKAEwVqdJq3YcA6wCEefEBmx4CRcqWISGLNohAAtJfzVCiZHTT3TDi3mcEaUZEbqkGQAYVMqB6sLIYu42nuwAFHLyAJSyvtwSMFAA5vBEoABmAE4QALZIZCA4EEgAzGH67IADwAD6ijSM9ABGMIwACgEWhowwmTh+OfmFNCVIWpJVhnVcjS1tneYuINlYKQAWA44gQwWIYsWliAAslXY7tb5zrR1dy6sbW8q7SAdjiACsZ16ZtcBRCji3m4IGuCzuwhAWDA2Fgg1yezeRwqk3OvwaICaN0Wzkh0NhbG2L32oyOE1sP1qs0x81uS0hvX68OGJMOI1RlOA0RBYLpuPY+KwcKJCKQXzZJ2+NUuoJp2Ih7EZTyyos+pPZFOlXIUPLl4Pp7Aemx4lG4QA
+\begin{tikzcd}
+  & A & A×B \arrow[ld, "π_B", two heads, dashed] \arrow[l, "π_A"', two heads, dashed]                     &     \\
+Z \arrow[rd, "f_C"'] \arrow[rrd, "f_{(A×B)×C}" description, dotted] \arrow[r, "f_B" description] \arrow[ru, "f_A"] \arrow[rru, "f_{A×B}" description, dotted] & B &                                                                                                   &     \\
+  & C & (A×B)×C \arrow[l, "π_C", two heads, dashed] \arrow[uu, "π_{A×B}"', two heads, dashed]             &   
+\end{tikzcd}
+```
+
+for `(A × B) × C`:
+```latex
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQAhEAX1PU1z5CKcqQCM1Ok1bsAWjz4gM2PASIAmcZIYs2iTgHWAwgv4qhRMuu3S9IE7zOC1KMsRu72AQVNKBq4WRRABYPGX15Rz9zF2RNUJodcJAvAwAKDmMASl9lZ0CyAFYwu0yHSRgoAHN4IlAAMwAnCABbJDEaHAgkUSlPfXqAfS4aRnoAIxhGAAV-C31GGHqcEBpJsCgkYnIoptb2zu7EMj7koZNRianZmOEQRqwqgAsVtZgNpABabd3mtsQOiAukhNKc7ENgGVuKsQGNJjM5i5YUtXrCsGA7FAIDgcJVfHt-qDgYhekk7IAB4GGMLh10Rd0WyxhTxg9E2+hwAHcIMzWQhRujMfQ4MzNr99ogiUcTmT2JSLrCrgjbuwHs9UTy2UCuRq+WiMewoEKRfi-khCockMFErZ2EMfJd4Td8uwGaj1myfooCWaLYgAOzW-ogCFQ6mKp0BFWPF4w91fT0NU2Ic1Ao4ANkDZ0GwFSGWy0IdtOVCxR1IFBuxuNFXqTGdTlszFMG9oVjrpLtLNA17E53JZUF1jHL+kNwrxYv+deJAbBsuzocLSud+lVMa7-Z72v7g+HIFHxu4lG4QA
+\begin{tikzcd}
+  &  &                                                                                        & B   \\
+Z \arrow[rrru, "f_B", bend left] \arrow[rrrd, "f_C"', bend right] \arrow[rr, "f_{B×C}", dotted]         &  & B×C \arrow[ru, "π_B", two heads, dashed] \arrow[rd, "π_C"', two heads, dashed]         &     \\
+  &  &                                                                                        & C   \\
+  &  &                                                                                        & A   \\
+Z \arrow[rrru, "f_A", bend left] \arrow[rrrd, "f_{B×C}"', bend right] \arrow[rr, "f_{A×(B×C)}", dotted] &  & A×(B×C) \arrow[ru, "π_A", two heads, dashed] \arrow[rd, "π_{B×C}"', two heads, dashed] &     \\
+  &  &                                                                                        & B×C
+\end{tikzcd}
+```
+therefore
+```latex
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKAEwVqdJq3YcA6wAoAQrIDCASh58QGbHgJFypYhIYs2iEAC1N-XUKJljNU9IuKb2gXuElSIk1LmICoeOoL6on4BZuzKIdwSMFAA5vBEoABmAE4QALZIZCA4EEiGkjEWgAPAAPpcNIz0AEYwjAAKXvYWWVjJABY4IPVYYEFQ9HC9SYMgk-RQ7DgA7hCzUAi8mTn5iIXFSACszoHsNcBx3NMNzW0dESDdfQNDI+xjE1M0qwvLq+ta2XkkGIiiVEGUXEEMrVLk0Wu07HdGDAMgMNiAAdtgXsdkcKujqsA5EpVGoLvVYTcEcIQMNsLBLsNRhAcDgpmiMUCaNiACy41z4kLk67w8LUh79DwcxBY0EAZj5kOq7iFcNu1NpWHp7K2nJBBwV7ChhNkijJICuqqp7A19OeTJZbP+OsQhz1iF55X5NUF5opIu87CRKIZLwsb0m80+MDm3xW0bWkudrux8s9QRqyt9wrV7HFT3NjNe4wj0y+FiWcbm60o3CAA
+\begin{tikzcd}
+  & A & A×(B×C) \arrow[l, "π_A"', two heads, dashed] \arrow[dd, "π_{B×C}"', two heads, dashed] \\
+Z \arrow[ru, "f_A"] \arrow[rru, "f_{A×(B×C)}" description, dotted] \arrow[rd, "f_C"'] \arrow[r, "f_B" description] \arrow[rrd, "f_{A×B}" description, dotted] & B &                                                                                        \\
+  & C & B×C \arrow[l, "π_C", two heads, dashed] \arrow[lu, "π_B"', two heads, dashed]         
+\end{tikzcd}
+```
 
 #### 5.9.3. Deduce that `(A × B) × C` and `A × (B × C)` are necessarily isomorphic.
+
+```latex
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQBBAdYCEQBfUuky58hFACZSARmp0mrdhwFCQGbHgJEALDLkMWbRCAAU3HgEouAYRXCNYouVIT9CoyABadtSM3jkKVcaA0VjPkF7US1JUmI3Q3ZbSN8HGORdeJD3JS4THhsLH3VogLJtBLCQAuS5GCgAc3giUAAzACcIAFskZxAcCCRdeUTjQAHgQECCAH0+GkZ6ACMYRgAFP0djLDBsWBAaAAsYeih2HAB3CEPjhDmtjyh6OEOTmiWwE8RichSO7t6aAZIaTZUYgSZTZRzRbLNZpcQgLY7NgHI4ffoXK5QG4gRh3dgPJ71Hy-HqIKT9QaIACsIKq4NsUKWq3WMQR2ywu1eMHeSC+KOOpwxqOxuLA90ez2JnVJ5MBiD6oQ84OA5n4exx0OZcPYiI5yJxeOMBMl-LR50uwvVbw+AFovj9pbyAZSaSMqq0pgyNUzYaV2O0sA19jgpX9Ps6kOTFewPcAzLwrNY1YyYSz4YwYK0Q7cxfiIDgcESHWGyBShrSPB7Zt7U9rNuzdsXSaW5cC3ZWIer5j60+wM1nQ82I-KKzGpireMma1q-cYA0HsyBrby+qL7vnCycm06y4gAGyj4yx7j5QpT7u12cgefBruGkBQDdF1QkndygDsh5AsZq581vv8PtM0XZdEDtVd70fAtnzaR192HT923YMZACCCcdfy7f9e3rJF1UxQULWuO9cyNCUiS5HlPm+F84IPXc22jcY0MhacAI2NlcIo20+RAfDjHNTERUgsitxosNELlYZGLBNDqwvGdAJwvU8NRAjBOI8VCReJduW46jYPE4dXXktjWV1TleNU-ihSInNNJNJCmM9ARKH4IA
+\begin{tikzcd}
+  &  &   & A×B \arrow[ldd, "π₁_B" description, two heads, dashed, bend left] \arrow[ld, "π₁_A" description, two heads, dashed]  &                                                                                                                                          \\
+  &  & A &                                                                                                                      & (A×B)×C \arrow[lldd, "π₁_C" description, two heads, dashed, bend left] \arrow[lu, "π₁_{A×B}" description, two heads, dashed, bend right] \\
+Z \arrow[rrd, "f_C"'] \arrow[rrrru, "f_{(A×B)×C}", dotted] \arrow[rr, "f_B" description] \arrow[rru, "f_A"] \arrow[rrruu, "f_{A×B}"', dotted, bend left] \arrow[rrrrd, "f_{A×(B×C)}"', dotted] \arrow[rrrdd, "f_{B×C}", dotted, bend right] &  & B &                                                                                                                      &                                                                                                                                          \\
+  & C &                                                                                                                      & A×(B×C) \arrow[ld, "π₂_{B×C}" description, two heads, dashed, bend left] \arrow[lluu, "π₂_A" description, two heads, dashed, bend right] \\
+  &   & B×C \arrow[luu, "π₂_B" description, two heads, dashed, bend right] \arrow[lu, "π₂_C" description, two heads, dashed] &                                                                                                                                         
+\end{tikzcd}
+```
 
 
 
 ### 5.10. Push the envelope a little further still, and define products and coproducts for families (i.e. indexed sets) of objects of a category.
 
-#### 5.10.1. Do these exist in Set? It is common to denote the product `A × ··· × A` (n times) by `Aⁿ`.
+```latex
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAtEAX1PU1z5CKAEwVqdJq3YAdGWgBO0APrAsAXnLcAemvVhuAAgCCgI1wefEBmx4CRAMyliEhizaIQxwIEEF-jaEO4jSu0h7GgEEEvlYCtsLIjiIuUu6egMEEUdaCdqKk9klu7MbKhLx+WXGOecHJhcpYPBIwUADm8ESgAGZKALZIZCA4EEjkNIxYYClQEDg4TVFdEL2IIwNDiGIgYxPsUPRwABZzNIf0UOw4AO4QJ1AI1QUegAPAyuQgo-QARjCMAAoxAR5xthYPMesMaIMkI5JA8QM8RG8QDdzlcbndNuNJntDmd3l9fv9siAgVgQaUQAslitIYgACz3UJw5T2RHIjyXa4wU7orZYg5HTafb5-fxEklkyyU8GrJAAVgZKWehDxwsJwmJYGBbGOXLO7NRup5mJ22Lm5KliH6NI2XzAevs-RCKQ6L1Biz6ELW0Nt9sdNQ8LoR5rBls9SHpIB9HphjJdLOD7tDMsQ8sjMDtSAAtA6FewXSVJSHqWsAGy5p51RGMIUE0Xq8XapG6lGc7lV40eXb8s4JpZW0vlimV7iUbhAA
+\begin{tikzcd}
+  &  &  & A₁  \\
+Z \arrow[rr, dotted] \arrow[rrru, "f_1", bend left] \arrow[rrr, "f_2", bend left] \arrow[rrrd, "f_3"] \arrow[rrdd, "f_n", bend right] \arrow[rrrdd, "f_i"] &  & \prod_{i=1}^{i=n} Aᵢ \arrow[ru, "π_1" description, two heads, dashed] \arrow[r, "π_2" description, two heads, dashed] \arrow[rd, "π_3" description, two heads, dashed] \arrow[dd, "π_n" description, two heads, dashed] \arrow[rdd, "π_i" description, two heads, dashed] & A₂  \\
+  &  &  & A₃  \\
+  &  & A_n  & A_i
+\end{tikzcd}
+```
+
+#### 5.10.1. Do these exist in `Set`? It is common to denote the product `A × ··· × A` (n times) by `Aⁿ`.
+
+Any such finite families exist in `Set`, though whether infinite families exist is dependent on the "axiom of choice".
 
 
 
@@ -1473,14 +1596,71 @@ ex: ℤ and ≤
 
 #### 5.11.1. Define a relation `∼` on `A × B` by setting `(a₁, b₁) ∼ (a₂, b₂) ⇔ a₁ ∼_A a₂ ∧ b₁ ∼_B b₂`. (This is immediately seen to be an equivalence relation.)
 
+```py
+∷ ∀(A,B in Set)
+∷ def ~_A ⊆ A | ~_A is equivalence relation
+∷ def ~_B ⊆ B | ~_B is equivalence relation
+∷ def ~ ⊆ (A × B) | (a₁, b₁) ∼ (a₂, b₂) ⇔ (a₁ ∼A a₂) ∧ (b₁ ∼B b₂)
+
+```
+
 #### 5.11.2. Use the universal property for quotients (§5.3) to establish that there are functions `(A × B)/∼ → A/∼_A`, `(A × B)/∼ → B/∼_B`.
+
+```latex
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBAAgB0e8AtvC4AhEAF9S6TLnyEUAJlLFqdJq3YcJUkBmx4CRJQtUMWbRJwD0fbAID6WydP1yi5ZafUWQY57pkDeRJPGjMNSwAKbj5BYREAShseO20XWUMUDxMw73YRZLt7Px09DOCyAGYvc3YALQlVGCgAc3giUAAzACcIASQPEBwIJDI1Wss0RxAaRnoAIxhGAAVAt0ssMGxYNJAevoGaYaRK3IndYpmQOcWVtcyQTe22f33+xEHjxAAWM4iQPhoLBXG5LVauB5PLA7V69d6fEaIABsfx8nRBCzB93kjy20LYNEWYCgSAAtJVyLCDogxl8lON-oCsNNZpi7hCcVCYTo3qMjoiUQy0SzrmzweV2FyXjy4Uh6V9BeEfHwILQYN1GJsYMBOo5xBjbuKgpK8dyurLEKchoiAKyo9hMy6sw3Yk3PXa8y38pCKvKWXViZ1Yjlu-FXIkkj5U96-a0++2WFVqjVanX6oPsiUbU3S83Uu1x5EJgE8VXqzVgbUB9Oil0h7Pu8SUcRAA
+\begin{tikzcd}
+ & A \times B \arrow[rd, "p_A" description] \arrow[ld, "p_B" description] \arrow[d, "\pi" description] \arrow[ddd, "f" description, bend right] & \\
+B \arrow[d, "\pi_B" description] \arrow[rdd, "f_B" description] & (A \times B)/\sim \arrow[dd, "\overline{f}" description]  & A \arrow[d, "\pi_A" description] \arrow[ldd, "f_A" description] \\
+B/\sim_B \arrow[rd, "\overline{f_B}" description] & & A/\sim_A \arrow[ld, "\overline{f_A}" description] \\
+ & Z & 
+\end{tikzcd}
+```
 
 #### 5.11.3. prove that `(A × B)/∼`, with these two functions, satisfies the universal property for the product of `A/∼_A` and `B/∼_B`.
 
+```latex
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEQBfU9TXfIRQBGclVqMWbdgAIAOnLwBbeDIBC3XiAzY8BIgCYx1es1aIQGnn12CiZYeNNSL7APQLsSzTYH6RpI4mkuYgABSyCsqqagCUHnJePtr8ekLIRkESZmxqCUlc4jBQAObwRKAAZgBOEN6IZCA4EEgAzME5FgpoWAD6nNQMdABGMAwACql2Flhg2LDJNXVIok0tDR0u2v0ggyNjk7b+ILPzrNYgS-WrzUhG2VtovRp7oxNTx6dYCxdXK9S3RAAFk2oW6WF2ICGb0OfiEJzm33OWj+iBu63aDzBcnGfQGUP27yO8K+PxRtWuAPWAFZQWwFLjnpDoQcPiTEWSqhS7lSkLSsfS5D0ma9WcS2KTkVzlsDeYhMc5sRAaDBqgxZjBgAy8VxmYTYWk2AwYJUcItubK1ny6V05MrVeqwJrtc9daKiXC2NUsCUABZmwpcIA
+\begin{tikzcd}
+A \arrow[d, "\pi_A" description] & A \times B \arrow[l, "p_A" description] \arrow[r, "p_B" description] \arrow[d, "\pi" description] \arrow[ld, "\Pi_A" description] \arrow[rd, "\Pi_B" description] & B \arrow[d, "\pi_B" description] \\
+A/\sim & (A \times B)/\sim \arrow[l, "\overline{\Pi_A}"] \arrow[r, "\overline{\Pi_B}"'] & B/\sim 
+\end{tikzcd}
+```
+
 #### 5.11.4. conclude (without further work) that `(A × B)/∼ ≅ (A/∼_A) × (B/∼_B)`.
 
+```latex
+% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAtEAX1PU1z5CKcqWLU6TVuwCCPPiAzY8BImXE0GLNohAyABAB1DeALbx9AIXn9lQogCYxErdN3XetwapGkHLqR09AHpjbFMAfTlPRQEVYRI-AO12AAoDYzMLSwBKUMNwm1i7H2Qnf01A9kt88IiPCRgoAHN4IlAAMwAnCFMkURAcCCQySRTdAAsokBpGegAjGEYABTj7XSwwbFgi7t7+miGkAGZK8ZAp61mFpdWS4RBN7bYYvb7EAaPEJzG3EFSpjJSJccjMQHNFis1j5HlssDtXj13p9hogACxnP7NabXSF3bwPJ7wtg0RZgKBIAC0aIAnDQ4BMsB0cOxjrskQdBqiAGyYoLYq7gm5Q+7sIk7UkwclIWn0xnMqnHRH7RCjL4Y35BYxoLA4oV46GEuEIhRvJA-L6jVxBNB6iG3Q1i40vU0c76HVGnTXsW2C+0iglO57slUW1EAVj57G1WDB-vx8SDxJD7zDMqjumMy11clxDtFG2dKfNHqQvO9mcM2fqceFCfWsODyveXq+5et0cMOpreYDicLTddKsjXPTFZAxggtBgXUYmxgwCzOe4tYNBfBMAVzaQI7bGYnhinM7nYAXS-qK979ZhXSwzQmLO4lG4QA
+\begin{tikzcd}
+ & Z \arrow[ld, "h_A" description] \arrow[rd, "h_B" description] \arrow[d, "{(h_A,h_B)}" description] \arrow[ldd, "g_A" description, bend right=49, shift right=3] \arrow[rdd, "g_B" description, bend left=49, shift left=3] & \\
+A \arrow[d, "\pi_A" description] & A \times B \arrow[l, "p_A" description] \arrow[r, "p_B" description] \arrow[d, "\pi" description] \arrow[ld, "\Pi_A" description] \arrow[rd, "\Pi_B" description] & B \arrow[d, "\pi_B" description] \\
+A/\sim_A & (A \times B)/\sim \arrow[l, "\overline{\Pi_A}"] \arrow[r, "\overline{\Pi_B}"'] & B/\sim_B 
+\end{tikzcd}
+```
 
 
-### 5.12. Define notions of fibered products and coproducts, as terminal objects of the categories 𝓒_{α,β} , 𝓒^{α,β} considered in Example 3.10 (cf. also Exercise 3.11), by stating carefully the corresponding universal properties.
 
-#### 5.12.1. As it happens, Set has both fibered products and coproducts. Define these objects ‘concretely’, in terms of naive set theory. [II.3.9, III.6.10, III.6.11]
+### 5.12. Define notions of fibered products and coproducts, as terminal objects of the categories `𝓒_{α,β}`, `𝓒^{α,β}` considered in Example 3.10 (cf. also Exercise 3.11), by stating carefully the corresponding universal properties. As it happens, `Set` has both fibered products and coproducts. Define these objects ‘concretely’, in terms of naive set theory. [II.3.9, III.6.10, III.6.11]
+
+#### 5.12.1. Define fibered products
+
+```py
+```
+
+#### 5.12.2. Define fibered coproducts
+
+```py
+```
+
+#### 5.12.3. Define fibered products concretely as naive set theory
+
+```py
+```
+
+#### 5.12.4. Define fibered coproducts concretely as naive set theory
+
+```py
+```
+
+
+
+## 6.
