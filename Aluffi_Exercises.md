@@ -1507,9 +1507,9 @@ Their names are respectively "lcm" (lowest common multiple) and "gcd" (greatest 
 ```latex
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqQCM1Ok1bsAWjz4gM2PASIAmcZIYs2iTgHWAQgYDCC-iqFEyEmjpn6jFpQNXCSpddul6Q57kkYKABzeCJQADMAJwgAWyQxGhwIJFEpXXZIgH0uGkZ6ACMYRgAFN2t9RhhInBAaYrAoJGJyXijYhMQkkBSW+18s7Od8opLyqzV9aKwQgAs6hpgmpABaVvaQGPjE5NTEABYBzP0c81HisoqpkBn5xZBG5sR1tsVtrp6+xE0MxxBAMPA9RABUuE0EN2qtWBjCwYD8UAgOBwwRcHyQv2+6QcfkAA8C5GFjK6TYQgmoPWHw9hQehwOao5L0LCMdiQKk0en0Z69ADuEE5UAQm3RPz2-T+eOGhLB11JUIpcIRtPpzUZzNZBDYHJgXPYOD5AqF706GLFh2O-3x5xBRPB7nYdwWMMV1OVDN6TJZ+jZWpAAr1Bp1gp4lG4QA
 \begin{tikzcd}
-  &  &                                                                                                                      & A \\
+  &  &    & A \\
 Z \arrow[rrru, "f_A", bend left] \arrow[rrr, "f_B"', bend right] \arrow[rrrd, "f_C"', bend right] \arrow[rr, "σ", dotted] &  & A×B×C \arrow[ru, "π_A", two heads, dashed] \arrow[r, "π_B", two heads, dashed] \arrow[rd, "π_C"', two heads, dashed] & B \\
-  &  &                                                                                                                      & C
+  &  &    & C
 \end{tikzcd}
 ```
 
@@ -1519,21 +1519,21 @@ for `(A × B) × C`:
 ```latex
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKcqQCM1Ok1bsAWjz4gM2PASIAmcZIYs2iTgHWAQgv4qhRMuu3S9IE7zOC1KMsRu72HY6aUDVwsiiACweMvryjn7mLsiaoTQ64SAAFN5GAJQGAMK+ys6BZACsYXa53JIwUADm8ESgAGYAThAAtkhiNDgQSKJSnvoNAPpcNIz0AEYwjAAK-hb6jDANOCA0U2BQSMTkUc1tHV09iGT9ycMmY5PTczHCIE1Y1QAWq+swm0gAtDt7Le2ITogbpITRnOyAYeAhsB0tw1iBxlNZvMXAjlqs-gdEGCQYg+kk7IAB4BG8MRNxR9yWK18+wBOOOpwJ7GJlwR12Rd3YjxeGMUtKQRSOSGCiVs7GGMOMcKuSNuBXYVLeIA2WxOuz5-wFQsQAHZRQMQMNcjLyZz9NzXvCVd9fhqsYLgccAGz65JQ4BpYxZbLStmyikK9E0zWIF2O4WuonQ2Gk9lygKB6mYgFh3F68HMobGv2m+Xmp6WircIA
 \begin{tikzcd}
-  &   &                                                                                                   & A   \\
-Z \arrow[rrru, "f_A", bend left] \arrow[rrrd, "f_B"', bend right] \arrow[rr, "f_{A×B}", dotted]                                                               &   & A×B \arrow[ru, "π_A", two heads, dashed] \arrow[rd, "π_B"', two heads, dashed]                    &     \\
-  &   &                                                                                                   & B   \\
-  &   &                                                                                                   & A×B \\
-Z \arrow[rrru, "f_{A×B}", bend left] \arrow[rrrd, "f_C"', bend right] \arrow[rr, "f_{(A×B)×C}", dotted]                                                       &   & (A×B)×C \arrow[ru, "π_{A×B}", two heads, dashed] \arrow[rd, "π_C" description, two heads, dashed] &     \\
-  &   &                                                                                                   & C    
+  &   &    & A   \\
+Z \arrow[rrru, "f_A", bend left] \arrow[rrrd, "f_B"', bend right] \arrow[rr, "f_{A×B}", dotted]    &   & A×B \arrow[ru, "π_A", two heads, dashed] \arrow[rd, "π_B"', two heads, dashed]    &     \\
+  &   &    & B   \\
+  &   &    & A×B \\
+Z \arrow[rrru, "f_{A×B}", bend left] \arrow[rrrd, "f_C"', bend right] \arrow[rr, "f_{(A×B)×C}", dotted]    &   & (A×B)×C \arrow[ru, "π_{A×B}", two heads, dashed] \arrow[rd, "π_C" description, two heads, dashed] &     \\
+  &   &    & C    
 \end{tikzcd}
 ```
 therefore
 ```latex
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQBBEAX1PU1z5CKAEwVqdJq3YcA6wCEefEBmx4CRcqWISGLNohAAtJfzVCiZHTT3TDi3mcEaUZEbqkGQAYVMqB6sLIYu42nuwAFHLyAJSyvtwSMFAA5vBEoABmAE4QALZIZCA4EEgAzGH67IADwAD6ijSM9ABGMIwACgEWhowwmTh+OfmFNCVIWpJVhnVcjS1tneYuINlYKQAWA44gQwWIYsWliAAslXY7tb5zrR1dy6sbW8q7SAdjiACsZ16ZtcBRCji3m4IGuCzuwhAWDA2Fgg1yezeRwqk3OvwaICaN0Wzkh0NhbG2L32oyOE1sP1qs0x81uS0hvX68OGJMOI1RlOA0RBYLpuPY+KwcKJCKQXzZJ2+NUuoJp2Ih7EZTyyos+pPZFOlXIUPLl4Pp7Aemx4lG4QA
 \begin{tikzcd}
-  & A & A×B \arrow[ld, "π_B", two heads, dashed] \arrow[l, "π_A"', two heads, dashed]                     &     \\
-Z \arrow[rd, "f_C"'] \arrow[rrd, "f_{(A×B)×C}" description, dotted] \arrow[r, "f_B" description] \arrow[ru, "f_A"] \arrow[rru, "f_{A×B}" description, dotted] & B &                                                                                                   &     \\
-  & C & (A×B)×C \arrow[l, "π_C", two heads, dashed] \arrow[uu, "π_{A×B}"', two heads, dashed]             &   
+  & A & A×B \arrow[ld, "π_B", two heads, dashed] \arrow[l, "π_A"', two heads, dashed]    &     \\
+Z \arrow[rd, "f_C"'] \arrow[rrd, "f_{(A×B)×C}" description, dotted] \arrow[r, "f_B" description] \arrow[ru, "f_A"] \arrow[rru, "f_{A×B}" description, dotted] & B &    &     \\
+  & C & (A×B)×C \arrow[l, "π_C", two heads, dashed] \arrow[uu, "π_{A×B}"', two heads, dashed]    &   
 \end{tikzcd}
 ```
 
@@ -1541,12 +1541,12 @@ for `(A × B) × C`:
 ```latex
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQAhEAX1PU1z5CKcqQCM1Ok1bsAWjz4gM2PASIAmcZIYs2iTgHWAwgv4qhRMuu3S9IE7zOC1KMsRu72AQVNKBq4WRRABYPGX15Rz9zF2RNUJodcJAvAwAKDmMASl9lZ0CyAFYwu0yHSRgoAHN4IlAAMwAnCABbJDEaHAgkUSlPfXqAfS4aRnoAIxhGAAV-C31GGHqcEBpJsCgkYnIoptb2zu7EMj7koZNRianZmOEQRqwqgAsVtZgNpABabd3mtsQOiAukhNKc7ENgGVuKsQGNJjM5i5YUtXrCsGA7FAIDgcJVfHt-qDgYhekk7IAB4GGMLh10Rd0WyxhTxg9E2+hwAHcIMzWQhRujMfQ4MzNr99ogiUcTmT2JSLrCrgjbuwHs9UTy2UCuRq+WiMewoEKRfi-khCockMFErZ2EMfJd4Td8uwGaj1myfooCWaLYgAOzW-ogCFQ6mKp0BFWPF4w91fT0NU2Ic1Ao4ANkDZ0GwFSGWy0IdtOVCxR1IFBuxuNFXqTGdTlszFMG9oVjrpLtLNA17E53JZUF1jHL+kNwrxYv+deJAbBsuzocLSud+lVMa7-Z72v7g+HIFHxu4lG4QA
 \begin{tikzcd}
-  &  &                                                                                        & B   \\
-Z \arrow[rrru, "f_B", bend left] \arrow[rrrd, "f_C"', bend right] \arrow[rr, "f_{B×C}", dotted]         &  & B×C \arrow[ru, "π_B", two heads, dashed] \arrow[rd, "π_C"', two heads, dashed]         &     \\
-  &  &                                                                                        & C   \\
-  &  &                                                                                        & A   \\
+  &  &    & B   \\
+Z \arrow[rrru, "f_B", bend left] \arrow[rrrd, "f_C"', bend right] \arrow[rr, "f_{B×C}", dotted]    &  & B×C \arrow[ru, "π_B", two heads, dashed] \arrow[rd, "π_C"', two heads, dashed]    &     \\
+  &  &    & C   \\
+  &  &    & A   \\
 Z \arrow[rrru, "f_A", bend left] \arrow[rrrd, "f_{B×C}"', bend right] \arrow[rr, "f_{A×(B×C)}", dotted] &  & A×(B×C) \arrow[ru, "π_A", two heads, dashed] \arrow[rd, "π_{B×C}"', two heads, dashed] &     \\
-  &  &                                                                                        & B×C
+  &  &    & B×C
 \end{tikzcd}
 ```
 therefore
@@ -1565,9 +1565,9 @@ Z \arrow[ru, "f_A"] \arrow[rru, "f_{A×(B×C)}" description, dotted] \arrow[rd, 
 % https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAZgBoAGAXVJADcBDAGwFcYkQBBAdYCEQBfUuky58hFACZSARmp0mrdhwFCQGbHgJEALDLkMWbRCAAU3HgEouAYRXCNYouVIT9CoyABadtSM3jkKVcaA0VjPkF7US1JUmI3Q3ZbSN8HGORdeJD3JS4THhsLH3VogLJtBLCQAuS5GCgAc3giUAAzACcIAFskZxAcCCRdeUTjQAHgQECCAH0+GkZ6ACMYRgAFP0djLDBsWBAaAAsYeih2HAB3CEPjhDmtjyh6OEOTmiWwE8RichSO7t6aAZIaTZUYgSZTZRzRbLNZpcQgLY7NgHI4ffoXK5QG4gRh3dgPJ71Hy-HqIKT9QaIACsIKq4NsUKWq3WMQR2ywu1eMHeSC+KOOpwxqOxuLA90ez2JnVJ5MBiD6oQ84OA5n4exx0OZcPYiI5yJxeOMBMl-LR50uwvVbw+AFovj9pbyAZSaSMqq0pgyNUzYaV2O0sA19jgpX9Ps6kOTFewPcAzLwrNY1YyYSz4YwYK0Q7cxfiIDgcESHWGyBShrSPB7Zt7U9rNuzdsXSaW5cC3ZWIer5j60+wM1nQ82I-KKzGpireMma1q-cYA0HsyBrby+qL7vnCycm06y4gAGyj4yx7j5QpT7u12cgefBruGkBQDdF1QkndygDsh5AsZq581vv8PtM0XZdEDtVd70fAtnzaR192HT923YMZACCCcdfy7f9e3rJF1UxQULWuO9cyNCUiS5HlPm+F84IPXc22jcY0MhacAI2NlcIo20+RAfDjHNTERUgsitxosNELlYZGLBNDqwvGdAJwvU8NRAjBOI8VCReJduW46jYPE4dXXktjWV1TleNU-ihSInNNJNJCmM9ARKH4IA
 \begin{tikzcd}
   &  &   & A×B \arrow[ldd, "π₁_B" description, two heads, dashed, bend left] \arrow[ld, "π₁_A" description, two heads, dashed]  &                                                                                                                                          \\
-  &  & A &                                                                                                                      & (A×B)×C \arrow[lldd, "π₁_C" description, two heads, dashed, bend left] \arrow[lu, "π₁_{A×B}" description, two heads, dashed, bend right] \\
-Z \arrow[rrd, "f_C"'] \arrow[rrrru, "f_{(A×B)×C}", dotted] \arrow[rr, "f_B" description] \arrow[rru, "f_A"] \arrow[rrruu, "f_{A×B}"', dotted, bend left] \arrow[rrrrd, "f_{A×(B×C)}"', dotted] \arrow[rrrdd, "f_{B×C}", dotted, bend right] &  & B &                                                                                                                      &                                                                                                                                          \\
-  & C &                                                                                                                      & A×(B×C) \arrow[ld, "π₂_{B×C}" description, two heads, dashed, bend left] \arrow[lluu, "π₂_A" description, two heads, dashed, bend right] \\
+  &  & A &    & (A×B)×C \arrow[lldd, "π₁_C" description, two heads, dashed, bend left] \arrow[lu, "π₁_{A×B}" description, two heads, dashed, bend right] \\
+Z \arrow[rrd, "f_C"'] \arrow[rrrru, "f_{(A×B)×C}", dotted] \arrow[rr, "f_B" description] \arrow[rru, "f_A"] \arrow[rrruu, "f_{A×B}"', dotted, bend left] \arrow[rrrrd, "f_{A×(B×C)}"', dotted] \arrow[rrrdd, "f_{B×C}", dotted, bend right] &  & B &    &                                                                                                                                          \\
+  & C &    & A×(B×C) \arrow[ld, "π₂_{B×C}" description, two heads, dashed, bend left] \arrow[lluu, "π₂_A" description, two heads, dashed, bend right] \\
   &   & B×C \arrow[luu, "π₂_B" description, two heads, dashed, bend right] \arrow[lu, "π₂_C" description, two heads, dashed] &                                                                                                                                         
 \end{tikzcd}
 ```
@@ -1643,22 +1643,84 @@ A/\sim_A & (A \times B)/\sim \arrow[l, "\overline{\Pi_A}"] \arrow[r, "\overline{
 
 #### 5.12.1. Define fibered products
 
-```py
+```latex
+\begin{tikzcd}
+  &    & A \arrow[rd, "α"]  &   \\
+  & Z \arrow[rd, "g"'] \arrow[ru, "f"]    &    & C \\
+  &    & B \arrow[ru, "β"'] &
+```
+```latex
+  &    & A \arrow[rd, "α"]  &   \\
+Z \arrow[rru, "f", bend left] \arrow[r] \arrow[rrd, "g"', bend right] & P \arrow[ru, "p_A"] \arrow[rd, "p_B"'] &    & C \\
+  &    & B \arrow[ru, "β"'] &  
+\end{tikzcd}
 ```
 
 #### 5.12.2. Define fibered coproducts
 
-```py
+```latex
+\begin{tikzcd}
+  & A \arrow[rd, "f"]    &    &   \\
+C \arrow[ru, "α"] \arrow[rd, "β"'] &    & Z    &   \\
+  & B \arrow[ru, "g"']    &    &
+```
+```latex
+  & A \arrow[rrd, "f", bend left] \arrow[rd, "p_A"]   &    &   \\
+C \arrow[ru, "α"] \arrow[rd, "β"'] &    & P \arrow[r] & Z \\
+  & B \arrow[ru, "p_B"'] \arrow[rru, "g", bend right] &    &  
+\end{tikzcd}
 ```
 
 #### 5.12.3. Define fibered products concretely as naive set theory
 
 ```py
+P = A ×_{α,C,β} B = A ×_{C} B = { (a, b) ∈ A×B | α(a) = β(b) }
+
+Concretely, this can also be expressed as:
+  P = ⋃_{ c ∈ α(A) ∩ β(B) } α⁻¹[{c}] × β⁻¹[{c}]
+
+This is the set of all pairs of inputs (a, b) such that α(a) = β(b)
+Let us show this is the case with a simple example.
+Let
+  A = {1, 2, 3}
+  B = {w, x, y, z}
+  C = {l, m, n, p}
+We define
+  α : A → C = {(1, m), (2, m), (3, n)}
+  β : B → C = {(w, l), (x, m), (y, n), (z, n)}
+We have
+  α(A) = {m, n}
+  β(B) = {l, m, n}
+  ∴ α(A) ∩ β(B) = {m, n}
+The fibered coproduct is then:
+  P = (α⁻¹[{m}] × β⁻¹[{m}]) ∪ (α⁻¹[{n}] × β⁻¹[{n}])
+    = {(1, x), (2, x)} ∪ {(3, y), (3, z)}
+    = {(1, x), (2, x), (3, y), (3, z)}
 ```
 
 #### 5.12.4. Define fibered coproducts concretely as naive set theory
 
 ```py
+Let
+  A = {1, 2, 3}
+  B = {w, x, y, z}
+  C = {l, m, n}
+We define
+  α : C → A = {(l, 1), (m, 1), (n, 2)}
+  β : C → B = {(l, x), (m, y), (n, z)}
+We have:
+  • α⁻¹({1}) = {l, m} and β⁻¹({x}) = {l}, so (1 ∼ x);
+  • α⁻¹({1}) = {l, m} and β⁻¹({y}) = {m}, so (1 ∼ y), and by closure, (1 ∼ x ∼ y);
+  • α⁻¹({2}) =  {n}   and β⁻¹({z}) = {n}, so (2 ∼ z);
+  • α⁻¹({3}) =   ∅    and β⁻¹({w}) =  ∅ , so one might think that (3 ∼ w),
+    however, since there is no c ∈ C such that α(c) = 3 and β(c) = w, we have 3 ≁ w;
+This information corresponds to the following partition of (A ⊔ B):
+  {{1, x, y}, {2, z}, {3}, {w}}.
+The fibered coproduct is then:
+  P = (A ⊔ B)/ ∼
+    = {1, 2, 3, w, x, y, z}/ ∼
+    = {{1, x, y}, {2, z}, {3}, {w}}
+    = {[1], [2], [3], [w]}
 ```
 
 
