@@ -80,6 +80,10 @@ the set of triplets of naturals that together sum to 10
 
 ---
 
+# Set theory and categories
+
+---
+
 ## 1. Set theory and categories
 
 ### 1.0. Lexicon
@@ -1725,4 +1729,254 @@ The fibered coproduct is then:
 
 
 
-## 6.
+---
+
+# Groups
+
+---
+
+## 1. Definition of a group
+
+```py
+† G in Set
+† hom_G(∗,∗) = aut_G(∗) # is a groupoid, so  are isomorphisms
+† |G| > 0 # is non-empty
+† · ∈ (G × G) → G # has an automorphic binary operation
+† ∀(a,b ∈ G) : ·(a,b) =: a · b # allow infix notation for this operation
+† ∀(a ∈ G) ∃!(e ∈ G) : a · e = a = e · a # the operation is unital
+† ∀(a ∈ G) ∃(a⁻¹ ∈ G) : a · a⁻¹ = e = a⁻¹ · a # the operation is inversible
+† ∀(a,b,c ∈ G) : (a · b) · c = a · (b · c) # the operation is associative
+∴ G in Grp # G is a group
+```
+
+```py
+⊦ e is unique
+⊦ ∀(h ∈ G): (a · h = a = h · a) ⇒ h = e
+† ∀(h ∈ G): (a · h = a = h · a)
+∵ ∀(a ∈ G) ∃!(e ∈ G) : a · e = a = e · a
+∴ h = e · h = e
+∴ h = e
+```
+
+```py
+⊦ a⁻¹ is unique
+⊦ ∀(h₁,h₂ ∈ G): (a · h₁ = e = h₁ · a) ∧ (a · h₂ = e = h₂ · a) ⇒ h₁ = h₂
+† ∀(h₁ ∈ G): (a · h₁ = e = h₁ · a)
+† ∀(h₂ ∈ G): (a · h₂ = e = h₂ · a)
+∵ ∀(a ∈ G) ∃!(e ∈ G) : a · e = a = e · a
+∵ ∀(a ∈ G) ∃(a⁻¹ ∈ G) : a · a⁻¹ = e = a⁻¹ · a
+∴ h₁ = h₁ · e = e = e · h₂ = h₂
+∴ h₁ = h₂
+```
+
+```py
+⊦ · is cancellative
+⊦ ∀(a,g,h ∈ G): (g·a = h·a ⇒ g = h) ∧ (a·g = a·h ⇒ g = h)
+∷ g·a = h·a
+  ⇒ (g·a)·a⁻¹ = (h·a)·a⁻¹
+  ⇒ g·(a·a⁻¹) = h·(a·a⁻¹)
+  ⇒ g·e = h·e
+  ⇒ g = h
+∷ a·g = a·h
+  ⇒ a⁻¹·(a·g) = a⁻¹·(a·h)
+  ⇒ (a⁻¹·a)·g = (a⁻¹·a)·h
+  ⇒ e·g = e·h
+  ⇒ g = h
+```
+
+```py
+b∣a ≡ ∀(a,b ∈ S) ∃(k ∈ ℤ): a = k·b # divisor/multiple
+∀(g ∈ G) ∀(n ∈ ℕ): (gⁿ = e) ⇒ (|g| ∣ n) ⇒ (|g| ≤ n) # lemma of order-divisor
+∀(g ∈ G) ∀(n ∈ ℕ): (gⁿ = e) ⇒ ∀(z ∈ ℤ): (gᶻ = e) ⇔ (|g| ∣ z) # corollary of order-divisor
+∀(g ∈ G) ∀(n ∈ ℕ): (gⁿ = e) ⇒ ∀(m ∈ ℕ): |gᵐ| = lcm(m,|g|) / m = |g| / gcd(m,|g|)
+∀(g,h ∈ G): g·h = h·g ⇒ |g·h| ∣ lcm(|g|,|h|)
+```
+
+
+
+### 1.1. Write a careful proof that every group is the group of isomorphisms of a groupoid. In particular, every group is the group of automorphisms of some object in some category. [§2.1]
+
+```py
+† groupoid is a category with only isomorphisms
+† group is a groupoid with only one object
+† G in obj(Set)
+† · ∈ (G×G → G), is associative, is unital, is inversible
+∴ (G,·) is a group
+⊦ ∃(𝓒 is groupoid)
+  ∷ ∃(X in obj(𝓒)), ∀(e ∈ X), e ∈ G
+  ∷ ∀(g ∈ X), ∃!(f_g ∈ hom(X,X)), ∀(x ∈ X), f_g(x) = (x ↦ g·x)
+  ∷ f_a ∘ f_b = (x ↦ a·(b·x)) = (x ↦ (a·b)·x) = f_{a·b}
+  ⊦ is unital
+    ∷ ∃(id_x ∈ hom(X,X)) = (x → e·x), ∀(f ∈ hom(X,X)), f ∘ id_x = f = id_x ∘ f
+  ⊦ is inversible
+    ∷ ∃(f_g⁻¹ in hom(X,X)) = (x ↦ g⁻¹ · x)
+    ∴ f_g ∘ f_g⁻¹ = f_g⁻¹ ∘ f_g = f_{g·g⁻¹} = f_{g⁻¹·g} = (x ↦ x = id_x)
+  ⊦ is associative
+    ∷ ∀(f_a,f_b,f_c in hom(X,X)), ∀(a,b,c ∈ X)
+    ∴ (f_a∘f_b)∘f_c = (x → ((a·b)·c)x) = (x → (a·(b·c))x) = f_a∘(f_b∘f_c)
+  ∵ is compositive, unital, associative
+  ∴ is groupoid
+  ∵ is inversible
+  ∴ hom(X,X) is isomorphic to (G,·)
+```
+
+
+
+### 1.2. Consider the ‘sets of numbers’ listed in §1.1, and decide which are made into groups by conventional operations such as `+` and `·`. Even if the answer is negative (for example,  `(ℝ,·)` is not a group), see if variations on the definition of these sets lead to groups (for example, `(ℝ∗,·)` is a group, cf. §1.4). [§1.2]
+
+Here is a table: https://docs.google.com/spreadsheets/d/1CkF-GO4zUE808sgVWRlHTpSWC1YsnvGD-DKBEGs3E7Y/edit?usp=sharing
+
+| structure    |(ℕ,+)|(ℤ,+)|(ℚ,+)|(ℝ,+)|(ℂ,+)|(ℕ,·)|(ℤ,·)|(ℚ,·)|(ℝ,·)|(ℂ,·)|(ℕ*,·)|(ℤ*,·)|(ℚ*,·)|(ℝ*,·)|(ℂ*,·)|({+1,−1},·)|
+|:------------:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:----:|:----:|:----:|:----:|:----:|:---------:|
+| group        |  Y  |  Y  |  Y  |  Y  |  Y  |  N  |  N  |  N  |  N  |  N  |  Y   |  Y   |  Y   |  Y   |  Y   |     Y     |
+| total        |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y   |  Y   |  Y   |  Y   |  Y   |     Y     |
+| unital       |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y   |  Y   |  Y   |  Y   |  Y   |     Y     |
+| associative  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y   |  Y   |  Y   |  Y   |  Y   |     Y     |
+| cancellative |  Y  |  Y  |  Y  |  Y  |  Y  |  N  |  N  |  N  |  N  |  N  |  Y   |  Y   |  Y   |  Y   |  Y   |     Y     |
+| commutative  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y  |  Y   |  Y   |  Y   |  Y   |  Y   |     Y     |
+
+
+
+### 1.3. Prove that `(gh)⁻¹ = h⁻¹ g⁻¹` for all elements `g`, `h` of a group `G`.
+
+```py
+⊦ ∀(g,h ∈ G), (g·h) = (h⁻¹·g⁻¹)
+
+∷ (g·h)·(h⁻¹·g⁻¹)
+= g·(h·h⁻¹)·g⁻¹
+= g·e·g⁻¹
+= g·g⁻¹
+= e
+
+∷ (h⁻¹·g⁻¹)·(g·h)
+= h⁻¹·(g⁻¹·g)·h
+= h⁻¹·e·h
+= h⁻¹·h
+= e
+
+∴ (h⁻¹·g⁻¹) is inverse for (g·h)
+∵ inverse in a group is unique
+∴ (g·h)⁻¹ = (h⁻¹·g⁻¹)
+```
+
+
+
+### 1.4. Suppose that `g² = e` for all elements `g` of a group `G`; prove that `G` is commutative.
+
+```py
+† ∀(g ∈ G), g² = e
+∴ ∀(g ∈ G), g = g⁻¹ # each element is its own inverse
+∴ (g² = e) ⇒ (g = g⁻¹)
+∷ ∀(a,b ∈ G), b·a = (b·a)⁻¹ = a⁻¹·b⁻¹ = a·b
+∴ b·a = a·b # G is commutative
+```
+
+
+
+### 1.5. Prove that every row and every column of the multiplication table of a group contains all elements of the group exactly once (like Sudoku diagrams!).
+
+The ‘multiplication table’ of a group is an array compiling the results of all multiplications `g · h`:
+
+|**·**|**e**|**⋯**|**h**|**⋯**|
+|:---:|:---:|:---:|:---:|:---:|
+|**e**| *e* |  ⋯  | *h* |  ⋯  |
+|**⋯**|  ⋯  |  ⋯  |  ⋯  |  ⋯  |
+|**g**| *g* |  ⋯  |*g·h*|  ⋯  |
+|**⋯**|  ⋯  |  ⋯  |  ⋯  |  ⋯  |
+
+(Here `e` is the identity element. Of course the table depends on the order in which the elements are listed in the top row and leftmost column.)
+
+
+
+### 1.6. Prove that there is only one possible multiplication table for `G` if `G` has exactly 1, 2, or 3 elements. Analyze the possible multiplication tables for groups with exactly 4 elements, and show that there are two distinct tables, up to re-ordering the elements of G. Use these tables to prove that all groups with ≤ 4 elements are commutative. (You are welcome to analyze groups with 5 elements using the same technique, but you will soon know enough about groups to be able to avoid such brute-force approaches.) [2.19]
+
+#### 1.6.1. 1-element groups
+
+| · | e |
+|---|---|
+| e | e |
+
+#### 1.6.2. 2-element groups
+
+| · | e | a |
+|---|---|---|
+| e | e | a |
+| a | a | e |
+
+#### 1.6.3. 3-element groups
+
+| · | e | a | b |
+|---|---|---|---|
+| e | e | a | b |
+| a | a | e | ? |
+| b | b | ? | e |
+
+| · | e | a |a⁻¹|
+|---|---|---|---|
+| e | e | a |a⁻¹|
+| a | a |a⁻¹| e |
+|a⁻¹|a⁻¹| e | a |
+
+#### 1.6.4. 4-element groups
+
+| · | e | a | b | c |
+|---|---|---|---|---|
+| e | e | a | b | c |
+| a | a | e | c | b |
+| b | b | c | e | a |
+| c | c | b | a | e |
+
+| · | e | a | b | c |
+|---|---|---|---|---|
+| e | e | a | b | c |
+| a | a | e | c | b |
+| b | b | c | a | e |
+| c | c | b | e | a |
+
+
+
+### 1.7. Prove Corollary 1.11.
+
+
+
+### 1.8. Let `G` be a finite group, with exactly one element `f` of order `2`. Prove that `∏_{g∈G} g = f`. [4.16]
+
+
+
+### 1.9. Let `G` be a finite group, of order `n`, and let `m` be the number of elements `g ∈ G` of order exactly `2`. Prove that `n − m` is odd. Deduce that if `n` is even then `G` necessarily contains elements of order `2`.
+
+
+
+### 1.10. Suppose the order of `g` is odd. What can you say about the order of `g²` ?
+
+
+
+### 1.11. Prove that for all `g`, `h` in a group `G`, ` |gh| = |hg| `. (Hint: prove that `|aga⁻¹| = |g|` for all `a`, `g` in `G`.)
+
+
+
+### 1.12. In the group of invertible 2×2 matrices, consider the matrices below. Verify that `|g| = 4`, `|h| = 3`, and `|gh| = ∞`. [§1.6]
+
+    g = ( 0 −1 )
+        ( 1  0 )
+    h = ( 0  1 )
+        (−1 −1 )
+
+
+
+### 1.13. Give an example showing that `|gh|` is not necessarily equal to `lcm(|g|, |h|)`, even if `g` and `h` commute. [§1.6, 1.14]
+
+
+
+### 1.14. As a counterpoint to Exercise 1.13, prove that if g and h commute, and `gcd(|g|, |h|) = 1`, then `|gh| = |g| |h|`. (Hint: let `N = |gh|`; then `gᴺ = (h⁻¹)ᴺ` . What can you say about this element?) [§1.6, 1.15, §IV.2.5]
+
+
+
+### 1.15. Let `G` be a commutative group, and let `g ∈ G` be an element of maximal finite order: that is, such that if `h ∈ G` has finite order then `|h| ≤ |g|`. Prove that in fact if `h` has finite order in `G` then `|h|` divides `|g|`. (Hint: argue by contradiction. If `|h|` is finite but does not divide `|g|`, then there is a prime integer `p` such that `|g| = pᵐr`, `|h| = pⁿs`, with `r` and `s` relatively prime to `p`, and `m < n`. Use Exercise 1.14 to compute the order of `gᵖ^ᵐ hˢ`.) [§2.1, 4.11, IV.6.15]
+
+
+
+
+---
+
+## 2. Examples of groups
