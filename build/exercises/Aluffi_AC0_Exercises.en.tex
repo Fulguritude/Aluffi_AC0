@@ -1854,11 +1854,12 @@ In \textbf{Set}, the fibered product (pullback) of $(A, \alpha)$ and $(B, \beta)
 
 Concretely, this can also be expressed as $$P = \bigcup_{c \in \alpha(A) \cap \beta(B)} \alpha^{-1}[\{c\}] \times \beta^{-1}[\{c\}]$$. This is the set of all pairs (of inputs) $(a,b)$ such that $\alpha(a) = \beta(b)$. Let us show this is the case with a simple example.
 
-Let $A = \{1,2,3\}$, $B = \{w, x, y, z\}$, and $C = \{l, m, n, p\}$. We define $\alpha : A \to C$ as $\{(1, m), (2, m), (3, n) \}$, and $\beta : B \to C$ as $\{ (w, l), (x, m), (y, n), (z, n) \}$. We have $\alpha(A) = \{m,n\}$ and $\beta(B) = \{l, m, n\}$, therefore $\alpha(A) \cap \beta(B) = \{m,n\}$. The fibered coproduct is then:
+Let $A = \{1,2,3\}$, $B = \{w, x, y, z\}$, and $C = \{l, m, n, p\}$. We define $\alpha : A \to C$ as $\{(1, m), (2, m), (3, n) \}$, and $\beta : B \to C$ as $\{ (w, l), (x, m), (y, n), (z, n) \}$. We have $\alpha(A) = \{m,n\}$ and $\beta(B) = \{l, m, n\}$, therefore $\alpha(A) \cap \beta(B) = \{m,n\}$. The fibered product is then:
 
 $$
 \begin{array}{lll}
 P &=& (\alpha^{-1}[\{m\}] \times \beta^{-1}[\{m\}]) \; \cup \; (\alpha^{-1}[\{n\}] \times \beta^{-1}[\{n\}]) \\
+  &=& \{ \{1,2\} \times \{x\} \} \; \cup \; \{ \{3\} \times \{y,z\} \} \\
   &=& \{ (1,x), (2,x) \} \; \cup \; \{ (3,y), (3,z) \} \\
   &=& \{ (1,x), (2,x), (3,y), (3,z) \}
 \end{array}
@@ -1920,15 +1921,15 @@ Let $(G, \cdot)$ be a group, i.e., some form of algebraic structure with a set o
 
 Let us define $\mathcal{C}$ as follows:
 \begin{itemize}
-	\item There is a single object $X$ in $\mathcal{C}$, and its elements are the elements of $G$ (we could call it $G$, of course, but we'll be distinct for pedagogy's sake).
-	\item For any element $g$ of $X$, there is a morphism $f_g \in Hom(X, X)$ such that $\forall x \in X, f_g(x) = (x \mapsto g \cdot x)$.
-	\item Composition of morphisms is defined as follows: $f_a \circ f_b = (x \mapsto a \cdot (b \cdot x)) = (x \mapsto (a \cdot b) \cdot x)$.
-	\item There is an identity morphism $id_X = (x \to e \cdot x)$.
-	\item It is immediate to see that these morphisms are associative since $(G, \cdot)$ is associative. Take $f_a$, $f_b$, and $f_c$, for $a,b,c \in X$: $(f_a f_b) f_c = (x \to ((a \cdot b) \cdot c) x) = (x \to (a \cdot (b \cdot c))x = f_a (f_b f_c)$.
-	\item Every such morphism has an inverse, namely, $f_{g^{-1}} = (x \mapsto g^{-1} \cdot x)$ which by definition of a group necessarily exists. It is easy to verify that $f_g \cdot f_{g^{-1}} = f_{g^{-1}} = f_g = (x \mapsto x = id_X)$.
+	\item There is a single object $X$ in $\mathcal{C}$, and its elements are the elements of $G$ (we could call $X$ "$G$", of course, but we'll be distinct for pedagogy's sake). Our goal is to prove that $Hom(X, X)$ is isomorphic to $G$, and thus is itself a group.
+	\item For any element $g$ of $X$, there is a unique morphism $f_g \in Hom(X, X)$ such that $\forall x \in X, f_g(x) = (x \mapsto g \cdot x)$.
+	\item Composition of morphisms is defined as follows: $f_a \circ f_b = (x \mapsto a \cdot (b \cdot x)) = (x \mapsto (a \cdot b) \cdot x) = f_{a \cdot b} \;$.
+	\item There is an identity morphism $id_X = (x \to e \cdot x)$, with $e$ the identity element of $G$, and $\forall f \in Hom(X, X), f \circ id_X = f = id_X \circ f$.
+	\item It is immediate to see that these morphisms are associative since $(G, \cdot)$ is associative. Take $f_a$, $f_b$, and $f_c$ in $Hom(X,X)$, for $a,b,c \in X$: $(f_a f_b) f_c = (x \to ((a \cdot b) \cdot c) x) = (x \to (a \cdot (b \cdot c))x) = f_a (f_b f_c)$.
+	\item Every such morphism has an inverse, namely, $f_{g^{-1}} = (x \mapsto g^{-1} \cdot x)$ which by definition of a group necessarily exists. It is easy to verify that $f_g \circ f_{g^{-1}} = f_{g^{-1}} \circ f_g = f_{g \cdot g^{-1}} = f_{g^{-1} \cdot g} = (x \mapsto x = id_X) \;$.
 \end{itemize}
 
-This is a groupoid, because, it is a category (composition, associativity, identity) where every morphism is an isomorphism (every morphism has an inverse), and the group of isomorphisms of $\mathcal{C}$ is precisely isomorphic to $(G, \cdot)$.
+This is a groupoid, because, it is a category (composition, associativity, identity) where every morphism is an isomorphism (every morphism has an inverse), and the group of isomorphisms of (the single-object category) $\mathcal{C}$, here $Hom(X,X)$, is precisely isomorphic to $(G, \cdot)$.
 
 
 \subsection*{1.2)}
@@ -1974,7 +1975,7 @@ Therefore, $h^{-1} g^{-1}$ is a 2-sided inverse for $gh$, and since the inverse 
 
 Suppose that $g^2 = e$ for all elements $g$ of a group $G$; prove that $G$ is commutative.
 
-If $g^2 = e$, then every element is its own inverse, i.e., multiply by $g^{-1}$ on the left, and we have $\forall g \in G, g = g^{-1}$. Let be $a, b \in G$. Then, we have $ba = (ba)^{-1} = a^{-1}b^{-1} = ab$, which is the definition of commutativity. Therefore, $G$ is commutative.
+If $forall g \in G, g^2 = e$, then every element is its own inverse, i.e., multiply by $g^{-1}$ on the left (or right), and we have $\forall g \in G, g = g^{-1}$. Let be $a, b \in G$. Then, we have $ba = (ba)^{-1} = a^{-1}b^{-1} = ab$, which is the definition of commutativity. Therefore, $G$ is commutative.
 
 
 
@@ -1982,7 +1983,7 @@ If $g^2 = e$, then every element is its own inverse, i.e., multiply by $g^{-1}$ 
 
 The 'multiplication table' of a group is an array compiling the results of all multiplications $g \cdot h$ (with the value on each row being the left operand, and the value on each column being the right operand; of course the table depends on the order in which the elements are listed in the top row and leftmost column). Prove that every row and every column of the multiplication table of a group contains all elements of the group exactly once (like Sudoku diagrams!).
 
-Another way to phrase this question is "prove that every element of the group can be reached in a single operation from any other". Written in function notation, this means:
+Another way to phrase this question is "prove that every element of the group can be reached in a single operation from any other (on the left, or on the right, both work)". Written in function notation, this means:
 
 $$\forall a, b \in G, \exists g_r, g_c \in G, b = g_r \cdot a \text { and } b = a \cdot g_c$$
 
@@ -2131,7 +2132,7 @@ Suppose the order of $g$ is odd. What can you say about the order of $g^2$ ?
 
 We write $|g| = 2k + 1$ since it is odd.
 
-$g^{|g|} = e \Rightarrow (g^2){|g|} = (g^{|g|})^2 = e^2 = e$
+$g^{|g|} = e \Rightarrow (g^2)^{|g|} = (g^{|g|})^2 = e^2 = e$
 
 By Corollary 1.11, $(g^2)^{|g|} = (g^2)^{2k + 1} = e \Leftrightarrow \exists l \in \mathbb{N}, |g| = 2k + 1 = l|g^2|$. Since $|g|$ is odd, both $l$ and $|g^2|$ must be odd.
 
@@ -2247,7 +2248,7 @@ We have $f^{|g|} = (g^N)^{|g|} = g^{N|g|} = e$.
 
 Similarly, $e = h^{|h|} = (h^{-1})^{|h|} = ((h^{-1})^{|h|})^N = ((h^{-1})^N)^{|h|} = f^{|h|}$ (by our initial remark).
 
-Therefore, $M = |g^N| = |(h^{-1})^N|$ divides both $|g|$ and $|h|$. Since $|g|$ and $|h|$ are coprime, $M = 1$. Therefore $f = g^N = e$, so $N = |gh|$ is a multiple of $|g|$ and $f = (h^{-1})^N = e$ so $N = |gh|$ is a multiple of $|h^{-1}| = |h|$. Since $|g|$ and $|h|$ are coprime, we can further say that $|gh|$ is a multiple of their LCM/product $|g||h|$ (using, for example, the fundamental theorem of arithmetic).
+Therefore, $M = |f| = |g^N| = |(h^{-1})^N| = |h^N|$ divides both $|g|$ and $|h|$. Since $|g|$ and $|h|$ are coprime, $M = 1$. Therefore $f = g^N = e$, so $N = |gh|$ is a multiple of $|g|$ and $f = (h^{-1})^N = e$ so $N = |gh|$ is a multiple of $|h^{-1}| = |h|$. Since $|g|$ and $|h|$ are coprime, we can further say that $|gh|$ is a multiple of their LCM/product $|g||h|$ (using, for example, the fundamental theorem of arithmetic).
 
 Using Proposition 1.14 (i.e, if $gh = hg$, then $|gh|$ divides $\text{lcm}(|g|, |h|)$), we can also tell that $N = |gh|$ divides $\text{lcm}(|g|, |h|) = |g| |h|$.
 
@@ -2279,6 +2280,376 @@ Conclusion: if $G$ is an abelian group, $g \in G$ has maximal finite order, and 
 \section*{Section 2)}
 
 \subsection*{2.1)}
+
+One can associate an $n \times n$ matrix $M_\sigma$ with a permutation $\sigma \in S_n$, by letting the entry at $(i, \sigma(i))$ be 1, and letting all other entries be 0. For example, the matrix corresponding to the permutation
+
+\begin{equation}
+\sigma =
+	\begin{pmatrix}
+		1 & 2 & 3 \\
+		3 & 1 & 2
+	\end{pmatrix}
+\in S_3
+\end{equation}
+
+would be
+
+\begin{equation}
+M_\sigma =
+	\begin{pmatrix}
+		0 & 0 & 1 \\
+		0 & 1 & 0 \\
+		1 & 0 & 0
+	\end{pmatrix}
+\end{equation}
+
+Prove that, with this notation, $M_{\sigma\tau} = M_\sigma M_\tau$ for all $\sigma, \tau \in S_n$ , where the product on the right is the ordinary product of matrices.
+
+We first notice that we can write down the formal expression of $M_\sigma$, as the Krocker delta $\delta_{i \sigma(i)}$. We know that the product of two Kronecker deltas is the Kronecker delta of the product of the indices; namely, $\delta_{ij} \delta_{jk} = \delta_{ik}$. Therefore, we have that the product of two matrices $M_\sigma M_\tau = \delta_{i \sigma(i)} \delta_{\sigma(i) \tau(\sigma(i))} = \delta_{i \tau(\sigma(i))} = M_{\sigma\tau}$, as desired.
+
+
+\subsection*{2.2)}
+
+Prove that if $d \leq n$ then $S_n$ contains elements of order $d$.
+
+We will use strong induction on $n$.
+
+Initialization: for $S_1$, the case is trivial (the identity element has order 1). For $S_2$, we saw that this group was necessarily isomorphic to $\mathbb{Z}_2$, which has the identity, and one element of order 2.
+
+Heredity: For some $k \in \mathbb{N}$, we suppose that the property is true for all $d \leq k$. We will show that it is true for $k+1$. Keeping the last element fixed, we see that the portion of $S_{k+1}$ that can permute is isomorphic to $S_k$: by our hypothesis, it thus has elements of order $d$ for all $d \leq k$. We just need to show that we can find an element of order $k+1$ in $S_{k+1}$.
+
+We take the a cyclic permutation of all elements (which acts like a Caesar cypher of distance parameter $1$): each $i > 1$ is mapped to to $i-1$, and $1$ is mapped to $k+1$. Let us prove that this permutation has order $k+1$.
+
+We can see that the cycle of this permutation is $1 \rightarrow k+1 \rightarrow k \rightarrow k-1 \rightarrow \ldots \rightarrow 1$, which has length $k+1$.
+
+We now show that the order of any cyclic permutation is the length of the cycle. Let be $S_n$ a permutation group and $C$ a cycle in it, generated by a permutation $\sigma$. We denote elements of the cycle as $c_1, c_2, \ldots, c_m$ with $m \leq n$ such that the cycle can be expressed as $c_1 \rightarrow c_2 \rightarrow \ldots \rightarrow c_m \rightarrow c_1$. We have that $\forall j \in [[1, m]], \sigma^0(c_j) = c_j$, trivially. Then, we have $\sigma^1(c_j) = c_{[j]_m + 1}$ (meaning $j$ modulo $m$ plus $1$), and so on. We see that $\sigma^{n-1}(c_j) = c_{[j]_m + n-1}$, and $\sigma^n(c_j) = c_{[j]_m + n} = c_{[j]_m} = c_j$. Therefore, the order of $\sigma$ is $m$, the length of the cycle.
+
+Therefore, we have shown that $S_{k+1}$ has cyclic permutations of length $k+1$, and thus elements of order $k+1$, which completes the proof.
+
+
+\subsection*{2.3)}
+
+For every positive integer $n$, find an element of order $n$ in $S_\mathbb{N}$.
+
+From the previous exercise, it is clear that any cyclic permutation of length $n$ is such an element.
+
+
+\subsection*{2.4)}
+
+Define a homomorphism $D_8 \to S_4$ by labeling vertices of a square, as we did for a triangle in §2.2. List the 8 permutations in the image of this homomorphism.
+
+We first write the dihedral group $D_8$ as the group of symmetries of a square. We label the vertices of the square as $A, B, C, D$, in a clockwise manner. We use $2\times2$ matrices with these labels to represent the symmetries of the square, and we have that the elements of $D_8$ are:
+
+$$
+\begin{aligned}
+\begin{bmatrix}
+A & B \\
+D & C
+\end{bmatrix} & \rightarrow \text{Identity} \\
+\begin{bmatrix}
+B & C \\
+A & D
+\end{bmatrix} & \rightarrow \text{Rotation by } 90^\circ \\
+\begin{bmatrix}
+C & D \\
+B & A
+\end{bmatrix} & \rightarrow \text{Rotation by } 180^\circ \\
+\begin{bmatrix}
+D & A \\
+C & B
+\end{bmatrix} & \rightarrow \text{Rotation by } 270^\circ \\
+\begin{bmatrix}
+A & D \\
+B & C
+\end{bmatrix} & \rightarrow \text{Reflection over the diagonal } AC \\
+\begin{bmatrix}
+C & B \\
+D & A
+\end{bmatrix} & \rightarrow \text{Reflection over the diagonal } BD \\
+\begin{bmatrix}
+D & C \\
+A & B
+\end{bmatrix} & \rightarrow \text{Reflection over the horizontal axis } \\
+\begin{bmatrix}
+B & A \\
+C & D
+\end{bmatrix} & \rightarrow \text{Reflection over the vertical axis }
+\end{aligned}
+$$
+Now, using the $2 \times n$ notation for permutations, we can write the corresponding permutations in $S_4$ as:
+
+$$
+\begin{aligned}
+\begin{pmatrix}
+A & B & C & D \\
+A & B & C & D
+\end{pmatrix} & \rightarrow \text{Identity} \\
+\begin{pmatrix}
+A & B & C & D \\
+B & C & D & A
+\end{pmatrix} & \rightarrow \text{Rotation by } 90^\circ \\
+\begin{pmatrix}
+A & B & C & D \\
+C & D & A & B
+\end{pmatrix} & \rightarrow \text{Rotation by } 180^\circ \\
+\begin{pmatrix}
+A & B & C & D \\
+D & A & B & C
+\end{pmatrix} & \rightarrow \text{Rotation by } 270^\circ \\
+\begin{pmatrix}
+A & B & C & D \\
+A & D & C & B
+\end{pmatrix} & \rightarrow \text{Reflection over the diagonal } AC \\
+\begin{pmatrix}
+A & B & C & D \\
+C & B & A & D
+\end{pmatrix} & \rightarrow \text{Reflection over the diagonal } BD \\
+\begin{pmatrix}
+A & B & C & D \\
+D & C & B & A
+\end{pmatrix} & \rightarrow \text{Reflection over the horizontal axis } \\
+\begin{pmatrix}
+A & B & C & D \\
+B & A & D & C
+\end{pmatrix} & \rightarrow \text{Reflection over the vertical axis }
+\end{aligned}
+$$
+Note that there exist other permutations which are not in the image of this homomorphism, such as the transposition $(A B)$, which is not a symmetry of the square. This homomorphism is thus injective, but not bijective.
+
+
+\subsection*{2.5)}
+
+Describe generators and relations for all dihedral groups $D_{2n}$. (Hint: let $x$ be the reflection about a line through the center of a regular $n$-gon and a vertex, and let $y$ be counterclockwise rotation by $2\pi/n$. The group $D_{2n}$ will be generated by $x$ and $y$, subject to three relations. To see that these relations really determine $D_{2n}$, use them to show that any product $x^{i_1} y^{i_2} x^{i_3} y^{i_4} \ldots$ equals $x^i y^j$ for some $i$, $j$ with $0 \leq i \leq 1$, $0 \leq j < n$.)
+
+Two of the relations are very easy to see: $x^2 = e$ (for any axial symmetry flip $x$) and $y^n = e$ (for any $n$-rotation $y$). Another hint (given at the bottom of page 52, as done on an imaginary pentagon) tells us to study $yxyx$ (hinting that it is equal to $e$).
+
+We first note that $x^{-1} = x$ since any axial symmetry is an involution. Geometrically speaking, we can see that the operation $x^{-1}yx$ is a rotation by $2\pi/n$ in the opposite direction to $y$. We can thus write $x^{-1}yx = y^{-1}$, and thus $yxyx = e$. This is our 3rd relation, which we can also rewrite as $yx = = x^{-1}y^{-1} = xy^{n-1}$.
+
+We can now write any element of $D_{2n}$ as $x^i y^j$ for $0 \leq i \leq 1$, $0 \leq j < n$. Any power of $x$ reduces to $e$ (if the exponent is even) or $x$ (if the exponent is odd), any power $k$ of $y$ reduces to $y^{[k]_n}$, and any $yx$ term sandwiched between an $x$ and a $y$ terms can be changed to $xy^{n-1}$ in order to reduce with the $x$ (or $e$) on the left, and the $y^{[k]_n}$ on the right. Through this algorithm, we can always get an element of the form $x^i y^j$ for $0 \leq i \leq 1$, $0 \leq j < n$.
+
+\subsection*{2.6)}
+
+For every positive integer $n$ construct a group containing two elements $g$, $h$ such that $|g| = 2$, $|h| = 2$, and $|gh| = n$. (Hint: for $n > 1$, $D_{2n}$ will do.) [§1.6]
+
+We can take the dihedral group $D_{2n}$, and take the reflection $x$ and the rotation $y$ (as defined in the previous exercise). Taking $g = x$ and $h = xy$, we have that $|g| = |x| = 2$ (by the first relation), $|h| = |xy| = 2$ (by the third relation) and $|gh| = |xxy| = |y| = n$ (by the second relation).
+
+As for the case with $n = 1$, we take the group $(\mathbb{Z}_2, +)$ and set $g = h = 1$; their sum is the identity $0$, which has order $1$ (technically, to stay in the $D_{2n}$ picture, this is isomorphic to the group of symmtries of a "2-gon", a line, with either the identity, or a flip across its mediatrix).
+
+
+\subsection*{2.7)}
+
+Find all elements of $D_{2n}$ that commute with every other element. (The parity of n plays a role.)
+
+A pair of elements commute iff $xy = yx$. Let $a$ be our test element. We want $a$ to have the property $\forall x \in D_{2n}, ax = xa$. We can write $a = x^i y^j$ for $0 \leq i \leq 1$, $0 \leq j < n$. We have that $ax = x^i y^j x = x^i y^{j-1}(yx) = x^i y^{j-1} x y^{-1} = x^i y^{j-2} x y^{-2} = \ldots = x^{i+1} y^{-j} = x x^i y^{-j} = xa'$. Therefore, only elements such that $a' = x^i y^{-j} = x^i y^j = a$ commute, this is equivalent (by cancelling the eventual $x$ on both sides and aggregating the $y$'s) to $y^{2j} = e$, which is true iff $j = 0$ or $2j = n$. Therefore, if $n$ is odd, only the identity commutes with all elements, and if $n$ is even, both the identity and the rotation of angle $\pi$ commute with all elements.
+
+
+\subsection*{2.8)}
+
+Find the orders of the groups of symmetries of the five 'platonic solids'.
+
+https://en.wikipedia.org/wiki/Polyhedral\_group
+
+The five platonic solids are the tetrahedron, the cube, the octahedron, the dodecahedron, and the icosahedron. We can find the orders of their symmetry groups by finding the number of symmetries of each solid.
+
+TetrahedronL The tetrahedron has 4 vertices, 6 edges, and 4 faces (all equilateral triangles). We can rotate the tetrahedron by $2\pi/3$ about an axis perpendicular through the center of a face. We can also flip the tetrahedron across a plane through an edge and the midpoint of its opposite edge.
+
+(distinct combinations ? proof ?)
+
+... TODO
+
+
+\subsection*{2.9)}
+
+Verify carefully that 'congruence mod $n$' is an equivalence relation.
+
+We define the relation $\sim$ as $\forall a, b \in \mathbb{Z}, a \sim b \Leftrightarrow \exists k \in \mathbb{Z}, a - b = kn$. We will show that this relation is reflexive, symmetric, and transitive.
+
+Reflexivity: 
+
+$$\forall a \in \mathbb{Z}, a - a = 0 = 0 \cdot n \Rightarrow a \sim a$$
+
+Symmetry:
+
+$$
+\begin{aligned}
+\forall a, b \in \mathbb{Z}, a \sim b
+&\Leftrightarrow \exists k \in \mathbb{Z}, a - b = kn \\
+&\Leftrightarrow \exists k \in \mathbb{Z}, b - a = -kn \\
+&\Leftrightarrow b \sim a
+\end{aligned}
+$$
+
+
+Transitivity:
+$$
+\begin{aligned}
+\forall a, b, c \in \mathbb{Z}, (a \sim b) \land (b \sim c)
+&\Leftrightarrow \exists k, l \in \mathbb{Z}, (a - b = kn) \land (b - c = ln) \\
+&\Leftrightarrow a - c = (a - b) + (b - c) = (k + l)n \\
+&\Leftrightarrow a \sim c
+\end{aligned}
+$$
+
+Therefore, the relation $\sim$ is an equivalence relation.
+
+
+\subsection*{2.10)}
+
+Prove that $\mathbb{Z}/n\mathbb{Z}$ contains precisely $n$ elements.
+
+Each element of $\mathbb{Z}$ can be written uniquely as $m + kn$ with $m \in [[0, n-1]]$ and $k \in \mathbb{Z}$. Therefore, we have $n$ possible values for $m$. Because congruence modulo $n$ equates two numbers in $\mathbb{Z}$ if their difference is a multiple of $n$, we have that $m$ and $m + kn$ are equivalent. Therefore, we can consider an equivalence class associated with $m$ to contain all elements of the form $m + kn$. Since we have precisely $n$ such equivalence classes, $\mathbb{Z}/n\mathbb{Z}$ contains precisely $n$ elements.
+
+
+\subsection*{2.11)}
+
+Prove that the square of every odd integer is congruent to 1 modulo 8. [§VII.5.1]
+
+We write an odd integer as $2n + 1$ for $n \in \mathbb{Z}$. We have that $(2n + 1)^2 = 4n^2 + 4n + 1 = 4(n^2 + n) + 1$. We can see that $n^2 + n$ is always even, because: if $n$ is even, then $n^2$ is even, and $n$ is even, so their sum is even; and if $n$ is odd, then $n^2$ is odd, and $n$ is odd, so their sum is even. Therefore, we can write $n^2 + n = 2m$ for some $m \in \mathbb{Z}$, and thus $(2n + 1)^2 = 8m + 1$, which is congruent to 1 modulo 8.
+
+
+\subsection*{2.12)}
+
+Prove that there are no integers $a, b, c$ such that $a^2 + b^2 = 3c^2$. (Hint: by studying the equation $[a]^2_4 + [b]^2_4 = 3[c]^2_4$ in $\mathbb{Z}/4\mathbb{Z}$, show that $a, b, c$ would all have to be even. Letting $a = 2k$, $b = 2l$, $c = 2m$, you would have $k^2 + l^2 = 3m^2$. What's wrong with that?)
+
+We can write $a^2 + b^2 = 3c^2$ as $a^2 + b^2 = 3c^2 + 4k$ with $k = 0$. Any solution to the first equation must thus respect the properties of the second equation. We study these properties by looking at the equation modulo 4.
+
+$$
+\begin{aligned}
+[a]^2_4 + [b]^2_4 = [3]_4 [c]^2_4
+&\Leftrightarrow [a]^2_4 + [b]^2_4 = [-1]_4 ([c]^2_4) \\
+&\Leftrightarrow [a]^2_4 + [b]^2_4 + [c]^2_4 = [0]_4 \\
+\end{aligned}
+$$
+
+Since 0 is even, this condition gives us that either two of the numbers have to be odd, or none of them are. However, looking back at the first equation, if $c$ is even, then $[c]^2_4 = 0$, and $[3]_4 [c]^2_4 = 0$, which means that $a$ and $b$ must be both even or both odd. If $a$ and $b$ are both odd (i.e., either congruent to $1$ or $-1$), then $[a]^2_4 = 1$ and $[b]^2_4 = 1$ and their sum, supposedly equal to $0$, is congruent to $2$, which is a contradiction. In this case, both $a$ and $b$ must be even.
+
+Now if $c$ is odd, then $[3]_4 [c]^2_4 = [3]_4 [1]_4 = [3]_4 = [-1]_4$. Since $c$ is odd, only one of $a$ or $b$ must be odd. Without loss of generality, we choose that to be $b$, in which case $[b]^2_4 = 1$. Our "the three sum to 0" equation above then tells us that $[a]^2_4 + [2]_4 = [0]_4$, so $[a]^2_4 = [2]_4$, which is a contradiction, because there is no number $[a]_4$ such that $[a]^2_4 = [2]_4$ (the image of the squaring function is $\{ [0]_4, [1]_4 \}$). Therefore, $c$ cannot be odd.
+
+We've thus shown that the only case not leading to a contradition is the case where all three numbers are even, and this applies to the original equation.
+
+Letting $a = 2k$, $b = 2l$, $c = 2m$, you would have $k^2 + l^2 = 3m^2$, which is just a rewriting of our initial equation. After iteration this process until a maximal instance of $2$'s has been removed from the prime factorization of each number, we will eventually reach a point where either $k$, $l$, or (non-exclusive) $m$ is odd, which is a contradiction. Therefore, there are no integers $a, b, c$ such that $a^2 + b^2 = 3c^2$.
+
+This exercise is interesting because it teaches us that number theoretic equations that rely on odd and evenness can effectively be studied using $\mathbb{Z}/4\mathbb{Z}$.
+
+
+\subsection*{2.13)}
+
+Prove that if $\gcd(m, n) = 1$, then there exist integers $a$ and $b$ such that $am + bn = 1$. (Use Corollary 2.5.) Conversely, prove that if $am + bn = 1$ for some integers $a$ and $b$, then $\gcd(m, n) = 1$.
+
+This is known as Bézout's identity. We remind Corollary 2.5.: The class $[m]_n$ generates $\mathbb{Z}/n\mathbb{Z}$ if and only if $\gcd(m, n) = 1$. So this exercise can also be reduced to proving that $\exists a, b \in \mathbb{Z}, am + bn = 1$ if and only if $[m]_n$ generates $\mathbb{Z}/n\mathbb{Z}$.
+
+\textbf{$\gcd(m, n) = 1 \Rightarrow \exists a, b \in \mathbb{Z}, am + bn = 1$}
+
+We suppose that $\gcd(m,n) = 1$, by Corollary 2.5, we have that $[m]_n$ generates $\mathbb{Z}/n\mathbb{Z}$. This means that for every $[c]_n \in \mathbb{Z}/n\mathbb{Z}$, there exists $a \in \mathbb{Z}$ such that $[am]_n = [c]_n$. If we take $[c]_n = [1]_n$, this means that $am = 1 + kn$ for some $k \in \mathbb{Z}$. We can rewrite this as $am + bn = 1$ for $b = -k$.
+
+\textbf{$\exists a, b \in \mathbb{Z}, am + bn = 1 \Rightarrow \gcd(m, n) = 1$}
+
+We suppose that $\exists a, b \in \mathbb{Z}, am + bn = 1$. We can write this as $am = 1 - bn$, which means that $m$ divides $1 - bn$. Suppose $m$ and $n$ have a common prime factor $p$: this prime factor would divide $m$ and $n$, and thus would divide $1 - bn$ (equivalently its opposite $bn - 1$) and $bn$. However, this is a contradiction, because the only number that can divide two numbers that are off by $1$ is $1$. Therefore, $m$ and $n$ have no common prime factors, and $\gcd(m, n) = 1$.
+
+
+\subsection*{2.14)}
+
+State and prove an analog of Lemma 2.2, showing that the multiplication on $\mathbb{Z}/n\mathbb{Z}$ is a well-defined operation.
+
+We remind Lemma 2.2:  If $a \equiv a' \text{mod} n$ and$ b \equiv b' \text{mod} n$, then $(a + b) \equiv (a' + b') \text{mod} n$.
+
+Our analogue is thus: $a \equiv a' \text{mod} n$ and$ b \equiv b' \text{mod} n$, then $(a \times b) \equiv (a' \times b') \text{mod} n$.
+
+We now show that it is well-defined (there exists a commutative square diagram with an epimorphism from $\mathbb{Z}$ to $\mathbb{Z}/n\mathbb{Z}$ in one direction, and with the respective multiplications in the other). We take $a \equiv a' \text{mod} n$ and$ b \equiv b' \text{mod} n$. This means that $a - a' = kn$ and $b - b' = ln$ for some $k, l \in \mathbb{Z}$. We have that $ab - a'b' = ab - ab' + ab' - a'b' = a(b - b') + (a - a')b' = a(ln) + (kn)b' = n(al + kb')$. The first and last terms of this equation give us that $ab \equiv a'b' \text{mod} n$, as needed. 
+
+
+\subsection*{2.15)}
+
+Let $n > 0$ be an odd integer.
+\begin{itemize}
+	\item Prove that if $\gcd(m, n) = 1$, then $\gcd(2m + n, 2n) = 1$. (Use Exercise 2.13.)
+	\item Prove that if $\gcd(r, 2n) = 1$, then $\gcd(\frac{r+n}{2}, n) = 1$. (Ditto.)
+	\item Conclude that the function $[m]_n \to [2m + n]_{2n}$ is a bijection between $(\mathbb{Z}/n\mathbb{Z})^*$ and $(\mathbb{Z}/2n\mathbb{Z})^*$.
+\end{itemize}
+
+The number $\varphi(n)$ of elements of $(\mathbb{Z}/n\mathbb{Z})^*$ is Euler's $\varphi$-function. The reader must proved that if $n$ is odd, then $\Phi(2n) = \Phi(n)$.
+
+
+\subsection*{2.16)} 
+
+Find the last digit of $1238237^{18238456}$. (Work in $\mathbb{Z}/10\mathbb{Z}$.)
+
+We note that $7^2 = 49$, $7^3 = 343$, and $7^4 = 2401$, so the order of $7$ in $(\mathbb{Z}/10\mathbb{Z}, \times)^*$ is $4$.  Since multiplication is well-defined in $\mathbb{Z}/10\mathbb{Z}$, we have:
+
+$$
+\begin{aligned}
+[1238237^{18238456}]_{10}
+&= [7]_{10}^{18238456} \\
+&= [7]_{10}^{4 \cdot 4559614} \\
+&= ([7]_{10}^4)^{4559614} \\
+&= [7^4]_{10}^{4559614} \\
+&= [1]_{10}^{4559614} \\
+&= [1]_{10}
+\end{aligned}
+$$
+
+
+\subsection*{2.17)}
+
+Show that if $m \equiv m' mod n$, then $\gcd(m, n) = 1$ if and only if $\gcd(m', n) = 1$.
+
+We use the result from exercise 2.13: $\gcd(m, n) = 1 \Leftrightarrow \exists a, b \in \mathbb{Z}, am + bn = 1$; similarly, $\gcd(m', n) = 1 \Leftrightarrow \exists a', b' \in \mathbb{Z}, a'm' + b'n = 1$.  We have that $m \equiv m' \text{mod} n$, so $m - m' = kn$ for some $k \in \mathbb{Z}$. We can rewrite this as $m = m' + kn$. We can now substitute $m$ in Bézout's identity: $a(m' + kn) + bn = 1 \Rightarrow am' + akn + bn = 1$. We can now let $a' = a + ak$ and $b' = b$, and we have that $\gcd(m, n) = 1 \Leftrightarrow \gcd(m', n) = 1$.
+
+
+\subsection*{2.18)}
+
+For $d \leq n$, define an injective function $\mathbb{Z}/d\mathbb{Z} \to S_n$ preserving the operation: that is, such that the sum of equivalence classes in $\mathbb{Z}/n\mathbb{Z}$ corresponds to the product of the corresponding permutations.
+
+We can define the function $f: \mathbb{Z}/d\mathbb{Z} \to S_n$ as $f([a]_d) = \sigma_a$, where $\sigma_a$ is the permutation that maps $i$ to $i + a$ modulo $d$ (our Caesar cypher mentioned above, over the $d$ first elements, or any choice of $d$ elements really).
+
+This function is injective because the permutation $\sigma_a$ is uniquely determined by $a$. This can immediately be seen by studying with which element the first element (which we can label 0) is replaced: it is replaced with $a$ (the $a$-th element), leading to $d$ distinct outputs for $d$ possible inputs. More formally, if $a,b \in \mathbb{Z}/d\mathbb{Z}, a \neq b$, then $\sigma_a$ and $\sigma_b$ are distinct permutations, as they map $i$ to $i + a$ and $i + b$ respectively, and $a \neq b$ implies that $i + a \neq i + b$ for any $i$.
+
+We can see that the sum of equivalence classes in $\mathbb{Z}/n\mathbb{Z}$ corresponds to the product of the corresponding permutations through the following commutative diagram:
+
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCIoXFxtYXRoYmJ7Wn0vZFxcbWF0aGJie1p9KV4yIFxcXFwgKFthXV9kLCBbYl1fZCkiXSxbMSwwLCJcXG1hdGhiYntafS9kXFxtYXRoYmJ7Wn0gXFxcXCBbYStiXV9kIl0sWzAsMSwiU19uXjIgXFxcXCAoXFxzaWdtYV9hLFxcc2lnbWFfYikiXSxbMSwxLCJTX24gXFxcXCBcXHNpZ21hX3thK2J9Il0sWzAsMSwiK197XFxtYXRoYmJ7Wn0vZFxcbWF0aGJie1p9fSJdLFsxLDMsImYiXSxbMCwyLCIoZixmKSIsMl0sWzIsMywiXFxjaXJjX3tTX259IiwyXV0=
+$$
+\begin{tikzcd}
+	\begin{array}{c} (\mathbb{Z}/d\mathbb{Z})^2 \\ ([a]_d, [b]_d) \end{array} & \begin{array}{c} \mathbb{Z}/d\mathbb{Z} \\ {[a+b]_d} \end{array} \\
+	\begin{array}{c} S_n^2 \\ (\sigma_a,\sigma_b) \end{array} & \begin{array}{c} S_n \\ \sigma_{a+b} \end{array}
+	\arrow["{+_{\mathbb{Z}/d\mathbb{Z}}}", from=1-1, to=1-2]
+	\arrow["{(f,f)}"', from=1-1, to=2-1]
+	\arrow["f", from=1-2, to=2-2]
+	\arrow["{\circ_{S_n}}"', from=2-1, to=2-2]
+\end{tikzcd}
+$$
+
+\subsection*{2.19)}
+
+Both $(\mathbb{Z}/5\mathbb{Z})^*$ and $(\mathbb{Z}/12\mathbb{Z})^*$ consist of $4$ elements. Write their multiplication tables, and prove that no re-ordering of the elements will make them match.
+
+For $\mathbb{Z}/5\mathbb{Z}$, we have the elements $[1]_5, [2]_5, [3]_5, [4]_5$ which are coprime with $5$.
+
+\vspace{1em}
+\begin{tabular}{|c||c|c|c|c|}
+\hline
+$\cdot$ & $1$ & $2$ & $3$ & $4$ \\ \hline \hline
+$1    $ & $1$ & $2$ & $3$ & $4$ \\ \hline
+$2    $ & $2$ & $4$ & $1$ & $3$ \\ \hline
+$3    $ & $3$ & $1$ & $4$ & $2$ \\ \hline
+$4    $ & $4$ & $3$ & $2$ & $1$ \\ \hline
+\end{tabular}
+\vspace{1em}
+
+For $\mathbb{Z}/12\mathbb{Z}$, we have the elements $[1]_{12}, [5]_{12}, [7]_{12}, [11]_{12}$ which are coprime with $12$.
+
+\vspace{1em}
+\begin{tabular}{|c||c|c|c|c|}
+\hline
+$\cdot$ & $ 1$ & $ 5$ & $ 7$ & $11$ \\ \hline \hline
+$1    $ & $ 1$ & $ 5$ & $ 7$ & $11$ \\ \hline
+$5    $ & $ 5$ & $ 1$ & $11$ & $ 7$ \\ \hline
+$7    $ & $ 7$ & $11$ & $ 1$ & $ 5$ \\ \hline
+$11   $ & $11$ & $ 7$ & $ 5$ & $ 1$ \\ \hline
+\end{tabular}
+\vspace{1em}
+
+The two groups are not isomorphic, because the first group has elements of order $4$ and the other doesn't. In fact, the former is isomorphic to $\mathbb{Z}/4\mathbb{Z}$, and the latter is isomorphic to $\mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}$ (the Klein 4-group).
+
 \newpage
 \part{Extra exercises by/for the group}
 

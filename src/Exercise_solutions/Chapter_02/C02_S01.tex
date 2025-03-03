@@ -16,15 +16,15 @@ Let $(G, \cdot)$ be a group, i.e., some form of algebraic structure with a set o
 
 Let us define $\mathcal{C}$ as follows:
 \begin{itemize}
-	\item There is a single object $X$ in $\mathcal{C}$, and its elements are the elements of $G$ (we could call it $G$, of course, but we'll be distinct for pedagogy's sake).
-	\item For any element $g$ of $X$, there is a morphism $f_g \in Hom(X, X)$ such that $\forall x \in X, f_g(x) = (x \mapsto g \cdot x)$.
-	\item Composition of morphisms is defined as follows: $f_a \circ f_b = (x \mapsto a \cdot (b \cdot x)) = (x \mapsto (a \cdot b) \cdot x)$.
-	\item There is an identity morphism $id_X = (x \to e \cdot x)$.
-	\item It is immediate to see that these morphisms are associative since $(G, \cdot)$ is associative. Take $f_a$, $f_b$, and $f_c$, for $a,b,c \in X$: $(f_a f_b) f_c = (x \to ((a \cdot b) \cdot c) x) = (x \to (a \cdot (b \cdot c))x = f_a (f_b f_c)$.
-	\item Every such morphism has an inverse, namely, $f_{g^{-1}} = (x \mapsto g^{-1} \cdot x)$ which by definition of a group necessarily exists. It is easy to verify that $f_g \cdot f_{g^{-1}} = f_{g^{-1}} = f_g = (x \mapsto x = id_X)$.
+	\item There is a single object $X$ in $\mathcal{C}$, and its elements are the elements of $G$ (we could call $X$ "$G$", of course, but we'll be distinct for pedagogy's sake). Our goal is to prove that $Hom(X, X)$ is isomorphic to $G$, and thus is itself a group.
+	\item For any element $g$ of $X$, there is a unique morphism $f_g \in Hom(X, X)$ such that $\forall x \in X, f_g(x) = (x \mapsto g \cdot x)$.
+	\item Composition of morphisms is defined as follows: $f_a \circ f_b = (x \mapsto a \cdot (b \cdot x)) = (x \mapsto (a \cdot b) \cdot x) = f_{a \cdot b} \;$.
+	\item There is an identity morphism $id_X = (x \to e \cdot x)$, with $e$ the identity element of $G$, and $\forall f \in Hom(X, X), f \circ id_X = f = id_X \circ f$.
+	\item It is immediate to see that these morphisms are associative since $(G, \cdot)$ is associative. Take $f_a$, $f_b$, and $f_c$ in $Hom(X,X)$, for $a,b,c \in X$: $(f_a f_b) f_c = (x \to ((a \cdot b) \cdot c) x) = (x \to (a \cdot (b \cdot c))x) = f_a (f_b f_c)$.
+	\item Every such morphism has an inverse, namely, $f_{g^{-1}} = (x \mapsto g^{-1} \cdot x)$ which by definition of a group necessarily exists. It is easy to verify that $f_g \circ f_{g^{-1}} = f_{g^{-1}} \circ f_g = f_{g \cdot g^{-1}} = f_{g^{-1} \cdot g} = (x \mapsto x = id_X) \;$.
 \end{itemize}
 
-This is a groupoid, because, it is a category (composition, associativity, identity) where every morphism is an isomorphism (every morphism has an inverse), and the group of isomorphisms of $\mathcal{C}$ is precisely isomorphic to $(G, \cdot)$.
+This is a groupoid, because, it is a category (composition, associativity, identity) where every morphism is an isomorphism (every morphism has an inverse), and the group of isomorphisms of (the single-object category) $\mathcal{C}$, here $Hom(X,X)$, is precisely isomorphic to $(G, \cdot)$.
 
 
 \subsection*{1.2)}
@@ -70,7 +70,7 @@ Therefore, $h^{-1} g^{-1}$ is a 2-sided inverse for $gh$, and since the inverse 
 
 Suppose that $g^2 = e$ for all elements $g$ of a group $G$; prove that $G$ is commutative.
 
-If $g^2 = e$, then every element is its own inverse, i.e., multiply by $g^{-1}$ on the left, and we have $\forall g \in G, g = g^{-1}$. Let be $a, b \in G$. Then, we have $ba = (ba)^{-1} = a^{-1}b^{-1} = ab$, which is the definition of commutativity. Therefore, $G$ is commutative.
+If $forall g \in G, g^2 = e$, then every element is its own inverse, i.e., multiply by $g^{-1}$ on the left (or right), and we have $\forall g \in G, g = g^{-1}$. Let be $a, b \in G$. Then, we have $ba = (ba)^{-1} = a^{-1}b^{-1} = ab$, which is the definition of commutativity. Therefore, $G$ is commutative.
 
 
 
@@ -78,7 +78,7 @@ If $g^2 = e$, then every element is its own inverse, i.e., multiply by $g^{-1}$ 
 
 The 'multiplication table' of a group is an array compiling the results of all multiplications $g \cdot h$ (with the value on each row being the left operand, and the value on each column being the right operand; of course the table depends on the order in which the elements are listed in the top row and leftmost column). Prove that every row and every column of the multiplication table of a group contains all elements of the group exactly once (like Sudoku diagrams!).
 
-Another way to phrase this question is "prove that every element of the group can be reached in a single operation from any other". Written in function notation, this means:
+Another way to phrase this question is "prove that every element of the group can be reached in a single operation from any other (on the left, or on the right, both work)". Written in function notation, this means:
 
 $$\forall a, b \in G, \exists g_r, g_c \in G, b = g_r \cdot a \text { and } b = a \cdot g_c$$
 
@@ -227,7 +227,7 @@ Suppose the order of $g$ is odd. What can you say about the order of $g^2$ ?
 
 We write $|g| = 2k + 1$ since it is odd.
 
-$g^{|g|} = e \Rightarrow (g^2){|g|} = (g^{|g|})^2 = e^2 = e$
+$g^{|g|} = e \Rightarrow (g^2)^{|g|} = (g^{|g|})^2 = e^2 = e$
 
 By Corollary 1.11, $(g^2)^{|g|} = (g^2)^{2k + 1} = e \Leftrightarrow \exists l \in \mathbb{N}, |g| = 2k + 1 = l|g^2|$. Since $|g|$ is odd, both $l$ and $|g^2|$ must be odd.
 
@@ -343,7 +343,7 @@ We have $f^{|g|} = (g^N)^{|g|} = g^{N|g|} = e$.
 
 Similarly, $e = h^{|h|} = (h^{-1})^{|h|} = ((h^{-1})^{|h|})^N = ((h^{-1})^N)^{|h|} = f^{|h|}$ (by our initial remark).
 
-Therefore, $M = |g^N| = |(h^{-1})^N|$ divides both $|g|$ and $|h|$. Since $|g|$ and $|h|$ are coprime, $M = 1$. Therefore $f = g^N = e$, so $N = |gh|$ is a multiple of $|g|$ and $f = (h^{-1})^N = e$ so $N = |gh|$ is a multiple of $|h^{-1}| = |h|$. Since $|g|$ and $|h|$ are coprime, we can further say that $|gh|$ is a multiple of their LCM/product $|g||h|$ (using, for example, the fundamental theorem of arithmetic).
+Therefore, $M = |f| = |g^N| = |(h^{-1})^N| = |h^N|$ divides both $|g|$ and $|h|$. Since $|g|$ and $|h|$ are coprime, $M = 1$. Therefore $f = g^N = e$, so $N = |gh|$ is a multiple of $|g|$ and $f = (h^{-1})^N = e$ so $N = |gh|$ is a multiple of $|h^{-1}| = |h|$. Since $|g|$ and $|h|$ are coprime, we can further say that $|gh|$ is a multiple of their LCM/product $|g||h|$ (using, for example, the fundamental theorem of arithmetic).
 
 Using Proposition 1.14 (i.e, if $gh = hg$, then $|gh|$ divides $\text{lcm}(|g|, |h|)$), we can also tell that $N = |gh|$ divides $\text{lcm}(|g|, |h|) = |g| |h|$.
 

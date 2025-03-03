@@ -690,11 +690,12 @@ In \textbf{Set}, the fibered product (pullback) of $(A, \alpha)$ and $(B, \beta)
 
 Concretely, this can also be expressed as $$P = \bigcup_{c \in \alpha(A) \cap \beta(B)} \alpha^{-1}[\{c\}] \times \beta^{-1}[\{c\}]$$. This is the set of all pairs (of inputs) $(a,b)$ such that $\alpha(a) = \beta(b)$. Let us show this is the case with a simple example.
 
-Let $A = \{1,2,3\}$, $B = \{w, x, y, z\}$, and $C = \{l, m, n, p\}$. We define $\alpha : A \to C$ as $\{(1, m), (2, m), (3, n) \}$, and $\beta : B \to C$ as $\{ (w, l), (x, m), (y, n), (z, n) \}$. We have $\alpha(A) = \{m,n\}$ and $\beta(B) = \{l, m, n\}$, therefore $\alpha(A) \cap \beta(B) = \{m,n\}$. The fibered coproduct is then:
+Let $A = \{1,2,3\}$, $B = \{w, x, y, z\}$, and $C = \{l, m, n, p\}$. We define $\alpha : A \to C$ as $\{(1, m), (2, m), (3, n) \}$, and $\beta : B \to C$ as $\{ (w, l), (x, m), (y, n), (z, n) \}$. We have $\alpha(A) = \{m,n\}$ and $\beta(B) = \{l, m, n\}$, therefore $\alpha(A) \cap \beta(B) = \{m,n\}$. The fibered product is then:
 
 $$
 \begin{array}{lll}
 P &=& (\alpha^{-1}[\{m\}] \times \beta^{-1}[\{m\}]) \; \cup \; (\alpha^{-1}[\{n\}] \times \beta^{-1}[\{n\}]) \\
+  &=& \{ \{1,2\} \times \{x\} \} \; \cup \; \{ \{3\} \times \{y,z\} \} \\
   &=& \{ (1,x), (2,x) \} \; \cup \; \{ (3,y), (3,z) \} \\
   &=& \{ (1,x), (2,x), (3,y), (3,z) \}
 \end{array}

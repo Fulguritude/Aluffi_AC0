@@ -4,3 +4,4 @@ TODO
 
 2.4 do for isomorphism in general, not just bijection
 
+Add Penrose potato diagrams where appropriate
