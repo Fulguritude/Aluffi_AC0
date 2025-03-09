@@ -64,18 +64,20 @@
 <p>Week 35: Finished exercise 1.6 and talked about homotopy and whatnot. We cut it short since some had left and others were falling asleep.</p>
 <p>Week 36: today we corrected 1.7 to 1.11 (included)</p>
 <p>Week 37: Today we corrected exercises II.1.12 to II.1.14 (included). We’re thinking of skipping II.1.15 next week, and going straight to reading section II.2</p>
+<p>Week 38: Today we corrected exercise II.1.15</p>
+<p>Week 39: we talked a bunch about functors and corrected II.2.1</p>
 <h1 id="lexicon">Lexicon</h1>
 <h2 class="unnumbered" id="chapter-1">Chapter 1</h2>
 <h3 class="unnumbered" id="section-1">Section 1</h3>
 <ul>
-<li><p>Set (not a multiset)</p></li>
+<li><p>Set (not a multiset): the set of all sets</p></li>
 <li><p><span class="math inline">\(\emptyset\)</span>: the empty set, containing no elements;</p></li>
 <li><p><span class="math inline">\(\mathbb{N}\)</span>: the set of natural numbers (that is, nonnegative integers);</p></li>
 <li><p><span class="math inline">\(\mathbb{Z}\)</span>: the set of integers;</p></li>
 <li><p><span class="math inline">\(\mathbb{Q}\)</span>: the set of rational numbers;</p></li>
 <li><p><span class="math inline">\(\mathbb{R}\)</span>: the set of real numbers;</p></li>
 <li><p><span class="math inline">\(\mathbb{C}\)</span>: the set of complex numbers.</p></li>
-<li><p>Singleton:</p></li>
+<li><p>singleton:</p></li>
 <li><p><span class="math inline">\(\exists\)</span>: existential quantifier, "there exists"</p></li>
 <li><p><span class="math inline">\(\forall\)</span>: universal quantifier, "for all"</p></li>
 <li><p>inclusion:</p></li>
@@ -1188,9 +1190,10 @@ P &amp;=&amp; (A \sqcup B) / \sim \\
 <p><span class="math display">\[\sigma =
     \begin{pmatrix}
         1 &amp; 2 &amp; 3 \\
-        3 &amp; 1 &amp; 2
+        3 &amp; 2 &amp; 1
     \end{pmatrix}
 \in S_3\]</span></p>
+<p>(Aluffi seems to have made a mistake, writing <span class="math inline">\(3 1 2\)</span> instead of <span class="math inline">\(3 2 1\)</span>, so we fixed it here)</p>
 <p>would be</p>
 <p><span class="math display">\[M_\sigma =
     \begin{pmatrix}
@@ -1199,7 +1202,16 @@ P &amp;=&amp; (A \sqcup B) / \sim \\
         1 &amp; 0 &amp; 0
     \end{pmatrix}\]</span></p>
 <p>Prove that, with this notation, <span class="math inline">\(M_{\sigma\tau} = M_\sigma M_\tau\)</span> for all <span class="math inline">\(\sigma, \tau \in S_n\)</span> , where the product on the right is the ordinary product of matrices.</p>
-<p>We first notice that we can write down the formal expression of <span class="math inline">\(M_\sigma\)</span>, as the Krocker delta <span class="math inline">\(\delta_{i \sigma(i)}\)</span>. We know that the product of two Kronecker deltas is the Kronecker delta of the product of the indices; namely, <span class="math inline">\(\delta_{ij} \delta_{jk} = \delta_{ik}\)</span>. Therefore, we have that the product of two matrices <span class="math inline">\(M_\sigma M_\tau = \delta_{i \sigma(i)} \delta_{\sigma(i) \tau(\sigma(i))} = \delta_{i \tau(\sigma(i))} = M_{\sigma\tau}\)</span>, as desired.</p>
+<p>We first notice that we can write down the formal expression of <span class="math inline">\(M_\sigma\)</span>, in the dummy Kronecker delta style, is just the permutation of the columns of the identity <span class="math inline">\(I\)</span>: here <span class="math inline">\(M_\sigma = (I_{i \sigma(j)})_{i,j \in [[1,n]]}\)</span>. Therefore, using the Kronecker delta to match the indices, we have that the product of two matrices</p>
+<p><span class="math display">\[\begin{aligned}
+M_\sigma M_\tau
+&amp;= (I_{i \; \sigma(j)})_{ij} \cdot (I_{i \; \tau(j)})_{ij} \\
+&amp;= \sum_{j=1}^n \delta_{i \; \sigma(j)} \cdot \delta_{j \; \tau(k)} \quad \text{($\ast$)}\\
+&amp;= (I_{i \; \sigma(\tau(k))})_{ik} \\
+&amp;= M_{\sigma\tau}
+\end{aligned}\]</span></p>
+<p>as desired.</p>
+<p>(<span class="math inline">\(\ast\)</span>): each term acts a Kronecker delta, in particular, the second term is non-null iff <span class="math inline">\(j = \tau(k)\)</span>, which acts as our replacement in the following line.</p>
 <h4 class="unnumbered" id="section-66">2.2)</h4>
 <p>Prove that if <span class="math inline">\(d \leq n\)</span> then <span class="math inline">\(S_n\)</span> contains elements of order <span class="math inline">\(d\)</span>.</p>
 <p>We will use strong induction on <span class="math inline">\(n\)</span>.</p>

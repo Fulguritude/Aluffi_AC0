@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.19)  3 MAR 2025 19:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.19)  9 MAR 2025 17:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1326,16 +1326,13 @@ m/n/12 j\OML/cmm/m/it/12 g\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 ; \OMS/cmsy/m/n/12
  j\OML/cmm/m/it/12 h\OMS/cmsy/m/n/12 j\OT1/cmr/m/n/12 )$
  []
 
-[73] [74] [75]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [76]
+[73] [74] [75] [76]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [77]
-[78] [79] [80] [81] [82] [83] [84] [85] [86
+[78] [79] [80] [81] [82] [83] [84] [85] [86] [87
 
-] [87] [88]
+] [88] [89]
 (./Aluffi_AC0_Exercises.en.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -1353,10 +1350,10 @@ Package rerunfilecheck Info: Checksums for `Aluffi_AC0_Exercises.en.out':
 (rerunfilecheck)             After:  748A15E982259F086A67A392794CA6BC;378.
  ) 
 Here is how much of TeX's memory you used:
- 25797 strings out of 474104
- 515087 string characters out of 5743473
+ 25794 strings out of 474104
+ 515006 string characters out of 5743473
  1957493 words of memory out of 5000000
- 47584 multiletter control sequences out of 15000+600000
+ 47582 multiletter control sequences out of 15000+600000
  567097 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,19n,121p,971b,995s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1377,10 +1374,10 @@ ve/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texliv
 e/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/te
 xlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local
 /texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on Aluffi_AC0_Exercises.en.pdf (88 pages, 443798 bytes).
+Output written on Aluffi_AC0_Exercises.en.pdf (89 pages, 444832 bytes).
 PDF statistics:
- 656 PDF objects out of 1000 (max. 8388607)
+ 657 PDF objects out of 1000 (max. 8388607)
  526 compressed objects within 6 object streams
- 223 named destinations out of 1000 (max. 500000)
+ 222 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

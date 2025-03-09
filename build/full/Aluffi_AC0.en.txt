@@ -163,13 +163,17 @@ Week 37: Today we corrected exercises II.1.12 to II.1.14 (included).
 We’re thinking of skipping II.1.15 next week, and going straight to
 reading section II.2
 
+Week 38: Today we corrected exercise II.1.15
+
+Week 39: we talked a bunch about functors and corrected II.2.1
+
 Lexicon
 
 Chapter 1
 
 Section 1
 
--   Set (not a multiset)
+-   Set (not a multiset): the set of all sets
 
 -   ∅: the empty set, containing no elements;
 
@@ -183,7 +187,7 @@ Section 1
 
 -   ℂ: the set of complex numbers.
 
--   Singleton:
+-   singleton:
 
 -   ∃: existential quantifier, "there exists"
 
@@ -2913,9 +2917,12 @@ For example, the matrix corresponding to the permutation
 $$\sigma =
     \begin{pmatrix}
         1 & 2 & 3 \\
-        3 & 1 & 2
+        3 & 2 & 1
     \end{pmatrix}
 \in S_3$$
+
+(Aluffi seems to have made a mistake, writing 312 instead of 321, so we
+fixed it here)
 
 would be
 
@@ -2930,12 +2937,24 @@ Prove that, with this notation, M_(στ) = M_(σ)M_(τ) for all σ, τ �
 , where the product on the right is the ordinary product of matrices.
 
 We first notice that we can write down the formal expression of M_(σ),
-as the Krocker delta δ_(iσ(i)). We know that the product of two
-Kronecker deltas is the Kronecker delta of the product of the indices;
-namely, δ_(ij)δ_(jk) = δ_(ik). Therefore, we have that the product of
-two matrices
-M_(σ)M_(τ) = δ_(iσ(i))δ_(σ(i)τ(σ(i))) = δ_(iτ(σ(i))) = M_(στ), as
-desired.
+in the dummy Kronecker delta style, is just the permutation of the
+columns of the identity I: here M_(σ) = (I_(iσ(j)))_(i, j ∈ [[1, n]]).
+Therefore, using the Kronecker delta to match the indices, we have that
+the product of two matrices
+
+$$\begin{aligned}
+M_\sigma M_\tau
+&= (I_{i \; \sigma(j)})_{ij} \cdot (I_{i \; \tau(j)})_{ij} \\
+&= \sum_{j=1}^n \delta_{i \; \sigma(j)} \cdot \delta_{j \; \tau(k)} \quad \text{($\ast$)}\\
+&= (I_{i \; \sigma(\tau(k))})_{ik} \\
+&= M_{\sigma\tau}
+\end{aligned}$$
+
+as desired.
+
+(*): each term acts a Kronecker delta, in particular, the second term is
+non-null iff j = τ(k), which acts as our replacement in the following
+line.
 
 2.2)
 

@@ -1178,9 +1178,10 @@ P &=& (A \\sqcup B) / \\sim \\\\
 {\pard \ql \f0 \sa180 \li0 \fi0 $$\\sigma =
     \\begin\{pmatrix\}
         1 & 2 & 3 \\\\
-        3 & 1 & 2
+        3 & 2 & 1
     \\end\{pmatrix\}
 \\in S_3$$\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 (Aluffi seems to have made a mistake, writing 312 instead of 321, so we fixed it here)\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 would be\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 $$M_\\sigma =
     \\begin\{pmatrix\}
@@ -1189,7 +1190,16 @@ P &=& (A \\sqcup B) / \\sim \\\\
         1 & 0 & 0
     \\end\{pmatrix\}$$\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Prove that, with this notation, {\i M}{\sub {\i \u963?}{\i \u964?}}\u8196?=\u8196?{\i M}{\sub {\i \u963?}}{\i M}{\sub {\i \u964?}} for all {\i \u963?},\u8198?{\i \u964?}\u8196?\u8712?\u8196?{\i S}{\sub {\i n}} , where the product on the right is the ordinary product of matrices.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 We first notice that we can write down the formal expression of {\i M}{\sub {\i \u963?}}, as the Krocker delta {\i \u948?}{\sub {\i i}{\i \u963?}({\i i})}. We know that the product of two Kronecker deltas is the Kronecker delta of the product of the indices; namely, {\i \u948?}{\sub {\i i}{\i j}}{\i \u948?}{\sub {\i j}{\i k}}\u8196?=\u8196?{\i \u948?}{\sub {\i i}{\i k}}. Therefore, we have that the product of two matrices {\i M}{\sub {\i \u963?}}{\i M}{\sub {\i \u964?}}\u8196?=\u8196?{\i \u948?}{\sub {\i i}{\i \u963?}({\i i})}{\i \u948?}{\sub {\i \u963?}({\i i}){\i \u964?}({\i \u963?}({\i i}))}\u8196?=\u8196?{\i \u948?}{\sub {\i i}{\i \u964?}({\i \u963?}({\i i}))}\u8196?=\u8196?{\i M}{\sub {\i \u963?}{\i \u964?}}, as desired.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 We first notice that we can write down the formal expression of {\i M}{\sub {\i \u963?}}, in the dummy Kronecker delta style, is just the permutation of the columns of the identity {\i I}: here {\i M}{\sub {\i \u963?}}\u8196?=\u8196?({\i I}{\sub {\i i}{\i \u963?}({\i j})}){\sub {\i i},\u8198?{\i j}\u8196?\u8712?\u8196?[[1,\u8198?{\i n}]]}. Therefore, using the Kronecker delta to match the indices, we have that the product of two matrices\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 $$\\begin\{aligned\}
+M_\\sigma M_\\tau
+&= (I_\{i \\; \\sigma(j)\})_\{ij\} \\cdot (I_\{i \\; \\tau(j)\})_\{ij\} \\\\
+&= \\sum_\{j=1\}^n \\delta_\{i \\; \\sigma(j)\} \\cdot \\delta_\{j \\; \\tau(k)\} \\quad \\text\{($\\ast$)\}\\\\
+&= (I_\{i \\; \\sigma(\\tau(k))\})_\{ik\} \\\\
+&= M_\{\\sigma\\tau\}
+\\end\{aligned\}$$\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 as desired.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 (*): each term acts a Kronecker delta, in particular, the second term is non-null iff {\i j}\u8196?=\u8196?{\i \u964?}({\i k}), which acts as our replacement in the following line.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs24 2.2)\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Prove that if {\i d}\u8196?\u8804?\u8196?{\i n} then {\i S}{\sub {\i n}} contains elements of order {\i d}.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 We will use strong induction on {\i n}.\par}
@@ -1360,6 +1370,7 @@ B & A & D & C
 &= [1]_\{10\}^\{4559614\} \\\\
 &= [1]_\{10\}
 \\end\{aligned\}$$\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Thus, the last digit of this large number is 1.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs24 2.17)\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Show that if {\i m}\u8196?\u8801?\u8196?{\i m}\u8242?{\i m}{\i o}{\i d}{\i n}, then gcd\u8198?({\i m},\u8198?{\i n})\u8196?=\u8196?1 if and only if gcd\u8198?({\i m}\u8242?,\u8198?{\i n})\u8196?=\u8196?1.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 We use the result from exercise 2.13: gcd\u8198?({\i m},\u8198?{\i n})\u8196?=\u8196?1\u8196?\u8660?\u8196?\u8707?{\i a},\u8198?{\i b}\u8196?\u8712?\u8196?\u8484?,\u8198?{\i a}{\i m}\u8197?+\u8197?{\i b}{\i n}\u8196?=\u8196?1; similarly, gcd\u8198?({\i m}\u8242?,\u8198?{\i n})\u8196?=\u8196?1\u8196?\u8660?\u8196?\u8707?{\i a}\u8242?,\u8198?{\i b}\u8242?\u8196?\u8712?\u8196?\u8484?,\u8198?{\i a}\u8242?{\i m}\u8242?\u8197?+\u8197?{\i b}\u8242?{\i n}\u8196?=\u8196?1. We have that {\i m}\u8196?\u8801?\u8196?{\i m}\u8242?mod{\i n}, so {\i m}\u8197?\u8722?\u8197?{\i m}\u8242?\u8196?=\u8196?{\i k}{\i n} for some {\i k}\u8196?\u8712?\u8196?\u8484?. We can rewrite this as {\i m}\u8196?=\u8196?{\i m}\u8242?\u8197?+\u8197?{\i k}{\i n}. We can now substitute {\i m} in B\u233?zout\u8217's identity: {\i a}({\i m}\u8242?\u8197?+\u8197?{\i k}{\i n})\u8197?+\u8197?{\i b}{\i n}\u8196?=\u8196?1\u8196?\u8658?\u8196?{\i a}{\i m}\u8242?\u8197?+\u8197?{\i a}{\i k}{\i n}\u8197?+\u8197?{\i b}{\i n}\u8196?=\u8196?1. We can now let {\i a}\u8242?\u8196?=\u8196?{\i a}\u8197?+\u8197?{\i a}{\i k} and {\i b}\u8242?\u8196?=\u8196?{\i b}, and we have that gcd\u8198?({\i m},\u8198?{\i n})\u8196?=\u8196?1\u8196?\u8660?\u8196?gcd\u8198?({\i m}\u8242?,\u8198?{\i n})\u8196?=\u8196?1.\par}

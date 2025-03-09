@@ -168,6 +168,10 @@ Week 37: Today we corrected exercises II.1.12 to II.1.14 (included).
 We're thinking of skipping II.1.15 next week, and going straight to
 reading section II.2
 
+Week 38: Today we corrected exercise II.1.15
+
+Week 39: we talked a bunch about functors and corrected II.2.1
+
 Lexicon
 =======
 
@@ -176,7 +180,7 @@ Chapter 1 {#chapter-1 .unnumbered}
 
 ### Section 1 {#section-1 .unnumbered}
 
--   Set (not a multiset)
+-   Set (not a multiset): the set of all sets
 
 -   $\emptyset$: the empty set, containing no elements;
 
@@ -191,7 +195,7 @@ Chapter 1 {#chapter-1 .unnumbered}
 
 -   $\mathbb{C}$: the set of complex numbers.
 
--   Singleton:
+-   singleton:
 
 -   $\exists$: existential quantifier, \"there exists\"
 
@@ -3107,9 +3111,12 @@ the permutation
 $$\sigma =
     \begin{pmatrix}
         1 & 2 & 3 \\
-        3 & 1 & 2
+        3 & 2 & 1
     \end{pmatrix}
 \in S_3$$
+
+(Aluffi seems to have made a mistake, writing $3 1 2$ instead of
+$3 2 1$, so we fixed it here)
 
 would be
 
@@ -3125,12 +3132,25 @@ all $\sigma, \tau \in S_n$ , where the product on the right is the
 ordinary product of matrices.
 
 We first notice that we can write down the formal expression of
-$M_\sigma$, as the Krocker delta $\delta_{i \sigma(i)}$. We know that
-the product of two Kronecker deltas is the Kronecker delta of the
-product of the indices; namely, $\delta_{ij} \delta_{jk} = \delta_{ik}$.
-Therefore, we have that the product of two matrices
-$M_\sigma M_\tau = \delta_{i \sigma(i)} \delta_{\sigma(i) \tau(\sigma(i))} = \delta_{i \tau(\sigma(i))} = M_{\sigma\tau}$,
+$M_\sigma$, in the dummy Kronecker delta style, is just the permutation
+of the columns of the identity $I$: here
+$M_\sigma = (I_{i \sigma(j)})_{i,j \in [[1,n]]}$. Therefore, using the
+Kronecker delta to match the indices, we have that the product of two
+matrices
+
+$$\begin{aligned}
+M_\sigma M_\tau
+&= (I_{i \; \sigma(j)})_{ij} \cdot (I_{i \; \tau(j)})_{ij} \\
+&= \sum_{j=1}^n \delta_{i \; \sigma(j)} \cdot \delta_{j \; \tau(k)} \quad \text{($\ast$)}\\
+&= (I_{i \; \sigma(\tau(k))})_{ik} \\
+&= M_{\sigma\tau}
+\end{aligned}$$
+
 as desired.
+
+($\ast$): each term acts a Kronecker delta, in particular, the second
+term is non-null iff $j = \tau(k)$, which acts as our replacement in the
+following line.
 
 #### 2.2) {#section-66 .unnumbered}
 

@@ -2731,9 +2731,12 @@ the permutation
 $$\sigma =
     \begin{pmatrix}
         1 & 2 & 3 \\
-        3 & 1 & 2
+        3 & 2 & 1
     \end{pmatrix}
 \in S_3$$
+
+(Aluffi seems to have made a mistake, writing $3 1 2$ instead of
+$3 2 1$, so we fixed it here)
 
 would be
 
@@ -2749,12 +2752,25 @@ all $\sigma, \tau \in S_n$ , where the product on the right is the
 ordinary product of matrices.
 
 We first notice that we can write down the formal expression of
-$M_\sigma$, as the Krocker delta $\delta_{i \sigma(i)}$. We know that
-the product of two Kronecker deltas is the Kronecker delta of the
-product of the indices; namely, $\delta_{ij} \delta_{jk} = \delta_{ik}$.
-Therefore, we have that the product of two matrices
-$M_\sigma M_\tau = \delta_{i \sigma(i)} \delta_{\sigma(i) \tau(\sigma(i))} = \delta_{i \tau(\sigma(i))} = M_{\sigma\tau}$,
+$M_\sigma$, in the dummy Kronecker delta style, is just the permutation
+of the columns of the identity $I$: here
+$M_\sigma = (I_{i \sigma(j)})_{i,j \in [[1,n]]}$. Therefore, using the
+Kronecker delta to match the indices, we have that the product of two
+matrices
+
+$$\begin{aligned}
+M_\sigma M_\tau
+&= (I_{i \; \sigma(j)})_{ij} \cdot (I_{i \; \tau(j)})_{ij} \\
+&= \sum_{j=1}^n \delta_{i \; \sigma(j)} \cdot \delta_{j \; \tau(k)} \quad \text{($\ast$)}\\
+&= (I_{i \; \sigma(\tau(k))})_{ik} \\
+&= M_{\sigma\tau}
+\end{aligned}$$
+
 as desired.
+
+($\ast$): each term acts a Kronecker delta, in particular, the second
+term is non-null iff $j = \tau(k)$, which acts as our replacement in the
+following line.
 
 #### 2.2) {#section-62 .unnumbered}
 
@@ -3179,6 +3195,8 @@ $$\begin{aligned}
 &= [1]_{10}^{4559614} \\
 &= [1]_{10}
 \end{aligned}$$
+
+Thus, the last digit of this large number is $1$.
 
 #### 2.17) {#section-77 .unnumbered}
 

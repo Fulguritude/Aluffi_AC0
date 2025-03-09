@@ -1030,9 +1030,10 @@ P &amp;=&amp; (A \sqcup B) / \sim \\
 <p><span class="math display">\[\sigma =
     \begin{pmatrix}
         1 &amp; 2 &amp; 3 \\
-        3 &amp; 1 &amp; 2
+        3 &amp; 2 &amp; 1
     \end{pmatrix}
 \in S_3\]</span></p>
+<p>(Aluffi seems to have made a mistake, writing <span class="math inline">\(3 1 2\)</span> instead of <span class="math inline">\(3 2 1\)</span>, so we fixed it here)</p>
 <p>would be</p>
 <p><span class="math display">\[M_\sigma =
     \begin{pmatrix}
@@ -1041,7 +1042,16 @@ P &amp;=&amp; (A \sqcup B) / \sim \\
         1 &amp; 0 &amp; 0
     \end{pmatrix}\]</span></p>
 <p>Prove that, with this notation, <span class="math inline">\(M_{\sigma\tau} = M_\sigma M_\tau\)</span> for all <span class="math inline">\(\sigma, \tau \in S_n\)</span> , where the product on the right is the ordinary product of matrices.</p>
-<p>We first notice that we can write down the formal expression of <span class="math inline">\(M_\sigma\)</span>, as the Krocker delta <span class="math inline">\(\delta_{i \sigma(i)}\)</span>. We know that the product of two Kronecker deltas is the Kronecker delta of the product of the indices; namely, <span class="math inline">\(\delta_{ij} \delta_{jk} = \delta_{ik}\)</span>. Therefore, we have that the product of two matrices <span class="math inline">\(M_\sigma M_\tau = \delta_{i \sigma(i)} \delta_{\sigma(i) \tau(\sigma(i))} = \delta_{i \tau(\sigma(i))} = M_{\sigma\tau}\)</span>, as desired.</p>
+<p>We first notice that we can write down the formal expression of <span class="math inline">\(M_\sigma\)</span>, in the dummy Kronecker delta style, is just the permutation of the columns of the identity <span class="math inline">\(I\)</span>: here <span class="math inline">\(M_\sigma = (I_{i \sigma(j)})_{i,j \in [[1,n]]}\)</span>. Therefore, using the Kronecker delta to match the indices, we have that the product of two matrices</p>
+<p><span class="math display">\[\begin{aligned}
+M_\sigma M_\tau
+&amp;= (I_{i \; \sigma(j)})_{ij} \cdot (I_{i \; \tau(j)})_{ij} \\
+&amp;= \sum_{j=1}^n \delta_{i \; \sigma(j)} \cdot \delta_{j \; \tau(k)} \quad \text{($\ast$)}\\
+&amp;= (I_{i \; \sigma(\tau(k))})_{ik} \\
+&amp;= M_{\sigma\tau}
+\end{aligned}\]</span></p>
+<p>as desired.</p>
+<p>(<span class="math inline">\(\ast\)</span>): each term acts a Kronecker delta, in particular, the second term is non-null iff <span class="math inline">\(j = \tau(k)\)</span>, which acts as our replacement in the following line.</p>
 <h4 class="unnumbered" id="section-62">2.2)</h4>
 <p>Prove that if <span class="math inline">\(d \leq n\)</span> then <span class="math inline">\(S_n\)</span> contains elements of order <span class="math inline">\(d\)</span>.</p>
 <p>We will use strong induction on <span class="math inline">\(n\)</span>.</p>
@@ -1214,6 +1224,7 @@ B &amp; A &amp; D &amp; C
 &amp;= [1]_{10}^{4559614} \\
 &amp;= [1]_{10}
 \end{aligned}\]</span></p>
+<p>Thus, the last digit of this large number is <span class="math inline">\(1\)</span>.</p>
 <h4 class="unnumbered" id="section-77">2.17)</h4>
 <p>Show that if <span class="math inline">\(m \equiv m&#39; mod n\)</span>, then <span class="math inline">\(\gcd(m, n) = 1\)</span> if and only if <span class="math inline">\(\gcd(m&#39;, n) = 1\)</span>.</p>
 <p>We use the result from exercise 2.13: <span class="math inline">\(\gcd(m, n) = 1 \Leftrightarrow \exists a, b \in \mathbb{Z}, am + bn = 1\)</span>; similarly, <span class="math inline">\(\gcd(m&#39;, n) = 1 \Leftrightarrow \exists a&#39;, b&#39; \in \mathbb{Z}, a&#39;m&#39; + b&#39;n = 1\)</span>. We have that <span class="math inline">\(m \equiv m&#39; \text{mod} n\)</span>, so <span class="math inline">\(m - m&#39; = kn\)</span> for some <span class="math inline">\(k \in \mathbb{Z}\)</span>. We can rewrite this as <span class="math inline">\(m = m&#39; + kn\)</span>. We can now substitute <span class="math inline">\(m\)</span> in Bézout’s identity: <span class="math inline">\(a(m&#39; + kn) + bn = 1 \Rightarrow am&#39; + akn + bn = 1\)</span>. We can now let <span class="math inline">\(a&#39; = a + ak\)</span> and <span class="math inline">\(b&#39; = b\)</span>, and we have that <span class="math inline">\(\gcd(m, n) = 1 \Leftrightarrow \gcd(m&#39;, n) = 1\)</span>.</p>

@@ -3829,10 +3829,13 @@ For example, the matrix corresponding to the permutation
 $$\[rs]sigma =
     \[rs]begin{pmatrix}
         1 & 2 & 3 \[rs]\[rs]
-        3 & 1 & 2
+        3 & 2 & 1
     \[rs]end{pmatrix}
 \[rs]in S_3$$
 .RE
+.PP
+(Aluffi seems to have made a mistake, writing 312 instead of 321, so we
+fixed it here)
 .PP
 would be
 .PP
@@ -3852,14 +3855,27 @@ for all
 , where the product on the right is the ordinary product of matrices.
 .PP
 We first notice that we can write down the formal expression of
-\f[I]M\f[R]~\f[I]\[*s]\f[R]~, as the Krocker delta
-\f[I]\[*d]\f[R]~\f[I]i\f[R]\f[I]\[*s]\f[R](\f[I]i\f[R])~.
-We know that the product of two Kronecker deltas is the Kronecker delta
-of the product of the indices; namely,
-\f[I]\[*d]\f[R]~\f[I]i\f[R]\f[I]j\f[R]~\f[I]\[*d]\f[R]~\f[I]j\f[R]\f[I]k\f[R]~\[u2004]=\[u2004]\f[I]\[*d]\f[R]~\f[I]i\f[R]\f[I]k\f[R]~.
-Therefore, we have that the product of two matrices
-\f[I]M\f[R]~\f[I]\[*s]\f[R]~\f[I]M\f[R]~\f[I]\[*t]\f[R]~\[u2004]=\[u2004]\f[I]\[*d]\f[R]~\f[I]i\f[R]\f[I]\[*s]\f[R](\f[I]i\f[R])~\f[I]\[*d]\f[R]~\f[I]\[*s]\f[R](\f[I]i\f[R])\f[I]\[*t]\f[R](\f[I]\[*s]\f[R](\f[I]i\f[R]))~\[u2004]=\[u2004]\f[I]\[*d]\f[R]~\f[I]i\f[R]\f[I]\[*t]\f[R](\f[I]\[*s]\f[R](\f[I]i\f[R]))~\[u2004]=\[u2004]\f[I]M\f[R]~\f[I]\[*s]\f[R]\f[I]\[*t]\f[R]~,
+\f[I]M\f[R]~\f[I]\[*s]\f[R]~, in the dummy Kronecker delta style, is
+just the permutation of the columns of the identity \f[I]I\f[R]: here
+\f[I]M\f[R]~\f[I]\[*s]\f[R]~\[u2004]=\[u2004](\f[I]I\f[R]~\f[I]i\f[R]\f[I]\[*s]\f[R](\f[I]j\f[R])~)~\f[I]i\f[R],\[u2006]\f[I]j\f[R]\[u2004]\[mo]\[u2004][[1,\[u2006]\f[I]n\f[R]]]~.
+Therefore, using the Kronecker delta to match the indices, we have that
+the product of two matrices
+.PP
+.RS
+$$\[rs]begin{aligned}
+M_\[rs]sigma M_\[rs]tau
+&= (I_{i \[rs]; \[rs]sigma(j)})_{ij} \[rs]cdot (I_{i \[rs]; \[rs]tau(j)})_{ij} \[rs]\[rs]
+&= \[rs]sum_{j=1}\[ha]n \[rs]delta_{i \[rs]; \[rs]sigma(j)} \[rs]cdot \[rs]delta_{j \[rs]; \[rs]tau(k)} \[rs]quad \[rs]text{($\[rs]ast$)}\[rs]\[rs]
+&= (I_{i \[rs]; \[rs]sigma(\[rs]tau(k))})_{ik} \[rs]\[rs]
+&= M_{\[rs]sigma\[rs]tau}
+\[rs]end{aligned}$$
+.RE
+.PP
 as desired.
+.PP
+(*): each term acts a Kronecker delta, in particular, the second term is
+non-null iff \f[I]j\f[R]\[u2004]=\[u2004]\f[I]\[*t]\f[R](\f[I]k\f[R]),
+which acts as our replacement in the following line.
 .SS 2.2)
 .PP
 Prove that if \f[I]d\f[R]\[u2004]\[<=]\[u2004]\f[I]n\f[R] then
@@ -4441,6 +4457,8 @@ $$\[rs]begin{aligned}
 &= [1]_{10}
 \[rs]end{aligned}$$
 .RE
+.PP
+Thus, the last digit of this large number is 1.
 .SS 2.17)
 .PP
 Show that if

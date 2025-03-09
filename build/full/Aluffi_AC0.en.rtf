@@ -51,17 +51,19 @@
 {\pard \ql \f0 \sa180 \li0 \fi0 Week 35: Finished exercise 1.6 and talked about homotopy and whatnot. We cut it short since some had left and others were falling asleep.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Week 36: today we corrected 1.7 to 1.11 (included)\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Week 37: Today we corrected exercises II.1.12 to II.1.14 (included). We\u8217're thinking of skipping II.1.15 next week, and going straight to reading section II.2\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Week 38: Today we corrected exercise II.1.15\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Week 39: we talked a bunch about functors and corrected II.2.1\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 Lexicon\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs32 Chapter 1\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 Section 1\par}
-{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab Set (not a multiset)\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab Set (not a multiset): the set of all sets\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8709?: the empty set, containing no elements;\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8469?: the set of natural numbers (that is, nonnegative integers);\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8484?: the set of integers;\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8474?: the set of rational numbers;\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8477?: the set of real numbers;\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8450?: the set of complex numbers.\par}
-{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab Singleton:\par}
+{\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab singleton:\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8707?: existential quantifier, "there exists"\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab \u8704?: universal quantifier, "for all"\par}
 {\pard \ql \f0 \sa180 \li360 \fi-360 \bullet \tx360\tab inclusion:\par}
@@ -1322,9 +1324,10 @@ P &=& (A \\sqcup B) / \\sim \\\\
 {\pard \ql \f0 \sa180 \li0 \fi0 $$\\sigma =
     \\begin\{pmatrix\}
         1 & 2 & 3 \\\\
-        3 & 1 & 2
+        3 & 2 & 1
     \\end\{pmatrix\}
 \\in S_3$$\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 (Aluffi seems to have made a mistake, writing 312 instead of 321, so we fixed it here)\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 would be\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 $$M_\\sigma =
     \\begin\{pmatrix\}
@@ -1333,7 +1336,16 @@ P &=& (A \\sqcup B) / \\sim \\\\
         1 & 0 & 0
     \\end\{pmatrix\}$$\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Prove that, with this notation, {\i M}{\sub {\i \u963?}{\i \u964?}}\u8196?=\u8196?{\i M}{\sub {\i \u963?}}{\i M}{\sub {\i \u964?}} for all {\i \u963?},\u8198?{\i \u964?}\u8196?\u8712?\u8196?{\i S}{\sub {\i n}} , where the product on the right is the ordinary product of matrices.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 We first notice that we can write down the formal expression of {\i M}{\sub {\i \u963?}}, as the Krocker delta {\i \u948?}{\sub {\i i}{\i \u963?}({\i i})}. We know that the product of two Kronecker deltas is the Kronecker delta of the product of the indices; namely, {\i \u948?}{\sub {\i i}{\i j}}{\i \u948?}{\sub {\i j}{\i k}}\u8196?=\u8196?{\i \u948?}{\sub {\i i}{\i k}}. Therefore, we have that the product of two matrices {\i M}{\sub {\i \u963?}}{\i M}{\sub {\i \u964?}}\u8196?=\u8196?{\i \u948?}{\sub {\i i}{\i \u963?}({\i i})}{\i \u948?}{\sub {\i \u963?}({\i i}){\i \u964?}({\i \u963?}({\i i}))}\u8196?=\u8196?{\i \u948?}{\sub {\i i}{\i \u964?}({\i \u963?}({\i i}))}\u8196?=\u8196?{\i M}{\sub {\i \u963?}{\i \u964?}}, as desired.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 We first notice that we can write down the formal expression of {\i M}{\sub {\i \u963?}}, in the dummy Kronecker delta style, is just the permutation of the columns of the identity {\i I}: here {\i M}{\sub {\i \u963?}}\u8196?=\u8196?({\i I}{\sub {\i i}{\i \u963?}({\i j})}){\sub {\i i},\u8198?{\i j}\u8196?\u8712?\u8196?[[1,\u8198?{\i n}]]}. Therefore, using the Kronecker delta to match the indices, we have that the product of two matrices\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 $$\\begin\{aligned\}
+M_\\sigma M_\\tau
+&= (I_\{i \\; \\sigma(j)\})_\{ij\} \\cdot (I_\{i \\; \\tau(j)\})_\{ij\} \\\\
+&= \\sum_\{j=1\}^n \\delta_\{i \\; \\sigma(j)\} \\cdot \\delta_\{j \\; \\tau(k)\} \\quad \\text\{($\\ast$)\}\\\\
+&= (I_\{i \\; \\sigma(\\tau(k))\})_\{ik\} \\\\
+&= M_\{\\sigma\\tau\}
+\\end\{aligned\}$$\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 as desired.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 (*): each term acts a Kronecker delta, in particular, the second term is non-null iff {\i j}\u8196?=\u8196?{\i \u964?}({\i k}), which acts as our replacement in the following line.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs24 2.2)\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Prove that if {\i d}\u8196?\u8804?\u8196?{\i n} then {\i S}{\sub {\i n}} contains elements of order {\i d}.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 We will use strong induction on {\i n}.\par}

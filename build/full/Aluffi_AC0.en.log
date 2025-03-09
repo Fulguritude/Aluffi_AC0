@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.19)  3 MAR 2025 19:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.19)  9 MAR 2025 17:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1142,12 +1142,12 @@ nd well-definition.
 [4] [5] [6] [7
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 133
+LaTeX Font Info:    Trying to load font information for U+msa on input line 137
 .
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 133
+LaTeX Font Info:    Trying to load font information for U+msb on input line 137
 .
 (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1162,13 +1162,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] [16
 
 ] [17] [18] [19] [20]
-Overfull \hbox (22.87766pt too wide) in paragraph at lines 422--428
+Overfull \hbox (22.87766pt too wide) in paragraph at lines 426--432
 \OT1/cmr/m/n/12 https://tex.stackexchange.com/questions/157450/producing-a-diag
 ram-showing-
  []
 
 
-Overfull \hbox (21.0499pt too wide) in paragraph at lines 422--428
+Overfull \hbox (21.0499pt too wide) in paragraph at lines 426--432
 \OT1/cmr/m/n/12 relations-between-sets https://tex.stackexchange.com/questions/
 79009/drawing-
  []
@@ -1178,7 +1178,7 @@ Underfull \vbox (badness 1484) has occurred while \output is active []
 
  [21]
 [22] [23] [24] [25]
-Overfull \hbox (16.5574pt too wide) in paragraph at lines 658--659
+Overfull \hbox (16.5574pt too wide) in paragraph at lines 662--663
 []\OT1/cmr/m/n/12 for $\OML/cmm/m/it/12 A$\OT1/cmr/m/n/12 , $\OML/cmm/m/it/12 B
 $ \OT1/cmr/m/n/12 ob-jects of $\OMS/cmsy/m/n/12 C[]$ \OT1/cmr/m/n/12 (hence, ob
 -jects of $\OMS/cmsy/m/n/12 C$\OT1/cmr/m/n/12 ), $\OML/cmm/m/it/12 Hom[]\OT1/cm
@@ -1206,7 +1206,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [41]
-Overfull \hbox (72.23029pt too wide) in paragraph at lines 1145--1146
+Overfull \hbox (72.23029pt too wide) in paragraph at lines 1149--1150
 [][] 
  []
 
@@ -1217,7 +1217,7 @@ Underfull \vbox (badness 1694) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [43]
-Overfull \hbox (72.23029pt too wide) in paragraph at lines 1221--1222
+Overfull \hbox (72.23029pt too wide) in paragraph at lines 1225--1226
 [][] 
  []
 
@@ -1229,13 +1229,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [45]
 [46] [47] [48]
-Overfull \hbox (16.15411pt too wide) in paragraph at lines 1358--1359
+Overfull \hbox (16.15411pt too wide) in paragraph at lines 1362--1363
 []\OT1/cmr/m/n/12 This means that the com-po-si-tion of 2 monomor-phisms is al-
 ways an monomor-
  []
 
 [49] [50]
-Overfull \hbox (23.06384pt too wide) in paragraph at lines 1425--1426
+Overfull \hbox (23.06384pt too wide) in paragraph at lines 1429--1430
 []\OT1/cmr/m/n/12 Initiality: we take an ar-bi-trary set $\OML/cmm/m/it/12 Z$ \
 OT1/cmr/m/n/12 in \OT1/cmr/bx/n/12 Set\OT1/cmr/m/n/12 . We wish to study $\OML/
 cmm/m/it/12 Hom[]\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ;\OML/cmm/m/it/12 ; Z\OT1/cm
@@ -1275,7 +1275,7 @@ Underfull \vbox (badness 5077) has occurred while \output is active []
 
  [69]
 [70] [71] [72] [73] [74]
-Overfull \hbox (15.79605pt too wide) in paragraph at lines 2088--2089
+Overfull \hbox (15.79605pt too wide) in paragraph at lines 2092--2093
 \OML/cmm/m/it/12 A \OMS/cmsy/m/n/12 ! \OML/cmm/m/it/12 C$ \OT1/cmr/m/n/12 as $\
 OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 (1\OML/cmm/m/it/12 ; m\OT1/cmr/m/n/12 )\OML/cm
 m/m/it/12 ; \OT1/cmr/m/n/12 (2\OML/cmm/m/it/12 ; m\OT1/cmr/m/n/12 )\OML/cmm/m/i
@@ -1289,19 +1289,19 @@ g$\OT1/cmr/m/n/12 , and $\OML/cmm/m/it/12 ^^L \OT1/cmr/m/n/12 : \OML/cmm/m/it/1
  []
 
 
-Overfull \hbox (10.475pt too wide) in paragraph at lines 2104--2105
+Overfull \hbox (10.475pt too wide) in paragraph at lines 2108--2109
 \OT1/cmr/m/n/12 https://math.stackexchange.com/questions/3021738/pushout-in-the
 -category-
  []
 
 
-Overfull \hbox (41.15524pt too wide) in paragraph at lines 2106--2107
+Overfull \hbox (41.15524pt too wide) in paragraph at lines 2110--2111
 []\OT1/cmr/m/n/12 https://math.stackexchange.com/questions/2240882/understandin
 g-an-example-
  []
 
 [75] [76]
-Overfull \hbox (92.82707pt too wide) in paragraph at lines 2125--2126
+Overfull \hbox (92.82707pt too wide) in paragraph at lines 2129--2130
 []\OT1/cmr/m/n/12 This in-for-ma-tion cor-re-sponds to the fol-low-ing par-ti-t
 ion of $\OML/cmm/m/it/12 A \OMS/cmsy/m/n/12 t \OML/cmm/m/it/12 B$\OT1/cmr/m/n/1
 2 : $\OMS/cmsy/m/n/12 ff\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 ; x; y\OMS/cmsy/m/n/1
@@ -1317,20 +1317,20 @@ MS/cmsy/m/n/12 g\OML/cmm/m/it/12 ; \OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 3\OMS/cmsy
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [83]
-Overfull \hbox (25.09708pt too wide) in paragraph at lines 2340--2341
+Overfull \hbox (25.09708pt too wide) in paragraph at lines 2344--2345
 []\OT1/cmr/m/n/12 https://math.stackexchange.com/questions/2550052/let-g-be-a-f
 inite-abelian-
  []
 
 [84]
-Overfull \hbox (20.66145pt too wide) in paragraph at lines 2391--2392
+Overfull \hbox (20.66145pt too wide) in paragraph at lines 2395--2396
 []\OT1/cmr/m/n/12 By def-i-ni-tion, $(\OML/cmm/m/it/12 aga[]\OT1/cmr/m/n/12 )[]
  = \OML/cmm/m/it/12 e$\OT1/cmr/m/n/12 . How-ever, sim-i-larly to above, $(\OML/
 cmm/m/it/12 aga[]\OT1/cmr/m/n/12 )[] =
  []
 
 [85] [86]
-Overfull \hbox (32.52266pt too wide) in paragraph at lines 2472--2473
+Overfull \hbox (32.52266pt too wide) in paragraph at lines 2476--2477
 []\OT1/cmr/m/n/12 We have that $[](\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 g\OMS/cms
 y/m/n/12 j\OML/cmm/m/it/12 ; \OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 h\OMS/cmsy/m/n/
 12 j\OT1/cmr/m/n/12 ) = 1$, and we know that $\OMS/cmsy/m/n/12 j\OML/cmm/m/it/1
@@ -1341,10 +1341,7 @@ m/n/12 j\OML/cmm/m/it/12 g\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 ; \OMS/cmsy/m/n/12
  j\OML/cmm/m/it/12 h\OMS/cmsy/m/n/12 j\OT1/cmr/m/n/12 )$
  []
 
-[87] [88] [89]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [90]
+[87] [88] [89] [90]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [91]
@@ -1358,7 +1355,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [106
 
 ]
-Overfull \hbox (20.38667pt too wide) detected at line 2978
+Overfull \hbox (20.38667pt too wide) detected at line 2998
 \OMS/cmsy/m/n/12 8\OML/cmm/m/it/12 A; B \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 Obj
 \OT1/cmr/m/n/12 ([])\OML/cmm/m/it/12 ; f \OMS/cmsy/m/n/12 2 \OT1/cmr/m/n/12 (\O
 ML/cmm/m/it/12 A \OMS/cmsy/m/n/12 ! \OML/cmm/m/it/12 B\OT1/cmr/m/n/12 )\OML/cmm
@@ -1369,7 +1366,7 @@ ML/cmm/m/it/12 A \OMS/cmsy/m/n/12 ! \OML/cmm/m/it/12 B\OT1/cmr/m/n/12 )\OML/cmm
  []
 
 [107]
-Overfull \hbox (101.10294pt too wide) detected at line 3062
+Overfull \hbox (101.10294pt too wide) detected at line 3082
 [][]  \OMS/cmsy/m/n/12 , [] 8\OML/cmm/m/it/12 Z \OMS/cmsy/m/n/12 2 []\OT1/cmr/m
 /n/12 (\OMS/cmsy/m/n/12 C\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ;  \OMS/cmsy/m/n/12 
 8\OML/cmm/m/it/12 g[]; g[] \OMS/cmsy/m/n/12 2 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/
@@ -1380,7 +1377,7 @@ g[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 g[]\OT1/cmr/m/n/12 )
  []
 
 [108]
-Overfull \hbox (95.95161pt too wide) detected at line 3090
+Overfull \hbox (95.95161pt too wide) detected at line 3110
 [][]  \OMS/cmsy/m/n/12 , [] 8\OML/cmm/m/it/12 Z \OMS/cmsy/m/n/12 2 []\OT1/cmr/m
 /n/12 (\OMS/cmsy/m/n/12 C\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ;  \OMS/cmsy/m/n/12 
 8\OML/cmm/m/it/12 g[]; g[] \OMS/cmsy/m/n/12 2 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/
@@ -1395,16 +1392,16 @@ g[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 g[]\OT1/cmr/m/n/12 )
 ]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 3274.
+d on input line 3294.
 
 [114]
-Overfull \hbox (3.1598pt too wide) in paragraph at lines 3296--3297
+Overfull \hbox (3.1598pt too wide) in paragraph at lines 3316--3317
 []\OT1/cmr/m/n/12 Note that en-larg-ing the do-main some-times im-plies en-larg
 -ing the codomain,
  []
 
 [115] [116]
-Overfull \hbox (200.49664pt too wide) in paragraph at lines 3381--3381
+Overfull \hbox (200.49664pt too wide) in paragraph at lines 3401--3401
 []\OT1/cmr/m/n/12 (see per-haps https://ncatlab.org/nlab/show/over+category and
  https://ncatlab.org/nlab/show/under+category
  []
@@ -1429,10 +1426,10 @@ Package rerunfilecheck Info: Checksums for `Aluffi_AC0.en.out':
 (rerunfilecheck)             After:  A97381D9F164E5B18381F5187087F530;825.
  ) 
 Here is how much of TeX's memory you used:
- 25925 strings out of 474104
- 516825 string characters out of 5743473
+ 25921 strings out of 474104
+ 516737 string characters out of 5743473
  1957493 words of memory out of 5000000
- 47632 multiletter control sequences out of 15000+600000
+ 47630 multiletter control sequences out of 15000+600000
  570016 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  116i,19n,121p,961b,995s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1453,10 +1450,10 @@ ve/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texliv
 e/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/te
 xlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local
 /texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on Aluffi_AC0.en.pdf (120 pages, 493151 bytes).
+Output written on Aluffi_AC0.en.pdf (120 pages, 493866 bytes).
 PDF statistics:
- 852 PDF objects out of 1000 (max. 8388607)
- 689 compressed objects within 7 object streams
- 301 named destinations out of 1000 (max. 500000)
+ 849 PDF objects out of 1000 (max. 8388607)
+ 686 compressed objects within 7 object streams
+ 299 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
