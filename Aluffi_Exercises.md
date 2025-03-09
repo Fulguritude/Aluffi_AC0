@@ -7,7 +7,7 @@ different symbols used for contradiction:
 - ⊥ (false tautology)
 - ⇒⇐ (conflicting implications)
 - ※ (japanese asterisk)
-- ⛝ (crossed box - normal box being "end of proof")
+- ⛝ (crossed box; normal box being "end of proof")
 - ↯ (thunderbolt of god's logic smiting you)
 
 ## 0. Set exercices
@@ -16,11 +16,11 @@ different symbols used for contradiction:
 
 - the set of all odd integers  
 `{ 2·k+1 | k ∈ ℤ }`
-`{ -3, -1, 1, 3, 5, 7, 9, 11, ... }`
+`{ −3, −1, 1, 3, 5, 7, 9, 11, ... }`
 
 - the set of all integers that are not multiples of 3  
 `{ 3·n = k | k ∈ ℤ, n ∉ ℤ }`
-`{ -5, -4, -2, -1, 1, 2, 4, 5, 7, 8, 10, 11, 13, 14, ... }`
+`{ −5, −4, −2, −1, 1, 2, 4, 5, 7, 8, 10, 11, 13, 14, ... }`
 
 - the set of integers from 10 to 20 (included)  
 `{ n | n ∈ ℤ, 10 ≤ n ≤ 20] }`
@@ -32,7 +32,7 @@ different symbols used for contradiction:
 
 - the set of pairs of integers with both elements of the same value  
 `{ (n,m) ∈ ℤ² | n = m }`
-`{ (-1,-1), (0,0), (1,1), (2,2), (3,3), ... }`
+`{ (−1,−1), (0,0), (1,1), (2,2), (3,3), ... }`
 
 - the set of triplets of real numbers that together sum to 1
 `{ (x,y,z) ∈ ℝ³ | x+y+z = 1 }`
@@ -58,7 +58,7 @@ the set of natural numbers that are immediately before/inferior to a multiple of
 
 - `{ 3·k+2 | k ∈ ℤ }`
 the set of integers that are immediately before/inferior to a multiple of 3
-`{ -7, -4, -1, 2, 5, 8, 11, 14, 17, ... }`
+`{ −7, −4, −1, 2, 5, 8, 11, 14, 17, ... }`
 
 - `{ 2ⁱ | i ∈ [[0,10]] }`
 the set of powers of two between 1 and 1024, included
@@ -68,9 +68,9 @@ the set of powers of two between 1 and 1024, included
 the set of pairs of real numbers whose sum of squares equals 1
 `{ (0,1), (1,0), (√0.5,√0.5), (√0.3,√0.7), ... }`
 
-- `{ x ∈ ℝ | -2 ≤ x ≤ 2 }`
-the set of real numbers between -2 and +2, included
-`{ -2, -1.1234567, 0, 0.0000001, 1, 2, ... }`
+- `{ x ∈ ℝ | −2 ≤ x ≤ 2 }`
+the set of real numbers between −2 and +2, included
+`{ −2, −1.1234567, 0, 0.0000001, 1, 2, ... }`
 
 - `{ (m,n,p) ∈ ℕ³ | m+n+p = 10 }`
 the set of triplets of naturals that together sum to 10
@@ -88,7 +88,7 @@ the set of triplets of naturals that together sum to 10
 
 ### 1.0. Lexicon
 
-- [*set*](https://en.wikipedia.org/wiki/Set_(mathematics)): a set is a collection of different things; these things are called *elements* or *members* of the set and are typically mathematical objects of any kind: numbers, symbols, points in space, lines, other geometrical shapes, variables, or even other sets. A set may have a finite number of elements or be an infinite set - furthermore, there is a unique set with no elements, called the *empty set*. A set with a single element is a *singleton* set.
+- [*set*](https://en.wikipedia.org/wiki/Set_(mathematics)): a set is a collection of different things; these things are called *elements* or *members* of the set and are typically mathematical objects of any kind: numbers, symbols, points in space, lines, other geometrical shapes, variables, or even other sets. A set may have a finite number of elements or be an infinite set. Furthermore, there is a unique set with no elements, called the *empty set*. A set with a single element is a *singleton* set.
 - [*subset*/*superset*](https://en.wikipedia.org/wiki/Subset): a set 𝐴 is a *subset* of a set 𝐵 if all elements of 𝐴 are also elements of 𝐵; 𝐵 is then said to be a *superset* of 𝐴. It is possible for 𝐴 and 𝐵 to be equal; if they are unequal, then 𝐴 is a *proper subset* of 𝐵.
 - [*partition*](https://en.wikipedia.org/wiki/Partition_of_a_set): a grouping of a set's elements into non-empty subsets, in such a way that every element is included in exactly one subset.
 - [*domain*](https://en.wikipedia.org/wiki/Domain_of_a_function): the set of inputs accepted by the function. It is sometimes denoted by `dom(f)`.
@@ -142,7 +142,7 @@ In the resulting set, we have some equivalence classes.
 
 ### 1.3. Given a partition `P` on a set `S`, show how to define a relation `~` on `S` such that `P` is the corresponding partition. [§1.5]
 
-Question poorly phrased - i can define one by just using "let"...
+Question poorly phrased, I can define one by just using "let"...
 `∃~ ∀P ∀S, S/~ = P`
 
 
@@ -287,12 +287,12 @@ There are `n!` possible unique bijections. This is akin to asking how many permu
 
 Imagine there are 3 elements, we have:
 ```
-1-1 2-2 3-3
-1-1 2-3 3-2
-1-2 2-1 3-3
-1-2 2-3 3-1
-1-3 2-1 3-2
-1-3 2-2 3-1
+1→1 2→2 3→3
+1→1 2→3 3→2
+1→2 2→1 3→3
+1→2 2→3 3→1
+1→3 2→1 3→2
+1→3 2→2 3→1
 ```
 `3! = 6` possible bijections
 
@@ -671,7 +671,7 @@ And, for an example that makes this easier to understand
 - [*object*](https://en.wikipedia.org/wiki/Mathematical_object): an abstract entity arising in mathematics.
 - [*morphism*|*arrow*](https://en.wikipedia.org/wiki/Morphism): a morphism is a directed/oriented form of transformation or relation between two objects, usually represneted as an arrow between two objects.
 - [*hom-class*|*homset*](?): The collection of all morphisms from one object to another. If the hom-class behaves like a "set" (i.e. it is "small" enough) then we call it a *homset*. usually notated `hom_𝓒(𝐴,𝐵)` for a given category 𝓒 with objects 𝐴 and 𝐵.
-- [*operation*](https://en.wikipedia.org/wiki/Operation_(mathematics)): Takes two objects and transforms those into one objects - a composition law.
+- [*operation*](https://en.wikipedia.org/wiki/Operation_(mathematics)): Takes two objects and transforms those into one objects; a composition law.
 - [*discrete category*](https://en.wikipedia.org/wiki/Discrete_category): a category in which all morphisms are identities.
 - [*small category*](https://en.wikipedia.org/wiki/Category_(mathematics)#Small_and_large_categories): a category in which the amount of every object and every morphism (the cardinality) is computable.
 - [*locally small category*](https://en.wikipedia.org/wiki/Category_(mathematics)#Small_and_large_categories): a category where the collection of objects has an uncomputable cardinal but any homset has a computable cardinal.
@@ -690,7 +690,7 @@ And, for an example that makes this easier to understand
 
 ### 3.0. Examples
 
-ex.3.2 - category of sets
+ex.3.0.2. category of sets
 ```py
 ∷ let Set in Cat
 ∷ obj(Set) = all sets
@@ -701,7 +701,7 @@ ex.3.2 - category of sets
 ⊦ associative: ?
 ⊦ id_composit: ?
 ```
-ex.3.3 - preorder category on a set
+ex.3.0.3. preorder category on a set
 ```py
 † S in obj(Set)
 † ~ is relation
@@ -726,7 +726,7 @@ ex.3.3 - preorder category on a set
   ∴ f ∘ 1_a = (a,b)∘(a,a) = (a,b) = f
   ∴ 1_b ∘ f = (b,b)∘(a,b) = (a,b) = f
 ```
-ex.3.4 - inclusion category on a powerset
+ex.3.0.4. inclusion category on a powerset
 ```py
 † S in obj(Set)
 † ⊆ is relation
@@ -746,7 +746,7 @@ ex.3.4 - inclusion category on a powerset
 ⊦ id_composit:
   ?
 ```
-ex.3.5 - slice category (abstract)
+ex.3.0.5. slice category (abstract)
 ```py
 † 𝓒 in Cat
 † A in obj(𝓒)
@@ -763,7 +763,7 @@ commuting as below.
 ⊦ associative: ?
 ⊦ id_composit: ?
 ```
-ex.3.6 - slice category (concrete)
+ex.3.0.6. slice category (concrete)
 ```py
 † 𝓒 in Cat
 † A in obj(𝓒) | A = 3
@@ -779,7 +779,7 @@ ex.3.6 - slice category (concrete)
 ⊦ associative: ?
 ⊦ id_composit: ?
 ```
-ex.3.6.BONUS - slice category (matrix)
+ex.3.6.0.BONUS. slice category (matrix)
 ```py
 † 𝓒 = the subcategory of Vect_ℝ consisting of finite-dimensional vector spaces
 † ℝ³ in obj(𝓒)   # the chosen slicing object
@@ -799,7 +799,7 @@ ex.3.6.BONUS - slice category (matrix)
 ⊦ associative: ?
 ⊦ id_composit: ?
 ```
-ex.3.7 - coslice category (abstract)
+ex.3.0.7. coslice category (abstract)
 ```py
 † 𝓒 in Cat
 † A in obj(𝓒)
@@ -815,7 +815,7 @@ ex.3.7 - coslice category (abstract)
 ⊦ associative: ?
 ⊦ id_composit: ?
 ```
-ex.3.8 - coslice category (concrete)
+ex.3.0.8. coslice category (concrete)
 ```py
 † Set
 † {*} in obj(Set) | |{*}| = 1
@@ -837,7 +837,7 @@ ex.3.8 - coslice category (concrete)
 ⊦ associative: ?
 ⊦ id_composit: ?
 ```
-ex.3.8.BONUS - coslice category (matrix)
+ex.3.8.0.BONUS. coslice category (matrix)
 ```py
 † 𝓒 = the subcategory of Vect_ℝ consisting of finite-dimensional vector spaces
 † ℝ³ in obj(𝓒)   # the chosen slicing object
@@ -858,7 +858,7 @@ ex.3.8.BONUS - coslice category (matrix)
 ⊦ associative: ?
 ⊦ id_composit: ?
 ```
-ex.3.9 - bislice category
+ex.3.0.9. bislice category
 ```py
 † 𝓒 in Cat
   | A in obj(𝓒)
@@ -877,7 +877,7 @@ ex.3.9 - bislice category
 ⊦ associative: ?
 ⊦ id_composit: ?
 ```
-ex.3.9.BONUS - bicoslice category
+ex.3.9.0.BONUS. bicoslice category
 ```py
 † 𝓒 in Cat
   | A in obj(𝓒)
@@ -896,7 +896,7 @@ ex.3.9.BONUS - bicoslice category
 ⊦ associative: ?
 ⊦ id_composit: ?
 ```
-ex.3.10 - fibered bislice category
+ex.3.0.10. fibered bislice category
 ```py
 † 𝓒 in Cat
   | A in obj(𝓒)
@@ -919,7 +919,7 @@ ex.3.10 - fibered bislice category
 ⊦ associative: ?
 ⊦ id_composit: ?
 ```
-ex.3.10 - fibered bicoslice category
+ex.3.0.11. fibered bicoslice category
 ```py
 † 𝓒 in Cat
   | A in obj(𝓒)
@@ -1937,44 +1937,156 @@ The ‘multiplication table’ of a group is an array compiling the results of a
 
 ### 1.7. Prove Corollary 1.11.
 
+```py
+† g ∈ G, ∃(n ∈ ℕ), g^n = e
+† N ∈ ℤ
+⊦ gᴺ = e ⇔ ∃(k ∈ ℕ) |g| | N
+  ∵ lemma 1.10
+  ∴ gⁿ = e ⇒ ∃(k ∈ ℕ), n = k·|g| # n is multiple of |g|
+  † g^|g| = e
+  ∴ g^n = g^|g|k = (g^|g|)^k = e^k = e
+  ∴ g^n = e
+```
+
 
 
 ### 1.8. Let `G` be a finite group, with exactly one element `f` of order `2`. Prove that `∏_{g∈G} g = f`. [4.16]
+
+```py
+† G in Grp = { f }
+† f ∈ G, f^2 = e
+⊦ ∏_{g∈G} g = f
+  ∷ ∏_{g∈G}^2 = (∏_{g∈G} g)·(∏_{g∈G} g⁻¹) = e
+  ∴ ∏_{g∈G} g = f
+```
 
 
 
 ### 1.9. Let `G` be a finite group, of order `n`, and let `m` be the number of elements `g ∈ G` of order exactly `2`. Prove that `n − m` is odd. Deduce that if `n` is even then `G` necessarily contains elements of order `2`.
 
+```py
+
+```
+
 
 
 ### 1.10. Suppose the order of `g` is odd. What can you say about the order of `g²` ?
+
+```py
+† |g| = 2k+1
+∴ g^|g| = e ⇒ (g^2)^|g| = g^(2·|g|) = (g^|g|)^2 = e^2 = e
+∵ Corollary 1.11
+∴ (g^2)^|g| = (g^2)^(2k+1) = e ⇔ ∃(l ∈ ℕ), |g| = 2k+1 = l|g^2|
+∴ |g| is odd ⇒ (l is odd) and (|g^2| is odd)
+```
 
 
 
 ### 1.11. Prove that for all `g`, `h` in a group `G`, ` |gh| = |hg| `. (Hint: prove that `|aga⁻¹| = |g|` for all `a`, `g` in `G`.)
 
+```py
+⊦ |g·h| = |h·g|
+  ⊦ |a·g·a⁻¹| = |g|
+    ⊦ (a·g·a⁻¹)^|g| = e
+      ∷ (a·g·a⁻¹)^|g|
+      = (a·g·a⁻¹)·(a·g·a⁻¹)·…·(a·g·a⁻¹)
+      = a·g·(a⁻¹·a)·g·(a⁻¹·a)·…·g·a⁻¹
+      = a·g·g·…·g·a⁻¹
+      = a·g^|g|·a⁻¹
+      = a·e·a⁻¹
+      = a·a⁻¹
+      = e
+      ∴ (a·g·a⁻¹)^|g|
+    ∴ (a·g·a⁻¹)^|a·g·a⁻¹| = e
+    ⇒ (a·g·a⁻¹)^|a·g·a⁻¹| = a·g^|a·g·a⁻¹|·a⁻¹
+    ⇒ a·g^|a·g·a⁻¹|·a⁻¹ = e
+    ⇒ a⁻¹·a·g^|a·g·a⁻¹|·a⁻¹·a = e
+    ⇒ g^|a·g·a⁻¹| = e
+    ∵ Lemma 1.10
+    ∴ |g| is a divisor of |a·g·a⁻¹|
+  ∴ |a·g·a⁻¹| = |g|
+```
+
 
 
 ### 1.12. In the group of invertible 2×2 matrices, consider the matrices below. Verify that `|g| = 4`, `|h| = 3`, and `|gh| = ∞`. [§1.6]
 
-    g = ( 0 −1 )
-        ( 1  0 )
-    h = ( 0  1 )
-        (−1 −1 )
-
+```
+    g = ⎡ 0 −1 ⎤ → ⎡ ⎤
+        ⎣+1  0 ⎦   ⎣ ⎦
+```
+```
+    h = ⎡ 0 +1 ⎤ → ⎡ ⎤
+        ⎣−1 −1 ⎦   ⎣ ⎦
+```
 
 
 ### 1.13. Give an example showing that `|gh|` is not necessarily equal to `lcm(|g|, |h|)`, even if `g` and `h` commute. [§1.6, 1.14]
+
+```py
+# basic example:
+given the previous exercise:
+† |g| = 4
+† |h| = 3
+† |gh| = ∞
+∴ lcm(|g|,|h|) = lcm(4,3) = 12 ≠ ∞
+# commuting example: finite field modulo 6
+?
+```
 
 
 
 ### 1.14. As a counterpoint to Exercise 1.13, prove that if g and h commute, and `gcd(|g|, |h|) = 1`, then `|gh| = |g| |h|`. (Hint: let `N = |gh|`; then `gᴺ = (h⁻¹)ᴺ` . What can you say about this element?) [§1.6, 1.15, §IV.2.5]
 
+```py
+∷ let (N ∈ ℕ) = |gh|
+∷ ∀(x ∈ G), xᴺ = e ⇔ e = (x⁻¹)ᴺ
+∴ |x| = |x⁻¹|
+∵ gcd(|g|,|h|) = 1
+∴ |g|·|h| = lcm(|g|,|h|) · gcd(|g|,|h|)
+∴ |g|·|h| = lcm(|g|,|h|) · 1
+∴ |g|·|h| = lcm(|g|,|h|)
+
+∷ N = |gh|
+∵ (g·h)ᴺ = e
+∵ g·h = h·g # g and h commute
+∴ (g·h)ᴺ·(h⁻¹)ᴺ = gᴺ·hᴺ·(h⁻¹)ᴺ # multiply on both sides by (h⁻¹)ᴺ
+  = gᴺ·(h·h⁻¹)ᴺ
+  = gᴺ
+  = e·(h⁻¹)ᴺ
+  = (h⁻¹)ᴺ
+∴ gᴺ = (h⁻¹)ᴺ = f
+
+∷ f^|g| = (gᴺ)^|g| = g^(N·|g|) = e
+∷ f^|h| = ((h⁻¹)ᴺ)^|h| = ((h⁻¹)^|h|)ᴺ = (h⁻¹)^|h| = h^|h| = e
+∷ let (M ∈ ℕ) = |gᴺ| = |(h⁻¹)ᴺ|
+∴ ∃(k ∈ ℕ), |g| = k·M # M divides |g|
+∴ ∃(k ∈ ℕ), |h| = k·M # M divides |h|
+∵ |g| and |h| is coprime
+∴ M = 1
+∴ f = gᴺ = e
+∷ let (G ∈ ℕ) = |g|
+∷ let (H ∈ ℕ) = |h| = |h⁻¹|
+∴ ∃(k ∈ ℕ), N = k·H # N is multiple of H
+∵ |g| and |h| is coprime
+∴ |g·h| is multiple of |g|·|h|
+∵ g·h = h·g ⇒ |g·h| divides lcm(|g|,|h|)
+∴ N = |g·h| = |g|·|h|
+```
 
 
 ### 1.15. Let `G` be a commutative group, and let `g ∈ G` be an element of maximal finite order: that is, such that if `h ∈ G` has finite order then `|h| ≤ |g|`. Prove that in fact if `h` has finite order in `G` then `|h|` divides `|g|`. (Hint: argue by contradiction. If `|h|` is finite but does not divide `|g|`, then there is a prime integer `p` such that `|g| = pᵐr`, `|h| = pⁿs`, with `r` and `s` relatively prime to `p`, and `m < n`. Use Exercise 1.14 to compute the order of `gᵖ^ᵐ hˢ`.) [§2.1, 4.11, IV.6.15]
 
-
+```py
+† G is commutative group
+∷ (g ∈ G), (h ∈ G), |h| ≤ |g|
+⊦ (|h| ∈ ℕ) ⇒ ∃(k ∈ ℕ), k·|h| = |g| # if h has finite order, |h| divides |g|
+  ∷ (|h| ∈ ℕ) ∧ ∄(k ∈ ℕ), k·|h| = |g|
+  ⇒ ∃(p ∈ ℕₚ), ∀(m,n ∈ ℕ, m < n),
+    (r ∈ ℕ, gcd(r,p) = 1), # r is relatively prime to p
+    (s ∈ ℕ, gcd(s,p) = 1), # s is relatively prime to p
+    |g| = pᵐr ∧ |h| = pⁿs
+```
 
 
 ---
