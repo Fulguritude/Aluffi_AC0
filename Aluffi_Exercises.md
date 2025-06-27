@@ -95,20 +95,20 @@ the set of triplets of naturals that together sum to 10
 - [*codomain*](https://en.wikipedia.org/wiki/Codomain): a set into which all of the output of the function is constrained to fall. It is sometimes denoted by `cod(f)`.
 - [*image*/*preimage*](https://en.wikipedia.org/wiki/Image_(mathematics)): for a function 𝑓 : 𝑋 → 𝑌, the image of an input value 𝑥 is the single output value produced by 𝑓 when passed 𝑥. The preimage of an output value 𝑦 is the set of input values that produce 𝑦.
 - [*cartesian product*](https://en.wikipedia.org/wiki/Cartesian_product): An operation that takes two sets and produces every possible ordered pair of elements from those two sets.
-  `∀(A,B in Set) | A × B = { (a,b) | (a ∈ A) ∧ (b ∈ B) }`
+  `∀(A,B in Set), A × B = { a,b | (a ∈ A) ∧ (b ∈ B) }`
 - [*disjoint*](https://en.wikipedia.org/wiki/Disjoint_sets): two sets are said to be disjoint if their intersection is empty.
 - [*relation*](https://en.wikipedia.org/wiki/Binary_relation): a binary logical operator which is a set of ordered pairs from two sets.
 - [*reflexive*](https://en.wikipedia.org/wiki/Reflexive_relation): property of a relation that it relates each element to itself.
-  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x ∈ X) | x ○ x`
+  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x ∈ X), x ○ x`
 - [*irreflexive*](https://en.wikipedia.org/wiki/Reflexive_relation#Irreflexive_relation): property of a relation that it never relates an element to itself.
-  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x ∈ X) | ¬(x ○ x)`
+  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x ∈ X), ¬(x ○ x)`
 - [*symmetric*](https://en.wikipedia.org/wiki/Symmetric_relation): property of a relation that the left-right order is interchangeable.
-  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x,y ∈ X) | x ○ y ⇔ y ○ x`
+  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x,y ∈ X), x ○ y ⇔ y ○ x`
 - [*antisymmetric*](https://en.wikipedia.org/wiki/Antisymmetric_relation): property of a relation that two distinct elements cannot be symmetrically related.
-  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x,y ∈ X) | (x ○ y) ∧ (y ○ x) ⇒ (x = y)`
-  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x,y ∈ X) | (x ≠ y) ⇒ ¬(x ○ y) ∨ ¬(y ○ x)`
+  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x,y ∈ X), (x ○ y) ∧ (y ○ x) ⇒ (x = y)`
+  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x,y ∈ X), (x ≠ y) ⇒ ¬(x ○ y) ∨ ¬(y ○ x)`
 - [*transitive*](https://en.wikipedia.org/wiki/Transitive_relation): property of a relation that the relationship can be applied to between two elements indirectly, via an intermediary.
-  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x,y,z ∈ X) | ((x ○ y) ∧ (y ○ z)) ⇒ (x ○ z)`
+  `∀(X in Set) ∀(○ ⊆ (X × X)) ∀(x,y,z ∈ X), ((x ○ y) ∧ (y ○ z)) ⇒ (x ○ z)`
 - [*equivalence relation*](https://en.wikipedia.org/wiki/Equivalence_relation): a binary relation that is reflexive, symmetric and transitive.
 - [*equivalence class*](https://en.wikipedia.org/wiki/Equivalence_class): Each equivalence relation provides a partition of the underlying set into disjoint equivalence classes. Two elements of the given set are equivalent to each other if and only if they belong to the same equivalence class.
 
@@ -164,9 +164,9 @@ Does this mean there are 5 equivalence classes though ? idk
 ### 1.1.5. Give an example of a relation that is reflexive and symmetric, but not transitive. What happens if you attempt to use this relation to define a partition on the set? (Hint: thinking about the second question will help you answer the first one.)
 
 Let's imagine a "similarity relation" we can notate with `≈`; we can imagine it to work like a looser version of equality (say for example, if an integer is only 1 away, then it counts as similar).
-- reflexive: `∀(a ∈ S) | a ≈ a` (an element is always "similar" to itself)
-- symmetric: `∀(a ∈ S) ∀(b ∈ S) | a ≈ b ⇒ b ≈ a` ("similarity" goes both ways)
-- not transitive: `∀(a ∈ S) ∀(b ∈ S) ∀(c ∈ S) | (a ≈ b ∧ b ≈ c) ⤃ a ≈ c` (just because `a ≈ b` and `b ≈ c` are similar, that doesn't mean `a ≈ c` works, because it is possible for the "similarity gap" to be too large to qualify as "similar").
+- reflexive: `∀(a ∈ S), a ≈ a` (an element is always "similar" to itself)
+- symmetric: `∀(a ∈ S) ∀(b ∈ S), a ≈ b ⇒ b ≈ a` ("similarity" goes both ways)
+- not transitive: `∀(a ∈ S) ∀(b ∈ S) ∀(c ∈ S), (a ≈ b ∧ b ≈ c) ⤃ a ≈ c` (just because `a ≈ b` and `b ≈ c` are similar, that doesn't mean `a ≈ c` works, because it is possible for the "similarity gap" to be too large to qualify as "similar").
 
 If we use this to define a partition `P` on some set `S`:
 `S/≈ := P≈`, there is ambiguity as to which element should go into which equivalence class.
@@ -183,7 +183,7 @@ Let's prove that `~` such that `a ~ b ⇔ (b − a) ∈ ℤ` is an equivalence r
 ⇔ 0 ∈ ℤ
 ⇔ ⊤
 ```
-- symmetric: `∀(a ∈ ℝ) ∀(b ∈ ℝ) | a ~ b ⇒ b ~ a` because:
+- symmetric: `∀(a ∈ ℝ) ∀(b ∈ ℝ), a ~ b ⇒ b ~ a` because:
 ```
 ⊦ a ~ b ⇔ b ~ a
 ⇒ (b−a) ∈ ℤ ⇔ (a−b) ∈ ℤ
@@ -193,7 +193,7 @@ Let's prove that `~` such that `a ~ b ⇔ (b − a) ∈ ℤ` is an equivalence r
 ⊦ b ~ a ⇔ (a − b) ∈ ℤ
 ∴ ⊤
 ```
-- transitive: `∀(a ∈ ℝ) ∀(b ∈ ℝ) ∀(c ∈ ℝ) | (a ~ b ∧ b ~ c) ⇒ a ~ c` because:
+- transitive: `∀(a ∈ ℝ) ∀(b ∈ ℝ) ∀(c ∈ ℝ), (a ~ b ∧ b ~ c) ⇒ a ~ c` because:
 ```
 ⊦ a ~ b ⇔ (b − a) ∈ ℤ
 ⊦ b ~ c ⇔ (c − b) ∈ ℤ
@@ -208,14 +208,14 @@ Let's prove that `~` such that `a ~ b ⇔ (b − a) ∈ ℤ` is an equivalence r
 As such, the quotient `ℝ/~` is described by "2 real numbers are related if their fractional part is identical"
 
 Let's prove that `≈` such that `(a₁,a₂) ≈ (b₁,b₂) ⇔ (b₁ − a₁) ∈ ℤ ∧ (b₂ − a₂) ∈ ℤ` is an equivalence relation:
-- reflexive: `∀(a ∈ ℝ²) | a ≈ a` because:
+- reflexive: `∀(a ∈ ℝ²), a ≈ a` because:
 ```
 ⊦ a ≈ a
 ⇒ (a₁ − a₁) ∈ ℤ ∧ (a₂ − a₂) ∈ ℤ
 ⇒ 0 ∈ ℤ ∧ 0 ∈ ℤ
 ∴ ⊤
 ```
-- symmetric: `∀(a ∈ ℝ²) ∀(b ∈ ℝ²) | a ≈ b ⇒ b ≈ a` because:
+- symmetric: `∀(a ∈ ℝ²) ∀(b ∈ ℝ²), a ≈ b ⇒ b ≈ a` because:
 ```
 ⊦ (a₁,a₂)≈(b₁,b₂) ⇔ (b₁−a₁) ∈ ℤ ∧ (b₂−a₂) ∈ ℤ
 ⊦ (b₁,b₂)≈(a₁,a₂) ⇔ (a₁−b₁) ∈ ℤ ∧ (a₂−b₂) ∈ ℤ
@@ -226,7 +226,7 @@ Let's prove that `≈` such that `(a₁,a₂) ≈ (b₁,b₂) ⇔ (b₁ − a₁
 ⇒ a≈b ⇔ b≈a
 ∴ ⊤
 ```
-- transitive: `∀(a ∈ ℝ²) ∀(b ∈ ℝ²) ∀(c ∈ ℝ²) | (a ≈ b ∧ b ≈ c) ⇒ a ≈ c` because:
+- transitive: `∀(a ∈ ℝ²) ∀(b ∈ ℝ²) ∀(c ∈ ℝ²), (a ≈ b ∧ b ≈ c) ⇒ a ≈ c` because:
 ```
 ⊦ (a₁,a₂)≈(b₁,b₂) ⇔ (b₁−a₁) ∈ ℤ ∧ (b₂−a₂) ∈ ℤ
 ⊦ (b₁,b₂)≈(c₁,c₂) ⇔ (c₁−b₁) ∈ ℤ ∧ (c₂−b₂) ∈ ℤ
@@ -250,11 +250,11 @@ As such, the quotient `ℝ/≈` is described by "2 real vectors are related if t
 ### 1.2.0. Lexicon
 
 - [*function*](https://en.wikipedia.org/wiki/Function_(mathematics)): A function on sets is a relation where any element of its domain has exactly one relation pair coming out of it.
-  `∀(A,B in Set) ∀(f ∈ (A → B)) ∀(a ∈ A) ⇒ ∃!(b ∈ B) | f(a) = b`
+  `∀(A,B in Set) ∀(f ∈ (A → B)) ∀(a ∈ A) ⇒ ∃!(b ∈ B), f(a) = b`
 - [*composition*](https://en.wikipedia.org/wiki/Function_composition): A operation that takes two functions, and creates a new function which is the application of one function after the other.
-  `∀(A,B,C in Set) ∀(f ∈ A→B) ∀(g ∈ B→C) | (g ∘ f)(x) = g(f(x))`
+  `∀(A,B,C in Set) ∀(f ∈ A→B) ∀(g ∈ B→C), (g ∘ f)(x) = g(f(x))`
 - [*identity*](https://en.wikipedia.org/wiki/Identity_(mathematics)): A morphism that relates any input element to the same (identical) output element.
-  `∀(A in Set) ∀(id ∈ (A → A)) ∀(a ∈ A) | id(a) = a`
+  `∀(A in Set) ∀(id ∈ (A → A)) ∀(a ∈ A), id(a) = a`
 - [*left-inverse*|*post-inverse*](https://en.wikipedia.org/wiki/Inverse_function#Left_inverses): A morphism which, when applied after, composes with the one before it to give the identity on its codomain
   In Set: `∀(f ∈ A→B) (f is injective) ⇔ (f has left-inverse)`
   In general: `g ∈ hom(B, A) is a post-inverse ⇔ ∃f ∈ hom(A, B) such that g ∘ f = id_A`
@@ -264,7 +264,7 @@ As such, the quotient `ℝ/≈` is described by "2 real vectors are related if t
 - [*injective*](https://en.wikipedia.org/wiki/Injective_function): each and every input of the function is mapped to a different output
   `∀(f : A→B) (f is injective) ⇔ ∀(a₁,a₂ ∈ A) (a₁ = a₂ ⇒ f(a₁) = f(a₂))`
 - [*surjective*](https://en.wikipedia.org/wiki/Surjective_function): every element of the function's codomain is mapped to by some input
-  `∀(f : A→B) (f is surjective) ⇔ (∀b ∈ B) (∃a ∈ A) | (b = f(a))`
+  `∀(f : A→B) (f is surjective) ⇔ (∀b ∈ B) (∃a ∈ A), (b = f(a))`
 - [*bijective*](https://en.wikipedia.org/wiki/Bijection): the function is both injective and surjective, each and every element from domain and codomain are mapped one-to-one
   `∀(f ∈ A→B) (f is bijective) ⇔ (f has two-sided inverse)`
 - [*monomorphism*](https://en.wikipedia.org/wiki/Monomorphism): is a morphism which when applied in parallel after a pair of distinct morphisms, cannot make the overall two operations equal
@@ -334,7 +334,7 @@ g(f(a')) = id_A(a') = a' ≠ a" = id_A(a") = g(f(a"))
 ```
 ##### 1.2.2.2.⇐. assume `f` is surjective:
 ```
-∷ ∀(b ∈ B) ∃(a ∈ A) | b = f(a)
+∷ ∀(b ∈ B) ∃(a ∈ A), b = f(a)
 g ∈ B → A
 
 ???
@@ -364,7 +364,7 @@ therefore `f⁻¹` is injective
 ##### 1.2.3.1.b) show that `f⁻¹` is surjective
 
 ```py
-∷ ∃(g ∈ B → A) | g∘f = id_A
+∷ ∃(g ∈ B → A), g∘f = id_A
 ∴ ∀(a ∈ A) ∃(b ∈ B)     f(a) = b     # by definition of a function
 ∴ ∀(a ∈ A) ∃(b ∈ B)  g(f(a)) = g(b)  # by applying g to both sides
 ∴ ∀(a ∈ A) ∃(b ∈ B)        a = g(b)  # by cancellation
@@ -376,9 +376,8 @@ thus `a` has an antecedent by `g`, which is `b`, so `g` is surjective
 Let `f ∈ (A → B)` and `g ∈ (B → C)`, both bijective (hence with inverses in their respective function spaces).
 Let
 ```
-∷ h ∈ (A → C) | h = g ∘ f
-∷ h⁻¹ ∈ (C → A)
-h⁻¹ = f⁻¹ ∘ g⁻¹
+† ∀(h ∈ A → C), h = g ∘ f
+† ∀(h⁻¹ ∈ C → A), h⁻¹ = f⁻¹ ∘ g⁻¹
 ```
 We have:
 ```
@@ -416,7 +415,7 @@ Therefore `h` and `h⁻¹` are two-sided inverses of each other, and thus biject
 
 monomorphism definition:
 ```
-∀(A,B,Z) ∀(f ∈ A → B) ∀(α',α" ∈ Z → A) | f∘α' = f∘α" ⇒ α' = α"
+∀(A,B,Z) ∀(f ∈ A → B) ∀(α',α" ∈ Z → A), f∘α' = f∘α" ⇒ α' = α"
 ```
 
 ##### 1.2.5.1.⇒. assuming that `f` is injective, prove that it is a monomorphism.
@@ -443,13 +442,13 @@ This has to be true for all `α'`, `α"`, that is, for all choices of distinct `
 
 epimorphism definition:
 ```
-∀(A,B) ∀(f ∈ A → B) ∀(g₁,g₂ ∈ B → A) | g₁∘f = g₂∘f ⇒ g₁ = g₂
+∀(A,B) ∀(f ∈ A → B) ∀(g₁,g₂ ∈ B → A), g₁∘f = g₂∘f ⇒ g₁ = g₂
 ```
 
 ##### 1.2.5.2.⇒. assuming that `f` is surjective, prove that it is an epimorphism.
 
 ```py
-† ∃(g ∈ B → A) | f ∘ g = id_B # f is surjective, so it has pre-inverse
+† ∃(g ∈ B → A), f ∘ g = id_B # f is surjective, so it has pre-inverse
 ∷ ∀(Z) ∀((h₁,h₂) ∈ B → Z)
 ∷  h₁ ∘ f      = h₂ ∘ f
 ⇒ (h₁ ∘ f) ∘ g = (h₂ ∘ f) ∘ g
@@ -463,10 +462,10 @@ epimorphism definition:
 
 ```py
 † ∀(A,B) ∀(f ∈ A → B)
-† ∀(g₁,g₂ ∈ B → A) | g₁∘f = g₂∘f ⇒ g₁ = g₂ # f is epimorphism
+† ∀(g₁,g₂ ∈ B → A), g₁∘f = g₂∘f ⇒ g₁ = g₂ # f is epimorphism
 
 ∷ f is not surjection
-⇒ ∃(x ∈ B) | x ∉ f(A)
+⇒ ∃(x ∈ B), x ∉ f(A)
 
 ∷ ∀(g₁ ∈ B → A) ∀(g₂ ∈ B → A)
   | g₁∘f = g₂∘f
@@ -488,7 +487,7 @@ epimorphism definition:
 ∴ f is not epimorphism
 ※ contradiction
 
-∴ ∀(b ∈ B) ∃(a ∈ A) | b = f(a) # f is surjective
+∴ ∀(b ∈ B) ∃(a ∈ A), b = f(a) # f is surjective
 ```
 
 
@@ -497,7 +496,7 @@ epimorphism definition:
 
 ```
 † ∀(f ∈ A → B)
-∷ ∀(f^ ∈ A → (A×B)) | f^ = (a ⟼ (a,f(a)))
+∷ ∀(f^ ∈ A → A×B), f^ = (a ⟼ (a,f(a)))
 ⇒ f^(A) = Γ_f
 ⇒ π_A ∘ f^ = (a ⟼ a) = id_A
 ∴ f^ is a pre-inverse
@@ -519,7 +518,7 @@ f^| v       v
 ```py
 † ∀(f ∈ A → B)
 ∷ Γ_f := { (a,b) ∈ A×B | f(a) = b } ⊆ A×B # the graph contains all pairs
-∵ ∀(a ∈ A) ∃!(b ∈ B) | f(a) = b # since there is only one output b for each a
+∵ ∀(a ∈ A) ∃!(b ∈ B), f(a) = b # since there is only one output b for each a
 ⇒ |Γ_f| = |A| # so there are as many elements (a,b) as (a)
 ∴ Γ_f ≅ { a ∈ A }
 ∴ Γ_f ≅ A
@@ -535,7 +534,7 @@ f^| v       v
 ∴ Z = Γ_f = f^(A)
 ∴ Y = A
 
-∷ f¯ ∈ (A → Γ_f) | f¯ = (a ⟼ f^(a))
+∷ ∃(f¯ ∈ A → Γ_f), f¯ = (a ⟼ f^(a))
 ∴ f¯ is injective	∵ (f^ is injective) ∧ (Z ⊆ A×B) 
 ∴ f¯ is surjective	∵ (A = im_f)
 ∴ f¯ is bijective
@@ -547,7 +546,7 @@ f^| v       v
 ### 1.2.8. Describe as explicitly as you can all terms in the canonical decomposition (cf. §2.8) of the function `ℝ → ℂ` defined by `r ⟼ e^(2·π·i·r)`. (This exercise matches one assigned previously, which one?)
 
 ```py
-† ∀(f ∈ ℝ → ℂ) | f(r) = e^(2·π·i·r)
+† ∀(f ∈ ℝ → ℂ), f(r) = e^(2·π·i·r)
 
   # canonical projection
 	ℝ → S¹ ⊆ [0,1[
@@ -572,20 +571,20 @@ This matches exercise 1.6 done previously.
 † A₁ ∩ B₁ = ∅
 † A₂ ∩ B₂ = ∅
 
-∷ ∃(f_A : A₁ → A₂) | f_A is bijective
-∷ ∃(f_B : B₁ → B₂) | f_B is bijective
+∷ ∃(f_A : A₁ → A₂), f_A is bijective
+∷ ∃(f_B : B₁ → B₂), f_B is bijective
 
 ∷ ∃(f : A₁∪B₁ → A₂∪B₂)
   | ∀(a ∈ A₁)  f(a) = f_A(a)
   | ∀(b ∈ B₁)  f(b) = f_B(b)
 ∵ A₁ ∩ B₁ = ∅
-∴ ∀(x ∈ A₁∪B₁) ∃!(y ∈ A₂∪B₂) | f(x) = y
+∴ ∀(x ∈ A₁∪B₁) ∃!(y ∈ A₂∪B₂), f(x) = y
 
 ∷ ∃(g : A₂∪B₂ → A₁∪B₁)
   | ∀(a ∈ A₂)  g(a) = f⁻¹_A(a)
   | ∀(b ∈ B₂)  g(b) = f⁻¹_B(b)
 ∵ A₂ ∩ B₂ = ∅
-∴ ∀(x ∈ A₂∪B₂) ∃!(y ∈ A₁∪B₁) | f(x) = y
+∴ ∀(x ∈ A₂∪B₂) ∃!(y ∈ A₁∪B₁), f(x) = y
 
 ∴ g ∘ f = id_A₁ ∪ B₁
 ∴ f ∘ g = id_A₂ ∪ B₂
@@ -613,12 +612,12 @@ This matches exercise 1.6 done previously.
 ### 1.2.10. Show that if `A` and `B` are finite sets, then `|B^A| = |B|^|A|`. [§2.1, 2.11, §II.4.1]
 
 ``` py
-† ∃(n_A ∈ ℕ) | n_A = |A| # A is a finite set
-† ∃(n_B ∈ ℕ) | n_B = |B| # B is a finite set
+† ∃(n_A ∈ ℕ), n_A = |A| # A is a finite set
+† ∃(n_B ∈ ℕ), n_B = |B| # B is a finite set
 ∴ |B|^|A| = n_B ^ n_A
 
 † B^A = A → B   # B^A is the set of all functions from A to B
-∵ ∀(f ∈ A → B) ∀(a ∈ A) ∃!(b ∈ B) | f(a) = b   # f is a function
+∵ ∀(f ∈ A → B) ∀(a ∈ A) ∃!(b ∈ B), f(a) = b   # f is a function
 ∴ we have n_B possible outputs, each of which is reached from n_A possible inputs
 ∴ |B^A| = n_B ^ n_A
 
@@ -630,11 +629,11 @@ This matches exercise 1.6 done previously.
 ### 1.2.11. In view of Exercise 2.10, it is not unreasonable to use `2^A` to denote the set of functions from an arbitrary set `A` to a set with 2 elements (say `{0,1}`). Prove that there is a bijection between `2^A` and the *power set* of `A` (cf. §1.2). [§1.2, III.2.3]
 
 ```py
-† ∃(n_A ∈ ℕ) | n_A = |A| # A is a finite set
+† ∃(n_A ∈ ℕ), n_A = |A| # A is a finite set
 † 𝔹 = {0,1} # we denote 𝔹 the set with only two elements
 
 ∷ ∀(f ∈ A → 𝔹)
-∴ ∀(a ∈ A) ∃!(b ∈ 𝔹) | f(a) = b   # f is a function
+∴ ∀(a ∈ A) ∃!(b ∈ 𝔹), f(a) = b   # f is a function
 ∴ (f(a) = 0) ∨ (f(a) = 1)   # f only has two possible results
 ∴ f maps n_A inputs to 2 outputs so there are 2^n_A unique variations of f
 ∴ |𝔹^A| = 2^n_A = |𝓟(A)|
@@ -705,18 +704,18 @@ ex.3.0.3. preorder category on a set
 ```py
 † S in obj(Set)
 † ~ is relation
-  | ∀a | a ~ a                           # ~ is reflexive
-  | ∀(a,b,c) | a ~ b ∧ b ~ c ⇒ a ~ c     # ~ is transitive
+  | ∀(a), a ~ a                           # ~ is reflexive
+  | ∀(a,b,c), a ~ b ∧ b ~ c ⇒ a ~ c     # ~ is transitive
 
 ∷ let Ṡ in Cat
 ∷ obj(Ṡ) = ∀(a ∈ S)
 ∷ hom_Ṡ(a,b) : if (a ~ b) then {(a,b)} else ∅
 
 ⊦ hasidentity:
-  ∵ ∀(a ∈ S) | a ~ a
+  ∵ ∀(a ∈ S), a ~ a
   ∴ 1_a = (a,a) ∈ hom_Ṡ(a,a)   
 ⊦ composition:
-  ∵ ∀(a,b,c) | a~b ∧ b~c ⇒ a ~ c
+  ∵ ∀(a,b,c), a~b ∧ b~c ⇒ a ~ c
   ∴ (g∘f := (a,c) ∈ hom_Ṡ(A,C))
 ⊦ associative:
   ∵ f=(a,b) ∧ g=(b,c) ∧ h=(c,d) ⇒ g∘f=(a,c) ∧ h∘g=(b,d)
@@ -766,13 +765,13 @@ commuting as below.
 ex.3.0.6. slice category (concrete)
 ```py
 † 𝓒 in Cat
-† A in obj(𝓒) | A = 3
+† A in obj(𝓒), A = 3
 † S = ℤ
 † ~ = ≤
 
 ∷ let 𝓒_{3} in Cat
 ∷ obj(𝓒_{3}) = (n,3) ∈ ℤ×ℤ  ∀(n ∈ ℤ | n ≤ 3)
-∷ hom_𝓒_{3}(m,n) = ∀(m) ∀(n) | ((m,3) → (n,3))
+∷ hom_𝓒_{3}(m,n) = ∀(m) ∀(n), ((m,3) → (n,3))
 
 ⊦ hasidentity: ?
 ⊦ composition: ?
@@ -790,8 +789,8 @@ ex.3.6.0.BONUS. slice category (matrix)
 ∷ let 𝓒_{ℝ³} in Cat
 ∷ obj(𝓒_{ℝ³}) = elements of the form A_{ℝ³} (or (ℝᴺ,A)) containing the same data as A, but existing in 𝓒_{ℝ³}
 ∷ hom_𝓒_{ℝ³}(A_{ℝ³},B_{ℝ³}) :
-   ∀(C in hom_𝓒(ℝ³ˣᴺ, ℝ³ˣᴹ) | (A = B·C))
-   ∃(σ in hom_𝓒_{ℝ³}(A_{ℝ³},B_{ℝ³}) | σ(A_{ℝ³}) = B_{ℝ³})
+   ∀(C in hom_𝓒(ℝ³ˣᴺ, ℝ³ˣᴹ)), (A = B·C)
+   ∃(σ in hom_𝓒_{ℝ³}(A_{ℝ³},B_{ℝ³})), σ(A_{ℝ³}) = B_{ℝ³}
    with σ containing the same data as C
 
 ⊦ hasidentity: ?
@@ -818,7 +817,7 @@ ex.3.0.7. coslice category (abstract)
 ex.3.0.8. coslice category (concrete)
 ```py
 † Set
-† {*} in obj(Set) | |{*}| = 1
+† {*} in obj(Set), |{*}| = 1
 † S in obj(Set)
 † T in obj(Set)
 † f in hom_Set({*},S)
@@ -828,8 +827,8 @@ ex.3.0.8. coslice category (concrete)
 ∷ obj(Set^{*}) = elements of the for f^*, having the same
   data as some morphism f ∈ ({*} → S) in Set
 ∷ hom_{Set^{*}}(f^*,g^*) :
-   ∀(h in hom_Set(S, T) | (h·f = g)
-   ∃(σ in hom_{Set^{*}}(f^*,g^*) | σ(f^*) = g^*)
+   ∀(h in hom_Set(S, T)), (h·f = g)
+   ∃(σ in hom_{Set^{*}}(f^*,g^*)), σ(f^*) = g^*
    with σ containing the same data as h
 
 ⊦ hasidentity: ?
@@ -849,8 +848,8 @@ ex.3.8.0.BONUS. coslice category (matrix)
 ∷ obj(𝓒^{ℝ³}) = elements of the form A^{ℝ³} (or (ℝᴺ,A))
    containing the same data as A, but existing in 𝓒^{ℝ³}
 ∷ hom_{𝓒^{ℝ³}}(A^{ℝ³},B^{ℝ³}) :
-   ∀(C in hom_𝓒(ℝᴹˣ³, ℝᴺˣ³) | (A = C·B))
-   ∃(σ in hom_{𝓒^{ℝ³}}(B^{ℝ³},A^{ℝ³}) | σ(B^{ℝ³}) = A^{ℝ³})
+   ∀(C in hom_𝓒(ℝᴹˣ³, ℝᴺˣ³)), (A = C·B)
+   ∃(σ in hom_{𝓒^{ℝ³}}(B^{ℝ³},A^{ℝ³})), σ(B^{ℝ³}) = A^{ℝ³}
    with σ containing the same data as C
 
 ⊦ hasidentity: ?
@@ -974,8 +973,7 @@ ex.3.0.11. fibered bicoslice category
 ### 1.3.2. If `A` is a finite set, how large is `End_{Set}(A)`?
 
 ```py
-† A in Set
-  | ∃(n ∈ ℕ) |A| = n
+† A in Set, ∃(n ∈ ℕ) |A| = n
 
 ∵ End_Set(A) = hom_Set(A,A)
 ∴ |End_Set(A)| = |hom_Set(A,A)| = |A|^|A| = n ^ n # all the possible mappings of input-to-output within finite set A
@@ -1004,11 +1002,12 @@ ex.3.0.11. fibered bicoslice category
 ∷ hom_𝓩(a,b) = (a,b) if (a < b) else ∅
 
 ⊦ hasidentity:
-  ∵ ∀(a ∈ ℤ) ↯ (a < a)
-  ∴ ∄(1_a | (a,a) ∈ hom_𝓩(a,a))
+  ∵ ∀(a ∈ ℤ), (a < a)
+  ※ # cannot be strictly inferior to itself
+  ∴ ∄(1_a ∈ hom_𝓩(a,a)), (a,a)
   ※ # no identity function
 ⊦ composition:
-  ∵ ∀(a,b,c) | a<b ∧ b<c ⇒ a < c
+  ∵ ∀(a,b,c), a<b ∧ b<c ⇒ a < c
   ∴ (g∘f := (a,c) ∈ hom(A,C))
 ⊦ associative:
   ∵ f=(a,b) ∧ g=(b,c) ∧ h=(c,d) ⇒ g∘f=(a,c) ∧ h∘g=(b,d)
@@ -1023,8 +1022,8 @@ ex.3.0.11. fibered bicoslice category
 
 Well, `⊆` is a reflexive and transitive order relation:
 ```py
-⊦ ⊆ is reflexive:   ∀a | a ⊆ a                       
-⊦ ⊆ is transitive:  ∀(a,b,c) | (a ⊆ b) ∧ (b ⊆ c) ⇒ (a ⊆ c) 
+⊦ ⊆ is reflexive:   ∀(a), a ⊆ a                       
+⊦ ⊆ is transitive:  ∀(a,b,c), (a ⊆ b) ∧ (b ⊆ c) ⇒ (a ⊆ c) 
 ```
 So `⊆` is really just a concrete example of the abstract relation `~`.
 
@@ -1057,8 +1056,8 @@ So `⊆` is really just a concrete example of the abstract relation `~`.
 ∷ A in obj(𝓒)
 
 ∷ let 𝓒_A in Cat
-∷ obj(𝓒_A) = ∀(Z) in obj(𝓒) | hom_𝓒(A,Z)
-∷ hom_𝓒_A(Z₁,Z₂) = ∀(Z₁ in obj(𝓒)) ∀(Z₂ in obj(𝓒)) | (hom_𝓒(A,Z₁),hom_𝓒(A,Z₂))
+∷ obj(𝓒_A) = ∀(Z in obj(𝓒)), hom_𝓒(A,Z)
+∷ hom_𝓒_A(Z₁,Z₂) = ∀(Z₁ in obj(𝓒)) ∀(Z₂ in obj(𝓒)), (hom_𝓒(A,Z₁),hom_𝓒(A,Z₂))
 
 ⊦ hasidentity: ?
 ⊦ composition: ?
@@ -1091,7 +1090,7 @@ f ∘ g:
 ### 1.3.8. A subcategory 𝓒' of a category 𝓒 consists of a collection of objects of 𝓒, with morphisms `∀(A,B in obj(𝓒)), hom_𝓒(A,B) ⊆ hom_𝓒(A,B)`, such that identities and compositions in 𝓒 make 𝓒' into a category. A subcategory 𝓒' is full if `∀(A,B in obj(𝓒)), hom_𝓒(A,B) = hom_𝓒(A,B)`. Construct a category of infinite sets and explain how it may be viewed as a full subcategory of `Set`. [4.4, §VI.1.1, §VIII.1.3]
 
 ```py
-∷ ∃(InfSet | ∀(A in obj(Set) | ∄(n ∈ ℕ, |A| = n)))
+∷ ∃(InfSet, ∀(A in obj(Set)), ∄(n ∈ ℕ), |A| = n)
 ∴ InfSet is subcategory of Set
   ∵ (InfSet) inherits from (Set) all identity morphisms
   ∵ (InfSet) inherits from (Set) all composition rules
@@ -1119,10 +1118,10 @@ f ∘ g:
 
 A → Ω
 ⊦ subobject classifier :
-  ∷ ∃(𝔹 in obj(Set) | 𝔹 = {0,1})
-  ∴ ∀(B in obj(Set)) ∀(A in obj(Set) | A ⊆ B)
+  ∷ ∃(𝔹 in obj(Set)), 𝔹 = {0,1}
+  ∴ ∀(B in obj(Set)) ∀(A in obj(Set)), A ⊆ B
     ∃(f : B → 𝔹 | ∀(b ∈ B | f(b) = 1 ⇔ b ∈ A) else f(b) = 0)
-  ∵ 𝓟(S) = { ∃(f ∈ S → 𝔹) | ∀(a ∈ S) | f(a) = 1 }
+  ∵ 𝓟(S) = { ∃(f ∈ S → 𝔹), ∀(a ∈ S), f(a) = 1 }
   ∴ Ω = {0,1} = 𝔹
 ```
 
@@ -1214,7 +1213,7 @@ An isomorphism is a morphism which has both left-inverse and right-inverse.
 † ∀(A,B in obj(𝓒))
 † f ∈ hom_𝓒(A,B)
 
-∷ ∃g ∈ hom(B,A) | g∘f = id_A
+∷ ∃(g ∈ hom(B,A)), g∘f = id_A
 ∷ ∀(C) ∀(β₁,β₂ ∈ hom(B,C))
 ∷ β₁∘f = β₂∘f
   ⇒ (β₁∘f)∘g = (β₂∘f)∘g
@@ -1244,10 +1243,10 @@ ex: ℤ and ≤
 #### 1.4.4.1. Do this for monomorphisms.
 
 ```py
-† ∃𝓒 in Cat
+† ∃(𝓒 in Cat)
 † ∀(A,B,C,Z ∈ in obj(𝓒))
-∷ ∀(f ∈ hom_𝓒(A,B) | f is monomorphism)
-∷ ∀(g ∈ hom_𝓒(B,C) | g is monomorphism)
+∷ ∀(f ∈ hom_𝓒(A,B)), f is monomorphism
+∷ ∀(g ∈ hom_𝓒(B,C)), g is monomorphism
 ⊦ (g ∘ f) is monomorphism
   ∷ ∀(α₁ ∈ hom_𝓒(Z,A))
   ∷ ∀(α₂ ∈ hom_𝓒(Z,A))
@@ -1272,8 +1271,8 @@ ex: ℤ and ≤
 ```py
 † ∃𝓒 in Cat
 † ∀(A,B,C,Z ∈ in obj(𝓒))
-∷ ∀(f ∈ hom_𝓒(A,B) | f is epimorphism)
-∷ ∀(g ∈ hom_𝓒(B,C) | g is epimorphism)
+∷ ∀(f ∈ hom_𝓒(A,B)), f is epimorphism
+∷ ∀(g ∈ hom_𝓒(B,C)), g is epimorphism
 ⊦ (g ∘ f) is epimorphism
   ∷ ∀(β₁ ∈ hom_𝓒(Z,A))
   ∷ ∀(β₂ ∈ hom_𝓒(Z,A))
@@ -1330,7 +1329,7 @@ ex: ℤ and ≤
 ∀ A,A' in obj(𝓒))
 ∀ h : A → A'
 ∃(A,u : X → F(A)) in 𝓓
-∀(f : X → F(A') in 𝓓), ∃(h : A → A' in 𝓒) | h is unique
+∀(f : X → F(A') in 𝓓), ∃(h : A → A' in 𝓒), h is unique
 ```
 
 
@@ -1352,7 +1351,7 @@ ex: ℤ and ≤
 ```py
 † ∀(∅ in obj(Set)), ∅ is initial ⇔ ∀(A in obj(Set)), |hom_{Set}(∅,A)| = 1
 ∷ ∃(Z in obj(Set)), Z is initial ⇔ ∀(A in obj(Set)), |hom_{Set}(Z,A)| = 1
-∵ ∀(A,B in Set) ∀(f ∈ (A → B)) ∀(a ∈ A) ⇒ ∃!(b ∈ B) | f(a) = b # functions in Set have a unique output
+∵ ∀(A,B in Set) ∀(f ∈ (A → B)) ∀(a ∈ A) ⇒ ∃!(b ∈ B), f(a) = b # functions in Set have a unique output
 ∴ |hom_{Set}(∅,A)| = |hom_{Set}(Z,A)| = 1 
 ∴  hom_{Set}(∅,A)  ≅  hom_{Set}(Z,A)  # at least, in Set
 ∴ |A|^|∅| = |A|^|Z| = |A|^0
@@ -1394,7 +1393,7 @@ ex: ℤ and ≤
 ∷ (Z,z) in obj(Set*)
 ∷ ({∗},∗) # the singleton pointed set
 ⊦ ({∗},∗) is initial
-  ∵ ∀((S,s),(T,t) in obj(Set*)), ∀(σ ∈ S → T) | σ(s) = t
+  ∵ ∀((S,s),(T,t) in obj(Set*)), ∀(σ ∈ S → T), σ(s) = t
   # Pointed set functions are like set functions, but preserve the point
   ∴ hom_{Set*}(({∗},∗),(Z,z)) = { (∗,z) }
   ∴ |hom_{Set*}(({∗},∗),(Z,z))| = 1
@@ -1422,7 +1421,7 @@ ex: ℤ and ≤
 ∷ f₁ ∈ A/~ → Z₁ | s∘f₁ = φ₁
 ∷ f₂ ∈ A/~ → Z₂ | s∘f₂ = φ₂
 
-∴ σ_𝓠 ∈ (φ₁,Z₁) → (φ₂,Z₂) | ∃σ ∈ (Z₁ → Z₂)
+∴ ∀(σ_𝓠 ∈ (φ₁,Z₁) → (φ₂,Z₂)), ∃σ ∈ (Z₁ → Z₂)
   ∧ σ∘φ1 = φ2
   ∧ ∀(a₁,a₂ ∈ A), a₁ ∼ a₂ ⇒ φ(a₁) = φ(a₂)
 
@@ -1433,11 +1432,11 @@ ex: ℤ and ≤
   ∴ initial object in 𝓠 is id_A
 ⊦ final objects
   ∷ F in obj(𝓒)
-  ∷ t in hom_𝓒(A,F) | t is unique
+  ∷ t in hom_𝓒(A,F), t is unique
   ∷ σ∘φ = t
   ∵ F is final in 𝓒, ∃σ | σ is unique
   ∴ ∀((φ,Z) in obj(𝓒_A)), ∃!σ_𝓒_A
-  ∴ final object in 𝓠 is (t,F) if ∃(F in obj(𝓒)) | F is final
+  ∴ final object in 𝓠 is (t,F) if ∃(F in obj(𝓒)), F is final
 ```
 
 
@@ -1480,7 +1479,7 @@ Their names are respectively "lcm" (lowest common multiple) and "gcd" (greatest 
 ```py
 ∷ 𝓒 in Cat
 ∷ A,B in obj(𝓒)
-† unique(a in obj(𝓒)) = ∀(b in obj(𝓒)) | a = b
+† unique(a in obj(𝓒)) = ∀(b in obj(𝓒)), a = b
 # universal property of products
 † ∀(Z in obj(𝓒)) ∀(f,g in obj(𝓒^{A,B}) , unique(⟨f,g⟩ : Z → A × B)
 # any pair of initial and final objects are isomorphic
@@ -1602,9 +1601,9 @@ Any such finite families exist in `Set`, though whether infinite families exist 
 
 ```py
 ∷ ∀(A,B in Set)
-∷ def ~_A ⊆ A | ~_A is equivalence relation
-∷ def ~_B ⊆ B | ~_B is equivalence relation
-∷ def ~ ⊆ (A × B) | (a₁, b₁) ∼ (a₂, b₂) ⇔ (a₁ ∼A a₂) ∧ (b₁ ∼B b₂)
+∷ ∀(~_A ⊆ A), ~_A is equivalence relation
+∷ ∀(~_B ⊆ B), ~_B is equivalence relation
+∷ ∀(~ ⊆ A × B), (a₁, b₁) ∼ (a₂, b₂) ⇔ (a₁ ∼A a₂) ∧ (b₁ ∼B b₂)
 
 ```
 
@@ -2320,11 +2319,11 @@ by definition ..?
   ∷ k is even
     ∴ k^2 is even
     ∴ k^2 + k is even
-    ∵ even + even = even
+    ∵ ∀(x ∈ ℤ/2ℤ), x + x = 0 # even + even = even
   ∷ k is odd
     ∴ k^2 is odd
     ∴ k^2 + k is even
-    ∵ odd + odd = even
+    ∵ ∀(x ∈ ℤ/2ℤ), x + x = 0 # odd + odd = even
   ∴ ∃(m ∈ ℤ), k^2 + k = 2·m
   ∴ (2·k + 1)^2 = 4·(2·m) + 1
   ∴ (2·k + 1)^2 = 8·m + 1
@@ -2336,7 +2335,14 @@ by definition ..?
 ### 2.2.12. Prove that there are no integers `a`, `b`, `c` such that `a^2 + b^2 = 3·c^2`. (Hint: by studying the equation `[a]₄^2 + [b]₄^2 = 3·[c]₄^2` in `ℤ/4ℤ`, show that `a`, `b`, `c` would all have to be even. Letting `a = 2·k`, `b = 2·l`, `c = 2·m`, you would have `k^2 + l^2 = 3·m^2`. What’s wrong with that?)
 
 ```py
-
+∷ a is even, b is even, c is even
+∷ a is even, b is even, c is  odd
+∷ a is even, b is  odd, c is even
+∷ a is even, b is  odd, c is  odd
+∷ a is  odd, b is even, c is even
+∷ a is  odd, b is even, c is  odd
+∷ a is  odd, b is  odd, c is even
+∷ a is  odd, b is  odd, c is  odd
 ```
 
 
@@ -2344,6 +2350,20 @@ by definition ..?
 ### 2.2.13. Prove that if `gcd(m,n) = 1`, then there exist integers `a` and `b` such that `a·m + b·n = 1`. (Use Corollary 2.5.) Conversely, prove that if `a·m + b·n = 1` for some integers `a` and `b`, then `gcd(m,n) = 1`.
 
 ```py
+⊦ ∀(m,n ∈ ℤ), gcd(m,n) = 1 ⇒ ∃(a,b ∈ ℤ), a·m + b·n = 1
+  ∷ ∀(m,n ∈ ℤ), gcd(m,n) = 1
+  ⇔ ∃(a,b ∈ ℤ), m = a·1 ∧ n = b·1
+  ⇒ m + n = a·1 + b·1
+  ⇔ m + n = a + b
+  ⇔ (m + n) / (a + b) = 1
+```
+
+```py
+⊦ ∀(m,n,a,b ∈ ℤ), a·m + b·n = 1 ⇒ gcd(m,n) = 1
+  ∷ a·m + b·n = 1
+  ⇔ a·m = 1 - b·n
+  ⇔ m | (1 - bn)
+  ∷ ∃(p ∈ ℤ), (p | m) ∧ (p | n)
 
 ```
 
@@ -2351,8 +2371,16 @@ by definition ..?
 
 ### 2.2.14. State and prove an analog of Lemma 2.2, showing that the multiplication on `ℤ/nℤ` is a well-defined operation.
 
-```py
-
+```
+⊦ (a ≡ₙ a') ∧ (b ≡ₙ b') ⇒ (a × b) ≡ₙ (a' × b')
+  ∷ (a ≡ₙ a') ⇒ n | (a' - a) ⇔ ∃(k ∈ ℤ), (a' - a) = k·n
+  ∷ (b ≡ₙ b') ⇒ n | (b' - b) ⇔ ∃(l ∈ ℤ), (b' - b) = l·n
+  ∴ (a · b) - (a' · b')
+  = (a · b) - (a · b') + (a · b') - (a' · b')
+  = a · (b - b') + (a - a') · b'
+  = a·(l·n) + (k·n)·b'
+  = k·n · l·n
+  = ()
 ```
 
 
