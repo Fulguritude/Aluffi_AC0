@@ -47,7 +47,7 @@ different symbols used for contradiction:
 `{ (0,1), (0,0,1), (0,0,0,1), (1/5,1/5,1/5,1/5,1/5), (1/2,1/3,1/6), ... }`
 
 - the set of all natural numbers such that there exists at least one triplet of positive even numbers which are all different and which sum to that number.  
-`{ n | n ∈ ℕ, ∃ (a,b,c) ∈ 2·ℕ³ | (a≠b ∧ b≠c ∧ a≠c) ∧ (a+b+c = n) }`
+`{ n | n ∈ ℕ, ∃(a,b,c) ∈ 2·ℕ³ | (a≠b ∧ b≠c ∧ a≠c) ∧ (a+b+c = n) }`
 `{ 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, ... }`
 
 ### 0.2. Describing sets
@@ -95,7 +95,7 @@ the set of triplets of naturals that together sum to 10
 - [*codomain*](https://en.wikipedia.org/wiki/Codomain): a set into which all of the output of the function is constrained to fall. It is sometimes denoted by `cod(f)`.
 - [*image*/*preimage*](https://en.wikipedia.org/wiki/Image_(mathematics)): for a function 𝑓 : 𝑋 → 𝑌, the image of an input value 𝑥 is the single output value produced by 𝑓 when passed 𝑥. The preimage of an output value 𝑦 is the set of input values that produce 𝑦.
 - [*cartesian product*](https://en.wikipedia.org/wiki/Cartesian_product): An operation that takes two sets and produces every possible ordered pair of elements from those two sets.
-  `∀(A,B in Set), A × B = { a,b | (a ∈ A) ∧ (b ∈ B) }`
+  `∀(A,B in Set), A × B = { (a,b) | (a ∈ A) ∧ (b ∈ B) }`
 - [*disjoint*](https://en.wikipedia.org/wiki/Disjoint_sets): two sets are said to be disjoint if their intersection is empty.
 - [*relation*](https://en.wikipedia.org/wiki/Binary_relation): a binary logical operator which is a set of ordered pairs from two sets.
 - [*reflexive*](https://en.wikipedia.org/wiki/Reflexive_relation): property of a relation that it relates each element to itself.
@@ -118,11 +118,11 @@ the set of triplets of naturals that together sum to 10
 
 Here is the paradoxical set: `S = { s | s ∉ s }`
 - given https://en.wikipedia.org/wiki/Axiom_of_extensionality
-	`∀x ∀y (∀z (z ∈ x ⇔ z ∈ y) ⇒ x = y)`
+	`∀(x) ∀(y) (∀(z) (z ∈ x ⇔ z ∈ y) ⇒ x = y)`
 - given https://en.wikipedia.org/wiki/Unrestricted_comprehension
-	`∃y ∀x (x ∈ y ⇔ φ(x))`
+	`∃(y) ∀(x) (x ∈ y ⇔ φ(x))`
 - substitute `φ(x)` with `x ∉ x` and we have:
-	`∃y ∀x (x ∈ y ⇔ x ∉ x)`
+	`∃(y) ∀(x) (x ∈ y ⇔ x ∉ x)`
 - using https://en.wikipedia.org/wiki/Existential_instantiation
 	and https://en.wikipedia.org/wiki/Universal_instantiation
 Then you can deduce `S ∈ S ⇔ S ∉ S`.
@@ -142,8 +142,10 @@ In the resulting set, we have some equivalence classes.
 
 ### 1.1.3. Given a partition `P` on a set `S`, show how to define a relation `~` on `S` such that `P` is the corresponding partition. [§1.5]
 
-Question poorly phrased, I can define one by just using "let"...
-`∃~ ∀P ∀S, S/~ = P`
+Question poorly phrased? I can define one by just using "let"...
+```
+∀(~) ∀(P) ∀(S), S/~ = P
+```
 
 
 
@@ -257,14 +259,14 @@ As such, the quotient `ℝ/≈` is described by "2 real vectors are related if t
   `∀(A in Set) ∀(id ∈ (A → A)) ∀(a ∈ A), id(a) = a`
 - [*left-inverse*|*post-inverse*](https://en.wikipedia.org/wiki/Inverse_function#Left_inverses): A morphism which, when applied after, composes with the one before it to give the identity on its codomain
   In Set: `∀(f ∈ A→B) (f is injective) ⇔ (f has left-inverse)`
-  In general: `g ∈ hom(B, A) is a post-inverse ⇔ ∃f ∈ hom(A, B) such that g ∘ f = id_A`
+  In general: `g ∈ hom(B, A) is a post-inverse ⇔ ∃(f ∈ hom(A, B)), g ∘ f = id_A`
 - [*right-inverse*|*pre-inverse*](https://en.wikipedia.org/wiki/Inverse_function#Right_inverses): A morphism which, when applied before, composes with the one after it to give the identity on its domain
   In Set: `∀(f ∈ A→B) (f is surjective) ⇔ (f has right-inverse)`
-  In general: `f ∈ hom(A, B) is a pre-inverse ⇔ ∃g ∈ hom(B, A) such that g ∘ f = id_A`
+  In general: `f ∈ hom(A, B) is a pre-inverse ⇔ ∃(g ∈ hom(B, A)), g ∘ f = id_A`
 - [*injective*](https://en.wikipedia.org/wiki/Injective_function): each and every input of the function is mapped to a different output
   `∀(f : A→B) (f is injective) ⇔ ∀(a₁,a₂ ∈ A) (a₁ = a₂ ⇒ f(a₁) = f(a₂))`
 - [*surjective*](https://en.wikipedia.org/wiki/Surjective_function): every element of the function's codomain is mapped to by some input
-  `∀(f : A→B) (f is surjective) ⇔ (∀b ∈ B) (∃a ∈ A), (b = f(a))`
+  `∀(f : A→B) (f is surjective) ⇔ ∀(b ∈ B) ∃(a ∈ A), (b = f(a))`
 - [*bijective*](https://en.wikipedia.org/wiki/Bijection): the function is both injective and surjective, each and every element from domain and codomain are mapped one-to-one
   `∀(f ∈ A→B) (f is bijective) ⇔ (f has two-sided inverse)`
 - [*monomorphism*](https://en.wikipedia.org/wiki/Monomorphism): is a morphism which when applied in parallel after a pair of distinct morphisms, cannot make the overall two operations equal
@@ -300,23 +302,23 @@ Imagine there are 3 elements, we have:
 
 ### 1.2.2. Prove statement (2) in Proposition 2.1. You may assume that given a family of disjoint subsets of a set, there is a way to choose one element in each member of the family. [§2.5, V.3.3]
 
-`∀A (A ≠ ∅)`
-`∀B`
-`∀f (f ∈ A → B)`
+`∀(A), (A ≠ ∅)`
+`∀(B)`
+`∀(f ∈ A → B)`
 `∀(a',a") ∈ A² (a' ≠ a")`
 
 #### 1.2.2.1. `f` has a left inverse iff it is injective
 
 ##### 1.2.2.1.⇒. assume `f` has a left inverse:
 ```
-∃g (g ∈ B → A) (g∘f = id_A)
+∃(g ∈ B → A), (g∘f = id_A)
 g(f(a')) = id_A(a') = a' ≠ a" = id_A(a") = g(f(a"))
 ```
 ##### 1.2.2.1.⇐. assume `f` is injective:
 ```
 ∷ a' ≠ a" ⇒ f(a') ≠ f(a")
-∷ ∀a ∈ A
-∷ ∀s ∈ A
+∷ ∀(a ∈ A)
+∷ ∀(s ∈ A)
 ∷ g ∈ B → A
 ∷ g(b) := a if b = f(a)
 ∷ g(b) := s if b ∉ im f
@@ -327,10 +329,10 @@ g(f(a')) = id_A(a') = a' ≠ a" = id_A(a") = g(f(a"))
 
 ##### 1.2.2.2.⇒. assume `f` has a right inverse:
 ```
-∷ ∃g (g ∈ B → A) (f∘g = id_B)
-∴ ∀(b ∈ B) (∃a ∈ A)    g(b)  = a
-∴ ∀(b ∈ B) (∃a ∈ A)  f(g(b)) = f(a)
-∴ ∀(b ∈ B) (∃a ∈ A)      b   = f(a)
+∷ ∃(g ∈ B → A) (f∘g = id_B)
+∴ ∀(b ∈ B) ∃(a ∈ A)    g(b)  = a
+∴ ∀(b ∈ B) ∃(a ∈ A)  f(g(b)) = f(a)
+∴ ∀(b ∈ B) ∃(a ∈ A)      b   = f(a)
 ```
 ##### 1.2.2.2.⇐. assume `f` is surjective:
 ```
@@ -346,7 +348,7 @@ g ∈ B → A
 
 #### 1.2.3.1. prove that the inverse of a bijection is a bijection
 
-`let f⁻¹ ∈ B → A | f⁻¹ ∘ f = id_A`
+`∀(f⁻¹ ∈ B → A), f⁻¹ ∘ f = id_A`
 
 ##### 1.2.3.1.a) show that `f⁻¹` is injective
 
@@ -400,11 +402,11 @@ Therefore `h` and `h⁻¹` are two-sided inverses of each other, and thus biject
 
 ### 1.2.4. Prove that ‘isomorphism’ is an equivalence relation (on any set of sets). [§4.1]
 
-- reflexive: `∀A | A ≅ A` because:
+- reflexive: `∀(A), A ≅ A` because:
 	there is the identity function which is a one-to-one mapping of itself
-- symmetric: `∀A ∀B | A ≅ B ⇒ B ≅ A` because:
+- symmetric: `∀(A,B), A ≅ B ⇒ B ≅ A` because:
 	bijection being a perfect one-to-one mapping, it goes both ways
-- transitive: `∀A ∀B ∀C | (A ≅ B ∧ B ≅ C) ⇒ A ≅ C` because:
+- transitive: `∀(A,B,C), (A ≅ B ∧ B ≅ C) ⇒ A ≅ C` because:
 	one can translate the one-to-one mapping of A→B, to B→C, because `|A| = |B| = |C|`
 
 
@@ -467,7 +469,7 @@ epimorphism definition:
 ∷ f is not surjection
 ⇒ ∃(x ∈ B), x ∉ f(A)
 
-∷ ∀(g₁ ∈ B → A) ∀(g₂ ∈ B → A)
+∷ ∀(g₁,g₂ ∈ B → A)
   | g₁∘f = g₂∘f
   | g₁ ≠ g₂
 
@@ -574,15 +576,15 @@ This matches exercise 1.6 done previously.
 ∷ ∃(f_A : A₁ → A₂), f_A is bijective
 ∷ ∃(f_B : B₁ → B₂), f_B is bijective
 
-∷ ∃(f : A₁∪B₁ → A₂∪B₂)
-  | ∀(a ∈ A₁)  f(a) = f_A(a)
-  | ∀(b ∈ B₁)  f(b) = f_B(b)
+∷ ∃(f : A₁∪B₁ → A₂∪B₂),
+  ∀(a ∈ A₁)  f(a) = f_A(a)
+  ∀(b ∈ B₁)  f(b) = f_B(b)
 ∵ A₁ ∩ B₁ = ∅
 ∴ ∀(x ∈ A₁∪B₁) ∃!(y ∈ A₂∪B₂), f(x) = y
 
-∷ ∃(g : A₂∪B₂ → A₁∪B₁)
-  | ∀(a ∈ A₂)  g(a) = f⁻¹_A(a)
-  | ∀(b ∈ B₂)  g(b) = f⁻¹_B(b)
+∷ ∃(g : A₂∪B₂ → A₁∪B₁),
+  ∀(a ∈ A₂)  g(a) = f⁻¹_A(a)
+  ∀(b ∈ B₂)  g(b) = f⁻¹_B(b)
 ∵ A₂ ∩ B₂ = ∅
 ∴ ∀(x ∈ A₂∪B₂) ∃!(y ∈ A₁∪B₁), f(x) = y
 
@@ -594,11 +596,11 @@ This matches exercise 1.6 done previously.
 ```
 ```py
 ∷ ∀(A,B)
-∷ ∀(A₁,A₂,B₁,B₂)
-  | A₁ = {1}×A ⇒ A ≅ A₁
-  | A₂ = {2}×A ⇒ A ≅ A₂
-  | B₁ = {1}×B ⇒ B ≅ B₁
-  | B₂ = {2}×B ⇒ B ≅ B₂
+∷ ∀(A₁,A₂,B₁,B₂),
+  A₁ = {1}×A ⇒ A ≅ A₁
+  A₂ = {2}×A ⇒ A ≅ A₂
+  B₁ = {1}×B ⇒ B ≅ B₁
+  B₂ = {2}×B ⇒ B ≅ B₂
 ∴ A₁ ∩ A₂ = ∅
 ∴ B₁ ∩ B₂ = ∅
 ∵ the previous proof above
@@ -702,10 +704,10 @@ ex.3.0.2. category of sets
 ```
 ex.3.0.3. preorder category on a set
 ```py
-† S in obj(Set)
-† ~ is relation
-  | ∀(a), a ~ a                           # ~ is reflexive
-  | ∀(a,b,c), a ~ b ∧ b ~ c ⇒ a ~ c     # ~ is transitive
+† ∀(S in obj(Set))
+† ∀(~ ⊆ S×S),
+  ∀(a ∈ S), a ~ a                         # ~ is reflexive
+  ∀(a,b,c ∈ S), a ~ b ∧ b ~ c ⇒ a ~ c     # ~ is transitive
 
 ∷ let Ṡ in Cat
 ∷ obj(Ṡ) = ∀(a ∈ S)
@@ -751,8 +753,8 @@ ex.3.0.5. slice category (abstract)
 † A in obj(𝓒)
 
 ∷ let 𝓒_A in Cat
-∷ obj(𝓒_A) = f in ⋃_{∀Z in obj(𝓒)} (hom_𝓒(Z,A))
-∷ hom_{𝓒_A}(f₁,f₂) : σ_n such that ∃σ_o ∈ (hom_𝓒(Z₁,A) → hom_𝓒(Z₂,A))
+∷ obj(𝓒_A) = f in ⋃_{∀(Z in obj(𝓒))} (hom_𝓒(Z,A))
+∷ hom_{𝓒_A}(f₁,f₂) : σ_n, ∃(σ_o ∈ hom_𝓒(Z₁,A) → hom_𝓒(Z₂,A))
 commuting as below.
     ∀(Z₁ in obj(𝓒))
     ∀(Z₂ in obj(𝓒))
@@ -770,7 +772,7 @@ ex.3.0.6. slice category (concrete)
 † ~ = ≤
 
 ∷ let 𝓒_{3} in Cat
-∷ obj(𝓒_{3}) = (n,3) ∈ ℤ×ℤ  ∀(n ∈ ℤ | n ≤ 3)
+∷ obj(𝓒_{3}) = (n,3) ∈ ℤ×ℤ  ∀(n ∈ ℤ), n ≤ 3
 ∷ hom_𝓒_{3}(m,n) = ∀(m) ∀(n), ((m,3) → (n,3))
 
 ⊦ hasidentity: ?
@@ -860,13 +862,13 @@ ex.3.8.0.BONUS. coslice category (matrix)
 ex.3.0.9. bislice category
 ```py
 † 𝓒 in Cat
-  | A in obj(𝓒)
-  | B in obj(𝓒)
+† A in obj(𝓒)
+† B in obj(𝓒)
 
 ∷ let 𝓒_{A,B} in Cat
 ∷ obj(𝓒_{A,B}) = p in ⋃_{Z in obj(𝓒)} ( hom_𝓒(Z,A) × hom_𝓒(Z,B) )
-∷ hom_{𝓒_{A,B}}(p₁,p₂) = σ_n such that
-  ∃σ_o ∈ (hom_𝓒(Z₁,A) × hom_𝓒(Z₁,B)) → (hom_𝓒(Z₂,A) × hom_𝓒(Z₂,B))
+∷ hom_{𝓒_{A,B}}(p₁,p₂) = σ_n,
+  ∃(σ_o ∈ (hom_𝓒(Z₁,A) × hom_𝓒(Z₁,B)) → (hom_𝓒(Z₂,A) × hom_𝓒(Z₂,B)))
     commuting as below.
   ∀(Z₁ in obj(𝓒))
   ∀(Z₂ in obj(𝓒))
@@ -879,13 +881,13 @@ ex.3.0.9. bislice category
 ex.3.9.0.BONUS. bicoslice category
 ```py
 † 𝓒 in Cat
-  | A in obj(𝓒)
-  | B in obj(𝓒)
+† A in obj(𝓒)
+† B in obj(𝓒)
 
 ∷ let 𝓒^{A,B} in Cat
 ∷ obj(𝓒^{A,B}) = p in ⋃_{Z in obj(𝓒)} ( hom_𝓒(A,Z) × hom_𝓒(B,Z) )
-∷ hom_{𝓒^{A,B}}(p₁,p₂) = σ_n such that
-  ∃σ_o ∈ (hom_𝓒(A,Z₁) × hom_𝓒(B,Z₁)) → (hom_𝓒(A,Z₂) × hom_𝓒(B,Z₂))
+∷ hom_{𝓒^{A,B}}(p₁,p₂) = σ_n,
+  ∃(σ_o ∈ (hom_𝓒(A,Z₁) × hom_𝓒(B,Z₁)) → (hom_𝓒(A,Z₂) × hom_𝓒(B,Z₂)))
     commuting as below.
   ∀(Z₁ in obj(𝓒))
   ∀(Z₂ in obj(𝓒))
@@ -898,17 +900,17 @@ ex.3.9.0.BONUS. bicoslice category
 ex.3.0.10. fibered bislice category
 ```py
 † 𝓒 in Cat
-  | A in obj(𝓒)
-  | B in obj(𝓒)
-  | C in obj(𝓒)
-  | α ∈ (A → C)
-  | β ∈ (B → C)
+† A in obj(𝓒)
+† B in obj(𝓒)
+† C in obj(𝓒)
+† α ∈ A → C
+† β ∈ B → C
 
 ∷ let 𝓒_{α,β} in Cat
-∷ obj(𝓒_{α,β}) = p in ⋃_{Z in obj(𝓒)} ( hom_𝓒(Z,A) × hom_𝓒(Z,B) )
-  | α ∘ f = β ∘ g
-∷ hom_{𝓒_{α,β}}(p₁,p₂) = σ_n such that
-  ∃σ_o ∈ (hom_𝓒(Z₁,A) × hom_𝓒(Z₁,B)) → (hom_𝓒(Z₂,A) × hom_𝓒(Z₂,B))
+∷ obj(𝓒_{α,β}) = p in ⋃_{Z in obj(𝓒)} ( hom_𝓒(Z,A) × hom_𝓒(Z,B) ),
+  α ∘ f = β ∘ g
+∷ hom_{𝓒_{α,β}}(p₁,p₂) = σ_n,
+  ∃(σ_o ∈ (hom_𝓒(Z₁,A) × hom_𝓒(Z₁,B)) → (hom_𝓒(Z₂,A) × hom_𝓒(Z₂,B)))
     commuting as below.
   ∀(Z₁ in obj(𝓒))
   ∀(Z₂ in obj(𝓒))
@@ -921,17 +923,17 @@ ex.3.0.10. fibered bislice category
 ex.3.0.11. fibered bicoslice category
 ```py
 † 𝓒 in Cat
-  | A in obj(𝓒)
-  | B in obj(𝓒)
-  | C in obj(𝓒)
-  | α ∈ (C → A)
-  | β ∈ (C → B)
+† A in obj(𝓒)
+† B in obj(𝓒)
+† C in obj(𝓒)
+† α ∈ C → A
+† β ∈ C → B
 
 ∷ let 𝓒^{α,β} in Cat
-∷ obj(𝓒^{α,β}) = p in ⋃_{Z in obj(𝓒)} ( hom_𝓒(A,Z) × hom_𝓒(B,Z) )
-  | f ∘ α = g ∘ β
-∷ hom_{𝓒^{α,β}}(p₁,p₂) = σ_n such that
-  ∃σ_o ∈ (hom_𝓒(A,Z₁) × hom_𝓒(B,Z₁)) → (hom_𝓒(A,Z₂) × hom_𝓒(B,Z₂))
+∷ obj(𝓒^{α,β}) = p in ⋃_{Z in obj(𝓒)} ( hom_𝓒(A,Z) × hom_𝓒(B,Z) ),
+  f ∘ α = g ∘ β
+∷ hom_{𝓒^{α,β}}(p₁,p₂) = σ_n,
+  ∃(σ_o ∈ (hom_𝓒(A,Z₁) × hom_𝓒(B,Z₁)) → (hom_𝓒(A,Z₂) × hom_𝓒(B,Z₂)))
     commuting as below.
   ∀(Z₁ in obj(𝓒))
   ∀(Z₂ in obj(𝓒))
@@ -1034,7 +1036,7 @@ So `⊆` is really just a concrete example of the abstract relation `~`.
 ```py
 ∷ let 𝓥 in Cat
 ∷ obj(𝓥) = ℕ
-∷ hom_𝓥(n,m) = ∀(n,m) ∈ ℕ² | Mat(ℝ, n × m)
+∷ hom_𝓥(n,m) = ∀((n,m) ∈ ℕ²), Mat(ℝ, n × m)
 
 ⊦ hasidentity:
   
@@ -1113,14 +1115,14 @@ f ∘ g:
 ### 1.3.10. Since the objects of a category 𝓒 are not (necessarily) sets, it is not clear how to make sense of a notion of ‘subobject’ in general. In some situations it does make sense to talk about subobjects, and the subobjects of any given object `A` in `𝓒` are in one-to-one correspondence with the morphisms `A → Ω` for a fixed, special object `Ω` of `𝓒`, called a subobject classifier. Show that `Set` has a subobject classifier.
 
 ```py
-† 𝓒 in Cat | obj(𝓒) = Set
-† A in obj(𝓒)
+† ∀(𝓒 in Cat), obj(𝓒) = Set
+† ∀(A in obj(𝓒))
 
 A → Ω
 ⊦ subobject classifier :
   ∷ ∃(𝔹 in obj(Set)), 𝔹 = {0,1}
   ∴ ∀(B in obj(Set)) ∀(A in obj(Set)), A ⊆ B
-    ∃(f : B → 𝔹 | ∀(b ∈ B | f(b) = 1 ⇔ b ∈ A) else f(b) = 0)
+    ∃(f : B → 𝔹), ∀(b ∈ B), (f(b) = 1 ⇔ b ∈ A) ∨ (f(b) = 0)
   ∵ 𝓟(S) = { ∃(f ∈ S → 𝔹), ∀(a ∈ S), f(a) = 1 }
   ∴ Ω = {0,1} = 𝔹
 ```
@@ -1174,7 +1176,7 @@ A → Ω
     ∷ h∘(g∘f)(x) = h(g∘f(x)) = h(g(f(x)) = h∘g(f(x)) = (h∘g)∘f(x)
     ∴ h∘(g∘f)(x) = (h∘g)∘f(x)
   ⊦ inductive next step
-    ∷ ∃(n ∈ ℕ | n ≥ 3)
+    ∷ ∃(n ∈ ℕ), n ≥ 3
     ∷ P(n): n-leaf tree can be re-ordered associatively to become a comb
     ⊦ the (n+1)-tree can be re-ordered associatively to become a comb
       ∷ ∃𝕬 ∈ (n+1)-leaf tree
@@ -1197,9 +1199,9 @@ A → Ω
 A groupoid is a category in which every morphism is an isomorphism.
 An isomorphism is a morphism which has both left-inverse and right-inverse.
 ```py
-∴ ∀m morphism (a ~ b) ∃m⁻¹ (b ~ a)
+∴ ∀(m morphism (a ~ b)), ∃(m⁻¹ morphism (b ~ a))
 ∴ binary relation symmetry for all morphisms ⇔ groupoid
-∴ ∀S in Set | there is an equivalence relation is a groupoid
+∴ ∀(S in Set), there is an equivalence relation is a groupoid
 ```
 
 
@@ -1233,7 +1235,7 @@ ex: ℤ and ≤
   ∷ hom(2,1), 2≤1 = ∅
   ∴ (β₁∘(≤) = β₂∘(≤) ⇒ β₁ = β₂) # trivial..?
 ⊦ (ℤ,≤) has no right-inverse
-  ∷ ∃f | 
+  ∷ ∃(f ∈ ?), ??? 
 ```
 
 
@@ -1269,7 +1271,7 @@ ex: ℤ and ≤
 #### 1.4.4.2. Do the same for epimorphisms.
 
 ```py
-† ∃𝓒 in Cat
+† ∃(𝓒 in Cat)
 † ∀(A,B,C,Z ∈ in obj(𝓒))
 ∷ ∀(f ∈ hom_𝓒(A,B)), f is epimorphism
 ∷ ∀(g ∈ hom_𝓒(B,C)), g is epimorphism
@@ -1314,20 +1316,20 @@ ex: ℤ and ≤
 ### 1.5.0. Lexicon
 
 - [*initial object*](https://en.wikipedia.org/wiki/Initial_and_terminal_objects): An object such that between it and every other, there is exactly one morphism from it to any other object.
-  `∀𝓒, ∀(I in obj(𝓒)), I is initial ⇔ ∀(A ∈ obj(𝓒)), |hom_𝓒(I, A)| = 1`
+  `∀(𝓒 in Cat), ∀(I in obj(𝓒)), I is initial ⇔ ∀(A ∈ obj(𝓒)), |hom_𝓒(I, A)| = 1`
 - [*final object*](https://en.wikipedia.org/wiki/Initial_and_terminal_objects): An object such that between it and every other, there is exactly one morphism from any other object to it.
-  `∀𝓒, ∀(F in obj(𝓒)), F is final ⇔ ∀(A ∈ obj(𝓒)), |hom_𝓒(A, F)| = 1`
+  `∀(𝓒 in Cat), ∀(F in obj(𝓒)), F is final ⇔ ∀(A ∈ obj(𝓒)), |hom_𝓒(A, F)| = 1`
 - [*terminal object*](https://en.wikipedia.org/wiki/Initial_and_terminal_objects): An object that is either *initial* or *final*.
-  `∀𝓒, ∀(T in obj(𝓒)), T is terminal ⇔ (T is initial) ∨ (T is final)`
+  `∀(𝓒 in Cat), ∀(T in obj(𝓒)), T is terminal ⇔ (T is initial) ∨ (T is final)`
 - [*zero object*|*null object*](https://en.wikipedia.org/wiki/Initial_and_terminal_objects): An object that is both *initial* and *final*.
-  `∀𝓒, ∀(Z in obj(𝓒)), Z is zero-object ⇔ (Z is initial) ∧ (Z is final)`
+  `∀(𝓒 in Cat), ∀(Z in obj(𝓒)), Z is zero-object ⇔ (Z is initial) ∧ (Z is final)`
 - [*universal property*](https://en.wikipedia.org/wiki/Universal_property): a property that characterizes up to an isomorphism the result of some constructions
 ```
-∀ 𝓒,𝓓
-∀ F : 𝓒 → 𝓓
-∀ X in obj(𝓓)
-∀ A,A' in obj(𝓒))
-∀ h : A → A'
+∀(𝓒,𝓓 in Cat)
+∀(F : 𝓒 → 𝓓)
+∀(X in obj(𝓓))
+∀(A,A' in obj(𝓒)))
+∀(h : A → A')
 ∃(A,u : X → F(A)) in 𝓓
 ∀(f : X → F(A') in 𝓓), ∃(h : A → A' in 𝓒), h is unique
 ```
@@ -1337,7 +1339,7 @@ ex: ℤ and ≤
 ### 1.5.1. Prove that a final object in a category 𝓒 is initial in the opposite category 𝓒ᵒᵖ (cf. Exercise 3.1).
 
 ```py
-† ∀(𝓒 in Cat) ∃𝓒ᵒᵖ | ∀(A,B in obj(𝓒))  hom_𝓒(A,B) = hom_𝓒ᵒᵖ(B,A)
+† ∀(𝓒 in Cat) ∃(𝓒ᵒᵖ in Cat), ∀(A,B in obj(𝓒)), hom_𝓒(A,B) = hom_𝓒ᵒᵖ(B,A)
 † ∀(F in obj(𝓒)), F is final ⇔ ∀(A ∈ obj(𝓒)), |hom_𝓒(A,F)| = 1
 ∷ hom_𝓒(A,F) = hom_𝓒ᵒᵖ(F,A)
 ∴ |hom_𝓒ᵒᵖ(F,A)| = 1
@@ -1414,28 +1416,28 @@ ex: ℤ and ≤
 ### 1.5.5. What are the final objects in the category considered in §5.3? [§5.3]
 
 ```py
-∷ s ∈ A → A/~  | s is surjective
-∷ ∀Z₁, φ₁ ∈ A → Z₁
-∷ ∀Z₂, φ₂ ∈ A → Z₂
-∷ σ ∈ Z₁ → Z₂ | σ∘φ₁ = φ₂
-∷ f₁ ∈ A/~ → Z₁ | s∘f₁ = φ₁
-∷ f₂ ∈ A/~ → Z₂ | s∘f₂ = φ₂
+∷ ∀(s ∈ A → A/~), s is surjective
+∷ ∀(Z₁), φ₁ ∈ A → Z₁
+∷ ∀(Z₂), φ₂ ∈ A → Z₂
+∷ ∀(σ ∈ Z₁ → Z₂), σ∘φ₁ = φ₂
+∷ ∀(f₁ ∈ A/~ → Z₁), s∘f₁ = φ₁
+∷ ∀(f₂ ∈ A/~ → Z₂), s∘f₂ = φ₂
 
-∴ ∀(σ_𝓠 ∈ (φ₁,Z₁) → (φ₂,Z₂)), ∃σ ∈ (Z₁ → Z₂)
+∴ ∀(σ_𝓠 ∈ (φ₁,Z₁) → (φ₂,Z₂)), ∃(σ ∈ Z₁ → Z₂)
   ∧ σ∘φ1 = φ2
   ∧ ∀(a₁,a₂ ∈ A), a₁ ∼ a₂ ⇒ φ(a₁) = φ(a₂)
 
 ⊦ initial objects
   ∷ φ₁ = id_A
   ∴ σ∘φ₁ = σ∘id_A = σ = φ₂
-  ∴ ∃!σ in obj(𝓠)
+  ∴ ∃!(σ in obj(𝓠))
   ∴ initial object in 𝓠 is id_A
 ⊦ final objects
   ∷ F in obj(𝓒)
   ∷ t in hom_𝓒(A,F), t is unique
   ∷ σ∘φ = t
-  ∵ F is final in 𝓒, ∃σ | σ is unique
-  ∴ ∀((φ,Z) in obj(𝓒_A)), ∃!σ_𝓒_A
+  ∵ F is final in 𝓒, ∃(σ), σ is unique
+  ∴ ∀((φ,Z) in obj(𝓒_A)), ∃!(σ_𝓒_A)
   ∴ final object in 𝓠 is (t,F) if ∃(F in obj(𝓒)), F is final
 ```
 
@@ -1488,14 +1490,14 @@ Their names are respectively "lcm" (lowest common multiple) and "gcd" (greatest 
 
 ⊦ (A × B) ≅ (B × A)
   ∷ 𝓒^{A,B} # consider the bi-coslice category
-  | obj(𝓒^{A,B}) = (Z,f,g)
-  | hom_𝓒^{A,B}(Z₁,Z₂) = σ_{A,B} : (Z₁,f₁,g₁) → (Z₂,f₂,g₂)
+  ∧ obj(𝓒^{A,B}) = (Z,f,g)
+  ∧ hom_𝓒^{A,B}(Z₁,Z₂) = σ_{A,B} : (Z₁,f₁,g₁) → (Z₂,f₂,g₂)
   ∷ Z₂ = (A×B)
-  | ∴ σ_{A,B} is unique
-  | ∴ Z₂ is final
+    ∴ σ_{A,B} is unique
+    ∴ Z₂ is final
   ∷ Z₂ = (B×A)
-  | ∴ σ_{A,B} is unique
-  | ∴ Z₂ is final
+    ∴ σ_{A,B} is unique
+    ∴ Z₂ is final
   ∴ (A×B is final) ∧ (B×A is final)
   ∵ ∀(F₁,F₂) final in obj(𝓒), (F₁ ≅ F₂)
   ∴ (A × B) ≅ (B × A)
@@ -1677,46 +1679,45 @@ C \arrow[ru, "α"] \arrow[rd, "β"'] &    & P \arrow[r] & Z \\
 #### 1.5.12.3. Define fibered products concretely as naive set theory
 
 ```py
-P = A ×_{α,C,β} B = A ×_{C} B = { (a, b) ∈ A×B | α(a) = β(b) }
+P = A ×_{α,C,β} B = A ×_{C} B = { (a,b) ∈ A×B | α(a) = β(b) }
 
 Concretely, this can also be expressed as:
   P = ⋃_{ c ∈ α(A) ∩ β(B) } α⁻¹[{c}] × β⁻¹[{c}]
 
 This is the set of all pairs of inputs (a, b) such that α(a) = β(b)
 Let us show this is the case with a simple example.
-Let
-  A = {1, 2, 3}
-  B = {w, x, y, z}
-  C = {l, m, n, p}
-We define
-  α : A → C = {(1, m), (2, m), (3, n)}
-  β : B → C = {(w, l), (x, m), (y, n), (z, n)}
-We have
-  α(A) = {m, n}
-  β(B) = {l, m, n}
-  ∴ α(A) ∩ β(B) = {m, n}
+
+† A = { 1, 2, 3 }
+† B = { w, x, y, z }
+† C = { l, m, n, p }
+† α ∈ A → C = { (1,m), (2,m), (3,n) }
+† β ∈ B → C = { (w,l), (x,m), (y,n), (z,n) }
+
+∴ α(A) = {m, n}
+∴ β(B) = {l, m, n}
+∴ α(A) ∩ β(B) = {m, n}
 The fibered coproduct is then:
   P = (α⁻¹[{m}] × β⁻¹[{m}]) ∪ (α⁻¹[{n}] × β⁻¹[{n}])
-    = {(1, x), (2, x)} ∪ {(3, y), (3, z)}
-    = {(1, x), (2, x), (3, y), (3, z)}
+    = { (1, x), (2, x) } ∪ { (3, y), (3, z) }
+    = { (1, x), (2, x), (3, y), (3, z) }
 ```
 
 #### 1.5.12.4. Define fibered coproducts concretely as naive set theory
 
 ```py
-Let
-  A = {1, 2, 3}
-  B = {w, x, y, z}
-  C = {l, m, n}
-We define
-  α : C → A = {(l, 1), (m, 1), (n, 2)}
-  β : C → B = {(l, x), (m, y), (n, z)}
-We have:
-  • α⁻¹({1}) = {l, m} and β⁻¹({x}) = {l}, so (1 ∼ x);
-  • α⁻¹({1}) = {l, m} and β⁻¹({y}) = {m}, so (1 ∼ y), and by closure, (1 ∼ x ∼ y);
-  • α⁻¹({2}) =  {n}   and β⁻¹({z}) = {n}, so (2 ∼ z);
-  • α⁻¹({3}) =   ∅    and β⁻¹({w}) =  ∅ , so one might think that (3 ∼ w),
-    however, since there is no c ∈ C such that α(c) = 3 and β(c) = w, we have 3 ≁ w;
+
+† A = { 1, 2, 3 }
+† B = { w, x, y, z }
+† C = { l, m, n }
+† α ∈ C → A = { (l,1), (m,1), (n,2) }
+† β ∈ C → B = { (l,x), (m,y), (n,z) }
+
+∴ α⁻¹({1}) = {l, m} and β⁻¹({x}) = {l}, so (1 ∼ x);
+∴ α⁻¹({1}) = {l, m} and β⁻¹({y}) = {m}, so (1 ∼ y), and by closure, (1 ∼ x ∼ y);
+∴ α⁻¹({2}) =  {n}   and β⁻¹({z}) = {n}, so (2 ∼ z);
+∴ α⁻¹({3}) =   ∅    and β⁻¹({w}) =  ∅ , so one might think that (3 ∼ w),
+  ∵ ∄(c ∈ C), α(c) = 3 and β(c) = w
+  ∴ 3 ≁ w
 This information corresponds to the following partition of (A ⊔ B):
   {{1, x, y}, {2, z}, {3}, {w}}.
 The fibered coproduct is then:
@@ -2153,7 +2154,7 @@ given the previous exercise:
 ```
 - [*cyclic group*](https://en.wikipedia.org/wiki/Cyclic_group): The group made up of all elements generated by repeatedly applying the group operation on its *generator element* g.
 ```py
-† ∀(g ∈ G), ⟨g⟩ = {gᵏ | k ∈ ℤ}, G = ⟨g⟩
+† ∀(g ∈ G), ⟨g⟩ = { gᵏ | k ∈ ℤ }, G = ⟨g⟩
 # finite cyclic group:
 † G = { e, g, g², …, gⁿ⁻¹ }
 † (i ≡ j mod n) ⇒ (gⁱ = gʲ)
