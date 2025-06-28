@@ -2356,7 +2356,7 @@ by definition ..?
   ⇔ ∃(a,b ∈ ℤ), m = a·1 ∧ n = b·1
   ⇒ m + n = a·1 + b·1
   ⇔ m + n = a + b
-  ⇔ (m + n) / (a + b) = 1
+  ⇔ (m + n) / (a + b) = 1 ???
 ```
 
 ```py
@@ -2364,8 +2364,10 @@ by definition ..?
   ∷ a·m + b·n = 1
   ⇔ a·m = 1 - b·n
   ⇔ m | (1 - bn)
-  ∷ ∃(p ∈ ℤ), (p | m) ∧ (p | n)
-
+  ∷ ∃(p ∈ ℤ), (p | m) ∧ (p | n) # supposing a common prime factor
+    ∴ (p | (b·n)) ∧ (p | (1 - b·n)) ∧ (p | (b·n - 1))
+    ※ # the only number which divides two numbers off by one, is 1
+  ∴ gcd(m,n) = 1
 ```
 
 
@@ -2373,15 +2375,18 @@ by definition ..?
 ### 2.2.14. State and prove an analog of Lemma 2.2, showing that the multiplication on `ℤ/nℤ` is a well-defined operation.
 
 ```
-⊦ (a ≡ₙ a') ∧ (b ≡ₙ b') ⇒ (a × b) ≡ₙ (a' × b')
+† ∀(n ∈ ℕ)
+† ∀(a,a',b,b' ∈ ℤ/nℤ)
+⊦ (a ≡ₙ a') ∧ (b ≡ₙ b') ⇒ (a · b) ≡ₙ (a' · b')
   ∷ (a ≡ₙ a') ⇒ n | (a' - a) ⇔ ∃(k ∈ ℤ), (a' - a) = k·n
   ∷ (b ≡ₙ b') ⇒ n | (b' - b) ⇔ ∃(l ∈ ℤ), (b' - b) = l·n
   ∴ (a · b) - (a' · b')
-  = (a · b) - (a · b') + (a · b') - (a' · b')
-  = a · (b - b') + (a - a') · b'
-  = a·(l·n) + (k·n)·b'
-  = k·n · l·n
-  = ()
+  = (a · b) - (a' · b') - (a' · b) + (a' · b)
+  = (a · b) - a'·(b' - b) + (a' · b)
+  = (a + a')·b - a'·(b' - b)
+  = (a + a')·b - a'·l·n
+  ?
+  ∴ (a · b) ≡ₙ (a' · b')
 ```
 
 
@@ -2432,3 +2437,9 @@ by definition ..?
 
 
 ---
+
+TODO:
+- add prime(x)
+- add coprime(x,y)
+- add divides |
+- add congruency modulo n ≡ₙ
