@@ -2336,14 +2336,15 @@ by definition ..?
 ### 2.2.12. Prove that there are no integers `a`, `b`, `c` such that `a^2 + b^2 = 3·c^2`. (Hint: by studying the equation `[a]₄^2 + [b]₄^2 = 3·[c]₄^2` in `ℤ/4ℤ`, show that `a`, `b`, `c` would all have to be even. Letting `a = 2·k`, `b = 2·l`, `c = 2·m`, you would have `k^2 + l^2 = 3·m^2`. What’s wrong with that?)
 
 ```py
-∷ a is even, b is even, c is even
-∷ a is even, b is even, c is  odd
-∷ a is even, b is  odd, c is even
-∷ a is even, b is  odd, c is  odd
-∷ a is  odd, b is even, c is even
-∷ a is  odd, b is even, c is  odd
-∷ a is  odd, b is  odd, c is even
-∷ a is  odd, b is  odd, c is  odd
+⊦ ∀(a,b,c ∈ ℤ/4ℤ), a^2 + b^2 = 3·c^2
+  | a is even, b is even, c is even
+  | a is even, b is even, c is  odd
+  | a is even, b is  odd, c is even
+  | a is even, b is  odd, c is  odd
+  | a is  odd, b is even, c is even
+  | a is  odd, b is even, c is  odd
+  | a is  odd, b is  odd, c is even
+  | a is  odd, b is  odd, c is  odd
 ```
 
 
@@ -2356,7 +2357,9 @@ by definition ..?
   ⇔ ∃(a,b ∈ ℤ), m = a·1 ∧ n = b·1
   ⇒ m + n = a·1 + b·1
   ⇔ m + n = a + b
-  ⇔ (m + n) / (a + b) = 1 ???
+  ⇔ (m + n) / (a + b) = 1
+  ???
+  ∴ ∃(a,b ∈ ℤ), a·m + b·n = 1
 ```
 
 ```py
@@ -2381,11 +2384,10 @@ by definition ..?
   ∷ (a ≡ₙ a') ⇒ n | (a' - a) ⇔ ∃(k ∈ ℤ), (a' - a) = k·n
   ∷ (b ≡ₙ b') ⇒ n | (b' - b) ⇔ ∃(l ∈ ℤ), (b' - b) = l·n
   ∴ (a · b) - (a' · b')
-  = (a · b) - (a' · b') - (a' · b) + (a' · b)
-  = (a · b) - a'·(b' - b) + (a' · b)
-  = (a + a')·b - a'·(b' - b)
-  = (a + a')·b - a'·l·n
-  ?
+  = (a · b) - (a' · b') + (a' · b) - (a' · b)
+  = (a' - a)·b - a'·(b' - b)
+  = k·n·b - a'·l·n
+  = n·()
   ∴ (a · b) ≡ₙ (a' · b')
 ```
 
@@ -2395,7 +2397,23 @@ by definition ..?
 
 #### 2.2.15.1 Prove that if `gcd(m, n) = 1`, then `gcd(2·m + n, 2·n) = 1`. (Use Exercise 2.13.)
 
-#### 2.2.15.2 Prove that if `gcd(r, 2·n) = 1`, then `gcd((r+n)/2 , n) = 1`. (Ditto.)
+```py
+† ∀(n ∈ ℤ), n > 0
+† ∃(k ∈ ℤ), n = 2·k + 1
+⊦ gcd(m, n) = 1 ⇒ gcd(2·m + n, 2·n) = 1
+  ∷ gcd(m, n) = 1
+  2·n is even
+  2·m is even
+  2·m + n is odd
+  ∴ ∃(a,b ∈ ℤ), a·m + b·n = 1 # per ex 2.2.13
+
+```
+
+#### 2.2.15.2 Prove that if `gcd(r, 2·n) = 1`, then `gcd((r+n)/2, n) = 1`. (Ditto.)
+
+```py
+⊦ gcd(r, 2·n) = 1 ⇒ gcd((r+n)/2, n) = 1
+```
 
 #### 2.2.15.3 Conclude that the function `[m]_n → [2·m + n]_{2·n}` is a bijection between `(ℤ/nℤ)*` and `(ℤ/2nℤ)*`. The number `φ(n)` of elements of `(ℤ/nℤ)∗` is Euler’s φ-function. The reader has just proved that if `n` is odd, then `Φ(2·n) = Φ(n)`. Much more general formulas will be given later on.
 
